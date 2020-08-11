@@ -127,21 +127,21 @@
 }
 .ui.red.rating .active.icon {
   color: #FF695E;
-  text-shadow: 0px -1px 0px #FFFFF0, -1px 0px 0px #FFFFF0, 0px 1px 0px #FFFFF0, 1px 0px 0px #FFFFF0;
+  text-shadow: 0px -1px 0px #DB2828, -1px 0px 0px #DB2828, 0px 1px 0px #DB2828, 1px 0px 0px #DB2828;
 }
 .ui.red.rating .icon.selected,
 .ui.red.rating .icon.selected.active,
 .ui.red.rating .icon.selected.partial.active {
   background: inherit;
   color: #ff392b;
-  text-shadow: 0px -1px 0px #ffffd7, -1px 0px 0px #ffffd7, 0px 1px 0px #ffffd7, 1px 0px 0px #ffffd7;
+  text-shadow: 0px -1px 0px #d01919, -1px 0px 0px #d01919, 0px 1px 0px #d01919, 1px 0px 0px #d01919;
   -webkit-text-stroke: unset;
   background-clip: unset;
 }
 .ui.red.rating .icon.partial.active {
   background: linear-gradient(to right, #FF695E 0% var(--full), rgba(0, 0, 0, 0.15) var(--full) 100%);
   text-shadow: none;
-  -webkit-text-stroke: #FFFFF0 0.78px;
+  -webkit-text-stroke: #DB2828 0.78px;
   -webkit-background-clip: text;
           background-clip: text;
   color: transparent;

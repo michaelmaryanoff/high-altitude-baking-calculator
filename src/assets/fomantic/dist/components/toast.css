@@ -99,7 +99,7 @@
   background: #15792d;
 }
 .ui.toast-container .toast-box > .attached.progress .error .bar.bar.bar {
-  background: #ffffa3;
+  background: #9c1a1a;
 }
 .ui.toast-container .toast-box > .attached.progress.neutral .bar.bar.bar {
   background: #d9d9d9;
@@ -363,7 +363,7 @@
   color: rgba(255, 255, 255, 0.9);
 }
 .ui.toast.error {
-  background-color: #FFFFF0;
+  background-color: #DB2828;
   color: rgba(255, 255, 255, 0.9);
 }
 .ui.toast.neutral {
@@ -471,7 +471,7 @@
   color: rgba(0, 0, 0, 0.87);
 }
 .ui.red.toast {
-  background-color: #FFFFF0;
+  background-color: #DB2828;
   color: rgba(255, 255, 255, 0.9);
 }
 .ui.inverted.red.toast,

@@ -522,10 +522,10 @@
 --------------------*/
 
 .ui.red.segment.segment.segment.segment.segment:not(.inverted) {
-  border-top: 2px solid #FFFFF0;
+  border-top: 2px solid #DB2828;
 }
 .ui.inverted.red.segment.segment.segment.segment.segment {
-  background-color: #FFFFF0;
+  background-color: #DB2828;
   color: #FFFFFF;
 }
 .ui.orange.segment.segment.segment.segment.segment:not(.inverted) {

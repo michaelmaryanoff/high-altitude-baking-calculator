@@ -379,13 +379,13 @@ a.ui.inverted.secondary.header.header.header:hover {
   border-bottom: 2px solid #545454;
 }
 .ui.red.header {
-  color: #FFFFF0;
+  color: #DB2828;
 }
 a.ui.red.header:hover {
-  color: #ffffd7;
+  color: #d01919;
 }
 .ui.red.dividing.header {
-  border-bottom: 2px solid #FFFFF0;
+  border-bottom: 2px solid #DB2828;
 }
 .ui.inverted.red.header.header.header {
   color: #FF695E;

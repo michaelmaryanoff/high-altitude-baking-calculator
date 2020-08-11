@@ -812,36 +812,36 @@ a.ui.ui.ui.inverted.basic.secondary.label:hover {
 }
 .ui.red.labels .label,
 .ui.ui.ui.red.label {
-  background-color: #FFFFF0;
-  border-color: #FFFFF0;
+  background-color: #DB2828;
+  border-color: #DB2828;
   color: #FFFFFF;
 }
 
 /* Link */
 .ui.red.labels a.label:hover,
 a.ui.ui.ui.red.label:hover {
-  background-color: #ffffd7;
-  border-color: #ffffd7;
+  background-color: #d01919;
+  border-color: #d01919;
   color: #FFFFFF;
 }
 
 /* Ribbon */
 .ui.ui.ui.red.ribbon.label {
-  border-color: #ffffbd;
+  border-color: #b21e1e;
 }
 
 /* Basic */
 .ui.basic.labels .red.label,
 .ui.ui.ui.basic.red.label {
   background: none #FFFFFF;
-  border-color: #FFFFF0;
-  color: #FFFFF0;
+  border-color: #DB2828;
+  color: #DB2828;
 }
 .ui.basic.labels a.red.label:hover,
 a.ui.ui.ui.basic.red.label:hover {
   background: none #FFFFFF;
-  border-color: #ffffd7;
-  color: #ffffd7;
+  border-color: #d01919;
+  color: #d01919;
 }
 
 /* Inverted */

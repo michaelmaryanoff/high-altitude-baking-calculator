@@ -2452,7 +2452,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 
 .ui.red.buttons .button,
 .ui.red.button {
-  background-color: #FFFFF0;
+  background-color: #DB2828;
   color: #FFFFFF;
   text-shadow: none;
   background-image: none;
@@ -2464,21 +2464,21 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 
 .ui.red.buttons .button:hover,
 .ui.red.button:hover {
-  background-color: #ffffd7;
+  background-color: #d01919;
   color: #FFFFFF;
   text-shadow: none;
 }
 
 .ui.red.buttons .button:focus,
 .ui.red.button:focus {
-  background-color: #ffffc7;
+  background-color: #ca1010;
   color: #FFFFFF;
   text-shadow: none;
 }
 
 .ui.red.buttons .button:active,
 .ui.red.button:active {
-  background-color: #ffffbd;
+  background-color: #b21e1e;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -2487,7 +2487,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 .ui.red.buttons .active.button:active,
 .ui.red.active.button,
 .ui.red.button .active.button:active {
-  background-color: #ffffd7;
+  background-color: #d41515;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -2497,35 +2497,35 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 .ui.basic.red.buttons .button,
 .ui.basic.red.button {
   background: transparent;
-  box-shadow: 0 0 0 1px #FFFFF0 inset;
-  color: #FFFFF0;
+  box-shadow: 0 0 0 1px #DB2828 inset;
+  color: #DB2828;
 }
 
 .ui.basic.red.buttons .button:hover,
 .ui.basic.red.button:hover {
   background: transparent;
-  box-shadow: 0 0 0 1px #ffffd7 inset;
-  color: #ffffd7;
+  box-shadow: 0 0 0 1px #d01919 inset;
+  color: #d01919;
 }
 
 .ui.basic.red.buttons .button:focus,
 .ui.basic.red.button:focus {
   background: transparent;
-  box-shadow: 0 0 0 1px #ffffc7 inset;
-  color: #ffffd7;
+  box-shadow: 0 0 0 1px #ca1010 inset;
+  color: #d01919;
 }
 
 .ui.basic.red.buttons .active.button,
 .ui.basic.red.active.button {
   background: transparent;
-  box-shadow: 0 0 0 1px #ffffd7 inset;
-  color: #ffffbd;
+  box-shadow: 0 0 0 1px #d41515 inset;
+  color: #b21e1e;
 }
 
 .ui.basic.red.buttons .button:active,
 .ui.basic.red.button:active {
-  box-shadow: 0 0 0 1px #ffffbd inset;
-  color: #ffffbd;
+  box-shadow: 0 0 0 1px #b21e1e inset;
+  color: #b21e1e;
 }
 
 .ui.buttons:not(.vertical) > .basic.red.button:not(:first-child) {
@@ -2618,21 +2618,21 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 .ui.tertiary.red.button {
   background: transparent;
   box-shadow: none;
-  color: #FFFFF0;
+  color: #DB2828;
 }
 
 .ui.tertiary.red.buttons .button:hover,
 .ui.tertiary.red.buttons button:hover,
 .ui.tertiary.red.button:hover {
-  box-shadow: inset 0 -0.2em 0 #fbfbdb;
-  color: #fbfbdb;
+  box-shadow: inset 0 -0.2em 0 #b93131;
+  color: #b93131;
 }
 
 .ui.tertiary.red.buttons .button:focus,
 .ui.tertiary.red.buttons .tertiary.button:focus,
 .ui.tertiary.red.button:focus {
-  box-shadow: inset 0 -0.2em 0 #f9f9cd;
-  color: #f9f9cd;
+  box-shadow: inset 0 -0.2em 0 #b52626;
+  color: #b52626;
 }
 
 .ui.tertiary.red.buttons .active.button,
@@ -2641,8 +2641,8 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 .ui.tertiary.red.buttons .button:active,
 .ui.tertiary.red.buttons .tertiary.button:active,
 .ui.tertiary.red.button:active {
-  box-shadow: inset 0 -0.2em 0 #ffffd7;
-  color: #ffffd7;
+  box-shadow: inset 0 -0.2em 0 #ea0000;
+  color: #d41515;
 }
 
 .ui.orange.buttons .button,
@@ -5081,7 +5081,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 
 .ui.negative.buttons .button,
 .ui.negative.button {
-  background-color: #FFFFF0;
+  background-color: #DB2828;
   color: #FFFFFF;
   text-shadow: none;
   background-image: none;
@@ -5093,21 +5093,21 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 
 .ui.negative.buttons .button:hover,
 .ui.negative.button:hover {
-  background-color: #ffffd7;
+  background-color: #d01919;
   color: #FFFFFF;
   text-shadow: none;
 }
 
 .ui.negative.buttons .button:focus,
 .ui.negative.button:focus {
-  background-color: #ffffc7;
+  background-color: #ca1010;
   color: #FFFFFF;
   text-shadow: none;
 }
 
 .ui.negative.buttons .button:active,
 .ui.negative.button:active {
-  background-color: #ffffbd;
+  background-color: #b21e1e;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -5116,7 +5116,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 .ui.negative.buttons .active.button:active,
 .ui.negative.active.button,
 .ui.negative.button .active.button:active {
-  background-color: #ffffd7;
+  background-color: #d41515;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -5126,35 +5126,35 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 .ui.basic.negative.buttons .button,
 .ui.basic.negative.button {
   background: transparent;
-  box-shadow: 0 0 0 1px #FFFFF0 inset;
-  color: #FFFFF0;
+  box-shadow: 0 0 0 1px #DB2828 inset;
+  color: #DB2828;
 }
 
 .ui.basic.negative.buttons .button:hover,
 .ui.basic.negative.button:hover {
   background: transparent;
-  box-shadow: 0 0 0 1px #ffffd7 inset;
-  color: #ffffd7;
+  box-shadow: 0 0 0 1px #d01919 inset;
+  color: #d01919;
 }
 
 .ui.basic.negative.buttons .button:focus,
 .ui.basic.negative.button:focus {
   background: transparent;
-  box-shadow: 0 0 0 1px #ffffc7 inset;
-  color: #ffffd7;
+  box-shadow: 0 0 0 1px #ca1010 inset;
+  color: #d01919;
 }
 
 .ui.basic.negative.buttons .active.button,
 .ui.basic.negative.active.button {
   background: transparent;
-  box-shadow: 0 0 0 1px #ffffd7 inset;
-  color: #ffffbd;
+  box-shadow: 0 0 0 1px #d41515 inset;
+  color: #b21e1e;
 }
 
 .ui.basic.negative.buttons .button:active,
 .ui.basic.negative.button:active {
-  box-shadow: 0 0 0 1px #ffffbd inset;
-  color: #ffffbd;
+  box-shadow: 0 0 0 1px #b21e1e inset;
+  color: #b21e1e;
 }
 
 .ui.buttons:not(.vertical) > .basic.negative.button:not(:first-child) {
@@ -22804,15 +22804,15 @@ a.ui.inverted.secondary.header.header.header:hover {
 }
 
 .ui.red.header {
-  color: #FFFFF0;
+  color: #DB2828;
 }
 
 a.ui.red.header:hover {
-  color: #ffffd7;
+  color: #d01919;
 }
 
 .ui.red.dividing.header {
-  border-bottom: 2px solid #FFFFF0;
+  border-bottom: 2px solid #DB2828;
 }
 
 .ui.inverted.red.header.header.header {
@@ -23572,7 +23572,7 @@ i.inverted.circular.secondary.icon.icon.icon.icon {
 }
 
 i.red.icon.icon.icon.icon {
-  color: #FFFFF0;
+  color: #DB2828;
 }
 
 i.inverted.red.icon.icon.icon.icon {
@@ -23581,7 +23581,7 @@ i.inverted.red.icon.icon.icon.icon {
 
 i.inverted.bordered.red.icon.icon.icon.icon,
 i.inverted.circular.red.icon.icon.icon.icon {
-  background-color: #FFFFF0;
+  background-color: #DB2828;
   color: #FFFFFF;
 }
 
@@ -34212,8 +34212,8 @@ a.ui.ui.ui.inverted.basic.secondary.label:hover {
 
 .ui.red.labels .label,
 .ui.ui.ui.red.label {
-  background-color: #FFFFF0;
-  border-color: #FFFFF0;
+  background-color: #DB2828;
+  border-color: #DB2828;
   color: #FFFFFF;
 }
 
@@ -34221,15 +34221,15 @@ a.ui.ui.ui.inverted.basic.secondary.label:hover {
 
 .ui.red.labels a.label:hover,
 a.ui.ui.ui.red.label:hover {
-  background-color: #ffffd7;
-  border-color: #ffffd7;
+  background-color: #d01919;
+  border-color: #d01919;
   color: #FFFFFF;
 }
 
 /* Ribbon */
 
 .ui.ui.ui.red.ribbon.label {
-  border-color: #ffffbd;
+  border-color: #b21e1e;
 }
 
 /* Basic */
@@ -34237,15 +34237,15 @@ a.ui.ui.ui.red.label:hover {
 .ui.basic.labels .red.label,
 .ui.ui.ui.basic.red.label {
   background: none #FFFFFF;
-  border-color: #FFFFF0;
-  color: #FFFFF0;
+  border-color: #DB2828;
+  color: #DB2828;
 }
 
 .ui.basic.labels a.red.label:hover,
 a.ui.ui.ui.basic.red.label:hover {
   background: none #FFFFFF;
-  border-color: #ffffd7;
-  color: #ffffd7;
+  border-color: #d01919;
+  color: #d01919;
 }
 
 /* Inverted */
@@ -37148,7 +37148,7 @@ ol.ui.suffixed.list li:before,
 .ui.red.loading.loading.loading.loading .input > i.icon:after,
 .ui.red.loading.loading.loading.loading > i.icon:after,
 .ui.red.loader.loader.loader:after {
-  color: #FFFFF0;
+  color: #DB2828;
 }
 
 .ui.inverted.red.elastic.loader:before,
@@ -39048,11 +39048,11 @@ ol.ui.suffixed.list li:before,
 --------------------*/
 
 .ui.red.segment.segment.segment.segment.segment:not(.inverted) {
-  border-top: 2px solid #FFFFF0;
+  border-top: 2px solid #DB2828;
 }
 
 .ui.inverted.red.segment.segment.segment.segment.segment {
-  background-color: #FFFFF0;
+  background-color: #DB2828;
   color: #FFFFFF;
 }
 
@@ -40123,7 +40123,7 @@ span.ui.inverted.secondary.text {
 }
 
 span.ui.red.text {
-  color: #FFFFF0;
+  color: #DB2828;
 }
 
 span.ui.inverted.red.text {
@@ -41892,7 +41892,7 @@ span.ui.massive.text {
 .ui.form label.required:after {
   margin: -0.2em 0 0 0.2em;
   content: '*';
-  color: #FFFFF0;
+  color: #DB2828;
 }
 
 .ui.form .required.fields:not(.grouped) > .field > label:after,
@@ -43814,7 +43814,7 @@ span.ui.massive.text {
 .ui.grid > .red.row,
 .ui.grid > .red.column,
 .ui.grid > .row > .red.column {
-  background-color: #FFFFF0;
+  background-color: #DB2828;
   color: #FFFFFF;
 }
 
@@ -46038,7 +46038,7 @@ Floated Menu / Item
 .ui.ui.ui.menu .red.active.item,
 .ui.ui.red.menu .active.item:hover,
 .ui.ui.red.menu .active.item {
-  color: #FFFFF0;
+  color: #DB2828;
 }
 
 .ui.ui.ui.menu .orange.active.item,
@@ -46261,7 +46261,7 @@ Floated Menu / Item
 
 .ui.ui.ui.inverted.menu .red.active.item,
 .ui.ui.inverted.red.menu {
-  background-color: #FFFFF0;
+  background-color: #DB2828;
 }
 
 .ui.inverted.red.menu .item:before {
@@ -46273,7 +46273,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.pointing.red.menu .active.item {
-  background-color: #ffffd7;
+  background-color: #d01919;
 }
 
 .ui.ui.ui.inverted.menu .orange.active.item,
@@ -46789,7 +46789,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.pointing.menu .red.active.item:after {
-  background-color: #FFFFF0;
+  background-color: #DB2828;
 }
 
 .ui.inverted.pointing.menu .orange.active.item:after {
@@ -47456,20 +47456,20 @@ Floated Menu / Item
 
 .ui.red.message {
   background-color: #FFE8E6;
-  color: #FFFFF0;
+  color: #DB2828;
 }
 
 .ui.red.message,
 .ui.attached.red.message {
-  box-shadow: 0 0 0 1px #FFFFF0 inset, 0 0 0 0 rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0 1px #DB2828 inset, 0 0 0 0 rgba(0, 0, 0, 0);
 }
 
 .ui.floating.red.message {
-  box-shadow: 0 0 0 1px #FFFFF0 inset, 0 2px 4px 0 rgba(34, 36, 38, 0.12), 0 2px 10px 0 rgba(34, 36, 38, 0.15);
+  box-shadow: 0 0 0 1px #DB2828 inset, 0 2px 4px 0 rgba(34, 36, 38, 0.12), 0 2px 10px 0 rgba(34, 36, 38, 0.15);
 }
 
 .ui.red.message .header {
-  color: #ffffd7;
+  color: #c82121;
 }
 
 .ui.orange.message {
@@ -48020,11 +48020,11 @@ Floated Menu / Item
   }
 
   .ui.ui.ui.ui.table:not(.unstackable) tr.marked.red.left {
-    box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, 0.2em 0 0 0 #FFFFF0 inset;
+    box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, 0.2em 0 0 0 #DB2828 inset;
   }
 
   .ui.ui.ui.ui.table:not(.unstackable) tr.marked.red.right {
-    box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, -0.2em 0 0 0 #FFFFF0 inset;
+    box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, -0.2em 0 0 0 #DB2828 inset;
   }
 
   .ui.ui.ui.ui.inverted.table:not(.unstackable) tr.marked.red.left {
@@ -48508,11 +48508,11 @@ Floated Menu / Item
 }
 
 .ui.ui.ui.ui[class*="tablet stackable"].table tr.marked.red.left {
-  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, 0.2em 0 0 0 #FFFFF0 inset;
+  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, 0.2em 0 0 0 #DB2828 inset;
 }
 
 .ui.ui.ui.ui[class*="tablet stackable"].table tr.marked.red.right {
-  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, -0.2em 0 0 0 #FFFFF0 inset;
+  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, -0.2em 0 0 0 #DB2828 inset;
 }
 
 .ui.ui.ui.ui[class*="tablet stackable"].inverted.table tr.marked.red.left {
@@ -49022,35 +49022,35 @@ Floated Menu / Item
 }
 
 .ui.red.table {
-  border-top: 0.2em solid #FFFFF0;
+  border-top: 0.2em solid #DB2828;
 }
 
 .ui.inverted.red.table {
-  background-color: #FFFFF0;
+  background-color: #DB2828;
   color: #FFFFFF;
 }
 
 .ui.ui.ui.ui.table tr.red:not(.marked),
 .ui.ui.table td.red:not(.marked) {
   background: #ffe1df;
-  color: #FFFFF0;
+  color: #DB2828;
 }
 
 .ui.ui.selectable.table tr.red:not(.marked):hover,
 .ui.table tr td.selectable.red:not(.marked):hover,
 .ui.selectable.table tr:hover td.red:not(.marked) {
   background: #ffd7d5;
-  color: #FFFFF0;
+  color: #DB2828;
 }
 
 .ui.table td.marked.red.left,
 .ui.table tr.marked.red.left {
-  box-shadow: 0.2em 0 0 0 #FFFFF0 inset;
+  box-shadow: 0.2em 0 0 0 #DB2828 inset;
 }
 
 .ui.table td.marked.red.right,
 .ui.table tr.marked.red.right {
-  box-shadow: -0.2em 0 0 0 #FFFFF0 inset;
+  box-shadow: -0.2em 0 0 0 #DB2828 inset;
 }
 
 .ui.inverted.table td.marked.red.left,
@@ -51000,13 +51000,13 @@ a.ui.card:hover,
 .ui.red.cards > .card,
 .ui.cards > .red.card,
 .ui.red.card {
-  box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #FFFFF0, 0 1px 3px 0 #D4D4D5;
+  box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #DB2828, 0 1px 3px 0 #D4D4D5;
 }
 
 .ui.red.cards > .card:hover,
 .ui.cards > .red.card:hover,
 .ui.red.card:hover {
-  box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #ffffd7, 0 1px 3px 0 #BCBDBD;
+  box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #d01919, 0 1px 3px 0 #BCBDBD;
 }
 
 .ui.inverted.red.cards > .card,
@@ -53388,7 +53388,7 @@ a.inverted.ui.card:hover,
 .ui.red.statistics .statistic > .value,
 .ui.statistics .red.statistic > .value,
 .ui.red.statistic > .value {
-  color: #FFFFF0;
+  color: #DB2828;
 }
 
 .ui.inverted.red.statistics .statistic > .value,
@@ -59805,7 +59805,7 @@ a.ui.nag {
   ---------------*/
 
 .ui.ui.progress.error .bar {
-  background-color: #FFFFF0;
+  background-color: #DB2828;
 }
 
 .ui.ui.progress.error .bar,
@@ -59914,7 +59914,7 @@ a.ui.nag {
 }
 
 .ui.inverted.progress.error > .label {
-  color: #FFFFF0;
+  color: #DB2828;
 }
 
 /*--------------
@@ -60003,7 +60003,7 @@ a.ui.nag {
 .ui.indeterminate.red.progress .bar::before,
 .ui.red.progress .bar,
 .ui.progress .red.bar {
-  background-color: #FFFFF0;
+  background-color: #DB2828;
 }
 
 .ui.inverted.indeterminate.red.progress .bar::before,
@@ -60758,7 +60758,7 @@ a.ui.nag {
 /* Standard */
 
 .ui.red.slider .inner .track-fill {
-  background-color: #FFFFF0;
+  background-color: #DB2828;
 }
 
 .ui.red.inverted.slider .inner .track-fill {
@@ -60768,12 +60768,12 @@ a.ui.nag {
 /* Basic */
 
 .ui.red.slider.basic .inner .thumb {
-  background-color: #FFFFF0;
+  background-color: #DB2828;
 }
 
 .ui.red.slider.basic .inner .thumb:hover,
 .ui.red.slider.basic:focus .inner .thumb {
-  background-color: #ffffd7;
+  background-color: #d01919;
 }
 
 /* Basic Inverted */
@@ -61480,7 +61480,7 @@ a.ui.nag {
 
 .ui.red.rating .active.icon {
   color: #FF695E;
-  text-shadow: 0px -1px 0px #FFFFF0, -1px 0px 0px #FFFFF0, 0px 1px 0px #FFFFF0, 1px 0px 0px #FFFFF0;
+  text-shadow: 0px -1px 0px #DB2828, -1px 0px 0px #DB2828, 0px 1px 0px #DB2828, 1px 0px 0px #DB2828;
 }
 
 .ui.red.rating .icon.selected,
@@ -61488,7 +61488,7 @@ a.ui.nag {
 .ui.red.rating .icon.selected.partial.active {
   background: inherit;
   color: #ff392b;
-  text-shadow: 0px -1px 0px #ffffd7, -1px 0px 0px #ffffd7, 0px 1px 0px #ffffd7, 1px 0px 0px #ffffd7;
+  text-shadow: 0px -1px 0px #d01919, -1px 0px 0px #d01919, 0px 1px 0px #d01919, 1px 0px 0px #d01919;
   -webkit-text-stroke: unset;
   background-clip: unset;
 }
@@ -61496,7 +61496,7 @@ a.ui.nag {
 .ui.red.rating .icon.partial.active {
   background: linear-gradient(to right, #FF695E 0% var(--full), rgba(0, 0, 0, 0.15) var(--full) 100%);
   text-shadow: none;
-  -webkit-text-stroke: #FFFFF0 0.78px;
+  -webkit-text-stroke: #DB2828 0.78px;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -62171,7 +62171,7 @@ a.ui.nag {
 
 .ui.search.selection > .icon.input > .remove.icon:hover {
   opacity: 1;
-  color: #FFFFF0;
+  color: #DB2828;
 }
 
 /*--------------
@@ -63455,7 +63455,7 @@ body.pushable > .pusher {
 }
 
 .ui.toast-container .toast-box > .attached.progress .error .bar.bar.bar {
-  background: #ffffa3;
+  background: #9c1a1a;
 }
 
 .ui.toast-container .toast-box > .attached.progress.neutral .bar.bar.bar {
@@ -63785,7 +63785,7 @@ body.pushable > .pusher {
 }
 
 .ui.toast.error {
-  background-color: #FFFFF0;
+  background-color: #DB2828;
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -63918,7 +63918,7 @@ body.pushable > .pusher {
 }
 
 .ui.red.toast {
-  background-color: #FFFFF0;
+  background-color: #DB2828;
   color: rgba(255, 255, 255, 0.9);
 }
 

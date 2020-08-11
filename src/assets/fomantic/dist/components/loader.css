@@ -332,7 +332,7 @@
 .ui.red.loading.loading.loading.loading .input > i.icon:after,
 .ui.red.loading.loading.loading.loading > i.icon:after,
 .ui.red.loader.loader.loader:after {
-  color: #FFFFF0;
+  color: #DB2828;
 }
 .ui.inverted.red.elastic.loader:before,
 .ui.inverted.red.elastic.loading.loading.loading:not(.segment):before,
