@@ -1,14 +1,14 @@
 import React from 'react';
-
 import '../assets/fomantic/dist/semantic.css';
-import { Container, Header } from 'semantic-ui-react';
 
 export default class App extends React.Component {
   render() {
     return (
-      <Container>
-        <Header>App</Header>
-      </Container>
+      <div className="ui container">
+        <button className="ui primary red button">App</button>
+        <p>Plain</p>
+        <h1>Header</h1>
+      </div>
     );
   }
 }

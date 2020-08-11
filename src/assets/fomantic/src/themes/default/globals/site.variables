@@ -228,7 +228,7 @@
 --------------------*/
 
 /*---  Colors  ---*/
-@red              : #DB2828;
+@red              : #FFFFF0;
 @orange           : #F2711C;
 @yellow           : #FBBD08;
 @olive            : #B5CC18;
