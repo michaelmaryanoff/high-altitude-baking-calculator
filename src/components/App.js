@@ -1,5 +1,5 @@
 // React
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 // Fomantic UI css
@@ -16,20 +16,25 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Fragment>
-          <BrowserRouter>
-            <MainMenu />
-            <Switch>
-              <Route path="/" exact component={CalculatorPage} />
-              <Route path="/calculate" exact component={CalculatorPage} />
-              <Route path="/about" exact component={AboutPage} />
-              <Route path="/contact" exact component={ContactPage} />
-            </Switch>
-          </BrowserRouter>
-        </Fragment>
+        <BrowserRouter>
+          <MainMenu />
+          <Switch>
+            <Route path="/" exact component={CalculatorPage} />
+            <Route path="/calculate" exact component={CalculatorPage} />
+            <Route path="/about" exact component={AboutPage} />
+            <Route path="/contact" exact component={ContactPage} />
+          </Switch>
+        </BrowserRouter>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    // This is here in case we need to access app state for debugging
+    currentState: state
+  };
+};
+
+export default connect(mapStateToProps, {})(App);

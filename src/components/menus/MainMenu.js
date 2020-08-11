@@ -19,4 +19,4 @@ const MainMenu = props => {
   );
 };
 
-export default MainMenu;
+export default withRouter(connect(null, {})(MainMenu));
