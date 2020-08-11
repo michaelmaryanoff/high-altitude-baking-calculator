@@ -1,12 +1,14 @@
-// React imports
+// React
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// Redux imports
+// Redux
 import { Provider } from 'react-redux';
 import { createStore, compose, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 import reducers from './reducers';
+
+// Router
 
 import App from './components/App';
 
