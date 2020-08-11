@@ -1,3 +1,5 @@
 import { combineReducers } from 'redux';
 
-export default combineReducers({ dummy: null });
+import calculationFormReducer from './calculationFormReducer'
+
+export default combineReducers({ calculationForm: calculationFormReducer });
