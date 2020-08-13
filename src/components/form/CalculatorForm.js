@@ -2,7 +2,14 @@
 import React, { useState } from 'react';
 
 // Constants
-import { unitField, altitudeField, ovenTempField, ovenTempFieldOutput } from '../form/inputTypes';
+import {
+  unitField,
+  altitudeField,
+  ovenTempField,
+  ovenTempFieldOutput,
+  liquidInputField,
+  liquidOutputField
+} from '../form/inputTypes';
 
 // Redux
 import { clearForm } from '../../actions';
@@ -13,11 +20,16 @@ import DropdownMenu from './DropdownMenu';
 import TextInputField from './TextInputField';
 
 const CalculatorForm = () => {
-  // Component state
+  // Component state for controlling fields
   const [unitFieldData, setUnitFieldData] = useState('metric');
+
   const [altitudeFieldData, setAltitudeFieldData] = useState('');
+
   const [ovenTempInputFieldData, setOvenTempInputFieldData] = useState('');
   const [ovenTempOutputFieldData, setOvenTempOutputFieldData] = useState('');
+
+  const [liquidInputFieldData, setliquidInputFieldData] = useState('');
+  const [liquidOutputFieldData, setliquidOutputFieldData] = useState('');
 
   // Defualt state
   const defaults = { unitFieldDefault: 'metric', emptyString: '' };
@@ -45,6 +57,8 @@ const CalculatorForm = () => {
     setAltitudeFieldData(emptyString);
     setOvenTempInputFieldData(emptyString);
     setOvenTempOutputFieldData(emptyString);
+    setliquidInputFieldData(emptyString);
+    setliquidOutputFieldData(emptyString);
 
     // Set defaults in Redux
     dispatch(clearForm());
@@ -56,6 +70,7 @@ const CalculatorForm = () => {
         <div className="ui segment">
           <form className="ui large form error">
             <div className="column">
+              {/* Units */}
               <div className="one field">
                 <DropdownMenu
                   labelText="Units"
@@ -65,6 +80,7 @@ const CalculatorForm = () => {
                   onChange={(id, value) => setUnitFieldData(value)}
                 />
               </div>
+              {/* Altitude */}
               <div className="one field">
                 <TextInputField
                   id={altitudeField}
@@ -75,6 +91,7 @@ const CalculatorForm = () => {
                   min={0}
                 />
               </div>
+              {/* Oven temp */}
               <div className="two fields">
                 <TextInputField
                   id={ovenTempField}
@@ -90,6 +107,25 @@ const CalculatorForm = () => {
                   value={ovenTempOutputFieldData}
                   handleOnChange={event => setOvenTempOutputFieldData(event)}
                   label={`Adjusted Oven temp ${ovenTempUnitLabel} `}
+                  min={0}
+                />
+              </div>
+              {/* Liquids */}
+              <div className="two fields">
+                <TextInputField
+                  id={liquidInputField}
+                  type="number"
+                  value={liquidInputFieldData}
+                  handleOnChange={event => setliquidInputFieldData(event)}
+                  label={`Liquids`}
+                  min={0}
+                />
+                <TextInputField
+                  id={liquidOutputField}
+                  type="number"
+                  value={liquidOutputFieldData}
+                  handleOnChange={event => setliquidOutputFieldData(event)}
+                  label={`Liquids`}
                   min={0}
                 />
               </div>
