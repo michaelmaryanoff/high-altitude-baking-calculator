@@ -14,7 +14,9 @@ import {
   sugarInputField,
   sugarOutputField,
   bakingPowderInputField,
-  bakingPowderOutputField
+  bakingPowderOutputField,
+  yeastInputField,
+  yeastOutputField
 } from '../form/inputTypes';
 
 // Redux
@@ -45,6 +47,9 @@ const CalculatorForm = () => {
 
   const [bakingPowderInputFieldData, setBakingPowderInputFieldData] = useState('');
   const [bakingPowderOutputFieldData, setBakingPowderOutputFieldData] = useState('');
+
+  const [yeastInputFieldData, setYeastInputFieldData] = useState('');
+  const [yeastOutputFieldData, setYeastOutputFieldData] = useState('');
 
   // Defualt state
   const defaults = { unitFieldDefault: 'metric', emptyString: '' };
@@ -87,6 +92,8 @@ const CalculatorForm = () => {
     setSugarOutputFieldData(emptyString);
     setBakingPowderInputFieldData(emptyString);
     setBakingPowderOutputFieldData(emptyString);
+    setYeastInputFieldData(emptyString);
+    setYeastOutputFieldData(emptyString);
   };
 
   return (
@@ -211,8 +218,26 @@ const CalculatorForm = () => {
                   min={0}
                 />
               </div>
+              {/* Yeast */}
+              <div className="two fields">
+                <TextInputField
+                  id={yeastInputField}
+                  type="number"
+                  value={yeastInputFieldData}
+                  handleOnChange={event => setYeastInputFieldData(event)}
+                  label={`Yeast`}
+                  min={0}
+                />
+                <TextInputField
+                  id={yeastOutputField}
+                  type="number"
+                  value={yeastOutputFieldData}
+                  handleOnChange={event => setYeastOutputFieldData(event)}
+                  label={`Adjusted Yeast`}
+                  min={0}
+                />
+              </div>
             </div>
-            
             <p />
             <button className="ui primary button" onClick={handleClear}>
               Clear
