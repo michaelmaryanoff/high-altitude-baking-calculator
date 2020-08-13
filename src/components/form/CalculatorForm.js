@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 // Constants
-import { unitField, altitudeField, ovenTempField } from '../form/inputTypes';
+import { unitField, altitudeField, ovenTempField, ovenTempFieldOutput } from '../form/inputTypes';
 
 // Redux
 import { clearForm } from '../../actions';
@@ -15,15 +15,15 @@ import TextInputField from './TextInputField';
 const CalculatorForm = () => {
   // Component state
   const [unitFieldData, setUnitFieldData] = useState('metric');
-  const [altitudeFieldData, setAltitudeFieldDate] = useState('');
-  const [ovenTempFieldData, setOvenTempFieldDate] = useState('');
+  const [altitudeFieldData, setAltitudeFieldData] = useState('');
+  const [ovenTempInputFieldData, setOvenTempInputFieldData] = useState('');
+  const [ovenTempOutputFieldData, setOvenTempOutputFieldData] = useState('');
 
   // Defualt state
-  const defaults = { unitFieldDefault: 'metric', altitudeFieldDefault: '' };
+  const defaults = { unitFieldDefault: 'metric', emptyString: '' };
 
   // Redux
   const dispatch = useDispatch();
-  // const units = useSelector(state => state.calculationForm);
 
   // Used for populating unit dropdown
   const unitDataSource = [
@@ -33,16 +33,18 @@ const CalculatorForm = () => {
 
   // Setting altitude label
   const unit = useSelector(state => state.calculationForm.unit);
-  const altitudeLabel = unit === 'metric' ? 'Altitude (m)' : 'Altitude (ft)';
-  const ovenTempLabel = unit === 'metric' ? 'Oven temp (C)' : 'Oven temp (F)';
+  const altitudeUnitLabel = unit === 'metric' ? '(m)' : '(ft)';
+  const ovenTempUnitLabel = unit === 'metric' ? '(C)' : '(F)';
 
   const handleClear = event => {
     event.preventDefault();
 
     // Set defaults in state
-    const { unitFieldDefault, altitudeFieldDefault } = defaults;
+    const { unitFieldDefault, emptyString } = defaults;
     setUnitFieldData(unitFieldDefault);
-    setAltitudeFieldDate(altitudeFieldDefault);
+    setAltitudeFieldData(emptyString);
+    setOvenTempInputFieldData(emptyString);
+    setOvenTempOutputFieldData(emptyString);
 
     // Set defaults in Redux
     dispatch(clearForm());
@@ -68,8 +70,8 @@ const CalculatorForm = () => {
                   id={altitudeField}
                   type="number"
                   value={altitudeFieldData}
-                  handleOnChange={event => setAltitudeFieldDate(event)}
-                  label={altitudeLabel}
+                  handleOnChange={event => setAltitudeFieldData(event)}
+                  label={`Altitude ${altitudeUnitLabel}`}
                   min={0}
                 />
               </div>
@@ -77,17 +79,17 @@ const CalculatorForm = () => {
                 <TextInputField
                   id={ovenTempField}
                   type="number"
-                  value={ovenTempFieldData}
-                  handleOnChange={event => setOvenTempFieldDate(event)}
-                  label={ovenTempLabel}
+                  value={ovenTempInputFieldData}
+                  handleOnChange={event => setOvenTempInputFieldData(event)}
+                  label={`Oven temp ${ovenTempUnitLabel}`}
                   min={0}
                 />
                 <TextInputField
-                  id={ovenTempField}
+                  id={ovenTempFieldOutput}
                   type="number"
-                  value={ovenTempFieldData}
-                  handleOnChange={event => setOvenTempFieldDate(event)}
-                  label={ovenTempLabel}
+                  value={ovenTempOutputFieldData}
+                  handleOnChange={event => setOvenTempOutputFieldData(event)}
+                  label={`Adjusted Oven temp ${ovenTempUnitLabel} `}
                   min={0}
                 />
               </div>
