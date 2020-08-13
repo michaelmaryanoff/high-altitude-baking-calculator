@@ -10,7 +10,9 @@ import {
   liquidInputField,
   liquidOutputField,
   flourInputField,
-  flourOutputField
+  flourOutputField,
+  sugarInputField,
+  sugarOutputField
 } from '../form/inputTypes';
 
 // Redux
@@ -34,7 +36,10 @@ const CalculatorForm = () => {
   const [liquidOutputFieldData, setliquidOutputFieldData] = useState('');
 
   const [flourInputFieldData, setFlourInputFieldData] = useState('');
-  const [flourOutPutFieldData, setFlourOutputFieldData] = useState('');
+  const [flourOutputFieldData, setFlourOutputFieldData] = useState('');
+
+  const [sugarInputFieldData, setSugarInputFieldData] = useState('');
+  const [sugarOutputFieldData, setSugarOutputFieldData] = useState('');
 
   // Defualt state
   const defaults = { unitFieldDefault: 'metric', emptyString: '' };
@@ -73,6 +78,8 @@ const CalculatorForm = () => {
     setliquidOutputFieldData(emptyString);
     setFlourInputFieldData(emptyString);
     setFlourOutputFieldData(emptyString);
+    setSugarInputFieldData(emptyString);
+    setSugarOutputFieldData(emptyString);
   };
 
   return (
@@ -140,6 +147,7 @@ const CalculatorForm = () => {
                   min={0}
                 />
               </div>
+              {/* Flour */}
               <div className="two fields">
                 <TextInputField
                   id={flourInputField}
@@ -152,9 +160,28 @@ const CalculatorForm = () => {
                 <TextInputField
                   id={flourOutputField}
                   type="number"
-                  value={flourOutPutFieldData}
+                  value={flourOutputFieldData}
                   handleOnChange={event => setFlourOutputFieldData(event)}
                   label={`Flour`}
+                  min={0}
+                />
+              </div>
+              {/* Sugar */}
+              <div className="two fields">
+                <TextInputField
+                  id={sugarInputField}
+                  type="number"
+                  value={sugarInputFieldData}
+                  handleOnChange={event => setSugarInputFieldData(event)}
+                  label={`Sugar`}
+                  min={0}
+                />
+                <TextInputField
+                  id={sugarOutputField}
+                  type="number"
+                  value={sugarOutputFieldData}
+                  handleOnChange={event => setSugarOutputFieldData(event)}
+                  label={`Sugar`}
                   min={0}
                 />
               </div>

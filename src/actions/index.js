@@ -4,14 +4,16 @@ import {
   SET_ALTITUDE,
   SET_OVEN_TEMP,
   SET_LIQUIDS,
-  SET_FLOUR
+  SET_FLOUR,
+  SET_SUGAR
 } from './types';
 import {
   unitField,
   altitudeField,
   ovenTempField,
   liquidInputField,
-  flourInputField
+  flourInputField,
+  sugarInputField
 } from '../components/form/inputTypes';
 
 export const handleDropDownInput = (inputId, inputValue) => dispatch => {
@@ -26,6 +28,8 @@ export const handleDropDownInput = (inputId, inputValue) => dispatch => {
       return dispatch(modifyLiquids(inputValue));
     case flourInputField:
       return dispatch(modifyFlour(inputValue));
+    case sugarInputField:
+      return dispatch(modifySugar(inputValue));
     default:
       return;
   }
@@ -47,7 +51,11 @@ export const modifyLiquids = liquidAmount => {
   return { type: SET_LIQUIDS, payload: liquidAmount };
 };
 export const modifyFlour = flourAmount => {
-  return { type: SET_LIQUIDS, payload: flourAmount };
+  return { type: SET_FLOUR, payload: flourAmount };
+};
+
+export const modifySugar = sugarAmount => {
+  return { type: SET_SUGAR, payload: sugarAmount };
 };
 
 export const clearForm = () => {
