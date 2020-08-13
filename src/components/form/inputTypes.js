@@ -11,5 +11,11 @@ export const liquidOutputField = 'liquidOutputField';
 export const flourInputField = 'flourInputField';
 export const flourOutputField = 'flourOutputField';
 
-export const sugarInputField = `sugarInputField`
-export const sugarOutputField = `sugarOutputField`
+export const sugarInputField = 'sugarInputField';
+export const sugarOutputField = 'sugarOutputField';
+
+export const bakingPowderInputField = 'bakingPowderInputField';
+export const bakingPowderOutputField = 'bakingPowderOutputField';
+
+export const yeastInputField = 'yeastInputField';
+export const yeastOutputField = 'yeastOutputField';

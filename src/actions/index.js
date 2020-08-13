@@ -5,7 +5,9 @@ import {
   SET_OVEN_TEMP,
   SET_LIQUIDS,
   SET_FLOUR,
-  SET_SUGAR
+  SET_SUGAR,
+  SET_BAKING_POWDER
+  SET_YEAST
 } from './types';
 import {
   unitField,
@@ -13,7 +15,9 @@ import {
   ovenTempField,
   liquidInputField,
   flourInputField,
-  sugarInputField
+  sugarInputField,
+  bakingPowderInputField,
+  yeastInputField
 } from '../components/form/inputTypes';
 
 export const handleDropDownInput = (inputId, inputValue) => dispatch => {
@@ -30,6 +34,8 @@ export const handleDropDownInput = (inputId, inputValue) => dispatch => {
       return dispatch(modifyFlour(inputValue));
     case sugarInputField:
       return dispatch(modifySugar(inputValue));
+    case bakingPowderInputField:
+      return dispatch(modifyBakingPowder(inputValue));
     default:
       return;
   }
@@ -56,6 +62,10 @@ export const modifyFlour = flourAmount => {
 
 export const modifySugar = sugarAmount => {
   return { type: SET_SUGAR, payload: sugarAmount };
+};
+
+export const modifyBakingPowder = bakingPowderAmount => {
+  return { type: SET_BAKING_POWDER, payload: bakingPowderAmount };
 };
 
 export const clearForm = () => {

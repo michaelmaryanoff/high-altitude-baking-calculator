@@ -12,7 +12,9 @@ import {
   flourInputField,
   flourOutputField,
   sugarInputField,
-  sugarOutputField
+  sugarOutputField,
+  bakingPowderInputField,
+  bakingPowderOutputField
 } from '../form/inputTypes';
 
 // Redux
@@ -40,6 +42,9 @@ const CalculatorForm = () => {
 
   const [sugarInputFieldData, setSugarInputFieldData] = useState('');
   const [sugarOutputFieldData, setSugarOutputFieldData] = useState('');
+
+  const [bakingPowderInputFieldData, setBakingPowderInputFieldData] = useState('');
+  const [bakingPowderOutputFieldData, setBakingPowderOutputFieldData] = useState('');
 
   // Defualt state
   const defaults = { unitFieldDefault: 'metric', emptyString: '' };
@@ -80,6 +85,8 @@ const CalculatorForm = () => {
     setFlourOutputFieldData(emptyString);
     setSugarInputFieldData(emptyString);
     setSugarOutputFieldData(emptyString);
+    setBakingPowderInputFieldData(emptyString);
+    setBakingPowderOutputFieldData(emptyString);
   };
 
   return (
@@ -143,7 +150,7 @@ const CalculatorForm = () => {
                   type="number"
                   value={liquidOutputFieldData}
                   handleOnChange={event => setliquidOutputFieldData(event)}
-                  label={`Liquids`}
+                  label={`Adjusted Liquids`}
                   min={0}
                 />
               </div>
@@ -162,7 +169,7 @@ const CalculatorForm = () => {
                   type="number"
                   value={flourOutputFieldData}
                   handleOnChange={event => setFlourOutputFieldData(event)}
-                  label={`Flour`}
+                  label={`Adjusted Flour`}
                   min={0}
                 />
               </div>
@@ -181,12 +188,31 @@ const CalculatorForm = () => {
                   type="number"
                   value={sugarOutputFieldData}
                   handleOnChange={event => setSugarOutputFieldData(event)}
-                  label={`Sugar`}
+                  label={`Adjusted Sugar`}
+                  min={0}
+                />
+              </div>
+              {/* Baking powder */}
+              <div className="two fields">
+                <TextInputField
+                  id={bakingPowderInputField}
+                  type="number"
+                  value={bakingPowderInputFieldData}
+                  handleOnChange={event => setBakingPowderInputFieldData(event)}
+                  label={`Baking Powder`}
+                  min={0}
+                />
+                <TextInputField
+                  id={bakingPowderOutputField}
+                  type="number"
+                  value={bakingPowderOutputFieldData}
+                  handleOnChange={event => setBakingPowderOutputFieldData(event)}
+                  label={`Adjusted Baking Powder`}
                   min={0}
                 />
               </div>
             </div>
-
+            
             <p />
             <button className="ui primary button" onClick={handleClear}>
               Clear
