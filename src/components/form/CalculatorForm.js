@@ -8,7 +8,9 @@ import {
   ovenTempField,
   ovenTempFieldOutput,
   liquidInputField,
-  liquidOutputField
+  liquidOutputField,
+  flourInputField,
+  flourOutputField
 } from '../form/inputTypes';
 
 // Redux
@@ -31,6 +33,9 @@ const CalculatorForm = () => {
   const [liquidInputFieldData, setliquidInputFieldData] = useState('');
   const [liquidOutputFieldData, setliquidOutputFieldData] = useState('');
 
+  const [flourInputFieldData, setFlourInputFieldData] = useState('');
+  const [flourOutPutFieldData, setFlourOutputFieldData] = useState('');
+
   // Defualt state
   const defaults = { unitFieldDefault: 'metric', emptyString: '' };
 
@@ -52,6 +57,13 @@ const CalculatorForm = () => {
     event.preventDefault();
 
     // Set defaults in state
+    resetFieldData();
+
+    // Set defaults in Redux
+    dispatch(clearForm());
+  };
+
+  const resetFieldData = () => {
     const { unitFieldDefault, emptyString } = defaults;
     setUnitFieldData(unitFieldDefault);
     setAltitudeFieldData(emptyString);
@@ -59,9 +71,8 @@ const CalculatorForm = () => {
     setOvenTempOutputFieldData(emptyString);
     setliquidInputFieldData(emptyString);
     setliquidOutputFieldData(emptyString);
-
-    // Set defaults in Redux
-    dispatch(clearForm());
+    setFlourInputFieldData(emptyString);
+    setFlourOutputFieldData(emptyString);
   };
 
   return (
@@ -126,6 +137,24 @@ const CalculatorForm = () => {
                   value={liquidOutputFieldData}
                   handleOnChange={event => setliquidOutputFieldData(event)}
                   label={`Liquids`}
+                  min={0}
+                />
+              </div>
+              <div className="two fields">
+                <TextInputField
+                  id={flourInputField}
+                  type="number"
+                  value={flourInputFieldData}
+                  handleOnChange={event => setFlourInputFieldData(event)}
+                  label={`Flour`}
+                  min={0}
+                />
+                <TextInputField
+                  id={flourOutputField}
+                  type="number"
+                  value={flourOutPutFieldData}
+                  handleOnChange={event => setFlourOutputFieldData(event)}
+                  label={`Flour`}
                   min={0}
                 />
               </div>
