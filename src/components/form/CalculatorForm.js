@@ -5,8 +5,8 @@ import React, { useState } from 'react';
 import {
   unitField,
   altitudeField,
-  ovenTempField,
-  ovenTempFieldOutput,
+  ovenTempInputField,
+  ovenTempOutputField,
   liquidInputField,
   liquidOutputField,
   flourInputField,
@@ -16,7 +16,9 @@ import {
   bakingPowderInputField,
   bakingPowderOutputField,
   yeastInputField,
-  yeastOutputField
+  yeastOutputField,
+  bakingTimeInputField,
+  bakingTimeOutputField
 } from '../form/inputTypes';
 
 import { defaultUnit } from '../../constants';
@@ -37,6 +39,9 @@ const CalculatorForm = () => {
 
   const [ovenTempInputFieldData, setOvenTempInputFieldData] = useState('');
   const [ovenTempOutputFieldData, setOvenTempOutputFieldData] = useState('');
+
+  const [bakingTimeInputFieldData, setBakingTimeInputFieldData] = useState('initialState');
+  const [bakingTimeOutputFieldData, setBakingTimeOutputFieldData] = useState('initialState');
 
   const [liquidInputFieldData, setliquidInputFieldData] = useState('');
   const [liquidOutputFieldData, setliquidOutputFieldData] = useState('');
@@ -100,6 +105,8 @@ const CalculatorForm = () => {
     setBakingPowderOutputFieldData(emptyString);
     setYeastInputFieldData(emptyString);
     setYeastOutputFieldData(emptyString);
+    setBakingTimeInputFieldData(emptyString);
+    setBakingTimeOutputFieldData(emptyString);
   };
 
   return (
@@ -132,7 +139,7 @@ const CalculatorForm = () => {
               {/* Oven temp */}
               <div className="two fields">
                 <TextInputField
-                  id={ovenTempField}
+                  id={ovenTempInputField}
                   type="number"
                   value={ovenTempInputFieldData}
                   handleOnChange={event => setOvenTempInputFieldData(event)}
@@ -140,11 +147,30 @@ const CalculatorForm = () => {
                   min={0}
                 />
                 <TextInputField
-                  id={ovenTempFieldOutput}
+                  id={ovenTempOutputField}
                   type="number"
                   value={ovenTempOutputFieldData}
                   handleOnChange={event => setOvenTempOutputFieldData(event)}
                   label={`Adjusted Oven temp ${ovenTempUnitLabel} `}
+                  min={0}
+                />
+              </div>
+              {/* Baking time */}
+              <div className="two fields">
+                <TextInputField
+                  id={bakingTimeInputField}
+                  type="number"
+                  value={bakingTimeInputFieldData}
+                  handleOnChange={event => setBakingTimeInputFieldData(event)}
+                  label="Baking Time"
+                  min={0}
+                />
+                <TextInputField
+                  id={bakingTimeOutputField}
+                  type="number"
+                  value={bakingTimeOutputFieldData}
+                  handleOnChange={event => setBakingTimeOutputFieldData(event)}
+                  label="Adjusted Baking Time"
                   min={0}
                 />
               </div>

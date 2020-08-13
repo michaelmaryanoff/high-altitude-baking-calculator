@@ -7,17 +7,19 @@ import {
   SET_FLOUR,
   SET_SUGAR,
   SET_BAKING_POWDER,
-  SET_YEAST
+  SET_YEAST,
+  SET_BAKING_TIME
 } from './types';
 import {
   unitField,
   altitudeField,
-  ovenTempField,
+  ovenTempInputField,
   liquidInputField,
   flourInputField,
   sugarInputField,
   bakingPowderInputField,
-  yeastInputField
+  yeastInputField,
+  bakingTimeInputField
 } from '../components/form/inputTypes';
 
 export const handleDropDownInput = (inputId, inputValue) => dispatch => {
@@ -26,8 +28,10 @@ export const handleDropDownInput = (inputId, inputValue) => dispatch => {
       return dispatch(selectUnit(inputValue));
     case altitudeField:
       return dispatch(modifyAltitude(inputValue));
-    case ovenTempField:
+    case ovenTempInputField:
       return dispatch(modifyOvenTemp(inputValue));
+    case bakingTimeInputField:
+      return dispatch(modifyBakingTime(inputValue));
     case liquidInputField:
       return dispatch(modifyLiquids(inputValue));
     case flourInputField:
@@ -53,6 +57,10 @@ export const modifyAltitude = altitude => {
 
 export const modifyOvenTemp = ovenTemp => {
   return { type: SET_OVEN_TEMP, payload: ovenTemp };
+};
+
+export const modifyBakingTime = bakingTime => {
+  return { type: SET_BAKING_TIME, payload: bakingTime };
 };
 
 export const modifyLiquids = liquidAmount => {
