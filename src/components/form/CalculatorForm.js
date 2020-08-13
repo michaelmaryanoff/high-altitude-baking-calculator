@@ -19,6 +19,8 @@ import {
   yeastOutputField
 } from '../form/inputTypes';
 
+import { defaultUnit } from '../../constants';
+
 // Redux
 import { clearForm } from '../../actions';
 import { useDispatch, useSelector } from 'react-redux';
@@ -29,7 +31,7 @@ import TextInputField from './TextInputField';
 
 const CalculatorForm = () => {
   // Component state for controlling fields
-  const [unitFieldData, setUnitFieldData] = useState('metric');
+  const [unitFieldData, setUnitFieldData] = useState(defaultUnit);
 
   const [altitudeFieldData, setAltitudeFieldData] = useState('');
 
@@ -52,7 +54,7 @@ const CalculatorForm = () => {
   const [yeastOutputFieldData, setYeastOutputFieldData] = useState('');
 
   // Defualt state
-  const defaults = { unitFieldDefault: 'metric', emptyString: '' };
+  const defaults = { unitFieldDefault: defaultUnit, emptyString: '' };
 
   // Redux
   const dispatch = useDispatch();

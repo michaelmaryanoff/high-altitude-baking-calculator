@@ -11,7 +11,9 @@ import {
   SET_YEAST
 } from '../actions/types';
 
-const INITIAL_STATE = { results: null, unit: 'metric', altitude: 0 };
+import { defaultUnit } from '../constants';
+
+const INITIAL_STATE = { results: null, unit: defaultUnit, altitude: 0 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
