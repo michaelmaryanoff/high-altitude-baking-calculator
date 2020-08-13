@@ -1,5 +1,5 @@
 // React
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 // Constants
 import {
@@ -32,6 +32,9 @@ import DropdownMenu from './DropdownMenu';
 import TextInputField from './TextInputField';
 
 const CalculatorForm = () => {
+  // Defualt state
+  const defaults = { unitFieldDefault: defaultUnit, emptyString: '' };
+
   // Component state for controlling fields
 
   const [unitFieldData, setUnitFieldData] = useState(defaultUnit);
@@ -59,8 +62,30 @@ const CalculatorForm = () => {
   const [yeastInputFieldData, setYeastInputFieldData] = useState('');
   const [yeastOutputFieldData, setYeastOutputFieldData] = useState('');
 
-  // Defualt state
-  const defaults = { unitFieldDefault: defaultUnit, emptyString: '' };
+  const minTempOutput = useSelector(state => state.calculationOutput.minOvenTempOutput);
+  const maxTempOutput = useSelector(state => state.calculationOutput.maxOvenTempOutput);
+
+  let stringMaxTemp = maxTempOutput ? String(maxTempOutput) : '';
+  let stringMinTemp = minTempOutput ? String(minTempOutput) : '';
+
+  //Use effect
+
+  // const setTempOutputLabel = () => {
+  //   if (minTempOutput && maxTempOutput) {
+  //     const tempOutputLabel = `${minTempOutput} - ${maxTempOutput}`;
+  //     setTempOutputLabel(tempOutputLabel);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   const setTempOutputLabel = () => {
+  //     if (minTempOutput && maxTempOutput) {
+  //       const tempOutputLabel = `${minTempOutput} - ${maxTempOutput}`;
+  //       setTempOutputLabel(tempOutputLabel);
+  //     }
+  //   };
+  //   setTempOutputLabel();
+  // });
 
   // Redux
   const dispatch = useDispatch();
@@ -85,6 +110,8 @@ const CalculatorForm = () => {
     // Set defaults in Redux
     dispatch(clearForm());
   };
+
+  // Setting the temp outputLabel
 
   const handleCalculatePressed = event => {
     event.preventDefault();
@@ -151,8 +178,8 @@ const CalculatorForm = () => {
                 />
                 <TextInputField
                   id={ovenTempOutputField}
-                  type="number"
-                  value={ovenTempOutputFieldData}
+                  type="text"
+                  value={`${stringMinTemp} - ${stringMaxTemp}`}
                   handleOnChange={event => setOvenTempOutputFieldData(event)}
                   label={`Adjusted Oven temp ${ovenTempUnitLabel} `}
                   min={0}
