@@ -68,7 +68,7 @@ const CalculatorForm = () => {
   const altitudeUnitLabel = unit === 'metric' ? '(m)' : '(ft)';
   const ovenTempUnitLabel = unit === 'metric' ? '(C)' : '(F)';
 
-  const handleClear = event => {
+  const handleClearPressed = event => {
     event.preventDefault();
 
     // Set defaults in state
@@ -76,6 +76,10 @@ const CalculatorForm = () => {
 
     // Set defaults in Redux
     dispatch(clearForm());
+  };
+
+  const handleCalculatePressed = event => {
+    event.preventDefault();
   };
 
   const resetFieldData = () => {
@@ -239,8 +243,15 @@ const CalculatorForm = () => {
               </div>
             </div>
             <p />
-            <button className="ui primary button" onClick={handleClear}>
+            <button className="ui red button" label="Clear" onClick={handleClearPressed}>
               Clear
+            </button>
+            <button
+              className="ui primary button"
+              label="Calculate"
+              onClick={handleCalculatePressed}
+            >
+              Calculate
             </button>
           </form>
         </div>
