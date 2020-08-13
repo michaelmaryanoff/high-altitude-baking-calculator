@@ -1,4 +1,4 @@
-import { RESULTS, SELECT_UNIT, CLEAR_FORM, SET_ALTITUDE } from '../actions/types';
+import { RESULTS, SELECT_UNIT, CLEAR_FORM, SET_ALTITUDE, SET_OVEN_TEMP } from '../actions/types';
 
 const INITIAL_STATE = { results: null, unit: 'metric', altitude: 0 };
 
@@ -8,6 +8,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, unit: action.payload };
     case SET_ALTITUDE:
       return { ...state, altitude: action.payload };
+    case SET_OVEN_TEMP:
+      return { ...state, ovenTempInput: action.payload };
     case CLEAR_FORM:
       return { ...state, ...INITIAL_STATE };
     case RESULTS:

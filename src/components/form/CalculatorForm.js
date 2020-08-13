@@ -1,24 +1,40 @@
+// React
 import React, { useState } from 'react';
-import DropdownMenu from './DropdownMenu';
-import { unitField, altitudeField } from '../form/inputTypes';
 
+// Constants
+import { unitField, altitudeField, ovenTempField } from '../form/inputTypes';
+
+// Redux
 import { clearForm } from '../../actions';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { useDispatch } from 'react-redux';
+// Components
+import DropdownMenu from './DropdownMenu';
 import TextInputField from './TextInputField';
 
 const CalculatorForm = () => {
-  const dispatch = useDispatch();
-
+  // Component state
   const [unitFieldData, setUnitFieldData] = useState('metric');
   const [altitudeFieldData, setAltitudeFieldDate] = useState('');
+  const [ovenTempFieldData, setOvenTempFieldDate] = useState('');
 
+  // Defualt state
   const defaults = { unitFieldDefault: 'metric', altitudeFieldDefault: '' };
 
+  // Redux
+  const dispatch = useDispatch();
+  // const units = useSelector(state => state.calculationForm);
+
+  // Used for populating unit dropdown
   const unitDataSource = [
     { label: 'Metric', value: 'metric' },
     { label: 'Customary', value: 'customary' }
   ];
+
+  // Setting altitude label
+  const unit = useSelector(state => state.calculationForm.unit);
+  const altitudeLabel = unit === 'metric' ? 'Altitude (m)' : 'Altitude (ft)';
+  const ovenTempLabel = unit === 'metric' ? 'Oven temp (C)' : 'Oven temp (F)';
 
   const handleClear = event => {
     event.preventDefault();
@@ -51,14 +67,32 @@ const CalculatorForm = () => {
                 <TextInputField
                   id={altitudeField}
                   type="number"
-                  palceholder="Current altitude"
                   value={altitudeFieldData}
                   handleOnChange={event => setAltitudeFieldDate(event)}
-                  label="Altitude"
+                  label={altitudeLabel}
+                  min={0}
+                />
+              </div>
+              <div className="two fields">
+                <TextInputField
+                  id={ovenTempField}
+                  type="number"
+                  value={ovenTempFieldData}
+                  handleOnChange={event => setOvenTempFieldDate(event)}
+                  label={ovenTempLabel}
+                  min={0}
+                />
+                <TextInputField
+                  id={ovenTempField}
+                  type="number"
+                  value={ovenTempFieldData}
+                  handleOnChange={event => setOvenTempFieldDate(event)}
+                  label={ovenTempLabel}
                   min={0}
                 />
               </div>
             </div>
+
             <p />
             <button className="ui primary button" onClick={handleClear}>
               Clear
