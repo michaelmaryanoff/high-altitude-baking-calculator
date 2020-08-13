@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { useDispatch } from 'react-redux';
 
 import { handleDropDownInput } from '../../actions';
 
 const DropdownMenu = props => {
-  const [fieldData, setFieldData] = useState('metric');
+  
   const dispatch = useDispatch();
 
   const handleUserInput = event => {
-    const { id, value } = event.target;
-    setFieldData(value);
+    const { id, value } = event.target;    
     dispatch(handleDropDownInput(id, value));
+    props.onChange(value);
   };
 
   return (
@@ -20,7 +20,7 @@ const DropdownMenu = props => {
       <select
         id={props.id}
         className="ui simple dropdown"
-        value={fieldData}
+        value={props.value}
         onChange={handleUserInput}
       >
         {props.optionDataSource.map(option => {
