@@ -15,20 +15,19 @@ import {
 } from '../components/form/inputTypes';
 
 export const handleDropDownInput = (inputId, inputValue) => dispatch => {
-  if (inputId === unitField) {
-    dispatch(selectUnit(inputValue));
-  }
-  if (inputId === altitudeField) {
-    dispatch(modifyAltitude(inputValue));
-  }
-  if (inputId === ovenTempField) {
-    dispatch(modifyOvenTemp(inputValue));
-  }
-  if (inputId === liquidInputField) {
-    dispatch(modifyLiquids(inputValue));
-  }
-  if (inputId === flourInputField) {
-    dispatch(modifyFlour(inputValue));
+  switch (inputId) {
+    case unitField:
+      return dispatch(selectUnit(inputValue));
+    case altitudeField:
+      return dispatch(modifyAltitude(inputValue));
+    case ovenTempField:
+      return dispatch(modifyOvenTemp(inputValue));
+    case liquidInputField:
+      return dispatch(modifyLiquids(inputValue));
+    case flourInputField:
+      return dispatch(modifyFlour(inputValue));
+    default:
+      return;
   }
 };
 
