@@ -8,8 +8,11 @@ import {
   SET_SUGAR,
   SET_BAKING_POWDER,
   SET_YEAST,
-  SET_BAKING_TIME
+  SET_BAKING_TIME,
+  CALCULATE_MIN_OVEN_TEMP,
+  CALCULATE_MAX_OVEN_TEMP
 } from './types';
+
 import {
   unitField,
   altitudeField,
@@ -22,6 +25,43 @@ import {
   bakingTimeInputField
 } from '../components/form/inputTypes';
 
+// Output actions
+export const calculateTemp = inputTemp => dispatch => {
+  dispatch(calculateMinTemp(inputTemp));
+  dispatch(calculateMaxTemp(inputTemp));
+};
+
+export const calculateMaxTemp = inputTemp => (dispatch, getState) => {
+  const state = getState();
+
+  const { unit } = state.calculationForm;
+  const { ovenTempInput } = state.calculationForm;
+
+  if (unit === 'customary') {
+    let maxTemp = parseInt(ovenTempInput) + 25;
+    dispatch({ type: CALCULATE_MAX_OVEN_TEMP, payload: maxTemp });
+  } else if (unit === 'metric') {
+    let maxTemp = parseInt(ovenTempInput) + 14;
+    dispatch({ type: CALCULATE_MAX_OVEN_TEMP, payload: maxTemp });
+  }
+};
+
+export const calculateMinTemp = inputTemp => (dispatch, getState) => {
+  const state = getState();
+
+  const { unit } = state.calculationForm;
+  const { ovenTempInput } = state.calculationForm;
+
+  if (unit === 'customary') {
+    let minTemp = parseInt(ovenTempInput) + 15;
+    dispatch({ type: CALCULATE_MIN_OVEN_TEMP, payload: minTemp });
+  } else if (unit === 'metric') {
+    let minTemp = parseInt(inputTemp) + 8;
+    dispatch({ type: CALCULATE_MIN_OVEN_TEMP, payload: minTemp });
+  }
+};
+
+// Input actions
 export const handleDropDownInput = (inputId, inputValue) => dispatch => {
   switch (inputId) {
     case unitField:
@@ -82,6 +122,7 @@ export const modifyYeast = yeastAmount => {
   return { type: SET_YEAST, payload: yeastAmount };
 };
 
+// Form actions
 export const clearForm = () => {
   return { type: CLEAR_FORM };
 };

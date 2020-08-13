@@ -24,7 +24,7 @@ import {
 import { defaultUnit } from '../../constants';
 
 // Redux
-import { clearForm } from '../../actions';
+import { clearForm, calculateTemp } from '../../actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Components
@@ -33,6 +33,7 @@ import TextInputField from './TextInputField';
 
 const CalculatorForm = () => {
   // Component state for controlling fields
+
   const [unitFieldData, setUnitFieldData] = useState(defaultUnit);
 
   const [altitudeFieldData, setAltitudeFieldData] = useState('');
@@ -40,8 +41,8 @@ const CalculatorForm = () => {
   const [ovenTempInputFieldData, setOvenTempInputFieldData] = useState('');
   const [ovenTempOutputFieldData, setOvenTempOutputFieldData] = useState('');
 
-  const [bakingTimeInputFieldData, setBakingTimeInputFieldData] = useState('initialState');
-  const [bakingTimeOutputFieldData, setBakingTimeOutputFieldData] = useState('initialState');
+  const [bakingTimeInputFieldData, setBakingTimeInputFieldData] = useState('');
+  const [bakingTimeOutputFieldData, setBakingTimeOutputFieldData] = useState('');
 
   const [liquidInputFieldData, setliquidInputFieldData] = useState('');
   const [liquidOutputFieldData, setliquidOutputFieldData] = useState('');
@@ -87,6 +88,8 @@ const CalculatorForm = () => {
 
   const handleCalculatePressed = event => {
     event.preventDefault();
+
+    dispatch(calculateTemp(ovenTempInputFieldData));
   };
 
   const resetFieldData = () => {

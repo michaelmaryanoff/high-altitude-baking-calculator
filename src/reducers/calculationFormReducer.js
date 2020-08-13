@@ -1,5 +1,4 @@
 import {
-  RESULTS,
   SELECT_UNIT,
   CLEAR_FORM,
   SET_ALTITUDE,
@@ -38,8 +37,6 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, yeastInput: action.payload };
     case CLEAR_FORM:
       return { ...state, ...INITIAL_STATE };
-    case RESULTS:
-      return { ...state, results: action.payload };
     default:
       return state;
   }
