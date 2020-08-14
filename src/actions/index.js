@@ -19,44 +19,44 @@ export const calculateTemp = inputTemp => dispatch => {
   dispatch(calculateMaxTemp(inputTemp));
 };
 
-export const calculateMaxTemp = () => (dispatch, getState) => {
+export const calculateMaxTemp = input => (dispatch, getState) => {
   const state = getState();
 
   const tempToAddCustomary = 25;
   const tempToAddMetric = 14;
 
   const { unit } = state.calculationForm;
-  const { ovenTempInput } = state.calculationForm;
+  const { ovenTempSet } = state.calculationForm;
 
   if (unit === 'customary') {
-    let maxTemp = parseInt(ovenTempInput) + tempToAddCustomary;
+    let maxTemp = parseInt(ovenTempSet) + tempToAddCustomary;
     dispatch({ type: CALCULATE_MAX_OVEN_TEMP, payload: maxTemp });
   } else if (unit === 'metric') {
-    let maxTemp = parseInt(ovenTempInput) + tempToAddMetric;
+    let maxTemp = parseInt(ovenTempSet) + tempToAddMetric;
     dispatch({ type: CALCULATE_MAX_OVEN_TEMP, payload: maxTemp });
   }
 };
 
-export const calculateMinTemp = inputTemp => (dispatch, getState) => {
+export const calculateMinTemp = input => (dispatch, getState) => {
+  console.log('call');
   const state = getState();
 
   const tempToAddCustomary = 15;
   const tempToAddMetric = 8;
 
   const { unit } = state.calculationForm;
-  const { ovenTempInput } = state.calculationForm;
+  const { ovenTempSet } = state.calculationForm;
 
   if (unit === 'customary') {
-    let minTemp = parseInt(ovenTempInput) + tempToAddCustomary;
+    let minTemp = parseInt(ovenTempSet) + tempToAddCustomary;
     dispatch({ type: CALCULATE_MIN_OVEN_TEMP, payload: minTemp });
   } else if (unit === 'metric') {
-    let minTemp = parseInt(inputTemp) + tempToAddMetric;
+    let minTemp = parseInt(ovenTempSet) + tempToAddMetric;
     dispatch({ type: CALCULATE_MIN_OVEN_TEMP, payload: minTemp });
   }
 };
 
 export const handleInput = (inputId, inputValue) => dispatch => {
-
   const functionNames = {
     unitInput,
     altitudeInput,
