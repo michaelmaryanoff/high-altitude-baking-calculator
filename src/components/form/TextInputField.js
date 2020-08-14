@@ -8,9 +8,9 @@ const TextInputField = props => {
   const dispatch = useDispatch();
 
   const handleUserInput = event => {
-    const { id, value } = event.target;
-    dispatch(handleDropDownInput(id, value));
-    props.handleOnChange(value);
+    const { name, value } = event.target;
+    dispatch(handleDropDownInput(name, value));
+    props.handleOnChange(event);
   };
 
   return (
@@ -18,7 +18,7 @@ const TextInputField = props => {
       <label>{props.label}</label>
       <input
         type={props.type}
-        id={props.id}
+        name={props.name}
         placeholder={props.placeholder}
         onChange={handleUserInput}
         value={props.value}

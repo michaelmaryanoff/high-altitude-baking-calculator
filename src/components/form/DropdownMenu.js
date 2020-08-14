@@ -5,13 +5,12 @@ import { useDispatch } from 'react-redux';
 import { handleDropDownInput } from '../../actions';
 
 const DropdownMenu = props => {
-  
   const dispatch = useDispatch();
 
   const handleUserInput = event => {
-    const { id, value } = event.target;    
+    const { id, value } = event.target;
     dispatch(handleDropDownInput(id, value));
-    props.onChange(value);
+    props.onChange(event);
   };
 
   return (
