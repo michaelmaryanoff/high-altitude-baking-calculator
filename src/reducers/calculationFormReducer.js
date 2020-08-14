@@ -13,7 +13,8 @@ import {
 
 import { defaultUnit } from '../constants';
 
-const INITIAL_STATE = { results: null, unit: defaultUnit, altitude: 0 };
+// Any varible that contains "Set" is set by the user
+const INITIAL_STATE = { results: null, unit: defaultUnit, altitude: 0, ovenTempSet: 0 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -22,19 +23,19 @@ export default (state = INITIAL_STATE, action) => {
     case SET_ALTITUDE:
       return { ...state, altitude: action.payload };
     case SET_OVEN_TEMP:
-      return { ...state, ovenTempInput: action.payload };
+      return { ...state, ovenTempSet: action.payload };
     case SET_BAKING_TIME:
-      return { ...state, bakingTimeInput: action.payload };
+      return { ...state, bakingTimeSet: action.payload };
     case SET_LIQUIDS:
-      return { ...state, liquidsInput: action.payload };
+      return { ...state, liquidsSet: action.payload };
     case SET_FLOUR:
-      return { ...state, flourInput: action.payload };
+      return { ...state, flourSet: action.payload };
     case SET_SUGAR:
-      return { ...state, sugarInput: action.payload };
+      return { ...state, sugarSet: action.payload };
     case SET_BAKING_POWDER:
-      return { ...state, bakingPowderInput: action.payload };
+      return { ...state, bakingPowderSet: action.payload };
     case SET_YEAST:
-      return { ...state, yeastInput: action.payload };
+      return { ...state, yeastSet: action.payload };
     case CLEAR_FORM:
       return { ...state, ...INITIAL_STATE };
     default:
