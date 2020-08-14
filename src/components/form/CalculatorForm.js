@@ -65,27 +65,12 @@ const CalculatorForm = () => {
   const minTempOutput = useSelector(state => state.calculationOutput.minOvenTempOutput);
   const maxTempOutput = useSelector(state => state.calculationOutput.maxOvenTempOutput);
 
-  let stringMaxTemp = maxTempOutput ? String(maxTempOutput) : '';
-  let stringMinTemp = minTempOutput ? String(minTempOutput) : '';
-
   //Use effect
-
-  // const setTempOutputLabel = () => {
-  //   if (minTempOutput && maxTempOutput) {
-  //     const tempOutputLabel = `${minTempOutput} - ${maxTempOutput}`;
-  //     setTempOutputLabel(tempOutputLabel);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   const setTempOutputLabel = () => {
-  //     if (minTempOutput && maxTempOutput) {
-  //       const tempOutputLabel = `${minTempOutput} - ${maxTempOutput}`;
-  //       setTempOutputLabel(tempOutputLabel);
-  //     }
-  //   };
-  //   setTempOutputLabel();
-  // });
+  useEffect(() => {
+    if (minTempOutput) {
+      setOvenTempOutputFieldData(minTempOutput);
+    }
+  }, [minTempOutput]);
 
   // Redux
   const dispatch = useDispatch();
@@ -112,7 +97,6 @@ const CalculatorForm = () => {
   };
 
   // Setting the temp outputLabel
-
   const handleCalculatePressed = event => {
     event.preventDefault();
 
@@ -179,7 +163,8 @@ const CalculatorForm = () => {
                 <TextInputField
                   id={ovenTempOutputField}
                   type="text"
-                  value={`${stringMinTemp} - ${stringMaxTemp}`}
+                  // value={`${stringMinTemp} - ${stringMaxTemp}`}
+                  value={ovenTempOutputFieldData}
                   handleOnChange={event => setOvenTempOutputFieldData(event)}
                   label={`Adjusted Oven temp ${ovenTempUnitLabel} `}
                   min={0}
