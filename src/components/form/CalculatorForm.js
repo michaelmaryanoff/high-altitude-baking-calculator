@@ -6,8 +6,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { defaultUnit } from '../../constants';
 
 // Redux
-// eslint-disable-next-line
-import { clearForm, calculateTemp } from '../../actions';
+
+import { clearForm } from '../../actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Components
@@ -35,6 +35,8 @@ const initialState = {
 };
 
 const CalculatorForm = () => {
+  const dispatch = useDispatch();
+
   const [
     {
       unitInput,
@@ -60,9 +62,6 @@ const CalculatorForm = () => {
   const clearState = () => {
     setState({ ...initialState });
   };
-
-  // Redux
-  const dispatch = useDispatch();
 
   // Used for populating unit dropdown
   const unitDataSource = [
@@ -97,6 +96,15 @@ const CalculatorForm = () => {
       return { ...prevState, [name]: value };
     });
   };
+
+  const ovenTempInputState = useSelector(state => state.calculationForm.ovenTempSet);
+
+  useEffect(() => {
+    // setState(prevState => return { ...prevState, ovenTempOutput: ovenTempInputState });
+    setState(prevState => {
+      return { ...prevState, ovenTempOutput: ovenTempInputState };
+    });
+  }, [ovenTempInputState]);
 
   return (
     <div className="ui basic segment">

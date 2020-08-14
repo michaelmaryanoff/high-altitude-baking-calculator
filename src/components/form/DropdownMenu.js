@@ -2,14 +2,14 @@ import React from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import { handleDropDownInput } from '../../actions';
+import { handleInput } from '../../actions';
 
 const DropdownMenu = props => {
   const dispatch = useDispatch();
 
   const handleUserInput = event => {
-    const { id, value } = event.target;
-    dispatch(handleDropDownInput(id, value));
+    const { name, value } = event.target;
+    dispatch(handleInput(name, value));
     props.onChange(event);
   };
 
@@ -17,7 +17,7 @@ const DropdownMenu = props => {
     <div className="field">
       <label>{props.labelText}</label>
       <select
-        id={props.id}
+        name={props.name}
         className="ui simple dropdown"
         value={props.value}
         onChange={handleUserInput}

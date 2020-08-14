@@ -13,35 +13,26 @@ import {
   CALCULATE_MAX_OVEN_TEMP
 } from './types';
 
-import {
-  unitField,
-  altitudeField,
-  ovenTempInputField,
-  liquidInputField,
-  flourInputField,
-  sugarInputField,
-  bakingPowderInputField,
-  yeastInputField,
-  bakingTimeInputField
-} from '../components/form/inputTypes';
-
 // Output actions
 export const calculateTemp = inputTemp => dispatch => {
   dispatch(calculateMinTemp(inputTemp));
   dispatch(calculateMaxTemp(inputTemp));
 };
 
-export const calculateMaxTemp = inputTemp => (dispatch, getState) => {
+export const calculateMaxTemp = () => (dispatch, getState) => {
   const state = getState();
+
+  const tempToAddCustomary = 25;
+  const tempToAddMetric = 14;
 
   const { unit } = state.calculationForm;
   const { ovenTempInput } = state.calculationForm;
 
   if (unit === 'customary') {
-    let maxTemp = parseInt(ovenTempInput) + 25;
+    let maxTemp = parseInt(ovenTempInput) + tempToAddCustomary;
     dispatch({ type: CALCULATE_MAX_OVEN_TEMP, payload: maxTemp });
   } else if (unit === 'metric') {
-    let maxTemp = parseInt(ovenTempInput) + 14;
+    let maxTemp = parseInt(ovenTempInput) + tempToAddMetric;
     dispatch({ type: CALCULATE_MAX_OVEN_TEMP, payload: maxTemp });
   }
 };
@@ -49,22 +40,25 @@ export const calculateMaxTemp = inputTemp => (dispatch, getState) => {
 export const calculateMinTemp = inputTemp => (dispatch, getState) => {
   const state = getState();
 
+  const tempToAddCustomary = 15;
+  const tempToAddMetric = 8;
+
   const { unit } = state.calculationForm;
   const { ovenTempInput } = state.calculationForm;
 
   if (unit === 'customary') {
-    let minTemp = parseInt(ovenTempInput) + 15;
+    let minTemp = parseInt(ovenTempInput) + tempToAddCustomary;
     dispatch({ type: CALCULATE_MIN_OVEN_TEMP, payload: minTemp });
   } else if (unit === 'metric') {
-    let minTemp = parseInt(inputTemp) + 8;
+    let minTemp = parseInt(inputTemp) + tempToAddMetric;
     dispatch({ type: CALCULATE_MIN_OVEN_TEMP, payload: minTemp });
   }
 };
 
-export const handleDropDownInput = (inputId, inputValue) => dispatch => {
-  // console.log('inputid', inputId, inputValue);
+export const handleInput = (inputId, inputValue) => dispatch => {
 
   const functionNames = {
+    unitInput,
     altitudeInput,
     ovenTempInput,
     bakingTimeInput,

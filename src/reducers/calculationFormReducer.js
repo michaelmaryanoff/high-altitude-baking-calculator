@@ -14,7 +14,7 @@ import {
 import { defaultUnit } from '../constants';
 
 // Any varible that contains "Set" is set by the user
-const INITIAL_STATE = { results: null, unit: defaultUnit, altitude: 0 };
+const INITIAL_STATE = { results: null, unit: defaultUnit, altitude: 0, ovenTempSet: 0 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
