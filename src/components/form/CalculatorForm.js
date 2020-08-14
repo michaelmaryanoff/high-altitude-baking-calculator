@@ -7,7 +7,7 @@ import { defaultUnit } from '../../constants';
 
 // Redux
 
-import { clearForm, calculateMinTemp, calculateMaxTemp } from '../../actions';
+import { clearForm, calculateTemp } from '../../actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Components
@@ -88,10 +88,7 @@ const CalculatorForm = () => {
   const handleCalculatePressed = event => {
     event.preventDefault();
 
-    console.log('called cal');
-
-    dispatch(calculateMinTemp());
-    dispatch(calculateMaxTemp());
+    dispatch(calculateTemp());
   };
 
   const onChange = event => {
@@ -102,14 +99,12 @@ const CalculatorForm = () => {
     });
   };
 
-  // const ovenTempInputState = useSelector(state => state.calculationForm.ovenTempSet);
-
-  // useEffect(() => {
-  //   // setState(prevState => return { ...prevState, ovenTempOutput: ovenTempInputState });
-  //   setState(prevState => {
-  //     return { ...prevState, [ovenTempOutput]: ovenTempInputState };
-  //   });
-  // }, [ovenTempInputState]);
+  const ovenTempLabel = useSelector(state => state.calculationOutput.displayTemp);
+  useEffect(() => {
+    setState(prevState => {
+      return { ...prevState, ovenTempOutput: ovenTempLabel || '' };
+    });
+  }, [ovenTempLabel]);
 
   return (
     <div className="ui basic segment">

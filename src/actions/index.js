@@ -10,13 +10,25 @@ import {
   SET_YEAST,
   SET_BAKING_TIME,
   CALCULATE_MIN_OVEN_TEMP,
-  CALCULATE_MAX_OVEN_TEMP
+  CALCULATE_MAX_OVEN_TEMP,
+  SET_DISPLAY_TEMP
 } from './types';
 
 // Output actions
+export const ovenTempForDisplay = () => (dispatch, getState) => {
+  const state = getState();
+
+  const { minOvenTempCalc, maxOvenTempCalc } = state.calculationOutput;
+
+  const ovenTempForDisplay = `${minOvenTempCalc} - ${maxOvenTempCalc}`;
+
+  dispatch({ type: SET_DISPLAY_TEMP, payload: ovenTempForDisplay });
+};
+
 export const calculateTemp = inputTemp => dispatch => {
   dispatch(calculateMinTemp(inputTemp));
   dispatch(calculateMaxTemp(inputTemp));
+  dispatch(ovenTempForDisplay());
 };
 
 export const calculateMaxTemp = input => (dispatch, getState) => {
@@ -38,7 +50,6 @@ export const calculateMaxTemp = input => (dispatch, getState) => {
 };
 
 export const calculateMinTemp = input => (dispatch, getState) => {
-  console.log('call');
   const state = getState();
 
   const tempToAddCustomary = 15;
