@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // Components
 import DropdownMenu from './DropdownMenu';
 import TextInputField from './TextInputField';
+import TextOutputField from './TextOutputField';
 
 const initialState = {
   unitInput: defaultUnit,
@@ -91,9 +92,10 @@ const CalculatorForm = () => {
 
   const onChange = event => {
     const { name, value } = event.target;
-    console.log(name, value);
 
-    setState(prevState => ({ ...prevState, [name]: value }));
+    setState(prevState => {
+      return { ...prevState, [name]: value };
+    });
   };
 
   return (
@@ -113,7 +115,7 @@ const CalculatorForm = () => {
                 />
                 {/* Altitude */}
                 <TextInputField
-                  name={'altitudeFieldInput'}
+                  name={'altitudeInput'}
                   type="number"
                   value={altitudeInput}
                   handleOnChange={onChange}
@@ -131,7 +133,7 @@ const CalculatorForm = () => {
                   label={`Oven temp ${ovenTempUnitLabel}`}
                   min={0}
                 />
-                <TextInputField
+                <TextOutputField
                   name={'ovenTempOutput'}
                   type="text"
                   value={ovenTempOutput}
@@ -148,7 +150,7 @@ const CalculatorForm = () => {
                   label="Baking Time"
                   min={0}
                 />
-                <TextInputField
+                <TextOutputField
                   name={'bakingTimeOutput'}
                   type="number"
                   value={bakingTimeOutput}
@@ -167,7 +169,7 @@ const CalculatorForm = () => {
                   label={`Liquids`}
                   min={0}
                 />
-                <TextInputField
+                <TextOutputField
                   name={'liquidOutput'}
                   type="number"
                   value={liquidOutput}
@@ -186,7 +188,7 @@ const CalculatorForm = () => {
                   label={`Flour`}
                   min={0}
                 />
-                <TextInputField
+                <TextOutputField
                   name={'flourOutput'}
                   type="number"
                   value={flourOutput}
@@ -205,7 +207,7 @@ const CalculatorForm = () => {
                   label={`Sugar`}
                   min={0}
                 />
-                <TextInputField
+                <TextOutputField
                   name={'sugarOutput'}
                   type="number"
                   value={sugarOutput}
@@ -223,7 +225,7 @@ const CalculatorForm = () => {
                   label={`Yeast`}
                   min={0}
                 />
-                <TextInputField
+                <TextOutputField
                   name={'yeastOutput'}
                   type="number"
                   value={yeastOutput}
@@ -242,7 +244,7 @@ const CalculatorForm = () => {
                   label={`Baking Powder`}
                   min={0}
                 />
-                <TextInputField
+                <TextOutputField
                   name={'bakingPowderOutput'}
                   type="number"
                   value={bakingPowderOutput}

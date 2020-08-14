@@ -61,64 +61,55 @@ export const calculateMinTemp = inputTemp => (dispatch, getState) => {
   }
 };
 
-// Input actions
 export const handleDropDownInput = (inputId, inputValue) => dispatch => {
-  switch (inputId) {
-    case unitField:
-      return dispatch(selectUnit(inputValue));
-    case altitudeField:
-      return dispatch(modifyAltitude(inputValue));
-    case ovenTempInputField:
-      return dispatch(modifyOvenTemp(inputValue));
-    case bakingTimeInputField:
-      return dispatch(modifyBakingTime(inputValue));
-    case liquidInputField:
-      return dispatch(modifyLiquids(inputValue));
-    case flourInputField:
-      return dispatch(modifyFlour(inputValue));
-    case sugarInputField:
-      return dispatch(modifySugar(inputValue));
-    case bakingPowderInputField:
-      return dispatch(modifyBakingPowder(inputValue));
-    case yeastInputField:
-      return dispatch(modifyYeast(inputValue));
-    default:
-      return;
-  }
+  // console.log('inputid', inputId, inputValue);
+
+  const functionNames = {
+    altitudeInput,
+    ovenTempInput,
+    bakingTimeInput,
+    liquidsInput,
+    flourInput,
+    sugarInput,
+    bakingPowderInput,
+    yeastInput
+  };
+
+  dispatch(functionNames[inputId](inputValue));
 };
 
-export const selectUnit = selectedUnit => {
+export const unitInput = selectedUnit => {
   return { type: SELECT_UNIT, payload: selectedUnit };
 };
 
-export const modifyAltitude = altitude => {
+export const altitudeInput = altitude => {
   return { type: SET_ALTITUDE, payload: altitude };
 };
 
-export const modifyOvenTemp = ovenTemp => {
+export const ovenTempInput = ovenTemp => {
   return { type: SET_OVEN_TEMP, payload: ovenTemp };
 };
 
-export const modifyBakingTime = bakingTime => {
+export const bakingTimeInput = bakingTime => {
   return { type: SET_BAKING_TIME, payload: bakingTime };
 };
 
-export const modifyLiquids = liquidAmount => {
+export const liquidsInput = liquidAmount => {
   return { type: SET_LIQUIDS, payload: liquidAmount };
 };
-export const modifyFlour = flourAmount => {
+export const flourInput = flourAmount => {
   return { type: SET_FLOUR, payload: flourAmount };
 };
 
-export const modifySugar = sugarAmount => {
+export const sugarInput = sugarAmount => {
   return { type: SET_SUGAR, payload: sugarAmount };
 };
 
-export const modifyBakingPowder = bakingPowderAmount => {
+export const bakingPowderInput = bakingPowderAmount => {
   return { type: SET_BAKING_POWDER, payload: bakingPowderAmount };
 };
 
-export const modifyYeast = yeastAmount => {
+export const yeastInput = yeastAmount => {
   return { type: SET_YEAST, payload: yeastAmount };
 };
 
