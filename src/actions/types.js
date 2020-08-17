@@ -12,6 +12,8 @@ export const SET_YEAST = 'SET_YEAST';
 // Outputs and calculations
 export const CALCULATE_MIN_OVEN_TEMP = 'CALCULATE_MIN_OVEN_TEMP';
 export const CALCULATE_MAX_OVEN_TEMP = 'CALCULATE_MAX_OVEN_TEMP';
+export const CALCULATE_BAKING_POWDER = 'CALCULATE_BAKING_POWDER';
+export const CALCULATE_YEAST = 'CALCULATE_YEAST';
 export const SET_DISPLAY_TEMP = 'SET_DISPLAY_TEMP';
 
 // Form actions

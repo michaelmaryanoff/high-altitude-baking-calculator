@@ -10,7 +10,7 @@ import { defaultUnit } from '../../constants';
 /**
  * Redux imports
  */
-import { clearForm, calculateTemp } from '../../actions';
+import { clearForm, calculateOutputs } from '../../actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 /**
@@ -80,12 +80,19 @@ const CalculatorForm = () => {
   const altitudeUnitLabel = unit === 'metric' ? '(m)' : '(ft)';
   const ovenTempUnitLabel = unit === 'metric' ? '(C)' : '(F)';
 
-  const { displayTemp } = useSelector(state => state.calculationOutput);
+  const { displayTemp, bakingPowderCalc, yeastCalc } = useSelector(
+    state => state.calculationOutput
+  );
   useEffect(() => {
     setState(prevState => {
-      return { ...prevState, ovenTempOutput: displayTemp || '' };
+      return {
+        ...prevState,
+        ovenTempOutput: displayTemp || '',
+        bakingPowderOutput: bakingPowderCalc || '',
+        yeastOutput: yeastCalc || ''
+      };
     });
-  }, [displayTemp]);
+  }, [displayTemp, bakingPowderCalc, yeastCalc]);
 
   const clearState = () => {
     setState({ ...initialState });
@@ -107,7 +114,8 @@ const CalculatorForm = () => {
   const handleCalculatePressed = event => {
     event.preventDefault();
 
-    dispatch(calculateTemp());
+    // dispatch(calculateTemp());
+    dispatch(calculateOutputs());
   };
 
   /**
@@ -258,14 +266,14 @@ const CalculatorForm = () => {
                   min={0}
                 />
               </div>
-              {/* Yeast */}
+              {/* Baking powder */}
               <div className="two fields">
                 <TextInputField
                   name={'bakingPowderInput'}
                   type="number"
                   value={bakingPowderInput}
                   handleOnChange={onChange}
-                  label={`Baking Powder`}
+                  label={`Baking Powder (tsp)`}
                   min={0}
                 />
                 <TextOutputField
@@ -273,7 +281,7 @@ const CalculatorForm = () => {
                   type="number"
                   value={bakingPowderOutput}
                   handleOnChange={onChange}
-                  label={`Adjusted Baking Powder`}
+                  label={`Adjusted Baking Powder (tsp )`}
                   min={0}
                 />
               </div>

@@ -11,7 +11,9 @@ import {
   SET_BAKING_TIME,
   CALCULATE_MIN_OVEN_TEMP,
   CALCULATE_MAX_OVEN_TEMP,
-  SET_DISPLAY_TEMP
+  CALCULATE_BAKING_POWDER,
+  SET_DISPLAY_TEMP,
+  CALCULATE_YEAST
 } from './types';
 
 /**
@@ -19,11 +21,38 @@ import {
  * This group of functions calculates our outputs to the user
  */
 
+export const calculateOutputs = () => dispatch => {
+  dispatch(calculateBakingPowder());
+  dispatch(calculateTemp());
+  dispatch(calculateBakingPowder());
+  dispatch(calculateMinTemp());
+  dispatch(calculateYeast());
+};
+
+export const calculateYeast = () => (dispatch, getState) => {
+  const state = getState();
+  const { yeastSet, altitude } = state.calculationForm;
+
+  if (altitude < 3500) {
+    dispatch({ type: CALCULATE_YEAST, payload: yeastSet });
+  } else {
+    dispatch({ type: CALCULATE_YEAST, payload: yeastSet * 0.75 });
+  }
+};
+
 export const calculateBakingPowder = () => (dispatch, getState) => {
   const state = getState();
-  const { bakingPowderInput } = state.calculationForm;
+  const { bakingPowderSet, altitude } = state.calculationForm;
 
-  console.log(bakingPowderInput);
+  if (altitude < 3500) {
+    dispatch({ type: CALCULATE_BAKING_POWDER, payload: bakingPowderSet });
+  } else if (altitude >= 3500 && altitude < 5000) {
+    return dispatch({ type: CALCULATE_BAKING_POWDER, payload: bakingPowderSet * 0.8 });
+  } else if (altitude >= 5000 && altitude < 6500) {
+    return dispatch({ type: CALCULATE_BAKING_POWDER, payload: bakingPowderSet * 0.5 });
+  } else if (altitude >= 6500) {
+    return dispatch({ type: CALCULATE_BAKING_POWDER, payload: bakingPowderSet * 0.25 });
+  }
 };
 
 export const ovenTempForDisplay = () => (dispatch, getState) => {
