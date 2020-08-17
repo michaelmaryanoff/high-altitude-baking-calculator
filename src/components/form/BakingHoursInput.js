@@ -17,7 +17,7 @@ const BakingHoursInput = props => {
     <div className="two wide field">
       <label>Time (h)</label>
       <input
-        type="text"
+        type="number"
         name="bakingHoursInput"
         onChange={handleUserInput}
         value={props.value}

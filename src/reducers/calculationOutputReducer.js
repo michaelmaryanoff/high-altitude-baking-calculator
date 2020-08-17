@@ -16,6 +16,8 @@ const INITIAL_STATE = {
   bakingPowderCalc: 0,
   maxOvenTempCalc: 0,
   minOvenTempCalc: 0,
+  minTimeCalc: 0,
+  maxTimeCalc: 0,
   displayTemp: ''
 };
 

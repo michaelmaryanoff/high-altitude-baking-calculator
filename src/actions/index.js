@@ -42,36 +42,35 @@ export const createBakingTimeLabel = () => (dispatch, getState) => {
 
   const { minTimeCalc, maxTimeCalc } = state.calculationOutput;
 
-  console.log('min max', minTimeCalc, maxTimeCalc);
+  if (minTimeCalc && maxTimeCalc) {
+    let maxHours = Math.floor(maxTimeCalc / 60);
+    let maxMinutes = Math.floor(maxTimeCalc % 60);
+    let maxTimeForDisplay = `${maxHours} hr ${maxMinutes} mins`;
 
-  let maxHours = Math.floor(maxTimeCalc / 60);
-  let maxMinutes = Math.floor(maxTimeCalc % 60);
-  let maxTimeForDisplay = `${maxHours} hr ${maxMinutes} mins`;
+    let minHours = Math.floor(minTimeCalc / 60);
+    let minMinutes = Math.floor(minTimeCalc % 60);
+    let minTimeForDisplay = `${minHours} hr ${minMinutes} mins`;
 
-  let minHours = Math.floor(minTimeCalc / 60);
-  let minMinutes = Math.floor(minTimeCalc % 60);
-  let minTimeForDisplay = `${minHours} hr ${minMinutes} mins`;
+    let finalTimeForDisplay = `${minTimeForDisplay} - ${maxTimeForDisplay}`;
 
-  let finalTimeForDisplay = `${minTimeForDisplay} - ${maxTimeForDisplay}`;
-
-  dispatch({ type: SET_DISPLAY_TIME, payload: finalTimeForDisplay });
+    dispatch({ type: SET_DISPLAY_TIME, payload: finalTimeForDisplay });
+  }
 };
 
 export const calculateBakingTime = () => (dispatch, getState) => {
   const state = getState();
   const { bakingMinsSet, bakingHoursSet, altitude } = state.calculationForm;
 
-  let bakingMinsToInt = parseInt(bakingMinsSet);
-  let bakingHoursToInt = parseInt(bakingHoursSet);
+  let bakingMinsToInt = bakingMinsSet ? parseInt(bakingMinsSet) : 0;
+  let bakingHoursToInt = bakingHoursSet ? parseInt(bakingHoursSet) : 0;
+
+  console.log('bakingMinsToInt', bakingMinsToInt);
 
   const hoursToMins = bakingHoursToInt * 60;
   const totalBakingTimeInput = hoursToMins + bakingMinsToInt;
-  console.log('bt input', totalBakingTimeInput);
 
   let lowerRangeBakingTime = totalBakingTimeInput * 0.7;
   let upperRangeBakingTime = totalBakingTimeInput * 0.8;
-
-  console.log('lrbt', lowerRangeBakingTime);
 
   if (altitude >= 3500) {
     dispatch({ type: CALCULATE_MIN_TIME, payload: lowerRangeBakingTime });
@@ -111,11 +110,15 @@ export const calculateBakingPowder = () => (dispatch, getState) => {
 export const ovenTempForDisplay = () => (dispatch, getState) => {
   const state = getState();
 
+  const { ovenTempSet } = state.calculationForm;
+
   const { minOvenTempCalc, maxOvenTempCalc } = state.calculationOutput;
 
   const ovenTempForDisplay = `${minOvenTempCalc} - ${maxOvenTempCalc}`;
 
-  dispatch({ type: SET_DISPLAY_TEMP, payload: ovenTempForDisplay });
+  if (ovenTempSet > 0) {
+    dispatch({ type: SET_DISPLAY_TEMP, payload: ovenTempForDisplay });
+  }
 };
 
 export const calculateTemp = inputTemp => dispatch => {
