@@ -21,6 +21,8 @@ import TextInputField from './TextInputField';
 import TextOutputField from './TextOutputField';
 import BakingMinsInput from './BakingMinsInput';
 import BakingHoursInput from './BakingHoursInput';
+import CupsInput from './CupsInput';
+import TablespoonInput from './TablespoonInput';
 
 /**
  * Constants
@@ -38,6 +40,8 @@ const initialState = {
   liquidInput: '',
   liquidOutput: '',
   flourInput: '',
+  flourCupsInput: '',
+  flourTbspInput: '',
   flourOutput: '',
   sugarInput: '',
   sugarOutput: '',
@@ -67,6 +71,8 @@ const CalculatorForm = () => {
       liquidInput,
       liquidOutput,
       flourInput,
+      flourCupsInput,
+      flourTbspInput,
       flourOutput,
       sugarInput,
       sugarOutput,
@@ -196,8 +202,28 @@ const CalculatorForm = () => {
               />
             </div>
 
-            {/* Liquids */}
             <div className="four fields">
+              {/* TODO: Flour field*/}
+              {/* Flour */}
+              {/* <TextInputField
+                name={'flourInput'}
+                value={flourInput}
+                handleOnChange={onChange}
+                label={`Flour`}
+              /> */}
+              <CupsInput label={'Flour (C)'} name="flourCupsInput" value={flourCupsInput} />
+              <TablespoonInput label={'Flour (T)'} name="flourTbspInput" value={flourTbspInput} />
+
+              <TextOutputField
+                name={'flourOutput'}
+                type="number"
+                value={flourOutput}
+                handleOnChange={onChange}
+                label={`Adjusted Flour`}
+                min={0}
+              />
+
+              {/* Liquids */}
               <TextInputField
                 name={'liquidInput'}
                 value={liquidInput}
@@ -210,23 +236,6 @@ const CalculatorForm = () => {
                 value={liquidOutput}
                 handleOnChange={onChange}
                 label={`Adjusted Liquids`}
-                min={0}
-              />
-
-              {/* Flour */}
-
-              <TextInputField
-                name={'flourInput'}
-                value={flourInput}
-                handleOnChange={onChange}
-                label={`Flour`}
-              />
-              <TextOutputField
-                name={'flourOutput'}
-                type="number"
-                value={flourOutput}
-                handleOnChange={onChange}
-                label={`Adjusted Flour`}
                 min={0}
               />
             </div>
