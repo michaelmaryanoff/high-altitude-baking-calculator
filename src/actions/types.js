@@ -6,6 +6,8 @@ export const SET_BAKING_TIME = 'SET_BAKING_TIME';
 export const SET_LIQUIDS = 'SET_LIQUIDS';
 export const SET_FLOUR = 'SET_FLOUR';
 export const SET_SUGAR = 'SET_SUGAR';
+export const SET_BAKING_MINS = 'SET_BAKING_MINS';
+export const SET_BAKING_HOURS = 'SET_BAKING_MINS';
 export const SET_BAKING_POWDER = 'SET_BAKING_POWDER';
 export const SET_YEAST = 'SET_YEAST';
 

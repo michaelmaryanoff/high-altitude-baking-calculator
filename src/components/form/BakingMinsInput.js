@@ -18,7 +18,7 @@ const BakingMinsInput = props => {
       <label>Time (m)</label>
       <input
         type="text"
-        name="bakingMinsOutput"
+        name="bakingMinsInput"
         onChange={handleUserInput}
         value={props.value}
         label="Time (mins)"

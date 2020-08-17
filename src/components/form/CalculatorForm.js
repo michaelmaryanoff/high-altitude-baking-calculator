@@ -141,144 +141,143 @@ const CalculatorForm = () => {
       <div className="ui two column centered grid">
         <div className="ui segment">
           <form className="ui large form error">
-            <div className="column">
-              {/* Units */}
-
-              <div className="two fields">
-                <DropdownMenu
-                  labelText="Units"
-                  name={'unitInput'}
-                  value={unitInput}
-                  optionDataSource={unitDataSource}
-                  onChange={onChange}
-                />
-                {/* Altitude */}
-                <TextInputField
-                  name={'altitudeInput'}
-                  type="number"
-                  value={altitudeInput}
-                  handleOnChange={onChange}
-                  label={`Altitude ${altitudeUnitLabel}`}
-                />
-              </div>
-
-              {/* Oven temp */}
-              <div className="five fields">
-                <TextInputField
-                  name={'ovenTempInput'}
-                  value={ovenTempInput}
-                  handleOnChange={onChange}
-                  label={`Oven temp ${ovenTempUnitLabel}`}
-                  width={'four wide'}
-                />
-                <TextOutputField
-                  name={'ovenTempOutput'}
-                  type="text"
-                  value={ovenTempOutput}
-                  handleOnChange={onChange}
-                  label={`Temp adjusted `}
-                  min={0}
-                  width={'four wide'}
-                />
-                <BakingMinsInput value={bakingMinsInput} handleOnChange={onChange} />
-                <BakingHoursInput value={bakingHoursInput} handleOnChange={onChange} />
-
-                <TextOutputField
-                  name={'bakingTimeOutput'}
-                  type="number"
-                  value={bakingTimeOutput}
-                  handleOnChange={onChange}
-                  label="Time adjusted"
-                  min={0}
-                  width={'four wide'}
-                />
-              </div>
-
-              {/* Liquids */}
-              <div className="four fields">
-                <TextInputField
-                  name={'liquidInput'}
-                  value={liquidInput}
-                  handleOnChange={onChange}
-                  label={`Liquids`}
-                />
-                <TextOutputField
-                  name={'liquidOutput'}
-                  type="number"
-                  value={liquidOutput}
-                  handleOnChange={onChange}
-                  label={`Adjusted Liquids`}
-                  min={0}
-                />
-
-                {/* Flour */}
-
-                <TextInputField
-                  name={'flourInput'}
-                  value={flourInput}
-                  handleOnChange={onChange}
-                  label={`Flour`}
-                />
-                <TextOutputField
-                  name={'flourOutput'}
-                  type="number"
-                  value={flourOutput}
-                  handleOnChange={onChange}
-                  label={`Adjusted Flour`}
-                  min={0}
-                />
-              </div>
-              {/* Sugar */}
-              <div className="four fields">
-                <TextInputField
-                  name={'sugarInput'}
-                  value={sugarInput}
-                  handleOnChange={onChange}
-                  label={`Sugar`}
-                />
-                <TextOutputField
-                  name={'sugarOutput'}
-                  type="number"
-                  value={sugarOutput}
-                  handleOnChange={onChange}
-                  label={`Adjusted Sugar`}
-                  min={0}
-                />
-
-                {/* {Yeast} */}
-                <TextInputField
-                  name={'yeastInput'}
-                  value={yeastInput}
-                  handleOnChange={onChange}
-                  label={`Yeast`}
-                />
-                <TextOutputField
-                  name={'yeastOutput'}
-                  type="number"
-                  value={yeastOutput}
-                  handleOnChange={onChange}
-                  label={`Adjusted Yeast`}
-                  min={0}
-                />
-              </div>
-              {/* Baking powder */}
-              <div className="two fields">
-                <TextInputField
-                  name={'bakingPowderInput'}
-                  value={bakingPowderInput}
-                  handleOnChange={onChange}
-                  label={`Baking Powder (tsp)`}
-                />
-                <TextOutputField
-                  name={'bakingPowderOutput'}
-                  type="number"
-                  value={bakingPowderOutput}
-                  handleOnChange={onChange}
-                  label={`Adjusted Baking Powder (tsp )`}
-                  min={0}
-                />
-              </div>
+            {/* Units */}
+            <div className="two fields">
+              <DropdownMenu
+                labelText="Units"
+                name={'unitInput'}
+                value={unitInput}
+                optionDataSource={unitDataSource}
+                onChange={onChange}
+              />
+              {/* Altitude */}
+              <TextInputField
+                name={'altitudeInput'}
+                type="number"
+                value={altitudeInput}
+                handleOnChange={onChange}
+                label={`Altitude ${altitudeUnitLabel}`}
+              />
             </div>
+
+            {/* Oven temp */}
+            <div className="five fields">
+              <TextInputField
+                name={'ovenTempInput'}
+                value={ovenTempInput}
+                handleOnChange={onChange}
+                label={`Oven temp ${ovenTempUnitLabel}`}
+                width={'four wide'}
+              />
+              <TextOutputField
+                name={'ovenTempOutput'}
+                type="text"
+                value={ovenTempOutput}
+                handleOnChange={onChange}
+                label={`Temp adjusted `}
+                min={0}
+                width={'four wide'}
+              />
+              {/* Baking time */}
+              <BakingMinsInput value={bakingMinsInput} handleOnChange={onChange} />
+              <BakingHoursInput value={bakingHoursInput} handleOnChange={onChange} />
+
+              <TextOutputField
+                name={'bakingTimeOutput'}
+                type="number"
+                value={bakingTimeOutput}
+                handleOnChange={onChange}
+                label="Time adjusted"
+                min={0}
+                width={'four wide'}
+              />
+            </div>
+
+            {/* Liquids */}
+            <div className="four fields">
+              <TextInputField
+                name={'liquidInput'}
+                value={liquidInput}
+                handleOnChange={onChange}
+                label={`Liquids`}
+              />
+              <TextOutputField
+                name={'liquidOutput'}
+                type="number"
+                value={liquidOutput}
+                handleOnChange={onChange}
+                label={`Adjusted Liquids`}
+                min={0}
+              />
+
+              {/* Flour */}
+
+              <TextInputField
+                name={'flourInput'}
+                value={flourInput}
+                handleOnChange={onChange}
+                label={`Flour`}
+              />
+              <TextOutputField
+                name={'flourOutput'}
+                type="number"
+                value={flourOutput}
+                handleOnChange={onChange}
+                label={`Adjusted Flour`}
+                min={0}
+              />
+            </div>
+            {/* Sugar */}
+            <div className="four fields">
+              <TextInputField
+                name={'sugarInput'}
+                value={sugarInput}
+                handleOnChange={onChange}
+                label={`Sugar`}
+              />
+              <TextOutputField
+                name={'sugarOutput'}
+                type="number"
+                value={sugarOutput}
+                handleOnChange={onChange}
+                label={`Adjusted Sugar`}
+                min={0}
+              />
+
+              {/* {Yeast} */}
+              <TextInputField
+                name={'yeastInput'}
+                value={yeastInput}
+                handleOnChange={onChange}
+                label={`Yeast`}
+              />
+              <TextOutputField
+                name={'yeastOutput'}
+                type="number"
+                value={yeastOutput}
+                handleOnChange={onChange}
+                label={`Adjusted Yeast`}
+                min={0}
+              />
+            </div>
+            {/* Baking powder */}
+            <div className="two fields">
+              <TextInputField
+                name={'bakingPowderInput'}
+                value={bakingPowderInput}
+                handleOnChange={onChange}
+                label={`Baking Powder (tsp)`}
+              />
+              <TextOutputField
+                name={'bakingPowderOutput'}
+                type="number"
+                value={bakingPowderOutput}
+                handleOnChange={onChange}
+                label={`Adjusted Baking Powder (tsp )`}
+                min={0}
+              />
+            </div>
+
             <p />
             <button className="ui red button" label="Clear" onClick={handleClearPressed}>
               Clear

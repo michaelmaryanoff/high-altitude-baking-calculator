@@ -9,6 +9,8 @@ import {
   SET_BAKING_POWDER,
   SET_YEAST,
   SET_BAKING_TIME,
+  SET_BAKING_MINS,
+  SET_BAKING_HOURS,
   CALCULATE_MIN_OVEN_TEMP,
   CALCULATE_MAX_OVEN_TEMP,
   CALCULATE_BAKING_POWDER,
@@ -122,7 +124,9 @@ export const handleInput = (inputId, inputValue) => dispatch => {
     flourInput,
     sugarInput,
     bakingPowderInput,
-    yeastInput
+    yeastInput,
+    bakingMinsInput,
+    bakingHoursInput
   };
 
   dispatch(functionNames[inputId](inputValue));
@@ -162,6 +166,14 @@ export const bakingPowderInput = bakingPowderAmount => {
 
 export const yeastInput = yeastAmount => {
   return { type: SET_YEAST, payload: yeastAmount };
+};
+
+export const bakingMinsInput = bakingMins => {
+  return { type: SET_BAKING_MINS, payload: bakingMins };
+};
+
+export const bakingHoursInput = bakingHours => {
+  return { type: SET_BAKING_HOURS, payload: bakingHours };
 };
 
 /**
