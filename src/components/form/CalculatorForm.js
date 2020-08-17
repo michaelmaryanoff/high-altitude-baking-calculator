@@ -159,7 +159,6 @@ const CalculatorForm = () => {
                   value={altitudeInput}
                   handleOnChange={onChange}
                   label={`Altitude ${altitudeUnitLabel}`}
-                  min={0}
                 />
               </div>
 
@@ -167,11 +166,9 @@ const CalculatorForm = () => {
               <div className="five fields">
                 <TextInputField
                   name={'ovenTempInput'}
-                  type="number"
                   value={ovenTempInput}
                   handleOnChange={onChange}
                   label={`Oven temp ${ovenTempUnitLabel}`}
-                  min={0}
                   width={'four wide'}
                 />
                 <TextOutputField
@@ -201,11 +198,9 @@ const CalculatorForm = () => {
               <div className="four fields">
                 <TextInputField
                   name={'liquidInput'}
-                  type="number"
                   value={liquidInput}
                   handleOnChange={onChange}
                   label={`Liquids`}
-                  min={0}
                 />
                 <TextOutputField
                   name={'liquidOutput'}
@@ -220,11 +215,9 @@ const CalculatorForm = () => {
 
                 <TextInputField
                   name={'flourInput'}
-                  type="number"
                   value={flourInput}
                   handleOnChange={onChange}
                   label={`Flour`}
-                  min={0}
                 />
                 <TextOutputField
                   name={'flourOutput'}
@@ -239,11 +232,9 @@ const CalculatorForm = () => {
               <div className="four fields">
                 <TextInputField
                   name={'sugarInput'}
-                  type="number"
                   value={sugarInput}
                   handleOnChange={onChange}
                   label={`Sugar`}
-                  min={0}
                 />
                 <TextOutputField
                   name={'sugarOutput'}
@@ -257,11 +248,9 @@ const CalculatorForm = () => {
                 {/* {Yeast} */}
                 <TextInputField
                   name={'yeastInput'}
-                  type="number"
                   value={yeastInput}
                   handleOnChange={onChange}
                   label={`Yeast`}
-                  min={0}
                 />
                 <TextOutputField
                   name={'yeastOutput'}
@@ -276,11 +265,9 @@ const CalculatorForm = () => {
               <div className="two fields">
                 <TextInputField
                   name={'bakingPowderInput'}
-                  type="number"
                   value={bakingPowderInput}
                   handleOnChange={onChange}
                   label={`Baking Powder (tsp)`}
-                  min={0}
                 />
                 <TextOutputField
                   name={'bakingPowderOutput'}

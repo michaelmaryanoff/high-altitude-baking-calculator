@@ -17,13 +17,13 @@ const TextInputField = props => {
     <div className={`${props.width} field`}>
       <label>{props.label}</label>
       <input
-        type={props.type}
+        type="number"
         name={props.name}
         placeholder={props.placeholder}
         onChange={handleUserInput}
         value={props.value}
         label={props.value}
-        min={props.min}
+        min={0}
       />
 
       {/* Optional error */}
