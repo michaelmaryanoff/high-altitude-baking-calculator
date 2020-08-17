@@ -19,6 +19,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import DropdownMenu from './DropdownMenu';
 import TextInputField from './TextInputField';
 import TextOutputField from './TextOutputField';
+import BakingMinsInput from './BakingMinsInput';
+import BakingHoursInput from './BakingHoursInput';
 
 /**
  * Constants
@@ -30,6 +32,8 @@ const initialState = {
   ovenTempInput: '',
   ovenTempOutput: '',
   bakingTimeInput: '',
+  bakingMinsInput: '',
+  bakingHoursInput: '',
   bakingTimeOutput: '',
   liquidInput: '',
   liquidOutput: '',
@@ -57,7 +61,9 @@ const CalculatorForm = () => {
       altitudeInput,
       ovenTempInput,
       ovenTempOutput,
-      bakingTimeInput,
+      // bakingTimeInput,
+      bakingHoursInput,
+      bakingMinsInput,
       bakingTimeOutput,
       liquidInput,
       liquidOutput,
@@ -137,6 +143,7 @@ const CalculatorForm = () => {
           <form className="ui large form error">
             <div className="column">
               {/* Units */}
+
               <div className="two fields">
                 <DropdownMenu
                   labelText="Units"
@@ -155,8 +162,9 @@ const CalculatorForm = () => {
                   min={0}
                 />
               </div>
+
               {/* Oven temp */}
-              <div className="four fields">
+              <div className="five fields">
                 <TextInputField
                   name={'ovenTempInput'}
                   type="number"
@@ -164,33 +172,31 @@ const CalculatorForm = () => {
                   handleOnChange={onChange}
                   label={`Oven temp ${ovenTempUnitLabel}`}
                   min={0}
+                  width={'four wide'}
                 />
                 <TextOutputField
                   name={'ovenTempOutput'}
                   type="text"
                   value={ovenTempOutput}
                   handleOnChange={onChange}
-                  label={`Adjusted Oven temp ${ovenTempUnitLabel} `}
+                  label={`Temp adjusted `}
                   min={0}
+                  width={'four wide'}
                 />
-                {/* Baking time */}
-                <TextInputField
-                  name={'bakingTimeInput'}
-                  type="number"
-                  value={bakingTimeInput}
-                  handleOnChange={onChange}
-                  label="Baking Time"
-                  min={0}
-                />
+                <BakingMinsInput value={bakingMinsInput} handleOnChange={onChange} />
+                <BakingHoursInput value={bakingHoursInput} handleOnChange={onChange} />
+
                 <TextOutputField
                   name={'bakingTimeOutput'}
                   type="number"
                   value={bakingTimeOutput}
                   handleOnChange={onChange}
-                  label="Adjusted Baking Time"
+                  label="Time adjusted"
                   min={0}
+                  width={'four wide'}
                 />
               </div>
+
               {/* Liquids */}
               <div className="four fields">
                 <TextInputField
