@@ -1,103 +1,139 @@
-// React
-import React, { useState } from 'react';
+/**
+ * React imports
+ */
 
-// Constants
-import {
-  unitField,
-  altitudeField,
-  ovenTempField,
-  ovenTempFieldOutput,
-  liquidInputField,
-  liquidOutputField,
-  flourInputField,
-  flourOutputField,
-  sugarInputField,
-  sugarOutputField,
-  bakingPowderInputField,
-  bakingPowderOutputField,
-  yeastInputField,
-  yeastOutputField
-} from '../form/inputTypes';
+// eslint-disable-next-line
+import React, { useState, useEffect, useCallback } from 'react';
 
-// Redux
-import { clearForm } from '../../actions';
+import { defaultUnit } from '../../constants';
+
+/**
+ * Redux imports
+ */
+import { clearForm, calculateOutputs } from '../../actions';
 import { useDispatch, useSelector } from 'react-redux';
 
-// Components
+/**
+ * Component imports
+ */
 import DropdownMenu from './DropdownMenu';
 import TextInputField from './TextInputField';
+import TextOutputField from './TextOutputField';
+import BakingMinsInput from './BakingMinsInput';
+import BakingHoursInput from './BakingHoursInput';
+
+/**
+ * Constants
+ */
+
+const initialState = {
+  unitInput: defaultUnit,
+  altitudeInput: '',
+  ovenTempInput: '',
+  ovenTempOutput: '',
+  bakingTimeInput: '',
+  bakingMinsInput: '',
+  bakingHoursInput: '',
+  bakingTimeOutput: '',
+  liquidInput: '',
+  liquidOutput: '',
+  flourInput: '',
+  flourOutput: '',
+  sugarInput: '',
+  sugarOutput: '',
+  bakingPowderInput: '',
+  bakingPowderOutput: '',
+  yeastInput: '',
+  yeastOutput: ''
+};
+
+const unitDataSource = [
+  { label: 'Metric', value: 'metric' },
+  { label: 'Customary', value: 'customary' }
+];
 
 const CalculatorForm = () => {
-  // Component state for controlling fields
-  const [unitFieldData, setUnitFieldData] = useState('metric');
-
-  const [altitudeFieldData, setAltitudeFieldData] = useState('');
-
-  const [ovenTempInputFieldData, setOvenTempInputFieldData] = useState('');
-  const [ovenTempOutputFieldData, setOvenTempOutputFieldData] = useState('');
-
-  const [liquidInputFieldData, setliquidInputFieldData] = useState('');
-  const [liquidOutputFieldData, setliquidOutputFieldData] = useState('');
-
-  const [flourInputFieldData, setFlourInputFieldData] = useState('');
-  const [flourOutputFieldData, setFlourOutputFieldData] = useState('');
-
-  const [sugarInputFieldData, setSugarInputFieldData] = useState('');
-  const [sugarOutputFieldData, setSugarOutputFieldData] = useState('');
-
-  const [bakingPowderInputFieldData, setBakingPowderInputFieldData] = useState('');
-  const [bakingPowderOutputFieldData, setBakingPowderOutputFieldData] = useState('');
-
-  const [yeastInputFieldData, setYeastInputFieldData] = useState('');
-  const [yeastOutputFieldData, setYeastOutputFieldData] = useState('');
-
-  // Defualt state
-  const defaults = { unitFieldDefault: 'metric', emptyString: '' };
-
-  // Redux
   const dispatch = useDispatch();
 
-  // Used for populating unit dropdown
-  const unitDataSource = [
-    { label: 'Metric', value: 'metric' },
-    { label: 'Customary', value: 'customary' }
-  ];
+  const [
+    {
+      unitInput,
+      altitudeInput,
+      ovenTempInput,
+      ovenTempOutput,
+      // bakingTimeInput,
+      bakingHoursInput,
+      bakingMinsInput,
+      bakingTimeOutput,
+      liquidInput,
+      liquidOutput,
+      flourInput,
+      flourOutput,
+      sugarInput,
+      sugarOutput,
+      bakingPowderInput,
+      bakingPowderOutput,
+      yeastInput,
+      yeastOutput
+    },
+    setState
+  ] = useState(initialState);
 
-  // Setting altitude label
+  /**
+   * Setting the altude label
+   */
   const unit = useSelector(state => state.calculationForm.unit);
   const altitudeUnitLabel = unit === 'metric' ? '(m)' : '(ft)';
   const ovenTempUnitLabel = unit === 'metric' ? '(C)' : '(F)';
 
+  const { displayTemp, bakingPowderCalc, yeastCalc } = useSelector(
+    state => state.calculationOutput
+  );
+  useEffect(() => {
+    setState(prevState => {
+      return {
+        ...prevState,
+        ovenTempOutput: displayTemp || '',
+        bakingPowderOutput: bakingPowderCalc || '',
+        yeastOutput: yeastCalc || ''
+      };
+    });
+  }, [displayTemp, bakingPowderCalc, yeastCalc]);
+
+  const clearState = () => {
+    setState({ ...initialState });
+  };
+
   const handleClearPressed = event => {
     event.preventDefault();
 
-    // Set defaults in state
-    resetFieldData();
+    // Set defaults in component state
+    clearState();
 
-    // Set defaults in Redux
+    // Set defaults in Redux state
     dispatch(clearForm());
   };
 
+  /**
+   * Calculating outputs
+   */
   const handleCalculatePressed = event => {
     event.preventDefault();
+
+    // dispatch(calculateTemp());
+    dispatch(calculateOutputs());
   };
 
-  const resetFieldData = () => {
-    const { unitFieldDefault, emptyString } = defaults;
-    setUnitFieldData(unitFieldDefault);
-    setAltitudeFieldData(emptyString);
-    setOvenTempInputFieldData(emptyString);
-    setOvenTempOutputFieldData(emptyString);
-    setliquidInputFieldData(emptyString);
-    setliquidOutputFieldData(emptyString);
-    setFlourInputFieldData(emptyString);
-    setFlourOutputFieldData(emptyString);
-    setSugarInputFieldData(emptyString);
-    setSugarOutputFieldData(emptyString);
-    setBakingPowderInputFieldData(emptyString);
-    setBakingPowderOutputFieldData(emptyString);
-    setYeastInputFieldData(emptyString);
-    setYeastOutputFieldData(emptyString);
+  /**
+   * Handling input changes.
+   */
+
+  const onChange = event => {
+    const { name, value } = event.target;
+
+    setState(prevState => {
+      return { ...prevState, [name]: value };
+    });
   };
 
   return (
@@ -107,137 +143,138 @@ const CalculatorForm = () => {
           <form className="ui large form error">
             <div className="column">
               {/* Units */}
-              <div className="one field">
+
+              <div className="two fields">
                 <DropdownMenu
                   labelText="Units"
-                  id={unitField}
-                  value={unitFieldData}
+                  name={'unitInput'}
+                  value={unitInput}
                   optionDataSource={unitDataSource}
-                  onChange={(id, value) => setUnitFieldData(value)}
+                  onChange={onChange}
                 />
-              </div>
-              {/* Altitude */}
-              <div className="one field">
+                {/* Altitude */}
                 <TextInputField
-                  id={altitudeField}
+                  name={'altitudeInput'}
                   type="number"
-                  value={altitudeFieldData}
-                  handleOnChange={event => setAltitudeFieldData(event)}
+                  value={altitudeInput}
+                  handleOnChange={onChange}
                   label={`Altitude ${altitudeUnitLabel}`}
-                  min={0}
                 />
               </div>
+
               {/* Oven temp */}
-              <div className="two fields">
+              <div className="five fields">
                 <TextInputField
-                  id={ovenTempField}
-                  type="number"
-                  value={ovenTempInputFieldData}
-                  handleOnChange={event => setOvenTempInputFieldData(event)}
+                  name={'ovenTempInput'}
+                  value={ovenTempInput}
+                  handleOnChange={onChange}
                   label={`Oven temp ${ovenTempUnitLabel}`}
-                  min={0}
+                  width={'four wide'}
                 />
-                <TextInputField
-                  id={ovenTempFieldOutput}
-                  type="number"
-                  value={ovenTempOutputFieldData}
-                  handleOnChange={event => setOvenTempOutputFieldData(event)}
-                  label={`Adjusted Oven temp ${ovenTempUnitLabel} `}
+                <TextOutputField
+                  name={'ovenTempOutput'}
+                  type="text"
+                  value={ovenTempOutput}
+                  handleOnChange={onChange}
+                  label={`Temp adjusted `}
                   min={0}
+                  width={'four wide'}
+                />
+                <BakingMinsInput value={bakingMinsInput} handleOnChange={onChange} />
+                <BakingHoursInput value={bakingHoursInput} handleOnChange={onChange} />
+
+                <TextOutputField
+                  name={'bakingTimeOutput'}
+                  type="number"
+                  value={bakingTimeOutput}
+                  handleOnChange={onChange}
+                  label="Time adjusted"
+                  min={0}
+                  width={'four wide'}
                 />
               </div>
+
               {/* Liquids */}
-              <div className="two fields">
+              <div className="four fields">
                 <TextInputField
-                  id={liquidInputField}
-                  type="number"
-                  value={liquidInputFieldData}
-                  handleOnChange={event => setliquidInputFieldData(event)}
+                  name={'liquidInput'}
+                  value={liquidInput}
+                  handleOnChange={onChange}
                   label={`Liquids`}
-                  min={0}
                 />
-                <TextInputField
-                  id={liquidOutputField}
+                <TextOutputField
+                  name={'liquidOutput'}
                   type="number"
-                  value={liquidOutputFieldData}
-                  handleOnChange={event => setliquidOutputFieldData(event)}
+                  value={liquidOutput}
+                  handleOnChange={onChange}
                   label={`Adjusted Liquids`}
                   min={0}
                 />
-              </div>
-              {/* Flour */}
-              <div className="two fields">
+
+                {/* Flour */}
+
                 <TextInputField
-                  id={flourInputField}
-                  type="number"
-                  value={flourInputFieldData}
-                  handleOnChange={event => setFlourInputFieldData(event)}
+                  name={'flourInput'}
+                  value={flourInput}
+                  handleOnChange={onChange}
                   label={`Flour`}
-                  min={0}
                 />
-                <TextInputField
-                  id={flourOutputField}
+                <TextOutputField
+                  name={'flourOutput'}
                   type="number"
-                  value={flourOutputFieldData}
-                  handleOnChange={event => setFlourOutputFieldData(event)}
+                  value={flourOutput}
+                  handleOnChange={onChange}
                   label={`Adjusted Flour`}
                   min={0}
                 />
               </div>
               {/* Sugar */}
-              <div className="two fields">
+              <div className="four fields">
                 <TextInputField
-                  id={sugarInputField}
-                  type="number"
-                  value={sugarInputFieldData}
-                  handleOnChange={event => setSugarInputFieldData(event)}
+                  name={'sugarInput'}
+                  value={sugarInput}
+                  handleOnChange={onChange}
                   label={`Sugar`}
+                />
+                <TextOutputField
+                  name={'sugarOutput'}
+                  type="number"
+                  value={sugarOutput}
+                  handleOnChange={onChange}
+                  label={`Adjusted Sugar`}
                   min={0}
                 />
+
+                {/* {Yeast} */}
                 <TextInputField
-                  id={sugarOutputField}
+                  name={'yeastInput'}
+                  value={yeastInput}
+                  handleOnChange={onChange}
+                  label={`Yeast`}
+                />
+                <TextOutputField
+                  name={'yeastOutput'}
                   type="number"
-                  value={sugarOutputFieldData}
-                  handleOnChange={event => setSugarOutputFieldData(event)}
-                  label={`Adjusted Sugar`}
+                  value={yeastOutput}
+                  handleOnChange={onChange}
+                  label={`Adjusted Yeast`}
                   min={0}
                 />
               </div>
               {/* Baking powder */}
               <div className="two fields">
                 <TextInputField
-                  id={bakingPowderInputField}
-                  type="number"
-                  value={bakingPowderInputFieldData}
-                  handleOnChange={event => setBakingPowderInputFieldData(event)}
-                  label={`Baking Powder`}
-                  min={0}
+                  name={'bakingPowderInput'}
+                  value={bakingPowderInput}
+                  handleOnChange={onChange}
+                  label={`Baking Powder (tsp)`}
                 />
-                <TextInputField
-                  id={bakingPowderOutputField}
+                <TextOutputField
+                  name={'bakingPowderOutput'}
                   type="number"
-                  value={bakingPowderOutputFieldData}
-                  handleOnChange={event => setBakingPowderOutputFieldData(event)}
-                  label={`Adjusted Baking Powder`}
-                  min={0}
-                />
-              </div>
-              {/* Yeast */}
-              <div className="two fields">
-                <TextInputField
-                  id={yeastInputField}
-                  type="number"
-                  value={yeastInputFieldData}
-                  handleOnChange={event => setYeastInputFieldData(event)}
-                  label={`Yeast`}
-                  min={0}
-                />
-                <TextInputField
-                  id={yeastOutputField}
-                  type="number"
-                  value={yeastOutputFieldData}
-                  handleOnChange={event => setYeastOutputFieldData(event)}
-                  label={`Adjusted Yeast`}
+                  value={bakingPowderOutput}
+                  handleOnChange={onChange}
+                  label={`Adjusted Baking Powder (tsp )`}
                   min={0}
                 />
               </div>

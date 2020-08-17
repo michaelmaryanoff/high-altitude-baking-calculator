@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { handleInput } from '../../actions';
 
-const TextInputField = props => {
+const BakingHoursInput = props => {
   const dispatch = useDispatch();
 
   const handleUserInput = event => {
@@ -14,15 +14,14 @@ const TextInputField = props => {
   };
 
   return (
-    <div className={`${props.width} field`}>
-      <label>{props.label}</label>
+    <div className="two wide field">
+      <label>Time (h)</label>
       <input
-        type="number"
-        name={props.name}
-        placeholder={props.placeholder}
+        type="text"
+        name="bakingHoursInput"
         onChange={handleUserInput}
         value={props.value}
-        label={props.value}
+        label="Time (hours)"
         min={0}
       />
 
@@ -32,4 +31,4 @@ const TextInputField = props => {
   );
 };
 
-export default TextInputField;
+export default BakingHoursInput;

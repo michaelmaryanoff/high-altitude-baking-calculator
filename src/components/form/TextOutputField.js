@@ -1,15 +1,7 @@
 import React from 'react';
 
-import { useDispatch } from 'react-redux';
-
-import { handleInput } from '../../actions';
-
-const TextInputField = props => {
-  const dispatch = useDispatch();
-
+const TextOutputField = props => {
   const handleUserInput = event => {
-    const { name, value } = event.target;
-    dispatch(handleInput(name, value));
     props.handleOnChange(event);
   };
 
@@ -17,13 +9,13 @@ const TextInputField = props => {
     <div className={`${props.width} field`}>
       <label>{props.label}</label>
       <input
-        type="number"
+        type={props.type}
         name={props.name}
         placeholder={props.placeholder}
         onChange={handleUserInput}
         value={props.value}
         label={props.value}
-        min={0}
+        min={props.min}
       />
 
       {/* Optional error */}
@@ -32,4 +24,4 @@ const TextInputField = props => {
   );
 };
 
-export default TextInputField;
+export default TextOutputField;

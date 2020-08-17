@@ -2,8 +2,11 @@ export const unitField = 'unitField';
 
 export const altitudeField = 'altitudeField';
 
-export const ovenTempField = 'ovenTempField';
-export const ovenTempFieldOutput = 'ovenTempFieldOutput';
+export const ovenTempInputField = 'ovenTempInputField';
+export const ovenTempOutputField = 'ovenTempOutputField';
+
+export const bakingTimeInputField = 'bakingTimeInputField';
+export const bakingTimeOutputField = 'bakingTimeOutputField';
 
 export const liquidInputField = 'liquidInputField';
 export const liquidOutputField = 'liquidOutputField';
