@@ -5,6 +5,8 @@ import {
   SET_OVEN_TEMP,
   SET_LIQUIDS,
   SET_FLOUR,
+  SET_FLOUR_CUPS,
+  SET_FLOUR_TBSP,
   SET_SUGAR,
   SET_BAKING_POWDER,
   SET_YEAST,
@@ -180,7 +182,9 @@ export const handleInput = (inputId, inputValue) => dispatch => {
     bakingPowderInput,
     yeastInput,
     bakingMinsInput,
-    bakingHoursInput
+    bakingHoursInput,
+    flourCupsInput,
+    flourTbspInput
   };
 
   dispatch(functionNames[inputId](inputValue));
@@ -228,6 +232,14 @@ export const bakingMinsInput = bakingMins => {
 
 export const bakingHoursInput = bakingHours => {
   return { type: SET_BAKING_HOURS, payload: bakingHours };
+};
+
+export const flourTbspInput = flourTbsp => {
+  return { type: SET_FLOUR_TBSP, payload: flourTbsp };
+};
+
+export const flourCupsInput = flourCups => {
+  return { type: SET_FLOUR_CUPS, payload: flourCups };
 };
 
 /**

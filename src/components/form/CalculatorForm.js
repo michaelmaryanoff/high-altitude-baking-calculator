@@ -211,8 +211,18 @@ const CalculatorForm = () => {
                 handleOnChange={onChange}
                 label={`Flour`}
               /> */}
-              <CupsInput label={'Flour (C)'} name="flourCupsInput" value={flourCupsInput} />
-              <TablespoonInput label={'Flour (T)'} name="flourTbspInput" value={flourTbspInput} />
+              <CupsInput
+                label={'Flour (C)'}
+                name="flourCupsInput"
+                value={flourCupsInput}
+                handleOnChange={onChange}
+              />
+              <TablespoonInput
+                label={'Flour (T)'}
+                name="flourTbspInput"
+                value={flourTbspInput}
+                handleOnChange={onChange}
+              />
 
               <TextOutputField
                 name={'flourOutput'}

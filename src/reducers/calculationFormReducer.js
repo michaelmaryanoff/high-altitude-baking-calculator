@@ -10,7 +10,9 @@ import {
   SET_YEAST,
   SET_BAKING_TIME,
   SET_BAKING_MINS,
-  SET_BAKING_HOURS
+  SET_BAKING_HOURS,
+  SET_FLOUR_CUPS,
+  SET_FLOUR_TBSP
 } from '../actions/types';
 
 import { defaultUnit } from '../constants';
@@ -42,6 +44,10 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, liquidsSet: action.payload };
     case SET_FLOUR:
       return { ...state, flourSet: action.payload };
+    case SET_FLOUR_CUPS:
+      return { ...state, flourCupsSet: action.payload };
+    case SET_FLOUR_TBSP:
+      return { ...state, flourTbspSet: action.payload };
     case SET_SUGAR:
       return { ...state, sugarSet: action.payload };
     case SET_BAKING_POWDER:
