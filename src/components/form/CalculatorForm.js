@@ -80,23 +80,12 @@ const CalculatorForm = () => {
   const altitudeUnitLabel = unit === 'metric' ? '(m)' : '(ft)';
   const ovenTempUnitLabel = unit === 'metric' ? '(C)' : '(F)';
 
-
-
-  const stateOutputs = useSelector(state => {
-    return { ...state.calculationOutput };
-  });
-
-  let updateLabel = output => {
-    return stateOutputs[output];
-  };
-
+  const { displayTemp } = useSelector(state => state.calculationOutput);
   useEffect(() => {
-    console.log('labelToUpdate[testObject]', updateLabel('testObject'));
-  });
-
-  /**
-   * Clearing the form
-   */
+    setState(prevState => {
+      return { ...prevState, ovenTempOutput: displayTemp || '' };
+    });
+  }, [displayTemp]);
 
   const clearState = () => {
     setState({ ...initialState });
@@ -121,10 +110,10 @@ const CalculatorForm = () => {
     dispatch(calculateTemp());
   };
 
-
-  /** 
+  /**
    * Handling input changes.
-   */ 
+   */
+
   const onChange = event => {
     const { name, value } = event.target;
 
