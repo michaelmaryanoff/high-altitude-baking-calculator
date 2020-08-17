@@ -1,19 +1,28 @@
-// React
-// eslint-ignore
+/**
+ * React imports
+ */
+
 // eslint-disable-next-line
 import React, { useState, useEffect, useCallback } from 'react';
 
 import { defaultUnit } from '../../constants';
 
-// Redux
-
+/**
+ * Redux imports
+ */
 import { clearForm, calculateTemp } from '../../actions';
 import { useDispatch, useSelector } from 'react-redux';
 
-// Components
+/**
+ * Component imports
+ */
 import DropdownMenu from './DropdownMenu';
 import TextInputField from './TextInputField';
 import TextOutputField from './TextOutputField';
+
+/**
+ * Constants
+ */
 
 const initialState = {
   unitInput: defaultUnit,
@@ -33,6 +42,11 @@ const initialState = {
   yeastInput: '',
   yeastOutput: ''
 };
+
+const unitDataSource = [
+  { label: 'Metric', value: 'metric' },
+  { label: 'Customary', value: 'customary' }
+];
 
 const CalculatorForm = () => {
   const dispatch = useDispatch();
@@ -59,57 +73,58 @@ const CalculatorForm = () => {
     setState
   ] = useState(initialState);
 
-  const ovenTempLabel = useSelector(state => state.calculationOutput.displayTemp);
-  useEffect(() => {
-    setState(prevState => {
-      return { ...prevState, ovenTempOutput: ovenTempLabel || '' };
-    });
-  }, [ovenTempLabel]);
+  /**
+   * Setting the altude label
+   */
+  const unit = useSelector(state => state.calculationForm.unit);
+  const altitudeUnitLabel = unit === 'metric' ? '(m)' : '(ft)';
+  const ovenTempUnitLabel = unit === 'metric' ? '(C)' : '(F)';
+
+
 
   const stateOutputs = useSelector(state => {
     return { ...state.calculationOutput };
   });
 
-  let labelToUpdate = output => {
+  let updateLabel = output => {
     return stateOutputs[output];
   };
 
   useEffect(() => {
-    console.log('labelToUpdate[testObject]', labelToUpdate('testObject'));
+    console.log('labelToUpdate[testObject]', updateLabel('testObject'));
   });
+
+  /**
+   * Clearing the form
+   */
 
   const clearState = () => {
     setState({ ...initialState });
   };
 
-  // Used for populating unit dropdown
-  const unitDataSource = [
-    { label: 'Metric', value: 'metric' },
-    { label: 'Customary', value: 'customary' }
-  ];
-
-  // Setting altitude label
-  const unit = useSelector(state => state.calculationForm.unit);
-  const altitudeUnitLabel = unit === 'metric' ? '(m)' : '(ft)';
-  const ovenTempUnitLabel = unit === 'metric' ? '(C)' : '(F)';
-
   const handleClearPressed = event => {
     event.preventDefault();
 
-    // Set defaults in state
+    // Set defaults in component state
     clearState();
 
-    // Set defaults in Redux
+    // Set defaults in Redux state
     dispatch(clearForm());
   };
 
-  // Setting the temp outputLabel
+  /**
+   * Calculating outputs
+   */
   const handleCalculatePressed = event => {
     event.preventDefault();
 
     dispatch(calculateTemp());
   };
 
+
+  /** 
+   * Handling input changes.
+   */ 
   const onChange = event => {
     const { name, value } = event.target;
 
