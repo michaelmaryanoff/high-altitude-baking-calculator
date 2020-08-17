@@ -13,6 +13,8 @@ import {
   SET_BAKING_HOURS,
   CALCULATE_MIN_OVEN_TEMP,
   CALCULATE_MAX_OVEN_TEMP,
+  CALCULATE_MIN_TIME,
+  CALCULATE_MAX_TIME,
   CALCULATE_BAKING_POWDER,
   SET_DISPLAY_TEMP,
   CALCULATE_YEAST
@@ -29,6 +31,25 @@ export const calculateOutputs = () => dispatch => {
   dispatch(calculateBakingPowder());
   dispatch(calculateMinTemp());
   dispatch(calculateYeast());
+  dispatch(calculateBakingTime());
+};
+
+export const calculateBakingTime = () => (dispatch, getState) => {
+  const state = getState();
+  const { bakingMinsSet, bakingHoursSet } = state.calculationForm;
+  console.log(bakingMinsSet, bakingHoursSet);
+
+  let bakingMinsToInt = parseInt(bakingMinsSet);
+  let bakingHoursToInt = parseInt(bakingHoursSet);
+
+  const hoursToMins = bakingHoursToInt * 60;
+  const totalBakingTimeInput = hoursToMins + bakingMinsToInt;
+
+  const lowerRangeBakingTime = totalBakingTimeInput * 0.3;
+  const upperRangeBakingTime = totalBakingTimeInput * 0.2;
+
+  dispatch({ type: CALCULATE_MIN_TIME, payload: lowerRangeBakingTime });
+  dispatch({ type: CALCULATE_MAX_TIME, payload: upperRangeBakingTime });
 };
 
 export const calculateYeast = () => (dispatch, getState) => {

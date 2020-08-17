@@ -4,7 +4,9 @@ import {
   CALCULATE_BAKING_POWDER,
   CLEAR_FORM,
   CALCULATE_YEAST,
-  SET_DISPLAY_TEMP
+  SET_DISPLAY_TEMP,
+  CALCULATE_MAX_TIME,
+  CALCULATE_MIN_TIME
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -27,6 +29,10 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, bakingPowderCalc: action.payload };
     case CALCULATE_YEAST:
       return { ...state, yeastCalc: action.payload };
+    case CALCULATE_MIN_TIME:
+      return { ...state, minTimeCalc: action.payload };
+    case CALCULATE_MAX_TIME:
+      return { ...state, maxTimeCalc: action.payload };
     case SET_DISPLAY_TEMP:
       return { ...state, displayTemp: action.payload };
     case CLEAR_FORM:
