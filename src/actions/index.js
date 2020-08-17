@@ -17,7 +17,8 @@ import {
   CALCULATE_MAX_TIME,
   CALCULATE_BAKING_POWDER,
   SET_DISPLAY_TEMP,
-  CALCULATE_YEAST
+  CALCULATE_YEAST,
+  SET_DISPLAY_TIME
 } from './types';
 
 /**
@@ -31,25 +32,54 @@ export const calculateOutputs = () => dispatch => {
   dispatch(calculateBakingPowder());
   dispatch(calculateMinTemp());
   dispatch(calculateYeast());
+  dispatch(createBakingTimeLabel());
+};
+
+export const createBakingTimeLabel = () => (dispatch, getState) => {
   dispatch(calculateBakingTime());
+
+  const state = getState();
+
+  const { minTimeCalc, maxTimeCalc } = state.calculationOutput;
+
+  console.log('min max', minTimeCalc, maxTimeCalc);
+
+  let maxHours = Math.floor(maxTimeCalc / 60);
+  let maxMinutes = Math.floor(maxTimeCalc % 60);
+  let maxTimeForDisplay = `${maxHours} hr ${maxMinutes} mins`;
+
+  let minHours = Math.floor(minTimeCalc / 60);
+  let minMinutes = Math.floor(minTimeCalc % 60);
+  let minTimeForDisplay = `${minHours} hr ${minMinutes} mins`;
+
+  let finalTimeForDisplay = `${minTimeForDisplay} - ${maxTimeForDisplay}`;
+
+  dispatch({ type: SET_DISPLAY_TIME, payload: finalTimeForDisplay });
 };
 
 export const calculateBakingTime = () => (dispatch, getState) => {
   const state = getState();
-  const { bakingMinsSet, bakingHoursSet } = state.calculationForm;
-  console.log(bakingMinsSet, bakingHoursSet);
+  const { bakingMinsSet, bakingHoursSet, altitude } = state.calculationForm;
 
   let bakingMinsToInt = parseInt(bakingMinsSet);
   let bakingHoursToInt = parseInt(bakingHoursSet);
 
   const hoursToMins = bakingHoursToInt * 60;
   const totalBakingTimeInput = hoursToMins + bakingMinsToInt;
+  console.log('bt input', totalBakingTimeInput);
 
-  const lowerRangeBakingTime = totalBakingTimeInput * 0.3;
-  const upperRangeBakingTime = totalBakingTimeInput * 0.2;
+  let lowerRangeBakingTime = totalBakingTimeInput * 0.7;
+  let upperRangeBakingTime = totalBakingTimeInput * 0.8;
 
-  dispatch({ type: CALCULATE_MIN_TIME, payload: lowerRangeBakingTime });
-  dispatch({ type: CALCULATE_MAX_TIME, payload: upperRangeBakingTime });
+  console.log('lrbt', lowerRangeBakingTime);
+
+  if (altitude >= 3500) {
+    dispatch({ type: CALCULATE_MIN_TIME, payload: lowerRangeBakingTime });
+    dispatch({ type: CALCULATE_MAX_TIME, payload: upperRangeBakingTime });
+  } else {
+    dispatch({ type: CALCULATE_MIN_TIME, payload: totalBakingTimeInput });
+    dispatch({ type: CALCULATE_MAX_TIME, payload: totalBakingTimeInput });
+  }
 };
 
 export const calculateYeast = () => (dispatch, getState) => {

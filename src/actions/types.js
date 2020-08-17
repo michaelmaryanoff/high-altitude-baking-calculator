@@ -19,6 +19,7 @@ export const CALCULATE_MIN_TIME = 'CALCULATE_MIN_TIME';
 export const CALCULATE_MAX_TIME = 'CALCULATE_MAX_TIME';
 export const CALCULATE_YEAST = 'CALCULATE_YEAST';
 export const SET_DISPLAY_TEMP = 'SET_DISPLAY_TEMP';
+export const SET_DISPLAY_TIME = 'SET_DISPLAY_TIME';
 
 // Form actions
 export const CLEAR_FORM = 'CLEAR_FORM';

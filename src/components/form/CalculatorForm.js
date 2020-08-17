@@ -61,7 +61,6 @@ const CalculatorForm = () => {
       altitudeInput,
       ovenTempInput,
       ovenTempOutput,
-      // bakingTimeInput,
       bakingHoursInput,
       bakingMinsInput,
       bakingTimeOutput,
@@ -86,7 +85,10 @@ const CalculatorForm = () => {
   const altitudeUnitLabel = unit === 'metric' ? '(m)' : '(ft)';
   const ovenTempUnitLabel = unit === 'metric' ? '(C)' : '(F)';
 
-  const { displayTemp, bakingPowderCalc, yeastCalc } = useSelector(
+  /**
+   * Displaying outputs
+   */
+  const { displayTemp, bakingPowderCalc, yeastCalc, displayTime } = useSelector(
     state => state.calculationOutput
   );
   useEffect(() => {
@@ -95,10 +97,11 @@ const CalculatorForm = () => {
         ...prevState,
         ovenTempOutput: displayTemp || '',
         bakingPowderOutput: bakingPowderCalc || '',
-        yeastOutput: yeastCalc || ''
+        yeastOutput: yeastCalc || '',
+        bakingTimeOutput: displayTime || ''
       };
     });
-  }, [displayTemp, bakingPowderCalc, yeastCalc]);
+  }, [displayTemp, bakingPowderCalc, yeastCalc, displayTime]);
 
   const clearState = () => {
     setState({ ...initialState });
@@ -179,12 +182,12 @@ const CalculatorForm = () => {
                 width={'four wide'}
               />
               {/* Baking time */}
-              <BakingMinsInput value={bakingMinsInput} handleOnChange={onChange} />
               <BakingHoursInput value={bakingHoursInput} handleOnChange={onChange} />
+              <BakingMinsInput value={bakingMinsInput} handleOnChange={onChange} />
 
               <TextOutputField
                 name={'bakingTimeOutput'}
-                type="number"
+                type="text"
                 value={bakingTimeOutput}
                 handleOnChange={onChange}
                 label="Time adjusted"

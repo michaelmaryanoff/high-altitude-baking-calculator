@@ -6,7 +6,8 @@ import {
   CALCULATE_YEAST,
   SET_DISPLAY_TEMP,
   CALCULATE_MAX_TIME,
-  CALCULATE_MIN_TIME
+  CALCULATE_MIN_TIME,
+  SET_DISPLAY_TIME
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -35,6 +36,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, maxTimeCalc: action.payload };
     case SET_DISPLAY_TEMP:
       return { ...state, displayTemp: action.payload };
+    case SET_DISPLAY_TIME:
+      return { ...state, displayTime: action.payload };
     case CLEAR_FORM:
       return { ...state, ...INITIAL_STATE };
     default:
