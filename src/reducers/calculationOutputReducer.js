@@ -4,7 +4,7 @@ import {
   SET_DISPLAY_TEMP
 } from '../actions/types';
 
-const INITIAL_STATE = { results: null };
+const INITIAL_STATE = { results: null, testObject: 75 };
 
 // These are calculate i.e. the high altitude version of our different ingredients, temps, etc.
 export default (state = INITIAL_STATE, action) => {

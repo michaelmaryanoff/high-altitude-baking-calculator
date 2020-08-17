@@ -14,7 +14,18 @@ import {
   SET_DISPLAY_TEMP
 } from './types';
 
-// Output actions
+/**
+ * @summary
+ * This group of functions calculates our outputs to the user
+ */
+
+export const calculateBakingPowder = () => (dispatch, getState) => {
+  const state = getState();
+  const { bakingPowderInput } = state.calculationForm;
+
+  console.log(bakingPowderInput);
+};
+
 export const ovenTempForDisplay = () => (dispatch, getState) => {
   const state = getState();
 
@@ -67,6 +78,11 @@ export const calculateMinTemp = input => (dispatch, getState) => {
   }
 };
 
+/**
+ * @summary
+ * This group of functions handles our inputs and adds them to our redux state.
+ *
+ */
 export const handleInput = (inputId, inputValue) => dispatch => {
   const functionNames = {
     unitInput,
@@ -102,6 +118,7 @@ export const bakingTimeInput = bakingTime => {
 export const liquidsInput = liquidAmount => {
   return { type: SET_LIQUIDS, payload: liquidAmount };
 };
+
 export const flourInput = flourAmount => {
   return { type: SET_FLOUR, payload: flourAmount };
 };
@@ -118,7 +135,10 @@ export const yeastInput = yeastAmount => {
   return { type: SET_YEAST, payload: yeastAmount };
 };
 
-// Form actions
+/**
+ * @summary
+ * These actions are used to deal with non-input form functions
+ */
 export const clearForm = () => {
   return { type: CLEAR_FORM };
 };

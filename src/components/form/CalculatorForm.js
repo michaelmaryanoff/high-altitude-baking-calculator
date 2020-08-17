@@ -59,6 +59,25 @@ const CalculatorForm = () => {
     setState
   ] = useState(initialState);
 
+  const ovenTempLabel = useSelector(state => state.calculationOutput.displayTemp);
+  useEffect(() => {
+    setState(prevState => {
+      return { ...prevState, ovenTempOutput: ovenTempLabel || '' };
+    });
+  }, [ovenTempLabel]);
+
+  const stateOutputs = useSelector(state => {
+    return { ...state.calculationOutput };
+  });
+
+  let labelToUpdate = output => {
+    return stateOutputs[output];
+  };
+
+  useEffect(() => {
+    console.log('labelToUpdate[testObject]', labelToUpdate('testObject'));
+  });
+
   const clearState = () => {
     setState({ ...initialState });
   };
@@ -98,13 +117,6 @@ const CalculatorForm = () => {
       return { ...prevState, [name]: value };
     });
   };
-
-  const ovenTempLabel = useSelector(state => state.calculationOutput.displayTemp);
-  useEffect(() => {
-    setState(prevState => {
-      return { ...prevState, ovenTempOutput: ovenTempLabel || '' };
-    });
-  }, [ovenTempLabel]);
 
   return (
     <div className="ui basic segment">
