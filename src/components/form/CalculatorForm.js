@@ -269,14 +269,14 @@ const CalculatorForm = () => {
                 name={'yeastInput'}
                 value={yeastInput}
                 handleOnChange={onChange}
-                label={`Yeast`}
+                label={`Yeast (tsp)`}
               />
               <TextOutputField
                 name={'yeastOutput'}
                 type="number"
                 value={yeastOutput}
                 handleOnChange={onChange}
-                label={`Adjusted Yeast`}
+                label={`Adjusted Yeast (tsp)`}
                 min={0}
               />
             </div>
