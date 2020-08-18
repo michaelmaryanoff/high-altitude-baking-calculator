@@ -130,7 +130,7 @@ export const calculateBakingPowder = () => (dispatch, getState) => {
   if (altitude < 3500) {
     dispatch({ type: CALCULATE_BAKING_POWDER, payload: bakingPowderSet });
   } else if (altitude >= 3500 && altitude < 5000) {
-    return dispatch({ type: CALCULATE_BAKING_POWDER, payload: bakingPowderSet * 0.8 });
+    return dispatch({ type: CALCULATE_BAKING_POWDER, payload: bakingPowderSet * 0.75 });
   } else if (altitude >= 5000 && altitude < 6500) {
     return dispatch({ type: CALCULATE_BAKING_POWDER, payload: bakingPowderSet * 0.5 });
   } else if (altitude >= 6500) {
