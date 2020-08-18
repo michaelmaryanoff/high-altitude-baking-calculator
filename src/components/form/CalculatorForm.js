@@ -38,7 +38,7 @@ const initialState = {
   bakingHoursInput: '',
   bakingTimeOutput: '',
   liquidsInput: '',
-  liquidOutput: '',
+  liquidsOutput: '',
   flourInput: '',
   flourCupsInput: '',
   flourTbspInput: '',
@@ -69,7 +69,7 @@ const CalculatorForm = () => {
       bakingMinsInput,
       bakingTimeOutput,
       liquidsInput,
-      liquidOutput,
+      liquidsOutput,
       flourCupsInput,
       flourTbspInput,
       flourOutput,
@@ -97,9 +97,14 @@ const CalculatorForm = () => {
    */
 
   // Destructure displays state objects
-  const { displayTemp, bakingPowderCalc, yeastCalc, displayTime, displayFlour } = useSelector(
-    state => state.calculationOutput
-  );
+  const {
+    displayTemp,
+    bakingPowderCalc,
+    yeastCalc,
+    displayTime,
+    displayFlour,
+    displayLiquids
+  } = useSelector(state => state.calculationOutput);
 
   // Populate output fields.
   useEffect(() => {
@@ -110,10 +115,11 @@ const CalculatorForm = () => {
         bakingPowderOutput: bakingPowderCalc || '',
         yeastOutput: yeastCalc || '',
         bakingTimeOutput: displayTime || '',
-        flourOutput: displayFlour || ''
+        flourOutput: displayFlour || '',
+        liquidsOutput: displayLiquids || ''
       };
     });
-  }, [displayTemp, bakingPowderCalc, yeastCalc, displayTime, displayFlour]);
+  }, [displayTemp, bakingPowderCalc, yeastCalc, displayTime, displayFlour, displayLiquids]);
 
   const clearState = () => {
     setState({ ...initialState });
@@ -239,9 +245,9 @@ const CalculatorForm = () => {
                 label={`Liquids`}
               />
               <TextOutputField
-                name={'liquidOutput'}
-                type="number"
-                value={liquidOutput}
+                name={'liquidsOutput'}
+                type="text"
+                value={liquidsOutput}
                 handleOnChange={onChange}
                 label={`Adjusted Liquids`}
                 min={0}

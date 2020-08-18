@@ -8,8 +8,11 @@ import {
   CALCULATE_MAX_TIME,
   CALCULATE_MIN_TIME,
   CALCULATE_FLOUR,
+  CALCULATE_MIN_LIQUIDS,
+  CALCULATE_MAX_LIQUIDS,
   SET_DISPLAY_TIME,
-  SET_DISPLAY_FLOUR
+  SET_DISPLAY_FLOUR,
+  SET_DISPLAY_LIQUIDS
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -21,6 +24,9 @@ const INITIAL_STATE = {
   minTimeCalc: 0,
   maxTimeCalc: 0,
   flourCalc: 0,
+  minLiquidsCalc: 0,
+  maxLiquidsCalc: 0,
+  displayLiquids: '',
   displayTemp: '',
   displayFlour: ''
 };
@@ -42,6 +48,12 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, maxTimeCalc: action.payload };
     case CALCULATE_FLOUR:
       return { ...state, flourCalc: action.payload };
+    case CALCULATE_MIN_LIQUIDS:
+      return { ...state, minLiquidsCalc: action.payload };
+    case CALCULATE_MAX_LIQUIDS:
+      return { ...state, maxLiquidsCalc: action.payload };
+    case SET_DISPLAY_LIQUIDS:
+      return { ...state, displayLiquids: action.payload };
     case SET_DISPLAY_FLOUR:
       return { ...state, displayFlour: action.payload };
     case SET_DISPLAY_TEMP:
