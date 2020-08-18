@@ -70,7 +70,6 @@ const CalculatorForm = () => {
       bakingTimeOutput,
       liquidInput,
       liquidOutput,
-      flourInput,
       flourCupsInput,
       flourTbspInput,
       flourOutput,
@@ -92,11 +91,17 @@ const CalculatorForm = () => {
   const ovenTempUnitLabel = unit === 'metric' ? '(C)' : '(F)';
 
   /**
-   * Displaying outputs
+   * Displaying outputs.
+   * First, we destructure our state in order to use the values to populate our output fields
+   * Next, we take those values and use them to populate our component state's output fields
    */
-  const { displayTemp, bakingPowderCalc, yeastCalc, displayTime } = useSelector(
+
+  // Destructure displays state objects
+  const { displayTemp, bakingPowderCalc, yeastCalc, displayTime, displayFlour } = useSelector(
     state => state.calculationOutput
   );
+
+  // Populate output fields.
   useEffect(() => {
     setState(prevState => {
       return {
@@ -104,10 +109,11 @@ const CalculatorForm = () => {
         ovenTempOutput: displayTemp || '',
         bakingPowderOutput: bakingPowderCalc || '',
         yeastOutput: yeastCalc || '',
-        bakingTimeOutput: displayTime || ''
+        bakingTimeOutput: displayTime || '',
+        flourOutput: displayFlour || ''
       };
     });
-  }, [displayTemp, bakingPowderCalc, yeastCalc, displayTime]);
+  }, [displayTemp, bakingPowderCalc, yeastCalc, displayTime, displayFlour]);
 
   const clearState = () => {
     setState({ ...initialState });
@@ -203,14 +209,6 @@ const CalculatorForm = () => {
             </div>
 
             <div className="four fields">
-              {/* TODO: Flour field*/}
-              {/* Flour */}
-              {/* <TextInputField
-                name={'flourInput'}
-                value={flourInput}
-                handleOnChange={onChange}
-                label={`Flour`}
-              /> */}
               <CupsInput
                 label={'Flour (C)'}
                 name="flourCupsInput"
@@ -226,10 +224,10 @@ const CalculatorForm = () => {
 
               <TextOutputField
                 name={'flourOutput'}
-                type="number"
+                type="text"
                 value={flourOutput}
                 handleOnChange={onChange}
-                label={`Adjusted Flour`}
+                label={`Flour to add`}
                 min={0}
               />
 

@@ -23,7 +23,17 @@ const INITIAL_STATE = {
   unit: defaultUnit,
   altitude: 0,
   ovenTempSet: 0,
-  displayTemp: 0
+  displayTemp: 0,
+  bakingTimeSet: 0,
+  bakingMinsSet: 0,
+  bakingHoursSet: 0,
+  liquidsSet: 0,
+  flourSet: 0,
+  flourCupsSet: 0,
+  flourTbspSet: 0,
+  sugarSet: 0,
+  bakingPowderSet: 0,
+  yeastSet: 0
 };
 
 export default (state = INITIAL_STATE, action) => {
