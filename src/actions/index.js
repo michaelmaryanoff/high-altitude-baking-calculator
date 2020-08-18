@@ -45,27 +45,29 @@ export const calculateFlourAmount = () => (dispatch, getState) => {
 
   const { flourCupsSet, flourTbspSet, altitude } = state.calculationForm;
 
-  // These will eventually be used when we want to print out the total amount of flour
-  const flourCupsIntToTbsp = flourCupsSet ? parseInt(flourCupsSet * 16) : 0;
-  const flourTbspToInt = flourTbspSet ? parseInt(flourTbspSet) : 0;
-  // eslint-disable-next-line
-  let totalFlour = flourCupsIntToTbsp + flourTbspToInt;
+  if (flourCupsSet || flourTbspSet) {
+    // These will eventually be used when we want to print out the total amount of flour
+    const flourCupsIntToTbsp = flourCupsSet ? parseInt(flourCupsSet * 16) : 0;
+    const flourTbspToInt = flourTbspSet ? parseInt(flourTbspSet) : 0;
+    // eslint-disable-next-line
+    let totalFlour = flourCupsIntToTbsp + flourTbspToInt;
 
-  let flourToAdd = 0;
+    let flourToAdd = 0;
 
-  if (altitude < 3500) {
+    if (altitude < 3500) {
+      dispatch({ type: CALCULATE_FLOUR, payload: flourToAdd });
+    } else if (altitude >= 3500 && altitude < 5000) {
+      flourToAdd = 1;
+    } else if (altitude >= 5000) {
+      let tbspToAdd = (altitude - 5000) / 1500;
+      tbspToAdd += 2;
+      flourToAdd = Math.floor(tbspToAdd);
+    }
     dispatch({ type: CALCULATE_FLOUR, payload: flourToAdd });
-  } else if (altitude >= 3500 && altitude < 5000) {
-    flourToAdd = 1;
-  } else if (altitude >= 5000) {
-    let tbspToAdd = (altitude - 5000) / 1500;
-    tbspToAdd += 2;
-    flourToAdd = Math.floor(tbspToAdd);
-  }
-  dispatch({ type: CALCULATE_FLOUR, payload: flourToAdd });
 
-  const stringToDisplay = `Add ${flourToAdd} tbsp flour`;
-  dispatch({ type: SET_DISPLAY_FLOUR, payload: stringToDisplay });
+    const stringToDisplay = `Add ${flourToAdd} tbsp flour`;
+    dispatch({ type: SET_DISPLAY_FLOUR, payload: stringToDisplay });
+  }
 };
 
 export const createBakingTimeLabel = () => (dispatch, getState) => {
