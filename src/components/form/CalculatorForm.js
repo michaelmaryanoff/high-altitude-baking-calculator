@@ -37,7 +37,7 @@ const initialState = {
   bakingMinsInput: '',
   bakingHoursInput: '',
   bakingTimeOutput: '',
-  liquidInput: '',
+  liquidsInput: '',
   liquidOutput: '',
   flourInput: '',
   flourCupsInput: '',
@@ -68,7 +68,7 @@ const CalculatorForm = () => {
       bakingHoursInput,
       bakingMinsInput,
       bakingTimeOutput,
-      liquidInput,
+      liquidsInput,
       liquidOutput,
       flourCupsInput,
       flourTbspInput,
@@ -233,8 +233,8 @@ const CalculatorForm = () => {
 
               {/* Liquids */}
               <TextInputField
-                name={'liquidInput'}
-                value={liquidInput}
+                name={'liquidsInput'}
+                value={liquidsInput}
                 handleOnChange={onChange}
                 label={`Liquids`}
               />
