@@ -21,7 +21,8 @@ const INITIAL_STATE = {
   minTimeCalc: 0,
   maxTimeCalc: 0,
   flourCalc: 0,
-  displayTemp: ''
+  displayTemp: '',
+  displayFlour: ''
 };
 
 // These are calculate i.e. the high altitude version of our different ingredients, temps, etc.
