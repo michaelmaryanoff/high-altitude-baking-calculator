@@ -10,9 +10,11 @@ import {
   CALCULATE_FLOUR,
   CALCULATE_MIN_LIQUIDS,
   CALCULATE_MAX_LIQUIDS,
+  CALCULATE_SUGAR,
   SET_DISPLAY_TIME,
   SET_DISPLAY_FLOUR,
-  SET_DISPLAY_LIQUIDS
+  SET_DISPLAY_LIQUIDS,
+  SET_DISPLAY_SUGAR
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -26,9 +28,11 @@ const INITIAL_STATE = {
   flourCalc: 0,
   minLiquidsCalc: 0,
   maxLiquidsCalc: 0,
+  sugarCalc: 0,
   displayLiquids: '',
   displayTemp: '',
-  displayFlour: ''
+  displayFlour: '',
+  displaySugar: ''
 };
 
 // These are calculate i.e. the high altitude version of our different ingredients, temps, etc.
@@ -52,6 +56,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, minLiquidsCalc: action.payload };
     case CALCULATE_MAX_LIQUIDS:
       return { ...state, maxLiquidsCalc: action.payload };
+    case CALCULATE_SUGAR:
+      return { ...state, sugarCalc: action.payload };
     case SET_DISPLAY_LIQUIDS:
       return { ...state, displayLiquids: action.payload };
     case SET_DISPLAY_FLOUR:
@@ -60,6 +66,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, displayTemp: action.payload };
     case SET_DISPLAY_TIME:
       return { ...state, displayTime: action.payload };
+    case SET_DISPLAY_SUGAR:
+      return { ...state, displaySugar: action.payload };
     case CLEAR_FORM:
       return { ...state, ...INITIAL_STATE };
     default:

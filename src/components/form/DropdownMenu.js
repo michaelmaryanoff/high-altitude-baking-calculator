@@ -1,15 +1,7 @@
 import React from 'react';
 
-import { useDispatch } from 'react-redux';
-
-import { handleInput } from '../../actions';
-
 const DropdownMenu = props => {
-  const dispatch = useDispatch();
-
   const handleUserInput = event => {
-    const { name, value } = event.target;
-    dispatch(handleInput(name, value));
     props.onChange(event);
   };
 

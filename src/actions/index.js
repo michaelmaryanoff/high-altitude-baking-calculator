@@ -7,7 +7,6 @@ import {
   SET_FLOUR,
   SET_FLOUR_CUPS,
   SET_FLOUR_TBSP,
-  SET_SUGAR,
   SET_BAKING_POWDER,
   SET_YEAST,
   SET_BAKING_TIME,
@@ -25,8 +24,16 @@ import {
   SET_DISPLAY_FLOUR,
   CALCULATE_MIN_LIQUIDS,
   CALCULATE_MAX_LIQUIDS,
-  SET_DISPLAY_LIQUIDS
+  SET_DISPLAY_LIQUIDS,
+  SET_SUGAR_CUPS,
+  SET_SUGAR_TBSP,
+  SET_SUGAR_PARTIAL_CUP,
+  SET_SUGAR_TOTAL,
+  SET_DISPLAY_SUGAR,
+  CALCULATE_SUGAR
 } from './types';
+
+import { calculateAdjustedSugar, createStringFromTbsp } from './calculationHelpers';
 
 /**
  * @summary
@@ -42,14 +49,40 @@ export const calculateOutputs = () => dispatch => {
   dispatch(createBakingTimeLabel());
   dispatch(calculateFlourAmount());
   dispatch(calculateLiquids());
+  dispatch(calculateSugar());
+};
+
+export const calculateSugar = () => (dispatch, getState) => {
+  const state = getState();
+
+  const { altitude, sugarTotalSet } = state.calculationForm;
+
+  const adjustedSugar = calculateAdjustedSugar(sugarTotalSet, altitude);
+  dispatch({ type: CALCULATE_SUGAR, payload: adjustedSugar });
+
+  const outputString = createStringFromTbsp(adjustedSugar);
+  dispatch({ type: SET_DISPLAY_SUGAR, payload: outputString });
+};
+
+export const caclulateTotalSugarInput = () => (dispatch, getState) => {
+  const state = getState();
+
+  const { sugarCupsSet, sugarPartialCupSet, sugarTbspSet } = state.calculationForm;
+
+  const partialCupsToTbsp = parseInt(Math.floor(sugarPartialCupSet * 16));
+
+  const cupsToTbsp = parseInt(sugarCupsSet) * 16;
+  let totalTbsp = cupsToTbsp + parseInt(sugarTbspSet) + partialCupsToTbsp;
+
+  dispatch({ type: SET_SUGAR_TOTAL, payload: totalTbsp });
 };
 
 export const calculateLiquids = () => (dispatch, getState) => {
   const state = getState();
 
-  const { altitude } = state.calculationForm;
+  const { altitude, liquidsSet } = state.calculationForm;
 
-  if (altitude) {
+  if (altitude && liquidsSet) {
     let minTbsp = 0;
     let maxTbsp = 0;
 
@@ -251,16 +284,19 @@ export const handleInput = (inputId, inputValue) => dispatch => {
     bakingTimeInput,
     liquidsInput,
     flourInput,
-    sugarInput,
     bakingPowderInput,
     yeastInput,
     bakingMinsInput,
     bakingHoursInput,
     flourCupsInput,
-    flourTbspInput
+    flourTbspInput,
+    sugarCupsInput,
+    sugarTbspInput,
+    sugarPartialCupInput
   };
 
   dispatch(functionNames[inputId](inputValue));
+  dispatch(caclulateTotalSugarInput());
 };
 
 export const unitInput = selectedUnit => {
@@ -287,10 +323,6 @@ export const flourInput = flourAmount => {
   return { type: SET_FLOUR, payload: flourAmount };
 };
 
-export const sugarInput = sugarAmount => {
-  return { type: SET_SUGAR, payload: sugarAmount };
-};
-
 export const bakingPowderInput = bakingPowderAmount => {
   return { type: SET_BAKING_POWDER, payload: bakingPowderAmount };
 };
@@ -313,6 +345,18 @@ export const flourTbspInput = flourTbsp => {
 
 export const flourCupsInput = flourCups => {
   return { type: SET_FLOUR_CUPS, payload: flourCups };
+};
+
+export const sugarCupsInput = sugarCups => {
+  return { type: SET_SUGAR_CUPS, payload: sugarCups };
+};
+
+export const sugarTbspInput = sugarTbsp => {
+  return { type: SET_SUGAR_TBSP, payload: sugarTbsp };
+};
+
+export const sugarPartialCupInput = sugarPartialCup => {
+  return { type: SET_SUGAR_PARTIAL_CUP, payload: sugarPartialCup };
 };
 
 /**

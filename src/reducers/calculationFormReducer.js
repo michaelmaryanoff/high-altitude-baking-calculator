@@ -5,14 +5,17 @@ import {
   SET_OVEN_TEMP,
   SET_LIQUIDS,
   SET_FLOUR,
-  SET_SUGAR,
   SET_BAKING_POWDER,
   SET_YEAST,
   SET_BAKING_TIME,
   SET_BAKING_MINS,
   SET_BAKING_HOURS,
   SET_FLOUR_CUPS,
-  SET_FLOUR_TBSP
+  SET_FLOUR_TBSP,
+  SET_SUGAR_CUPS,
+  SET_SUGAR_TBSP,
+  SET_SUGAR_PARTIAL_CUP,
+  SET_SUGAR_TOTAL
 } from '../actions/types';
 
 import { defaultUnit } from '../constants';
@@ -31,6 +34,10 @@ const INITIAL_STATE = {
   flourSet: 0,
   flourCupsSet: 0,
   flourTbspSet: 0,
+  sugarCupsSet: 0,
+  sugarTbspSet: 0,
+  sugarPartialCupSet: '',
+  sugarTotalSet: 0,
   sugarSet: 0,
   bakingPowderSet: 0,
   yeastSet: 0
@@ -58,8 +65,14 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, flourCupsSet: action.payload };
     case SET_FLOUR_TBSP:
       return { ...state, flourTbspSet: action.payload };
-    case SET_SUGAR:
-      return { ...state, sugarSet: action.payload };
+    case SET_SUGAR_CUPS:
+      return { ...state, sugarCupsSet: action.payload };
+    case SET_SUGAR_TBSP:
+      return { ...state, sugarTbspSet: action.payload };
+    case SET_SUGAR_PARTIAL_CUP:
+      return { ...state, sugarPartialCupSet: action.payload };
+    case SET_SUGAR_TOTAL:
+      return { ...state, sugarTotalSet: action.payload };
     case SET_BAKING_POWDER:
       return { ...state, bakingPowderSet: action.payload };
     case SET_YEAST:

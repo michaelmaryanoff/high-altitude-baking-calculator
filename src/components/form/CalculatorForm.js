@@ -10,7 +10,7 @@ import { defaultUnit } from '../../constants';
 /**
  * Redux imports
  */
-import { clearForm, calculateOutputs } from '../../actions';
+import { clearForm, calculateOutputs, handleInput } from '../../actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 /**
@@ -43,7 +43,9 @@ const initialState = {
   flourCupsInput: '',
   flourTbspInput: '',
   flourOutput: '',
-  sugarInput: '',
+  sugarCupsInput: '',
+  sugarTbspInput: '',
+  sugarPartialCupInput: '',
   sugarOutput: '',
   bakingPowderInput: '',
   bakingPowderOutput: '',
@@ -54,6 +56,14 @@ const initialState = {
 const unitDataSource = [
   { label: 'Metric', value: 'metric' },
   { label: 'Customary', value: 'customary' }
+];
+
+const partialCupDropDownDataSource = [
+  { label: '-', value: '' },
+  { label: '1/4', value: 0.25 },
+  { label: '1/3', value: 0.33333 },
+  { label: '1/2', value: 0.5 },
+  { label: '2/3', value: 0.66666 }
 ];
 
 const CalculatorForm = () => {
@@ -73,7 +83,9 @@ const CalculatorForm = () => {
       flourCupsInput,
       flourTbspInput,
       flourOutput,
-      sugarInput,
+      sugarCupsInput,
+      sugarTbspInput,
+      sugarPartialCupInput,
       sugarOutput,
       bakingPowderInput,
       bakingPowderOutput,
@@ -103,7 +115,8 @@ const CalculatorForm = () => {
     yeastCalc,
     displayTime,
     displayFlour,
-    displayLiquids
+    displayLiquids,
+    displaySugar
   } = useSelector(state => state.calculationOutput);
 
   // Populate output fields.
@@ -116,10 +129,19 @@ const CalculatorForm = () => {
         yeastOutput: yeastCalc || '',
         bakingTimeOutput: displayTime || '',
         flourOutput: displayFlour || '',
-        liquidsOutput: displayLiquids || ''
+        liquidsOutput: displayLiquids || '',
+        sugarOutput: displaySugar || ''
       };
     });
-  }, [displayTemp, bakingPowderCalc, yeastCalc, displayTime, displayFlour, displayLiquids]);
+  }, [
+    displayTemp,
+    bakingPowderCalc,
+    yeastCalc,
+    displayTime,
+    displayFlour,
+    displayLiquids,
+    displaySugar
+  ]);
 
   const clearState = () => {
     setState({ ...initialState });
@@ -152,6 +174,7 @@ const CalculatorForm = () => {
   const onChange = event => {
     const { name, value } = event.target;
 
+    dispatch(handleInput(name, value));
     setState(prevState => {
       return { ...prevState, [name]: value };
     });
@@ -249,28 +272,29 @@ const CalculatorForm = () => {
                 type="text"
                 value={liquidsOutput}
                 handleOnChange={onChange}
-                label={`Adjusted Liquids`}
+                label={`Liquids to add`}
                 min={0}
               />
             </div>
-            {/* Sugar */}
+            {/* Baking Powder */}
+
             <div className="four fields">
               <TextInputField
-                name={'sugarInput'}
-                value={sugarInput}
+                name={'bakingPowderInput'}
+                value={bakingPowderInput}
                 handleOnChange={onChange}
-                label={`Sugar`}
+                label={`Baking Powder (tsp)`}
               />
               <TextOutputField
-                name={'sugarOutput'}
+                name={'bakingPowderOutput'}
                 type="number"
-                value={sugarOutput}
+                value={bakingPowderOutput}
                 handleOnChange={onChange}
-                label={`Adjusted Sugar`}
+                label={`Baking Powder (total)`}
                 min={0}
               />
 
-              {/* {Yeast} */}
+              {/* Yeast */}
               <TextInputField
                 name={'yeastInput'}
                 value={yeastInput}
@@ -286,20 +310,36 @@ const CalculatorForm = () => {
                 min={0}
               />
             </div>
-            {/* Baking powder */}
-            <div className="two fields">
-              <TextInputField
-                name={'bakingPowderInput'}
-                value={bakingPowderInput}
+            {/* Sugar */}
+            <div className="six fields">
+              <CupsInput
+                label={'Sugar (C)'}
+                name="sugarCupsInput"
+                value={sugarCupsInput}
                 handleOnChange={onChange}
-                label={`Baking Powder (tsp)`}
               />
-              <TextOutputField
-                name={'bakingPowderOutput'}
-                type="number"
-                value={bakingPowderOutput}
+
+              <DropdownMenu
+                labelText="Fraction"
+                name="sugarPartialCupInput"
+                value={sugarPartialCupInput}
+                optionDataSource={partialCupDropDownDataSource}
+                onChange={onChange}
+              />
+
+              <TablespoonInput
+                label={'Sugar (T)'}
+                name="sugarTbspInput"
+                value={sugarTbspInput}
                 handleOnChange={onChange}
-                label={`Adjusted Baking Powder (tsp )`}
+              />
+
+              <TextOutputField
+                name={'sugarOutput'}
+                type="text"
+                value={sugarOutput}
+                handleOnChange={onChange}
+                label={`Adjusted Sugar`}
                 min={0}
               />
             </div>
