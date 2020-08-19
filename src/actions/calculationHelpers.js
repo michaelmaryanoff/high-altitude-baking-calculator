@@ -17,14 +17,41 @@ export const convertToTbsp = (cups, partialCups, tbsp) => {
 };
 
 /**
+ * @summary Calculates adjusted flour depending on user altitude
+ * @param {number} totalFlour - The total number (int preffered) of tbsp we
+ * are using to make our adjustment
+ * @param {number} altitude - User inputted altitude.
+ */
+
+export const calculateAdjustedFlour = (totalFlour, altitude) => {
+  let adjustedFlour = totalFlour;
+  console.log('adjustedFlour: ', adjustedFlour);
+
+  if (altitude < 3500) {
+    return adjustedFlour;
+  } else if (altitude >= 3500 && altitude < 5000) {
+    adjustedFlour += 1;
+  } else if (altitude >= 5000) {
+    let tbspToAdd = (altitude - 5000) / 1500;
+    tbspToAdd += 2;
+    adjustedFlour += Math.floor(tbspToAdd);
+  }
+
+  return adjustedFlour;
+};
+
+/**
  * @summary Calculates adjusted sugar depending on user altitude
- * @param {number} totalSugar - A the number (int preffered) of tablspoons we are calculating
- * @param {number} altitude - The altitude a user has inputted
+ * @param {number} totalSugar -  The total number (int preffered) of tbsp we
+ * are using to make our adjustment
+ * @param {number} altitude - The altitude a user has inputted.
  *
  * @returns {number} Total number of tablespoons, adjusted for altitude.
  */
 export const calculateAdjustedSugar = (totalSugar, altitude) => {
   let adjustedSugar = totalSugar;
+
+  console.log('adjustedSugar: ', adjustedSugar);
 
   /**
    * This is going to give us the total number of half cups.

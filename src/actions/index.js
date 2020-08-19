@@ -35,7 +35,12 @@ import {
   SET_FLOUR_TOTAL
 } from './types';
 
-import { calculateAdjustedSugar, createStringFromTbsp, convertToTbsp } from './calculationHelpers';
+import {
+  calculateAdjustedSugar,
+  createStringFromTbsp,
+  convertToTbsp,
+  calculateAdjustedFlour
+} from './calculationHelpers';
 
 /**
  * @summary
@@ -49,21 +54,9 @@ export const calculateOutputs = () => dispatch => {
   dispatch(calculateMinTemp());
   dispatch(calculateYeast());
   dispatch(createBakingTimeLabel());
-  dispatch(calculateFlourAmount());
+  dispatch(calculateFlour());
   dispatch(calculateLiquids());
   dispatch(calculateSugar());
-};
-
-export const calculateSugar = () => (dispatch, getState) => {
-  const state = getState();
-
-  const { altitude, sugarTotalSet } = state.calculationForm;
-
-  const adjustedSugar = calculateAdjustedSugar(sugarTotalSet, altitude);
-  dispatch({ type: CALCULATE_SUGAR, payload: adjustedSugar });
-
-  const outputString = createStringFromTbsp(adjustedSugar);
-  dispatch({ type: SET_DISPLAY_SUGAR, payload: outputString });
 };
 
 export const caclulateTotalSugarInput = () => (dispatch, getState) => {
@@ -82,7 +75,6 @@ export const calculateTotalFlourInput = () => (dispatch, getState) => {
   const { flourCupsSet, flourPartialCupSet, flourTbspSet } = state.calculationForm;
 
   let totalTbsp = convertToTbsp(flourCupsSet, flourPartialCupSet, flourTbspSet);
-
   dispatch({ type: SET_FLOUR_TOTAL, payload: totalTbsp });
 };
 
@@ -119,34 +111,28 @@ export const calculateLiquids = () => (dispatch, getState) => {
   }
 };
 
-export const calculateFlourAmount = () => (dispatch, getState) => {
+export const calculateSugar = () => (dispatch, getState) => {
   const state = getState();
 
-  const { flourCupsSet, flourTbspSet, altitude } = state.calculationForm;
+  const { sugarTotalSet, altitude } = state.calculationForm;
 
-  if (flourCupsSet || flourTbspSet) {
-    // These will eventually be used when we want to print out the total amount of flour
-    const flourCupsIntToTbsp = flourCupsSet ? parseInt(flourCupsSet * 16) : 0;
-    const flourTbspToInt = flourTbspSet ? parseInt(flourTbspSet) : 0;
-    // eslint-disable-next-line
-    let totalFlour = flourCupsIntToTbsp + flourTbspToInt;
+  const adjustedSugar = calculateAdjustedSugar(sugarTotalSet, altitude);
+  dispatch({ type: CALCULATE_SUGAR, payload: adjustedSugar });
 
-    let flourToAdd = 0;
+  const outputString = createStringFromTbsp(adjustedSugar);
+  dispatch({ type: SET_DISPLAY_SUGAR, payload: outputString });
+};
 
-    if (altitude < 3500) {
-      dispatch({ type: CALCULATE_FLOUR, payload: flourToAdd });
-    } else if (altitude >= 3500 && altitude < 5000) {
-      flourToAdd = 1;
-    } else if (altitude >= 5000) {
-      let tbspToAdd = (altitude - 5000) / 1500;
-      tbspToAdd += 2;
-      flourToAdd = Math.floor(tbspToAdd);
-    }
-    dispatch({ type: CALCULATE_FLOUR, payload: flourToAdd });
+export const calculateFlour = () => (dispatch, getState) => {
+  const state = getState();
 
-    const stringToDisplay = `Add ${flourToAdd} tbsp flour`;
-    dispatch({ type: SET_DISPLAY_FLOUR, payload: stringToDisplay });
-  }
+  const { flourTotalSet, altitude } = state.calculationForm;
+
+  const adjustedFlour = calculateAdjustedFlour(flourTotalSet, altitude);
+  dispatch({ type: CALCULATE_FLOUR, payload: adjustedFlour });
+
+  const outputString = createStringFromTbsp(adjustedFlour);
+  dispatch({ type: SET_DISPLAY_FLOUR, payload: outputString });
 };
 
 export const createBakingTimeLabel = () => (dispatch, getState) => {
