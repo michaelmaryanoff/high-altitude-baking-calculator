@@ -30,10 +30,12 @@ import {
   SET_SUGAR_PARTIAL_CUP,
   SET_SUGAR_TOTAL,
   SET_DISPLAY_SUGAR,
-  CALCULATE_SUGAR
+  CALCULATE_SUGAR,
+  SET_FLOUR_PARTIAL_CUP,
+  SET_FLOUR_TOTAL
 } from './types';
 
-import { calculateAdjustedSugar, createStringFromTbsp } from './calculationHelpers';
+import { calculateAdjustedSugar, createStringFromTbsp, convertToTbsp } from './calculationHelpers';
 
 /**
  * @summary
@@ -69,12 +71,19 @@ export const caclulateTotalSugarInput = () => (dispatch, getState) => {
 
   const { sugarCupsSet, sugarPartialCupSet, sugarTbspSet } = state.calculationForm;
 
-  const partialCupsToTbsp = parseInt(Math.floor(sugarPartialCupSet * 16));
-
-  const cupsToTbsp = parseInt(sugarCupsSet) * 16;
-  let totalTbsp = cupsToTbsp + parseInt(sugarTbspSet) + partialCupsToTbsp;
+  let totalTbsp = convertToTbsp(sugarCupsSet, sugarPartialCupSet, sugarTbspSet);
 
   dispatch({ type: SET_SUGAR_TOTAL, payload: totalTbsp });
+};
+
+export const calculateTotalFlourInput = () => (dispatch, getState) => {
+  const state = getState();
+
+  const { flourCupsSet, flourPartialCupSet, flourTbspSet } = state.calculationForm;
+
+  let totalTbsp = convertToTbsp(flourCupsSet, flourPartialCupSet, flourTbspSet);
+
+  dispatch({ type: SET_FLOUR_TOTAL, payload: totalTbsp });
 };
 
 export const calculateLiquids = () => (dispatch, getState) => {
@@ -290,6 +299,7 @@ export const handleInput = (inputId, inputValue) => dispatch => {
     bakingHoursInput,
     flourCupsInput,
     flourTbspInput,
+    flourPartialCupInput,
     sugarCupsInput,
     sugarTbspInput,
     sugarPartialCupInput
@@ -297,6 +307,11 @@ export const handleInput = (inputId, inputValue) => dispatch => {
 
   dispatch(functionNames[inputId](inputValue));
   dispatch(caclulateTotalSugarInput());
+  dispatch(calculateTotalFlourInput());
+};
+
+export const flourPartialCupInput = flourPartialCup => {
+  return { type: SET_FLOUR_PARTIAL_CUP, payload: flourPartialCup };
 };
 
 export const unitInput = selectedUnit => {

@@ -12,6 +12,8 @@ import {
   SET_BAKING_HOURS,
   SET_FLOUR_CUPS,
   SET_FLOUR_TBSP,
+  SET_FLOUR_PARTIAL_CUP,
+  SET_FLOUR_TOTAL,
   SET_SUGAR_CUPS,
   SET_SUGAR_TBSP,
   SET_SUGAR_PARTIAL_CUP,
@@ -34,6 +36,8 @@ const INITIAL_STATE = {
   flourSet: 0,
   flourCupsSet: 0,
   flourTbspSet: 0,
+  flourPartialCupSet: '',
+  flourTotalSet: 0,
   sugarCupsSet: 0,
   sugarTbspSet: 0,
   sugarPartialCupSet: '',
@@ -65,6 +69,10 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, flourCupsSet: action.payload };
     case SET_FLOUR_TBSP:
       return { ...state, flourTbspSet: action.payload };
+    case SET_FLOUR_PARTIAL_CUP:
+      return { ...state, flourPartialCupSet: action.payload };
+    case SET_FLOUR_TOTAL:
+      return { ...state, flourTotalSet: action.payload };
     case SET_SUGAR_CUPS:
       return { ...state, sugarCupsSet: action.payload };
     case SET_SUGAR_TBSP:

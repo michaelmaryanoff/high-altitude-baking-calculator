@@ -1,4 +1,22 @@
 /**
+ * @summary Takes in the values from three input fields (cup, partial cup, tbsp)
+ * and outputs gross number of tbsp
+ * @param {number} wholeCups - Whole, non-fractinoal cups imported
+ * @param {number} partialCups - Fractions of a cup (decimal format)
+ * @param {number} tbsp - tbsp inputted by user
+ *
+ * @returns {number} Gross sum of all tablespoons
+ */
+export const convertToTbsp = (cups, partialCups, tbsp) => {
+  const partialCupsToTbsp = parseInt(Math.floor(partialCups * 16));
+
+  const cupsToTbsp = parseInt(cups) * 16;
+  let totalTbsp = cupsToTbsp + parseInt(tbsp) + partialCupsToTbsp;
+
+  return totalTbsp;
+};
+
+/**
  * @summary Calculates adjusted sugar depending on user altitude
  * @param {number} totalSugar - A the number (int preffered) of tablspoons we are calculating
  * @param {number} altitude - The altitude a user has inputted

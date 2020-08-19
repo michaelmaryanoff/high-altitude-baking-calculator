@@ -42,6 +42,7 @@ const initialState = {
   flourInput: '',
   flourCupsInput: '',
   flourTbspInput: '',
+  flourPartialCupInput: '',
   flourOutput: '',
   sugarCupsInput: '',
   sugarTbspInput: '',
@@ -82,6 +83,7 @@ const CalculatorForm = () => {
       liquidsOutput,
       flourCupsInput,
       flourTbspInput,
+      flourPartialCupInput,
       flourOutput,
       sugarCupsInput,
       sugarTbspInput,
@@ -237,12 +239,21 @@ const CalculatorForm = () => {
               />
             </div>
 
+            {/* Flour */}
             <div className="four fields">
               <CupsInput
                 label={'Flour (C)'}
                 name="flourCupsInput"
                 value={flourCupsInput}
                 handleOnChange={onChange}
+              />
+
+              <DropdownMenu
+                labelText="Fraction"
+                name="flourPartialCupInput"
+                value={flourPartialCupInput}
+                optionDataSource={partialCupDropDownDataSource}
+                onChange={onChange}
               />
               <TablespoonInput
                 label={'Flour (T)'}
