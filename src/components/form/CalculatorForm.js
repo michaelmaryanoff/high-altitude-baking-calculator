@@ -37,7 +37,9 @@ const initialState = {
   bakingMinsInput: '',
   bakingHoursInput: '',
   bakingTimeOutput: '',
-  liquidsInput: '',
+  liquidCupsInput: '',
+  liquidPartialCupInput: '',
+  liquidTbspInput: '',
   liquidsOutput: '',
   flourInput: '',
   flourCupsInput: '',
@@ -79,7 +81,9 @@ const CalculatorForm = () => {
       bakingHoursInput,
       bakingMinsInput,
       bakingTimeOutput,
-      liquidsInput,
+      liquidCupsInput,
+      liquidPartialCupInput,
+      liquidTbspInput,
       liquidsOutput,
       flourCupsInput,
       flourTbspInput,
@@ -274,12 +278,28 @@ const CalculatorForm = () => {
               />
 
               {/* Liquids */}
-              <TextInputField
-                name={'liquidsInput'}
-                value={liquidsInput}
+              <CupsInput
+                label={'Liquids (C)'}
+                name="liquidCupsInput"
+                value={liquidCupsInput}
                 handleOnChange={onChange}
-                label={`Liquids`}
               />
+
+              <DropdownMenu
+                labelText={'Fraction'}
+                name="liquidPartialCupInput"
+                value={liquidPartialCupInput}
+                optionDataSource={partialCupDropDownDataSource}
+                onChange={onChange}
+              />
+
+              <TablespoonInput
+                label={'Liquids (T)'}
+                name="liquidTbspInput"
+                value={liquidTbspInput}
+                handleOnChange={onChange}
+              />
+
               <TextOutputField
                 name={'liquidsOutput'}
                 type="text"

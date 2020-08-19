@@ -3,7 +3,9 @@ import {
   CLEAR_FORM,
   SET_ALTITUDE,
   SET_OVEN_TEMP,
-  SET_LIQUIDS,
+  SET_LIQUID_CUPS,
+  SET_LIQUID_PARTIAL_CUP,
+  SET_LIQUID_TBSP,
   SET_FLOUR,
   SET_FLOUR_CUPS,
   SET_FLOUR_TBSP,
@@ -32,7 +34,8 @@ import {
   SET_DISPLAY_SUGAR,
   CALCULATE_SUGAR,
   SET_FLOUR_PARTIAL_CUP,
-  SET_FLOUR_TOTAL
+  SET_FLOUR_TOTAL,
+  SET_LIQUID_TOTAL
 } from './types';
 
 import {
@@ -57,6 +60,16 @@ export const calculateOutputs = () => dispatch => {
   dispatch(calculateFlour());
   dispatch(calculateLiquids());
   dispatch(calculateSugar());
+};
+
+export const calculateTotalLiquidInput = () => (dispatch, getState) => {
+  const state = getState();
+
+  const { liquidCupsSet, liquidPartialCupSet, liquidTbspSet } = state.calculationForm;
+
+  let totalTbsp = convertToTbsp(liquidCupsSet, liquidPartialCupSet, liquidTbspSet);
+
+  dispatch({ type: SET_LIQUID_TOTAL, payload: totalTbsp });
 };
 
 export const caclulateTotalSugarInput = () => (dispatch, getState) => {
@@ -277,15 +290,17 @@ export const handleInput = (inputId, inputValue) => dispatch => {
     altitudeInput,
     ovenTempInput,
     bakingTimeInput,
-    liquidsInput,
-    flourInput,
     bakingPowderInput,
     yeastInput,
     bakingMinsInput,
     bakingHoursInput,
+    flourInput,
     flourCupsInput,
     flourTbspInput,
     flourPartialCupInput,
+    liquidCupsInput,
+    liquidPartialCupInput,
+    liquidTbspInput,
     sugarCupsInput,
     sugarTbspInput,
     sugarPartialCupInput
@@ -294,6 +309,7 @@ export const handleInput = (inputId, inputValue) => dispatch => {
   dispatch(functionNames[inputId](inputValue));
   dispatch(caclulateTotalSugarInput());
   dispatch(calculateTotalFlourInput());
+  dispatch(calculateTotalLiquidInput());
 };
 
 export const flourPartialCupInput = flourPartialCup => {
@@ -316,10 +332,6 @@ export const bakingTimeInput = bakingTime => {
   return { type: SET_BAKING_TIME, payload: bakingTime };
 };
 
-export const liquidsInput = liquidAmount => {
-  return { type: SET_LIQUIDS, payload: liquidAmount };
-};
-
 export const flourInput = flourAmount => {
   return { type: SET_FLOUR, payload: flourAmount };
 };
@@ -338,6 +350,18 @@ export const bakingMinsInput = bakingMins => {
 
 export const bakingHoursInput = bakingHours => {
   return { type: SET_BAKING_HOURS, payload: bakingHours };
+};
+
+export const liquidCupsInput = liquidCups => {
+  return { type: SET_LIQUID_CUPS, payload: liquidCups };
+};
+
+export const liquidPartialCupInput = liquidPartialCup => {
+  return { type: SET_LIQUID_PARTIAL_CUP, payload: liquidPartialCup };
+};
+
+export const liquidTbspInput = liquidTbsp => {
+  return { type: SET_LIQUID_TBSP, payload: liquidTbsp };
 };
 
 export const flourTbspInput = flourTbsp => {
