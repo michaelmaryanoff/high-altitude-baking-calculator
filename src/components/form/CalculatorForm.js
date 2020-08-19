@@ -269,7 +269,7 @@ const CalculatorForm = () => {
                 type="text"
                 value={flourOutput}
                 handleOnChange={onChange}
-                label={`Flour to add`}
+                label={`Flour Adjusted`}
                 min={0}
               />
 
