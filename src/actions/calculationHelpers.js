@@ -1,8 +1,8 @@
 /**
  * @summary Takes in the values from three input fields (cup, partial cup, tbsp)
  * and outputs gross number of tbsp
- * @param {number} wholeCups - Whole, non-fractinoal cups imported
- * @param {number} partialCups - Fractions of a cup (decimal format)
+ * @param {number} wholeCups - Whole, non-fractional cups inputted by user.
+ * @param {number} partialCups - Fractions of a cup (decimal format).
  * @param {number} tbsp - tbsp inputted by user
  *
  * @returns {number} Gross sum of all tablespoons
@@ -68,6 +68,35 @@ export const calculateAdjustedSugar = (totalSugar, altitude) => {
   }
 
   return adjustedSugar;
+};
+
+export const calculateAdjustedLiquid = (totalLiquid, altitude) => {
+  // This needs to return an object that has a min and a max!
+
+  let minTbspTotal = totalLiquid;
+  let maxTbspTotal = totalLiquid;
+
+  if (altitude < 1000) {
+    let minMaxTotals = { minTbspTotal, maxTbspTotal };
+    return minMaxTotals;
+  } else if (altitude >= 1000 && altitude < 2000) {
+    minTbspTotal += 1;
+    maxTbspTotal += 2;
+  } else if (altitude >= 2000) {
+    let baseMin = 1;
+    let baseMax = 2;
+    let baseAltitude = altitude - 1000;
+    let elevationIncrement = 1000;
+    let multiplier = 0.5;
+
+    let tbspToAdd = (baseAltitude / elevationIncrement) * multiplier;
+    minTbspTotal += Math.floor(tbspToAdd + baseMin);
+    maxTbspTotal += Math.floor(tbspToAdd + baseMax);
+  }
+
+  let minMaxTotals = { minTbspTotal, maxTbspTotal };
+
+  return minMaxTotals;
 };
 
 /**

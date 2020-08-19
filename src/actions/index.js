@@ -42,7 +42,8 @@ import {
   calculateAdjustedSugar,
   createStringFromTbsp,
   convertToTbsp,
-  calculateAdjustedFlour
+  calculateAdjustedFlour,
+  calculateAdjustedLiquid
 } from './calculationHelpers';
 
 /**
@@ -58,7 +59,8 @@ export const calculateOutputs = () => dispatch => {
   dispatch(calculateYeast());
   dispatch(createBakingTimeLabel());
   dispatch(calculateFlour());
-  dispatch(calculateLiquids());
+  // dispatch(calculateLiquids());
+  dispatch(calculateLiquid());
   dispatch(calculateSugar());
 };
 
@@ -122,6 +124,21 @@ export const calculateLiquids = () => (dispatch, getState) => {
     const stringToDisplay = `Add ${minTbsp} to ${maxTbsp} Tbsp`;
     dispatch({ type: SET_DISPLAY_LIQUIDS, payload: stringToDisplay });
   }
+};
+
+export const calculateLiquid = () => (dispatch, getState) => {
+  const state = getState();
+
+  const { liquidTotalSet, altitude } = state.calculationForm;
+
+  const adjustedLiquid = calculateAdjustedLiquid(liquidTotalSet, altitude);
+  dispatch({ type: CALCULATE_MIN_LIQUIDS, payload: adjustedLiquid.minTbspTotal });
+  dispatch({ type: CALCULATE_MAX_LIQUIDS, payload: adjustedLiquid.maxTbspTotal });
+
+  const minString = createStringFromTbsp(adjustedLiquid.minTbspTotal);
+  const maxString = createStringFromTbsp(adjustedLiquid.maxTbspTotal);
+  const outputString = `${minString} - ${maxString}`;
+  dispatch({ type: SET_DISPLAY_LIQUIDS, payload: outputString });
 };
 
 export const calculateSugar = () => (dispatch, getState) => {
