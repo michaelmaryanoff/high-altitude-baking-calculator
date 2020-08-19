@@ -25,7 +25,6 @@ export const convertToTbsp = (cups, partialCups, tbsp) => {
 
 export const calculateAdjustedFlour = (totalFlour, altitude) => {
   let adjustedFlour = totalFlour;
-  console.log('adjustedFlour: ', adjustedFlour);
 
   if (altitude < 3500) {
     return adjustedFlour;
@@ -50,8 +49,6 @@ export const calculateAdjustedFlour = (totalFlour, altitude) => {
  */
 export const calculateAdjustedSugar = (totalSugar, altitude) => {
   let adjustedSugar = totalSugar;
-
-  console.log('adjustedSugar: ', adjustedSugar);
 
   /**
    * This is going to give us the total number of half cups.

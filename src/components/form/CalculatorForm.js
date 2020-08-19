@@ -176,7 +176,9 @@ const CalculatorForm = () => {
   const onChange = event => {
     const { name, value } = event.target;
 
-    dispatch(handleInput(name, value));
+    let safeValue = value ? value : 0;
+
+    dispatch(handleInput(name, safeValue));
     setState(prevState => {
       return { ...prevState, [name]: value };
     });

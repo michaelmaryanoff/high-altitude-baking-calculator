@@ -9,7 +9,12 @@ const TablespoonInput = props => {
 
   const handleUserInput = event => {
     const { name, value } = event.target;
-    dispatch(handleInput(name, value));
+
+    // If we pass an empty string into our handleInput function,
+    // It will cause errors in redux and give us NaN
+    const safeValue = value ? value : 0;
+
+    dispatch(handleInput(name, safeValue));
     props.handleOnChange(event);
   };
 
