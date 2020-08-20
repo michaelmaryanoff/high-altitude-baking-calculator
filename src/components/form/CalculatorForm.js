@@ -137,7 +137,8 @@ const CalculatorForm = () => {
     displayFlour,
     displayLiquids,
     displayYeast,
-    displaySugar
+    displaySugar,
+    displayBakingPowder
   } = useSelector(state => state.calculationOutput);
 
   // Populate output fields.
@@ -146,7 +147,7 @@ const CalculatorForm = () => {
       return {
         ...prevState,
         ovenTempOutput: displayTemp || '',
-        bakingPowderOutput: bakingPowderCalc || '',
+        bakingPowderOutput: displayBakingPowder || '',
         yeastOutput: displayYeast || '',
         bakingTimeOutput: displayTime || '',
         flourOutput: displayFlour || '',
@@ -162,7 +163,8 @@ const CalculatorForm = () => {
     displayFlour,
     displayLiquids,
     displaySugar,
-    displayYeast
+    displayYeast,
+    displayBakingPowder
   ]);
 
   const clearState = () => {

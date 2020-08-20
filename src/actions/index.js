@@ -42,7 +42,8 @@ import {
   SET_LIQUID_TOTAL,
   SET_BAKING_POWDER_TOTAL,
   SET_YEAST_TOTAL,
-  SET_DISPLAY_YEAST
+  SET_DISPLAY_YEAST,
+  SET_DISPLAY_BAKING_POWDER
 } from './types';
 
 import {
@@ -53,7 +54,8 @@ import {
   calculateAdjustedLiquid,
   convertToTsp,
   calculateAdjustedYeast,
-  createStringFromTsp
+  createStringFromTsp,
+  calculateAdjustedBakingPowder
 } from './calculationHelpers';
 
 /**
@@ -73,7 +75,7 @@ export const calculateOutputs = () => dispatch => {
   dispatch(calculateSugar());
 };
 
-export const calculatTotalBakingSodaInput = () => (dispatch, getState) => {
+export const calculatTotalBakingPowderInput = () => (dispatch, getState) => {
   const state = getState();
 
   const { bakingPowderTspSet, bakingPowderPartialTspSet } = state.calculationForm;
@@ -251,17 +253,13 @@ export const calculateYeast = () => (dispatch, getState) => {
 
 export const calculateBakingPowder = () => (dispatch, getState) => {
   const state = getState();
-  const { bakingPowderSet, altitude } = state.calculationForm;
+  const { bakingPowderTotalSet, altitude } = state.calculationForm;
 
-  if (altitude < 3500) {
-    dispatch({ type: CALCULATE_BAKING_POWDER, payload: bakingPowderSet });
-  } else if (altitude >= 3500 && altitude < 5000) {
-    return dispatch({ type: CALCULATE_BAKING_POWDER, payload: bakingPowderSet * 0.75 });
-  } else if (altitude >= 5000 && altitude < 6500) {
-    return dispatch({ type: CALCULATE_BAKING_POWDER, payload: bakingPowderSet * 0.5 });
-  } else if (altitude >= 6500) {
-    return dispatch({ type: CALCULATE_BAKING_POWDER, payload: bakingPowderSet * 0.25 });
-  }
+  const adjustedBakingPowder = calculateAdjustedBakingPowder(bakingPowderTotalSet, altitude);
+  dispatch({ type: CALCULATE_BAKING_POWDER, payload: adjustedBakingPowder });
+
+  const outputString = createStringFromTsp(adjustedBakingPowder);
+  dispatch({ type: SET_DISPLAY_BAKING_POWDER, payload: outputString });
 };
 
 export const ovenTempForDisplay = () => (dispatch, getState) => {
@@ -360,7 +358,7 @@ export const handleInput = (inputId, inputValue) => dispatch => {
   dispatch(caclulateTotalSugarInput());
   dispatch(calculateTotalFlourInput());
   dispatch(calculateTotalLiquidInput());
-  dispatch(calculatTotalBakingSodaInput());
+  dispatch(calculatTotalBakingPowderInput());
   dispatch(calculateTotalYeastInput());
 };
 

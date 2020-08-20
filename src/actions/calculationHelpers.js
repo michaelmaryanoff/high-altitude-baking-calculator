@@ -30,6 +30,18 @@ export const convertToTsp = (tsp, partialTsp) => {
   return fullTspAmount;
 };
 
+export const calculateAdjustedBakingPowder = (totalBakingPowder, altitude) => {
+  if (altitude < 3500) {
+    return totalBakingPowder;
+  } else if (altitude >= 3500 && altitude < 5000) {
+    return totalBakingPowder * 0.75;
+  } else if (altitude >= 5000 && altitude < 6500) {
+    return totalBakingPowder * 0.5;
+  } else if (altitude >= 6500) {
+    return totalBakingPowder * 0.25;
+  }
+};
+
 /**
  * @summary Calculates adjusted flour depending on user altitude
  * @param {number} totalFlour - The total number (int preffered) of tbsp we
@@ -54,12 +66,9 @@ export const calculateAdjustedFlour = (totalFlour, altitude) => {
 };
 
 export const calculateAdjustedYeast = (totalYeast, altitude) => {
-  //! Change this back to > 3500
-  // if (altitude < 3500) {
-  //   // Multipy by .75
-  // }
-
-  return totalYeast * 0.75;
+  if (altitude > 3500) {
+    return totalYeast * 0.75;
+  } else return totalYeast;
 };
 
 /**

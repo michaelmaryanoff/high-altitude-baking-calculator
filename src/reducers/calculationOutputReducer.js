@@ -15,7 +15,8 @@ import {
   SET_DISPLAY_LIQUIDS,
   SET_DISPLAY_SUGAR,
   CLEAR_FORM,
-  SET_DISPLAY_YEAST
+  SET_DISPLAY_YEAST,
+  SET_DISPLAY_BAKING_POWDER
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -34,7 +35,8 @@ const INITIAL_STATE = {
   displayTemp: '',
   displayFlour: '',
   displaySugar: '',
-  displayYeast: ''
+  displayYeast: '',
+  displayBakingPowder: ''
 };
 
 // These are calculate i.e. the high altitude version of our different ingredients, temps, etc.
@@ -72,6 +74,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, displaySugar: action.payload };
     case SET_DISPLAY_YEAST:
       return { ...state, displayYeast: action.payload };
+    case SET_DISPLAY_BAKING_POWDER:
+      return { ...state, displayBakingPowder: action.payload };
     case CLEAR_FORM:
       return { ...state, ...INITIAL_STATE };
     default:
