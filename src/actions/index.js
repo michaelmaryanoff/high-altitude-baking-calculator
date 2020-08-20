@@ -41,7 +41,8 @@ import {
   SET_FLOUR_TOTAL,
   SET_LIQUID_TOTAL,
   SET_BAKING_POWDER_TOTAL,
-  SET_YEAST_TOTAL
+  SET_YEAST_TOTAL,
+  SET_DISPLAY_YEAST
 } from './types';
 
 import {
@@ -50,7 +51,9 @@ import {
   convertToTbsp,
   calculateAdjustedFlour,
   calculateAdjustedLiquid,
-  convertToTsp
+  convertToTsp,
+  calculateAdjustedYeast,
+  createStringFromTsp
 } from './calculationHelpers';
 
 /**
@@ -237,13 +240,13 @@ export const calculateBakingTime = () => (dispatch, getState) => {
 
 export const calculateYeast = () => (dispatch, getState) => {
   const state = getState();
-  const { yeastSet, altitude } = state.calculationForm;
+  const { yeastTotalSet, altitude } = state.calculationForm;
 
-  if (altitude < 3500) {
-    dispatch({ type: CALCULATE_YEAST, payload: yeastSet });
-  } else {
-    dispatch({ type: CALCULATE_YEAST, payload: yeastSet * 0.75 });
-  }
+  const adjustedYeast = calculateAdjustedYeast(yeastTotalSet, altitude);
+  dispatch({ type: CALCULATE_YEAST, payload: adjustedYeast });
+
+  const outputString = createStringFromTsp(adjustedYeast);
+  dispatch({ type: SET_DISPLAY_YEAST, payload: outputString });
 };
 
 export const calculateBakingPowder = () => (dispatch, getState) => {

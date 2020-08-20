@@ -11,7 +11,6 @@ const TextOutputField = props => {
         readOnly={true}
         value={props.value}
         label={props.value}
-        min={props.min}
       />
 
       {/* Optional error */}

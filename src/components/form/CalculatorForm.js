@@ -76,11 +76,9 @@ const partialCupDropDownDataSource = [
 
 const partialTspDropDownDataSource = [
   { label: '-', value: '' },
-  { label: '1/8', value: 0.125 },
   { label: '1/4', value: 0.25 },
-  { label: '1/3', value: 0.3 },
   { label: '1/2', value: 0.5 },
-  { label: '2/3', value: 0.6 }
+  { label: '3/4', value: 0.75 }
 ];
 
 const CalculatorForm = () => {
@@ -138,6 +136,7 @@ const CalculatorForm = () => {
     displayTime,
     displayFlour,
     displayLiquids,
+    displayYeast,
     displaySugar
   } = useSelector(state => state.calculationOutput);
 
@@ -148,7 +147,7 @@ const CalculatorForm = () => {
         ...prevState,
         ovenTempOutput: displayTemp || '',
         bakingPowderOutput: bakingPowderCalc || '',
-        yeastOutput: yeastCalc || '',
+        yeastOutput: displayYeast || '',
         bakingTimeOutput: displayTime || '',
         flourOutput: displayFlour || '',
         liquidsOutput: displayLiquids || '',
@@ -162,7 +161,8 @@ const CalculatorForm = () => {
     displayTime,
     displayFlour,
     displayLiquids,
-    displaySugar
+    displaySugar,
+    displayYeast
   ]);
 
   const clearState = () => {
@@ -256,7 +256,6 @@ const CalculatorForm = () => {
                 value={ovenTempOutput}
                 handleOnChange={onChange}
                 label={`Temp adjusted `}
-                min={0}
                 width={'four wide'}
               />
               {/* Baking time */}
@@ -269,7 +268,6 @@ const CalculatorForm = () => {
                 value={bakingTimeOutput}
                 handleOnChange={onChange}
                 label="Time adjusted"
-                min={0}
                 width={'four wide'}
               />
             </div>
@@ -303,7 +301,6 @@ const CalculatorForm = () => {
                 value={flourOutput}
                 handleOnChange={onChange}
                 label={`Flour Adjusted`}
-                min={0}
               />
 
               {/* Liquids */}
@@ -335,7 +332,6 @@ const CalculatorForm = () => {
                 value={liquidsOutput}
                 handleOnChange={onChange}
                 label={`Liquids to add`}
-                min={0}
               />
             </div>
             {/* Baking Powder */}
@@ -356,11 +352,10 @@ const CalculatorForm = () => {
               />
               <TextOutputField
                 name={'bakingPowderOutput'}
-                type="number"
+                type="text"
                 value={bakingPowderOutput}
                 handleOnChange={onChange}
                 label={`Baking Powder (total)`}
-                min={0}
               />
 
               {/* Yeast */}
@@ -380,11 +375,10 @@ const CalculatorForm = () => {
               />
               <TextOutputField
                 name={'yeastOutput'}
-                type="number"
+                type="text"
                 value={yeastOutput}
                 handleOnChange={onChange}
                 label={`Adjusted Yeast (tsp)`}
-                min={0}
               />
             </div>
             {/* Sugar */}
@@ -414,7 +408,6 @@ const CalculatorForm = () => {
                 value={sugarOutput}
                 handleOnChange={onChange}
                 label={`Adjusted Sugar`}
-                min={0}
               />
             </div>
 

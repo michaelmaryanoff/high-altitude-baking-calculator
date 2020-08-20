@@ -53,6 +53,15 @@ export const calculateAdjustedFlour = (totalFlour, altitude) => {
   return adjustedFlour;
 };
 
+export const calculateAdjustedYeast = (totalYeast, altitude) => {
+  //! Change this back to > 3500
+  // if (altitude < 3500) {
+  //   // Multipy by .75
+  // }
+
+  return totalYeast * 0.75;
+};
+
 /**
  * @summary Calculates adjusted sugar depending on user altitude
  * @param {number} totalSugar -  The total number (int preffered) of tbsp we
@@ -160,6 +169,55 @@ export const createStringFromTbsp = totalTbsp => {
   }
 
   let outputString = `${cupsString} ${tbspString}`;
+
+  return outputString;
+};
+
+/**
+ * @summary Creates a string of tsp and fractional tsp from raw data to output to user.
+ * @param {number} wholeTsp - The total number of tsp we are converting into a string
+ *
+ * @returns {string} A user-readable string
+ */
+export const createStringFromTsp = tspInput => {
+  /**
+   * Note: The reason these formulations are so similar to createStringFromTbsp
+   * is becuase using a multiplier of 16 in order to determine our output string
+   * is the best way to get a precise measurement
+   */
+  const totalTbsp = tspInput * 16;
+
+  // Whole cups
+  const wholeTsp = Math.floor(totalTbsp / 16);
+
+  // Tbsp that do not fit into full cups
+  const partialTsp = totalTbsp % 16;
+
+  // Number of fraction cups
+  let numberOfQuarterTsp = Math.floor(partialTsp / 4);
+
+  // Setting the string for fractional cups
+  let fractionalString = '';
+
+  if (numberOfQuarterTsp === 1) {
+    fractionalString = '1/4';
+  } else if (numberOfQuarterTsp === 2) {
+    fractionalString = '1/2';
+  } else if (numberOfQuarterTsp === 3) {
+    fractionalString = '3/4';
+  }
+
+  let tspString = '';
+
+  if (wholeTsp > 0 && numberOfQuarterTsp > 0) {
+    tspString = `${wholeTsp} ${fractionalString} tsp`;
+  } else if (wholeTsp === 0 && numberOfQuarterTsp > 0) {
+    tspString = `${fractionalString} tsp`;
+  } else if (wholeTsp > 0 && numberOfQuarterTsp === 0) {
+    tspString = `${wholeTsp} tsp`;
+  }
+
+  let outputString = `${tspString}`;
 
   return outputString;
 };

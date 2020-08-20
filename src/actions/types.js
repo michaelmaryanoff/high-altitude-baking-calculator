@@ -52,6 +52,7 @@ export const SET_DISPLAY_TIME = 'SET_DISPLAY_TIME';
 export const SET_DISPLAY_FLOUR = 'SET_DISPLAY_FLOUR';
 export const SET_DISPLAY_LIQUIDS = 'SET_DISPLAY_LIQUIDS';
 export const SET_DISPLAY_SUGAR = 'SET_DISPLAY_SUGAR';
+export const SET_DISPLAY_YEAST = 'SET_DISPLAY_YEAST';
 
 // Form actions
 export const CLEAR_FORM = 'CLEAR_FORM';
