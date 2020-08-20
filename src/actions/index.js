@@ -124,39 +124,6 @@ export const calculateTotalFlourInput = () => (dispatch, getState) => {
   dispatch({ type: SET_FLOUR_TOTAL, payload: totalTbsp });
 };
 
-export const calculateLiquids = () => (dispatch, getState) => {
-  const state = getState();
-
-  const { altitude, liquidsSet } = state.calculationForm;
-
-  if (altitude && liquidsSet) {
-    let minTbsp = 0;
-    let maxTbsp = 0;
-
-    if (altitude < 1000) {
-      dispatchEvent(minMaxLiquidsOutput(minTbsp, maxTbsp));
-    } else if (altitude >= 1000 && altitude < 2000) {
-      minTbsp = 1;
-      maxTbsp = 2;
-    } else if (altitude >= 2000) {
-      let baseMin = 1;
-      let baseMax = 2;
-      let baseAltitude = altitude - 1000;
-      let elevationIncrement = 1000;
-      let multiplier = 0.5;
-
-      let tbspToAdd = (baseAltitude / elevationIncrement) * multiplier;
-      minTbsp += Math.floor(tbspToAdd + baseMin);
-      maxTbsp += Math.floor(tbspToAdd + baseMax);
-    }
-    dispatch(minMaxLiquidsOutput(minTbsp, maxTbsp));
-
-    // String for outputting to output field
-    const stringToDisplay = `Add ${minTbsp} to ${maxTbsp} Tbsp`;
-    dispatch({ type: SET_DISPLAY_LIQUIDS, payload: stringToDisplay });
-  }
-};
-
 export const calculateLiquid = () => (dispatch, getState) => {
   const state = getState();
 
