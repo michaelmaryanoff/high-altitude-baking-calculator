@@ -6,13 +6,13 @@ import {
   CALCULATE_MAX_TIME,
   CALCULATE_MIN_TIME,
   CALCULATE_FLOUR,
-  CALCULATE_MIN_LIQUIDS,
-  CALCULATE_MAX_LIQUIDS,
+  CALCULATE_MIN_LIQUID,
+  CALCULATE_MAX_LIQUID,
   CALCULATE_SUGAR,
   SET_DISPLAY_TEMP,
   SET_DISPLAY_TIME,
   SET_DISPLAY_FLOUR,
-  SET_DISPLAY_LIQUIDS,
+  SET_DISPLAY_LIQUID,
   SET_DISPLAY_SUGAR,
   CLEAR_FORM,
   SET_DISPLAY_YEAST,
@@ -28,10 +28,10 @@ const INITIAL_STATE = {
   minTimeCalc: 0,
   maxTimeCalc: 0,
   flourCalc: 0,
-  minLiquidsCalc: 0,
-  maxLiquidsCalc: 0,
+  minLiquidCalc: 0,
+  maxLiquidCalc: 0,
   sugarCalc: 0,
-  displayLiquids: '',
+  displayLiquid: '',
   displayTemp: '',
   displayFlour: '',
   displaySugar: '',
@@ -56,14 +56,14 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, maxTimeCalc: action.payload };
     case CALCULATE_FLOUR:
       return { ...state, flourCalc: action.payload };
-    case CALCULATE_MIN_LIQUIDS:
-      return { ...state, minLiquidsCalc: action.payload };
-    case CALCULATE_MAX_LIQUIDS:
-      return { ...state, maxLiquidsCalc: action.payload };
+    case CALCULATE_MIN_LIQUID:
+      return { ...state, minLiquidCalc: action.payload };
+    case CALCULATE_MAX_LIQUID:
+      return { ...state, maxLiquidCalc: action.payload };
     case CALCULATE_SUGAR:
       return { ...state, sugarCalc: action.payload };
-    case SET_DISPLAY_LIQUIDS:
-      return { ...state, displayLiquids: action.payload };
+    case SET_DISPLAY_LIQUID:
+      return { ...state, displayLiquid: action.payload };
     case SET_DISPLAY_FLOUR:
       return { ...state, displayFlour: action.payload };
     case SET_DISPLAY_TEMP:

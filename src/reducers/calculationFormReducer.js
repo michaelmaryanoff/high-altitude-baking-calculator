@@ -41,7 +41,7 @@ const INITIAL_STATE = {
   bakingTimeSet: 0,
   bakingMinsSet: 0,
   bakingHoursSet: 0,
-  liquidsSet: 0,
+  liquidSet: 0,
   liquidCupsSet: 0,
   liquidPartialCupSet: 0,
   liquidTbspSet: 0,

@@ -42,7 +42,7 @@ const initialState = {
   liquidCupsInput: '',
   liquidPartialCupInput: '',
   liquidTbspInput: '',
-  liquidsOutput: '',
+  liquidOutput: '',
   flourInput: '',
   flourCupsInput: '',
   flourTbspInput: '',
@@ -100,7 +100,7 @@ const CalculatorForm = () => {
       liquidCupsInput,
       liquidPartialCupInput,
       liquidTbspInput,
-      liquidsOutput,
+      liquidOutput,
       flourCupsInput,
       flourTbspInput,
       flourPartialCupInput,
@@ -139,7 +139,7 @@ const CalculatorForm = () => {
     yeastCalc,
     displayTime,
     displayFlour,
-    displayLiquids,
+    displayLiquid,
     displayYeast,
     displaySugar,
     displayBakingPowder
@@ -155,7 +155,7 @@ const CalculatorForm = () => {
         yeastOutput: displayYeast || '',
         bakingTimeOutput: displayTime || '',
         flourOutput: displayFlour || '',
-        liquidsOutput: displayLiquids || '',
+        liquidOutput: displayLiquid || '',
         sugarOutput: displaySugar || ''
       };
     });
@@ -165,7 +165,7 @@ const CalculatorForm = () => {
     yeastCalc,
     displayTime,
     displayFlour,
-    displayLiquids,
+    displayLiquid,
     displaySugar,
     displayYeast,
     displayBakingPowder
@@ -306,7 +306,7 @@ const CalculatorForm = () => {
                 label={`Flour Adjusted`}
               />
 
-              {/* Liquids */}
+              {/* Liquid */}
               <CupsInput
                 label={'Liquids (C)'}
                 name="liquidCupsInput"
@@ -330,8 +330,8 @@ const CalculatorForm = () => {
               />
 
               <TextOutputField
-                name={'liquidsOutput'}
-                value={liquidsOutput}
+                name={'liquidOutput'}
+                value={liquidOutput}
                 handleOnChange={onChange}
                 label={`Liquids to add`}
               />

@@ -28,9 +28,9 @@ import {
   SET_DISPLAY_TIME,
   CALCULATE_FLOUR,
   SET_DISPLAY_FLOUR,
-  CALCULATE_MIN_LIQUIDS,
-  CALCULATE_MAX_LIQUIDS,
-  SET_DISPLAY_LIQUIDS,
+  CALCULATE_MIN_LIQUID,
+  CALCULATE_MAX_LIQUID,
+  SET_DISPLAY_LIQUID,
   SET_SUGAR_CUPS,
   SET_SUGAR_TBSP,
   SET_SUGAR_PARTIAL_CUP,
@@ -131,13 +131,13 @@ export const calculateLiquid = () => (dispatch, getState) => {
 
   if (liquidTotalSet) {
     const adjustedLiquid = calculateAdjustedLiquid(liquidTotalSet, altitude);
-    dispatch({ type: CALCULATE_MIN_LIQUIDS, payload: adjustedLiquid.minTbspTotal });
-    dispatch({ type: CALCULATE_MAX_LIQUIDS, payload: adjustedLiquid.maxTbspTotal });
+    dispatch({ type: CALCULATE_MIN_LIQUID, payload: adjustedLiquid.minTbspTotal });
+    dispatch({ type: CALCULATE_MAX_LIQUID, payload: adjustedLiquid.maxTbspTotal });
 
     const minString = createStringFromTbsp(adjustedLiquid.minTbspTotal);
     const maxString = createStringFromTbsp(adjustedLiquid.maxTbspTotal);
     const outputString = `${minString} - ${maxString}`;
-    dispatch({ type: SET_DISPLAY_LIQUIDS, payload: outputString });
+    dispatch({ type: SET_DISPLAY_LIQUID, payload: outputString });
   }
 };
 
@@ -289,9 +289,9 @@ export const calculateMinTemp = input => (dispatch, getState) => {
   }
 };
 
-export const minMaxLiquidsOutput = (minLiquid, maxLiquid) => dispatch => {
-  dispatch({ type: CALCULATE_MIN_LIQUIDS, payload: minLiquid });
-  dispatch({ type: CALCULATE_MAX_LIQUIDS, payload: maxLiquid });
+export const minMaxOutput = (minLiquid, maxLiquid) => dispatch => {
+  dispatch({ type: CALCULATE_MIN_LIQUID, payload: minLiquid });
+  dispatch({ type: CALCULATE_MAX_LIQUID, payload: maxLiquid });
 };
 
 /**
