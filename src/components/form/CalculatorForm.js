@@ -352,7 +352,7 @@ const CalculatorForm = () => {
                 name="bakingPowderPartialTspInput"
                 value={bakingPowderPartialTspInput}
                 optionDataSource={partialTspDropDownDataSource}
-                handleOnChange={dropdownOnChange}
+                onChange={dropdownOnChange}
               />
               <TextOutputField
                 name={'bakingPowderOutput'}
@@ -366,7 +366,7 @@ const CalculatorForm = () => {
               {/* Yeast */}
               <TeaspoonInputField
                 label={`Yeast (tsp)`}
-                name={'yeastInput'}
+                name="yeastTspInput"
                 value={yeastTspInput}
                 handleOnChange={onChange}
               />
@@ -376,7 +376,7 @@ const CalculatorForm = () => {
                 name="yeastPartialTspInput"
                 value={yeastPartialTspInput}
                 optionDataSource={partialTspDropDownDataSource}
-                handleOnChange={dropdownOnChange}
+                onChange={dropdownOnChange}
               />
               <TextOutputField
                 name={'yeastOutput'}

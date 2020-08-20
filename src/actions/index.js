@@ -10,7 +10,11 @@ import {
   SET_FLOUR_CUPS,
   SET_FLOUR_TBSP,
   SET_BAKING_POWDER,
+  SET_BAKING_POWDER_TSP,
+  SET_BAKING_POWDER_PARTIAL_TSP,
   SET_YEAST,
+  SET_YEAST_TSP,
+  SET_YEAST_PARTIAL_TSP,
   SET_BAKING_TIME,
   SET_BAKING_MINS,
   SET_BAKING_HOURS,
@@ -308,7 +312,11 @@ export const handleInput = (inputId, inputValue) => dispatch => {
     ovenTempInput,
     bakingTimeInput,
     bakingPowderInput,
+    bakingPowderTspInput,
+    bakingPowderPartialTspInput,
     yeastInput,
+    yeastTspInput,
+    yeastPartialTspInput,
     bakingMinsInput,
     bakingHoursInput,
     flourInput,
@@ -357,8 +365,24 @@ export const bakingPowderInput = bakingPowderAmount => {
   return { type: SET_BAKING_POWDER, payload: bakingPowderAmount };
 };
 
+export const bakingPowderTspInput = bakingPowderTspAmount => {
+  return { type: SET_BAKING_POWDER_TSP, payload: bakingPowderTspAmount };
+};
+
+export const bakingPowderPartialTspInput = bakingPowderPartialTspAmount => {
+  return { type: SET_BAKING_POWDER_PARTIAL_TSP, payload: bakingPowderPartialTspAmount };
+};
+
 export const yeastInput = yeastAmount => {
   return { type: SET_YEAST, payload: yeastAmount };
+};
+
+export const yeastTspInput = yeastTspAmount => {
+  return { type: SET_YEAST_TSP, payload: yeastTspAmount };
+};
+
+export const yeastPartialTspInput = yeastPartialTspAmount => {
+  return { type: SET_YEAST_PARTIAL_TSP, payload: yeastPartialTspAmount };
 };
 
 export const bakingMinsInput = bakingMins => {
