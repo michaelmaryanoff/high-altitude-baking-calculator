@@ -36,6 +36,7 @@ const INITIAL_STATE = {
   displayFlour: '',
   displaySugar: '',
   displayYeast: '',
+  displayTime: '',
   displayBakingPowder: ''
 };
 
