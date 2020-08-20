@@ -16,6 +16,20 @@ export const convertToTbsp = (cups, partialCups, tbsp) => {
   return totalTbsp;
 };
 
+export const convertToTsp = (tsp, partialTsp) => {
+  // const convetedPartialTsp = parseFloat(partialTsp);
+
+  let convertedTsp = 0;
+  let convertedPartialTsp = 0;
+
+  convertedPartialTsp = +parseFloat(partialTsp).toFixed(3);
+  convertedTsp = parseInt(tsp);
+
+  const fullTspAmount = convertedPartialTsp + convertedTsp;
+
+  return fullTspAmount;
+};
+
 /**
  * @summary Calculates adjusted flour depending on user altitude
  * @param {number} totalFlour - The total number (int preffered) of tbsp we

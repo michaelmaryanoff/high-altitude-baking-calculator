@@ -78,9 +78,9 @@ const partialTspDropDownDataSource = [
   { label: '-', value: '' },
   { label: '1/8', value: 0.125 },
   { label: '1/4', value: 0.25 },
-  { label: '1/3', value: 0.33333 },
+  { label: '1/3', value: 0.3 },
   { label: '1/2', value: 0.5 },
-  { label: '2/3', value: 0.66666 }
+  { label: '2/3', value: 0.6 }
 ];
 
 const CalculatorForm = () => {

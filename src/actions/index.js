@@ -39,7 +39,9 @@ import {
   CALCULATE_SUGAR,
   SET_FLOUR_PARTIAL_CUP,
   SET_FLOUR_TOTAL,
-  SET_LIQUID_TOTAL
+  SET_LIQUID_TOTAL,
+  SET_BAKING_POWDER_TOTAL,
+  SET_YEAST_TOTAL
 } from './types';
 
 import {
@@ -47,7 +49,8 @@ import {
   createStringFromTbsp,
   convertToTbsp,
   calculateAdjustedFlour,
-  calculateAdjustedLiquid
+  calculateAdjustedLiquid,
+  convertToTsp
 } from './calculationHelpers';
 
 /**
@@ -63,9 +66,28 @@ export const calculateOutputs = () => dispatch => {
   dispatch(calculateYeast());
   dispatch(createBakingTimeLabel());
   dispatch(calculateFlour());
-  // dispatch(calculateLiquids());
   dispatch(calculateLiquid());
   dispatch(calculateSugar());
+};
+
+export const calculatTotalBakingSodaInput = () => (dispatch, getState) => {
+  const state = getState();
+
+  const { bakingPowderTspSet, bakingPowderPartialTspSet } = state.calculationForm;
+
+  let totalTsp = convertToTsp(bakingPowderTspSet, bakingPowderPartialTspSet);
+
+  dispatch({ type: SET_BAKING_POWDER_TOTAL, payload: totalTsp });
+};
+
+export const calculateTotalYeastInput = () => (dispatch, getState) => {
+  const state = getState();
+
+  const { yeastTspSet, yeastPartialTspSet } = state.calculationForm;
+
+  let totalTsp = convertToTsp(yeastTspSet, yeastPartialTspSet);
+
+  dispatch({ type: SET_YEAST_TOTAL, payload: totalTsp });
 };
 
 export const calculateTotalLiquidInput = () => (dispatch, getState) => {
@@ -335,6 +357,8 @@ export const handleInput = (inputId, inputValue) => dispatch => {
   dispatch(caclulateTotalSugarInput());
   dispatch(calculateTotalFlourInput());
   dispatch(calculateTotalLiquidInput());
+  dispatch(calculatTotalBakingSodaInput());
+  dispatch(calculateTotalYeastInput());
 };
 
 export const flourPartialCupInput = flourPartialCup => {

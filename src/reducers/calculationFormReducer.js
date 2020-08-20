@@ -24,7 +24,9 @@ import {
   SET_BAKING_POWDER_TSP,
   SET_BAKING_POWDER_PARTIAL_TSP,
   SET_YEAST_TSP,
-  SET_YEAST_PARTIAL_TSP
+  SET_YEAST_PARTIAL_TSP,
+  SET_BAKING_POWDER_TOTAL,
+  SET_YEAST_TOTAL
 } from '../actions/types';
 
 import { defaultUnit } from '../constants';
@@ -59,7 +61,9 @@ const INITIAL_STATE = {
   bakingPowderPartialTspSet: 0,
   yeastSet: 0,
   yeastTspSet: 0,
-  yeastPartialTspSet: 0
+  yeastPartialTspSet: 0,
+  bakingPowderTotalSet: 0,
+  yeastTotalSet: 0
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -108,12 +112,16 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, bakingPowderTspSet: action.payload };
     case SET_BAKING_POWDER_PARTIAL_TSP:
       return { ...state, bakingPowderPartialTspSet: action.payload };
+    case SET_BAKING_POWDER_TOTAL:
+      return { ...state, bakingPowderTotalSet: action.payload };
     case SET_YEAST:
       return { ...state, yeastSet: action.payload };
     case SET_YEAST_TSP:
       return { ...state, yeastTspSet: action.payload };
     case SET_YEAST_PARTIAL_TSP:
       return { ...state, yeastPartialTspSet: action.payload };
+    case SET_YEAST_TOTAL:
+      return { ...state, yeastTotalSet: action.payload };
 
     case CLEAR_FORM:
       return { ...state, ...INITIAL_STATE };
