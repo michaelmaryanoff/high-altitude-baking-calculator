@@ -129,14 +129,16 @@ export const calculateLiquid = () => (dispatch, getState) => {
 
   const { liquidTotalSet, altitude } = state.calculationForm;
 
-  const adjustedLiquid = calculateAdjustedLiquid(liquidTotalSet, altitude);
-  dispatch({ type: CALCULATE_MIN_LIQUIDS, payload: adjustedLiquid.minTbspTotal });
-  dispatch({ type: CALCULATE_MAX_LIQUIDS, payload: adjustedLiquid.maxTbspTotal });
+  if (liquidTotalSet) {
+    const adjustedLiquid = calculateAdjustedLiquid(liquidTotalSet, altitude);
+    dispatch({ type: CALCULATE_MIN_LIQUIDS, payload: adjustedLiquid.minTbspTotal });
+    dispatch({ type: CALCULATE_MAX_LIQUIDS, payload: adjustedLiquid.maxTbspTotal });
 
-  const minString = createStringFromTbsp(adjustedLiquid.minTbspTotal);
-  const maxString = createStringFromTbsp(adjustedLiquid.maxTbspTotal);
-  const outputString = `${minString} - ${maxString}`;
-  dispatch({ type: SET_DISPLAY_LIQUIDS, payload: outputString });
+    const minString = createStringFromTbsp(adjustedLiquid.minTbspTotal);
+    const maxString = createStringFromTbsp(adjustedLiquid.maxTbspTotal);
+    const outputString = `${minString} - ${maxString}`;
+    dispatch({ type: SET_DISPLAY_LIQUIDS, payload: outputString });
+  }
 };
 
 export const calculateSugar = () => (dispatch, getState) => {
@@ -156,11 +158,13 @@ export const calculateFlour = () => (dispatch, getState) => {
 
   const { flourTotalSet, altitude } = state.calculationForm;
 
-  const adjustedFlour = calculateAdjustedFlour(flourTotalSet, altitude);
-  dispatch({ type: CALCULATE_FLOUR, payload: adjustedFlour });
+  if (flourTotalSet) {
+    const adjustedFlour = calculateAdjustedFlour(flourTotalSet, altitude);
+    dispatch({ type: CALCULATE_FLOUR, payload: adjustedFlour });
 
-  const outputString = createStringFromTbsp(adjustedFlour);
-  dispatch({ type: SET_DISPLAY_FLOUR, payload: outputString });
+    const outputString = createStringFromTbsp(adjustedFlour);
+    dispatch({ type: SET_DISPLAY_FLOUR, payload: outputString });
+  }
 };
 
 export const createBakingTimeLabel = () => (dispatch, getState) => {
