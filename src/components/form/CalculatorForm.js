@@ -172,6 +172,7 @@ const CalculatorForm = () => {
   ]);
 
   const clearState = () => {
+    console.log('initialState: ', initialState);
     setState({ ...initialState });
   };
 
@@ -183,16 +184,6 @@ const CalculatorForm = () => {
 
     // Set defaults in Redux state
     dispatch(clearForm());
-  };
-
-  /**
-   * Calculating outputs
-   */
-  const handleCalculatePressed = event => {
-    event.preventDefault();
-
-    // dispatch(calculateTemp());
-    dispatch(calculateOutputs());
   };
 
   /**
@@ -223,11 +214,20 @@ const CalculatorForm = () => {
     });
   };
 
+  /**
+   * Calculating outputs
+   */
+  const handleOnSubmit = event => {
+    event.preventDefault();
+
+    dispatch(calculateOutputs());
+  };
+
   return (
     <div className="ui basic segment">
       <div className="ui two column centered grid">
         <div className="ui segment">
-          <form className="ui large form error">
+          <form className="ui large form error" id="caulculation-form" onSubmit={handleOnSubmit}>
             {/* Units */}
             {unitFieldEnabled ? (
               <DropdownMenu
@@ -411,14 +411,15 @@ const CalculatorForm = () => {
             </div>
 
             <p />
-            <button className="ui red button" label="Clear" onClick={handleClearPressed}>
+            <button
+              className="ui red button"
+              label="Clear"
+              type="button"
+              onClick={handleClearPressed}
+            >
               Clear
             </button>
-            <button
-              className="ui primary button"
-              label="Calculate"
-              onClick={handleCalculatePressed}
-            >
+            <button className="ui primary button" label="Calculate" type="submit">
               Calculate
             </button>
           </form>

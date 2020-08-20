@@ -193,21 +193,23 @@ export const calculateBakingTime = () => (dispatch, getState) => {
   const state = getState();
   const { bakingMinsSet, bakingHoursSet, altitude } = state.calculationForm;
 
-  let bakingMinsToInt = bakingMinsSet ? parseInt(bakingMinsSet) : 0;
-  let bakingHoursToInt = bakingHoursSet ? parseInt(bakingHoursSet) : 0;
+  if (bakingMinsSet || bakingHoursSet) {
+    let bakingMinsToInt = bakingMinsSet ? parseInt(bakingMinsSet) : 0;
+    let bakingHoursToInt = bakingHoursSet ? parseInt(bakingHoursSet) : 0;
 
-  const hoursToMins = bakingHoursToInt * 60;
-  const totalBakingTimeInput = hoursToMins + bakingMinsToInt;
+    const hoursToMins = bakingHoursToInt * 60;
+    const totalBakingTimeInput = hoursToMins + bakingMinsToInt;
 
-  let lowerRangeBakingTime = totalBakingTimeInput * 0.7;
-  let upperRangeBakingTime = totalBakingTimeInput * 0.8;
+    let lowerRangeBakingTime = totalBakingTimeInput * 0.7;
+    let upperRangeBakingTime = totalBakingTimeInput * 0.8;
 
-  if (altitude >= 3500) {
-    dispatch({ type: CALCULATE_MIN_TIME, payload: lowerRangeBakingTime });
-    dispatch({ type: CALCULATE_MAX_TIME, payload: upperRangeBakingTime });
-  } else {
-    dispatch({ type: CALCULATE_MIN_TIME, payload: totalBakingTimeInput });
-    dispatch({ type: CALCULATE_MAX_TIME, payload: totalBakingTimeInput });
+    if (altitude >= 3500) {
+      dispatch({ type: CALCULATE_MIN_TIME, payload: lowerRangeBakingTime });
+      dispatch({ type: CALCULATE_MAX_TIME, payload: upperRangeBakingTime });
+    } else {
+      dispatch({ type: CALCULATE_MIN_TIME, payload: totalBakingTimeInput });
+      dispatch({ type: CALCULATE_MAX_TIME, payload: totalBakingTimeInput });
+    }
   }
 };
 
