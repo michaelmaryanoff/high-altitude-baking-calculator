@@ -5,7 +5,7 @@ const TextOutputField = props => {
     <div className={`${props.width} field`}>
       <label>{props.label}</label>
       <input
-        type={props.type}
+        type="text"
         name={props.name}
         placeholder={props.placeholder}
         readOnly={true}

@@ -254,7 +254,6 @@ const CalculatorForm = () => {
               />
               <TextOutputField
                 name={'ovenTempOutput'}
-                type="text"
                 value={ovenTempOutput}
                 handleOnChange={onChange}
                 label={`Temp adjusted `}
@@ -266,7 +265,6 @@ const CalculatorForm = () => {
 
               <TextOutputField
                 name={'bakingTimeOutput'}
-                type="text"
                 value={bakingTimeOutput}
                 handleOnChange={onChange}
                 label="Time adjusted"
@@ -299,7 +297,6 @@ const CalculatorForm = () => {
 
               <TextOutputField
                 name={'flourOutput'}
-                type="text"
                 value={flourOutput}
                 handleOnChange={onChange}
                 label={`Flour Adjusted`}
@@ -330,7 +327,6 @@ const CalculatorForm = () => {
 
               <TextOutputField
                 name={'liquidsOutput'}
-                type="text"
                 value={liquidsOutput}
                 handleOnChange={onChange}
                 label={`Liquids to add`}
@@ -354,7 +350,6 @@ const CalculatorForm = () => {
               />
               <TextOutputField
                 name={'bakingPowderOutput'}
-                type="text"
                 value={bakingPowderOutput}
                 handleOnChange={onChange}
                 label={`Baking Powder (total)`}
@@ -377,7 +372,6 @@ const CalculatorForm = () => {
               />
               <TextOutputField
                 name={'yeastOutput'}
-                type="text"
                 value={yeastOutput}
                 handleOnChange={onChange}
                 label={`Adjusted Yeast (tsp)`}
@@ -406,7 +400,6 @@ const CalculatorForm = () => {
               />
               <TextOutputField
                 name={'sugarOutput'}
-                type="text"
                 value={sugarOutput}
                 handleOnChange={onChange}
                 label={`Adjusted Sugar`}
