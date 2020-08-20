@@ -7,7 +7,7 @@ const DropdownMenu = props => {
 
   return (
     <div className="field">
-      <label>{props.labelText}</label>
+      <label>{props.label}</label>
       <select
         name={props.name}
         className="ui simple dropdown"

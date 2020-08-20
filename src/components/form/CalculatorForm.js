@@ -30,6 +30,7 @@ import TeaspoonInputField from './TeaspoonInput';
  */
 
 const initialState = {
+  unitFieldEnabled: false,
   unitInput: defaultUnit,
   altitudeInput: '',
   ovenTempInput: '',
@@ -86,6 +87,9 @@ const CalculatorForm = () => {
 
   const [
     {
+      // Unit field is temporarily disabled until we create a method for caclulating metric units.
+      // This is a bool that will determine whether to show or hide the units.
+      unitFieldEnabled,
       unitInput,
       altitudeInput,
       ovenTempInput,
@@ -225,23 +229,23 @@ const CalculatorForm = () => {
         <div className="ui segment">
           <form className="ui large form error">
             {/* Units */}
-            <div className="two fields">
+            {unitFieldEnabled ? (
               <DropdownMenu
-                labelText="Units"
+                label="Units"
                 name={'unitInput'}
                 value={unitInput}
                 optionDataSource={unitDataSource}
                 onChange={onChange}
               />
-              {/* Altitude */}
-              <TextInputField
-                name={'altitudeInput'}
-                type="number"
-                value={altitudeInput}
-                handleOnChange={onChange}
-                label={`Altitude ${altitudeUnitLabel}`}
-              />
-            </div>
+            ) : null}
+            {/* Altitude */}
+            <TextInputField
+              name={'altitudeInput'}
+              type="number"
+              value={altitudeInput}
+              handleOnChange={onChange}
+              label={`Altitude ${altitudeUnitLabel}`}
+            />
 
             {/* Oven temp */}
             <div className="five fields">
@@ -282,7 +286,7 @@ const CalculatorForm = () => {
               />
 
               <DropdownMenu
-                labelText="Fraction"
+                label="Fraction"
                 name="flourPartialCupInput"
                 value={flourPartialCupInput}
                 optionDataSource={partialCupDropDownDataSource}
@@ -311,7 +315,7 @@ const CalculatorForm = () => {
               />
 
               <DropdownMenu
-                labelText={'Fraction'}
+                label={'Fraction'}
                 name="liquidPartialCupInput"
                 value={liquidPartialCupInput}
                 optionDataSource={partialCupDropDownDataSource}
@@ -342,7 +346,7 @@ const CalculatorForm = () => {
                 handleOnChange={onChange}
               />
               <DropdownMenu
-                labelText="Fraction"
+                label="Fraction"
                 name="bakingPowderPartialTspInput"
                 value={bakingPowderPartialTspInput}
                 optionDataSource={partialTspDropDownDataSource}
@@ -364,7 +368,7 @@ const CalculatorForm = () => {
               />
 
               <DropdownMenu
-                labelText="Fraction"
+                label="Fraction"
                 name="yeastPartialTspInput"
                 value={yeastPartialTspInput}
                 optionDataSource={partialTspDropDownDataSource}
@@ -386,7 +390,7 @@ const CalculatorForm = () => {
                 handleOnChange={onChange}
               />
               <DropdownMenu
-                labelText="Fraction"
+                label="Fraction"
                 name="sugarPartialCupInput"
                 value={sugarPartialCupInput}
                 optionDataSource={partialCupDropDownDataSource}
