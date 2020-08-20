@@ -1,20 +1,7 @@
 import React from 'react';
 
-import { useDispatch } from 'react-redux';
-
-import { handleInput } from '../../actions';
-
 const TablespoonInput = props => {
-  const dispatch = useDispatch();
-
   const handleUserInput = event => {
-    const { name, value } = event.target;
-
-    // If we pass an empty string into our handleInput function,
-    // It will cause errors in redux and give us NaN
-    const safeValue = value ? value : 0;
-
-    dispatch(handleInput(name, safeValue));
     props.handleOnChange(event);
   };
 
