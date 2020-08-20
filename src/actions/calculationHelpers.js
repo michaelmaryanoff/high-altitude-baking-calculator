@@ -16,9 +16,15 @@ export const convertToTbsp = (cups, partialCups, tbsp) => {
   return totalTbsp;
 };
 
+/**
+ * @summary Takes in the values from two input fields (tsp, partial tsp)
+ * and outputs gross number of tsp
+ * @param {number} tsp - Whole, non-fractional tsp inputted by user.
+ * @param {number} partialtsp - Fractions of a Tsp (decimal format).
+ *
+ * @returns {number} Gross sum of all tsp.
+ */
 export const convertToTsp = (tsp, partialTsp) => {
-  // const convetedPartialTsp = parseFloat(partialTsp);
-
   let convertedTsp = 0;
   let convertedPartialTsp = 0;
 
@@ -30,6 +36,12 @@ export const convertToTsp = (tsp, partialTsp) => {
   return fullTspAmount;
 };
 
+/**
+ * @summary Calculates adjusted baking powder depending on user altitude
+ * @param {number} totalBakingPowder - The total number of tsp we
+ * are using to make our adjustment
+ * @param {number} altitude - User inputted altitude.
+ */
 export const calculateAdjustedBakingPowder = (totalBakingPowder, altitude) => {
   if (altitude < 3500) {
     return totalBakingPowder;
@@ -65,6 +77,14 @@ export const calculateAdjustedFlour = (totalFlour, altitude) => {
   return adjustedFlour;
 };
 
+/**
+ * @summary Calculates adjusted yeast depending on user altitude
+ * @param {number} totalYeast - The total number of tsp of yeast we
+ * are using to make our adjustment
+ * @param {number} altitude - User inputted altitude.
+ *
+ * @returns {number} - Total amount of yeast to eventually be displayed to user as string.
+ */
 export const calculateAdjustedYeast = (totalYeast, altitude) => {
   if (altitude > 3500) {
     return totalYeast * 0.75;
@@ -102,6 +122,14 @@ export const calculateAdjustedSugar = (totalSugar, altitude) => {
   return adjustedSugar;
 };
 
+/**
+ * @summary Calculates adjusted liquid depending on user altitude
+ * @param {number} totalLiquid -  The total number (int preffered) of tbsp we
+ * are using to make our adjustment
+ * @param {number} altitude - The altitude a user has inputted.
+ *
+ * @returns {number} Total number of tablespoons, adjusted for altitude.
+ */
 export const calculateAdjustedLiquid = (totalLiquid, altitude) => {
   // This needs to return an object that has a min and a max!
 
@@ -190,9 +218,9 @@ export const createStringFromTbsp = totalTbsp => {
  */
 export const createStringFromTsp = tspInput => {
   /**
-   * Note: The reason these formulations are so similar to createStringFromTbsp
+   * The reason these formulations are so similar to createStringFromTbsp
    * is becuase using a multiplier of 16 in order to determine our output string
-   * is the best way to get a precise measurement
+   * is the best way to get a precise measurement without having to depend on unreliable fload calculations.
    */
   const totalTbsp = tspInput * 16;
 
