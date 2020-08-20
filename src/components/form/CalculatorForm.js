@@ -69,6 +69,8 @@ const partialCupDropDownDataSource = [
   { label: '2/3', value: 0.66666 }
 ];
 
+const regexValidationExp = /^[0-9\b]+$/;
+
 const CalculatorForm = () => {
   const dispatch = useDispatch();
 
@@ -178,6 +180,19 @@ const CalculatorForm = () => {
    */
 
   const onChange = event => {
+    const regexp = /^[0-9\b]+$/;
+    const { name, value } = event.target;
+
+    let safeValue = value ? value : 0;
+
+    if (safeValue === '' || regexp.test(safeValue)) {
+      dispatch(handleInput(name, safeValue));
+      setState(prevState => {
+        return { ...prevState, [name]: value };
+      });
+    }
+  };
+  const dropdownOnChange = event => {
     const { name, value } = event.target;
 
     let safeValue = value ? value : 0;
@@ -259,7 +274,7 @@ const CalculatorForm = () => {
                 name="flourPartialCupInput"
                 value={flourPartialCupInput}
                 optionDataSource={partialCupDropDownDataSource}
-                onChange={onChange}
+                onChange={dropdownOnChange}
               />
               <TablespoonInput
                 label={'Flour (T)'}
@@ -290,7 +305,7 @@ const CalculatorForm = () => {
                 name="liquidPartialCupInput"
                 value={liquidPartialCupInput}
                 optionDataSource={partialCupDropDownDataSource}
-                onChange={onChange}
+                onChange={dropdownOnChange}
               />
 
               <TablespoonInput
@@ -351,22 +366,19 @@ const CalculatorForm = () => {
                 value={sugarCupsInput}
                 handleOnChange={onChange}
               />
-
               <DropdownMenu
                 labelText="Fraction"
                 name="sugarPartialCupInput"
                 value={sugarPartialCupInput}
                 optionDataSource={partialCupDropDownDataSource}
-                onChange={onChange}
+                onChange={dropdownOnChange}
               />
-
               <TablespoonInput
                 label={'Sugar (T)'}
                 name="sugarTbspInput"
                 value={sugarTbspInput}
                 handleOnChange={onChange}
               />
-
               <TextOutputField
                 name={'sugarOutput'}
                 type="text"

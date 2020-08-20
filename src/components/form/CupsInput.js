@@ -9,7 +9,8 @@ const CupsInput = props => {
     <div className="two wide field">
       <label>{props.label}</label>
       <input
-        type="number"
+        type="text"
+        pattern="[0-9]*"
         name={props.name}
         onChange={handleUserInput}
         value={props.value}

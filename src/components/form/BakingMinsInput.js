@@ -17,7 +17,8 @@ const BakingMinsInput = props => {
     <div className="two wide field">
       <label>Time (m)</label>
       <input
-        type="number"
+        type="text"
+        pattern="[0-9]*"
         name="bakingMinsInput"
         onChange={handleUserInput}
         value={props.value}

@@ -9,7 +9,8 @@ const TextInputField = props => {
     <div className={`${props.width} field`}>
       <label>{props.label}</label>
       <input
-        type="number"
+        type="text"
+        pattern="[0-9]*"
         name={props.name}
         placeholder={props.placeholder}
         onChange={handleUserInput}
