@@ -23,6 +23,7 @@ import BakingMinsInput from './BakingMinsInput';
 import BakingHoursInput from './BakingHoursInput';
 import CupsInput from './CupsInput';
 import TablespoonInput from './TablespoonInput';
+import TeaspoonInputField from './TeaspoonInput';
 
 /**
  * Constants
@@ -51,8 +52,12 @@ const initialState = {
   sugarPartialCupInput: '',
   sugarOutput: '',
   bakingPowderInput: '',
+  bakingPowderTspInput: '',
+  bakingPowderPartialTspInput: '',
   bakingPowderOutput: '',
   yeastInput: '',
+  yeastTspInput: '',
+  yeastPartialTspInput: '',
   yeastOutput: ''
 };
 
@@ -69,7 +74,14 @@ const partialCupDropDownDataSource = [
   { label: '2/3', value: 0.66666 }
 ];
 
-const regexValidationExp = /^[0-9\b]+$/;
+const partialTspDropDownDataSource = [
+  { label: '-', value: '' },
+  { label: '1/8', value: 0.125 },
+  { label: '1/4', value: 0.25 },
+  { label: '1/3', value: 0.33333 },
+  { label: '1/2', value: 0.5 },
+  { label: '2/3', value: 0.66666 }
+];
 
 const CalculatorForm = () => {
   const dispatch = useDispatch();
@@ -95,9 +107,11 @@ const CalculatorForm = () => {
       sugarTbspInput,
       sugarPartialCupInput,
       sugarOutput,
-      bakingPowderInput,
+      bakingPowderTspInput,
+      bakingPowderPartialTspInput,
       bakingPowderOutput,
-      yeastInput,
+      yeastTspInput,
+      yeastPartialTspInput,
       yeastOutput
     },
     setState
@@ -327,11 +341,18 @@ const CalculatorForm = () => {
             {/* Baking Powder */}
 
             <div className="four fields">
-              <TextInputField
-                name={'bakingPowderInput'}
-                value={bakingPowderInput}
-                handleOnChange={onChange}
+              <TeaspoonInputField
                 label={`Baking Powder (tsp)`}
+                name="bakingPowderTspInput"
+                value={bakingPowderTspInput}
+                handleOnChange={onChange}
+              />
+              <DropdownMenu
+                labelText="Fraction"
+                name="bakingPowderPartialTspInput"
+                value={bakingPowderPartialTspInput}
+                optionDataSource={partialTspDropDownDataSource}
+                handleOnChange={dropdownOnChange}
               />
               <TextOutputField
                 name={'bakingPowderOutput'}
@@ -343,11 +364,19 @@ const CalculatorForm = () => {
               />
 
               {/* Yeast */}
-              <TextInputField
-                name={'yeastInput'}
-                value={yeastInput}
-                handleOnChange={onChange}
+              <TeaspoonInputField
                 label={`Yeast (tsp)`}
+                name={'yeastInput'}
+                value={yeastTspInput}
+                handleOnChange={onChange}
+              />
+
+              <DropdownMenu
+                labelText="Fraction"
+                name="yeastPartialTspInput"
+                value={yeastPartialTspInput}
+                optionDataSource={partialTspDropDownDataSource}
+                handleOnChange={dropdownOnChange}
               />
               <TextOutputField
                 name={'yeastOutput'}
