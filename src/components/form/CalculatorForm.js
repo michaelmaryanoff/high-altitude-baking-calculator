@@ -235,8 +235,8 @@ const CalculatorForm = () => {
           />
         ) : null}
         {/* Altitude */}
-        <div className="centered aligned row">
-          <div className="ui five column centered grid">
+        <div className="centered center aligned row">
+          <div className="ui six column centered grid">
             <div className="center aligned column">
               <div className="ui compact segment">
                 <label className="ui top attached purple label">Altitude (ft)</label>
