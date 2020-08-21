@@ -172,7 +172,6 @@ const CalculatorForm = () => {
   ]);
 
   const clearState = () => {
-    console.log('initialState: ', initialState);
     setState({ ...initialState });
   };
 

@@ -55,7 +55,8 @@ import {
   convertToTsp,
   calculateAdjustedYeast,
   createStringFromTsp,
-  calculateAdjustedBakingPowder
+  calculateAdjustedBakingPowder,
+  calculateAdjustedBakingTime
 } from './calculationHelpers';
 
 /**
@@ -191,25 +192,15 @@ export const createBakingTimeLabel = () => (dispatch, getState) => {
 
 export const calculateBakingTime = () => (dispatch, getState) => {
   const state = getState();
-  const { bakingMinsSet, bakingHoursSet, altitude } = state.calculationForm;
+  const { bakingHoursSet, bakingMinsSet, altitude } = state.calculationForm;
+
+  const adjustedbakingTime = calculateAdjustedBakingTime(bakingHoursSet, bakingMinsSet, altitude);
+
+  const { lowerRangeBakingTime, upperRangeBakingTime } = adjustedbakingTime;
 
   if (bakingMinsSet || bakingHoursSet) {
-    let bakingMinsToInt = bakingMinsSet ? parseInt(bakingMinsSet) : 0;
-    let bakingHoursToInt = bakingHoursSet ? parseInt(bakingHoursSet) : 0;
-
-    const hoursToMins = bakingHoursToInt * 60;
-    const totalBakingTimeInput = hoursToMins + bakingMinsToInt;
-
-    let lowerRangeBakingTime = totalBakingTimeInput * 0.7;
-    let upperRangeBakingTime = totalBakingTimeInput * 0.8;
-
-    if (altitude >= 3500) {
-      dispatch({ type: CALCULATE_MIN_TIME, payload: lowerRangeBakingTime });
-      dispatch({ type: CALCULATE_MAX_TIME, payload: upperRangeBakingTime });
-    } else {
-      dispatch({ type: CALCULATE_MIN_TIME, payload: totalBakingTimeInput });
-      dispatch({ type: CALCULATE_MAX_TIME, payload: totalBakingTimeInput });
-    }
+    dispatch({ type: CALCULATE_MIN_TIME, payload: lowerRangeBakingTime });
+    dispatch({ type: CALCULATE_MAX_TIME, payload: upperRangeBakingTime });
   }
 };
 

@@ -36,6 +36,33 @@ export const convertToTsp = (tsp, partialTsp) => {
   return fullTspAmount;
 };
 
+export const calculateAdjustedBakingTime = (totalBakingHours, totalBakingMins, altitude) => {
+  let bakingMinsToInt = totalBakingMins ? parseInt(totalBakingMins) : 0;
+  let bakingHoursToInt = totalBakingHours ? parseInt(totalBakingHours) : 0;
+
+  const hoursToMins = bakingHoursToInt * 60;
+  const totalBakingTimeInput = hoursToMins + bakingMinsToInt;
+
+  let lowerRangeBakingTime = totalBakingTimeInput * 0.7;
+  let upperRangeBakingTime = totalBakingTimeInput * 0.8;
+
+  let originalBakingTime = {
+    lowerRangeBakingTime: totalBakingTimeInput,
+    upperRangeBakingTime: totalBakingTimeInput
+  };
+
+  let bakingTimeMinMax = {
+    lowerRangeBakingTime,
+    upperRangeBakingTime
+  };
+
+  if (altitude >= 3500) {
+    return bakingTimeMinMax;
+  } else {
+    return originalBakingTime;
+  }
+};
+
 /**
  * @summary Calculates adjusted baking powder depending on user altitude
  * @param {number} totalBakingPowder - The total number of tsp we
