@@ -64,16 +64,34 @@ export const calculateAdjustedBakingTime = (totalBakingHours, totalBakingMins, a
 };
 
 export const createStringFromBakingTime = (minTimeTotal, maxTimeTotal) => {
-  console.log('minTimeTotal: ', minTimeTotal);
-  let maxHours = Math.floor(maxTimeTotal / 60);
-  let maxMinutes = Math.floor(maxTimeTotal % 60);
-  let maxTimeForDisplay = `${maxHours} hr ${maxMinutes} mins`;
+  let maxHoursLabel = '';
+  let maxMinutesLabel = '';
 
-  let minHours = Math.floor(minTimeTotal / 60);
-  let minMinutes = Math.floor(minTimeTotal % 60);
-  let minTimeForDisplay = `${minHours} hr ${minMinutes} mins`;
+  let minHoursLabel = '';
+  let minMinutesLabel = '';
 
-  let finalTimeForDisplay = `${minTimeForDisplay} - ${maxTimeForDisplay}`;
+  const hourShortened = 'hr';
+  const minShortened = 'min';
+
+  const divider = '-';
+
+  // Calculate maximum time string
+  const maxHours = Math.floor(maxTimeTotal / 60);
+  const maxMinutes = Math.floor(maxTimeTotal % 60);
+  maxHoursLabel = maxHours > 0 ? `${maxHours} ${hourShortened}` : '';
+  maxMinutesLabel = maxMinutes > 0 ? `${maxMinutes} ${minShortened}` : '';
+
+  let maxTimeForDisplay = `${maxHoursLabel} ${maxMinutesLabel}`;
+
+  // Calculate maximum time string
+  const minHours = Math.floor(minTimeTotal / 60);
+  const minMinutes = Math.floor(minTimeTotal % 60);
+  minHoursLabel = minHours > 0 ? `${maxHours} ${hourShortened}` : '';
+  minMinutesLabel = minMinutes > 0 ? `${minMinutes} ${minShortened}` : '';
+
+  const minTimeForDisplay = `${minHoursLabel} ${minMinutesLabel}`;
+
+  const finalTimeForDisplay = `${minTimeForDisplay} ${divider} ${maxTimeForDisplay}`;
   return finalTimeForDisplay;
 };
 
