@@ -6,7 +6,7 @@ const DropdownMenu = props => {
   };
 
   return (
-    <div className="field">
+    <div className={`${props.width} field`}>
       <label>{props.label}</label>
       <select
         name={props.name}

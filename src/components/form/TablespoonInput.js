@@ -6,7 +6,7 @@ const TablespoonInput = props => {
   };
 
   return (
-    <div className="two wide field">
+    <div className={`${props.width} field`}>
       <label>{props.label}</label>
       <input
         type="text"

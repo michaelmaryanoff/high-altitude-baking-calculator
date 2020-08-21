@@ -238,12 +238,14 @@ const CalculatorForm = () => {
               />
             ) : null}
             {/* Altitude */}
+
             <TextInputField
               name={'altitudeInput'}
               type="number"
               value={altitudeInput}
               handleOnChange={onChange}
               label={`Altitude ${altitudeUnitLabel}`}
+              width="eight wide"
             />
 
             {/* Oven temp */}
@@ -282,6 +284,7 @@ const CalculatorForm = () => {
                 name="flourCupsInput"
                 value={flourCupsInput}
                 handleOnChange={onChange}
+                width="two wide"
               />
 
               <DropdownMenu
@@ -290,6 +293,7 @@ const CalculatorForm = () => {
                 value={flourPartialCupInput}
                 optionDataSource={partialCupDropDownDataSource}
                 onChange={dropdownOnChange}
+                width="two wide"
               />
               <TablespoonInput
                 label={'Flour (T)'}
@@ -311,6 +315,7 @@ const CalculatorForm = () => {
                 name="liquidCupsInput"
                 value={liquidCupsInput}
                 handleOnChange={onChange}
+                width="two wide"
               />
 
               <DropdownMenu
@@ -319,6 +324,7 @@ const CalculatorForm = () => {
                 value={liquidPartialCupInput}
                 optionDataSource={partialCupDropDownDataSource}
                 onChange={dropdownOnChange}
+                width="two wide"
               />
 
               <TablespoonInput
