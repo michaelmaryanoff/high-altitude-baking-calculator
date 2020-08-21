@@ -24,6 +24,7 @@ import CupsInput from './CupsInput';
 import TablespoonInput from './TablespoonInput';
 import TeaspoonInputField from './TeaspoonInput';
 import FieldGroupLabel from './FieldGroupLabel';
+import BakingTempField from './FormGroup';
 
 /**
  * Constants
@@ -257,35 +258,12 @@ const CalculatorForm = () => {
         <div classname="center aligned row">
           <div className="ui five column centered grid">
             {/* Oven temp JSX */}
-            <div className="center aligned column">
-              <div className="ui compact segment">
-                <div className="ui four column grid">
-                  <FieldGroupLabel>Baking temperature</FieldGroupLabel>
-                  <div className="row">
-                    <div className="sixteen wide column">
-                      <TextInputField
-                        name={'ovenTempInput'}
-                        value={ovenTempInput}
-                        handleOnChange={onChange}
-                        label={`Original`}
-                        width={''}
-                      />
-                    </div>
-                  </div>
-                  <div className="sixteen wide column">
-                    <div className="row">
-                      <TextOutputField
-                        name={'ovenTempOutput'}
-                        value={ovenTempOutput}
-                        handleOnChange={onChange}
-                        label={`Adjusted `}
-                        width={''}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+            <BakingTempField
+              inputValue={ovenTempInput}
+              outputValue={ovenTempOutput}
+              handleOnChange={onChange}
+            />
 
             {/* Baking time */}
             <div className="center aligned column">
