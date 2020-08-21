@@ -18,13 +18,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import DropdownMenu from './DropdownMenu';
 import TextInputField from './TextInputField';
 import TextOutputField from './TextOutputField';
-import BakingMinsInput from './BakingMinsInput';
-import BakingHoursInput from './BakingHoursInput';
 import CupsInput from './CupsInput';
 import TablespoonInput from './TablespoonInput';
 import TeaspoonInputField from './TeaspoonInput';
 import BakingTempField from './BakingTempField';
 import BakingTimeField from './BakingTimeField';
+import CupsAndTbspField from './CupsAndTbspField';
 
 /**
  * Constants
@@ -240,21 +239,21 @@ const CalculatorForm = () => {
           <div className="ui six column centered grid">
             <div className="center aligned column">
               <div className="ui compact segment">
-                <label className="ui top attached large purple label">Altitude (ft)</label>
+                <label className="ui top attached large purple label">Altitude</label>
                 <TextInputField
                   name={'altitudeInput'}
                   type="number"
                   value={altitudeInput}
                   handleOnChange={onChange}
-                  label={`Altitude ${altitudeUnitLabel}`}
+                  label={`Feet above sea level`}
                   width="four"
                 />
               </div>
             </div>
           </div>
         </div>
-        {/* Oven temp */}
-        <div classname="center aligned row">
+
+        <div className="center aligned row">
           <div className="ui five column centered grid">
             <BakingTempField
               inputValue={ovenTempInput}
@@ -267,42 +266,47 @@ const CalculatorForm = () => {
               output={bakingTimeOutput}
               handleOnChange={onChange}
             />
+
+            {/* Flour */}
+            <CupsAndTbspField
+              cupsInputValue={flourCupsInput}
+              partialCupsInputValue={flourPartialCupInput}
+              tablespoonInputValue={flourTbspInput}
+              outputValue={flourOutput}
+              cupsFieldLabel="Cups"
+              dropdownFieldLabel="Fraction"
+              cupsFieldName="flourCupsInput"
+              dropdownFieldName="flourPartialCupInput"
+              tablespoonFieldLabel="Tbsp"
+              tablespoonFieldName="flourTbspInput"
+              outputFieldLabel="Adjusted"
+              ouputFieldName="flourOutput"
+              handleOnChange={onChange}
+              handleDropdownOnChange={dropdownOnChange}
+              fieldGroupLabel={'Flour'}
+            />
+
+            <CupsAndTbspField
+              cupsInputValue={liquidCupsInput}
+              partialCupsInputValue={liquidPartialCupInput}
+              tablespoonInputValue={liquidTbspInput}
+              outputValue={liquidOutput}
+              cupsFieldLabel="Cups"
+              dropdownFieldLabel="Fraction"
+              cupsFieldName="liquidCupsInput"
+              dropdownFieldName="liquidPartialCupInput"
+              tablespoonFieldLabel="Tbsp"
+              tablespoonFieldName="liquidTbspInput"
+              outputFieldLabel="Adjusted"
+              ouputFieldName="liquidOutput"
+              handleOnChange={onChange}
+              handleDropdownOnChange={dropdownOnChange}
+              fieldGroupLabel={'Liquid'}
+            />
           </div>
-        </div>
-
-        {/* Flour */}
-        <div className="four fields">
-          <CupsInput
-            label={'Flour (C)'}
-            name="flourCupsInput"
-            value={flourCupsInput}
-            handleOnChange={onChange}
-            width="two wide"
-          />
-
-          <DropdownMenu
-            label="Fraction"
-            name="flourPartialCupInput"
-            value={flourPartialCupInput}
-            optionDataSource={partialCupDropDownDataSource}
-            onChange={dropdownOnChange}
-            width="two wide"
-          />
-          <TablespoonInput
-            label={'Flour (T)'}
-            name="flourTbspInput"
-            value={flourTbspInput}
-            handleOnChange={onChange}
-          />
-
-          <TextOutputField
-            name={'flourOutput'}
-            value={flourOutput}
-            handleOnChange={onChange}
-            label={`Flour Adjusted`}
-          />
 
           {/* Liquid */}
+
           <CupsInput
             label={'Liquids (C)'}
             name="liquidCupsInput"
