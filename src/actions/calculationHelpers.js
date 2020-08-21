@@ -63,6 +63,20 @@ export const calculateAdjustedBakingTime = (totalBakingHours, totalBakingMins, a
   }
 };
 
+export const createStringFromBakingTime = (minTimeTotal, maxTimeTotal) => {
+  console.log('minTimeTotal: ', minTimeTotal);
+  let maxHours = Math.floor(maxTimeTotal / 60);
+  let maxMinutes = Math.floor(maxTimeTotal % 60);
+  let maxTimeForDisplay = `${maxHours} hr ${maxMinutes} mins`;
+
+  let minHours = Math.floor(minTimeTotal / 60);
+  let minMinutes = Math.floor(minTimeTotal % 60);
+  let minTimeForDisplay = `${minHours} hr ${minMinutes} mins`;
+
+  let finalTimeForDisplay = `${minTimeForDisplay} - ${maxTimeForDisplay}`;
+  return finalTimeForDisplay;
+};
+
 /**
  * @summary Calculates adjusted baking powder depending on user altitude
  * @param {number} totalBakingPowder - The total number of tsp we

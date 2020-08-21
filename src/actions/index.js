@@ -56,7 +56,8 @@ import {
   calculateAdjustedYeast,
   createStringFromTsp,
   calculateAdjustedBakingPowder,
-  calculateAdjustedBakingTime
+  calculateAdjustedBakingTime,
+  createStringFromBakingTime
 } from './calculationHelpers';
 
 /**
@@ -66,12 +67,12 @@ import {
 
 export const calculateOutputs = () => dispatch => {
   dispatch(calculateTemp());
-  dispatch(createBakingTimeLabel());
-  dispatch(calculateBakingPowder());
-  dispatch(calculateYeast());
-  dispatch(calculateFlour());
+  dispatch(calculateBakingTime());
   dispatch(calculateLiquid());
   dispatch(calculateSugar());
+  dispatch(calculateFlour());
+  dispatch(calculateBakingPowder());
+  dispatch(calculateYeast());
 };
 
 export const calculatTotalBakingPowderInput = () => (dispatch, getState) => {
@@ -168,39 +169,19 @@ export const calculateFlour = () => (dispatch, getState) => {
   }
 };
 
-export const createBakingTimeLabel = () => (dispatch, getState) => {
-  dispatch(calculateBakingTime());
-
-  const state = getState();
-
-  const { minTimeCalc, maxTimeCalc } = state.calculationOutput;
-
-  if (minTimeCalc && maxTimeCalc) {
-    let maxHours = Math.floor(maxTimeCalc / 60);
-    let maxMinutes = Math.floor(maxTimeCalc % 60);
-    let maxTimeForDisplay = `${maxHours} hr ${maxMinutes} mins`;
-
-    let minHours = Math.floor(minTimeCalc / 60);
-    let minMinutes = Math.floor(minTimeCalc % 60);
-    let minTimeForDisplay = `${minHours} hr ${minMinutes} mins`;
-
-    let finalTimeForDisplay = `${minTimeForDisplay} - ${maxTimeForDisplay}`;
-
-    dispatch({ type: SET_DISPLAY_TIME, payload: finalTimeForDisplay });
-  }
-};
-
 export const calculateBakingTime = () => (dispatch, getState) => {
   const state = getState();
+
   const { bakingHoursSet, bakingMinsSet, altitude } = state.calculationForm;
 
-  const adjustedbakingTime = calculateAdjustedBakingTime(bakingHoursSet, bakingMinsSet, altitude);
-
-  const { lowerRangeBakingTime, upperRangeBakingTime } = adjustedbakingTime;
-
   if (bakingMinsSet || bakingHoursSet) {
+    const adjustedbakingTime = calculateAdjustedBakingTime(bakingHoursSet, bakingMinsSet, altitude);
+    const { lowerRangeBakingTime, upperRangeBakingTime } = adjustedbakingTime;
     dispatch({ type: CALCULATE_MIN_TIME, payload: lowerRangeBakingTime });
     dispatch({ type: CALCULATE_MAX_TIME, payload: upperRangeBakingTime });
+
+    const outputString = createStringFromBakingTime(lowerRangeBakingTime, upperRangeBakingTime);
+    dispatch({ type: SET_DISPLAY_TIME, payload: outputString });
   }
 };
 
