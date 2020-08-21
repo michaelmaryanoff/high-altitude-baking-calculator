@@ -239,7 +239,7 @@ const CalculatorForm = () => {
           <div className="ui five column centered grid">
             <div className="center aligned column">
               <div className="ui compact segment">
-                <label className="ui top attached purple label">Altitude</label>
+                <label className="ui top attached purple label">Altitude (ft)</label>
                 <TextInputField
                   name={'altitudeInput'}
                   type="number"
@@ -253,32 +253,62 @@ const CalculatorForm = () => {
           </div>
         </div>
         {/* Oven temp */}
-        {/* <label className="ui top attached purple label">Oven temp</label> */}
-        <TextInputField
-          name={'ovenTempInput'}
-          value={ovenTempInput}
-          handleOnChange={onChange}
-          label={`Original`}
-          width={''}
-        />
-        <TextOutputField
-          name={'ovenTempOutput'}
-          value={ovenTempOutput}
-          handleOnChange={onChange}
-          label={`Adjusted `}
-          width={''}
-        />
-        {/* Baking time */}
-        Baking time
-        <BakingHoursInput value={bakingHoursInput} handleOnChange={onChange} width="" />
-        <BakingMinsInput value={bakingMinsInput} handleOnChange={onChange} width="" />
-        <TextOutputField
-          name={'bakingTimeOutput'}
-          value={bakingTimeOutput}
-          handleOnChange={onChange}
-          label="Time adjusted"
-          width={''}
-        />
+        <div classname="center aligned row">
+          <div className="ui five column centered grid">
+            <div className="center aligned column">
+              <div className="ui compact segment">
+                <label className="ui top attached purple label">Oven temp</label>
+                <TextInputField
+                  name={'ovenTempInput'}
+                  value={ovenTempInput}
+                  handleOnChange={onChange}
+                  label={`Original`}
+                  width={''}
+                />
+                <TextOutputField
+                  name={'ovenTempOutput'}
+                  value={ovenTempOutput}
+                  handleOnChange={onChange}
+                  label={`Adjusted `}
+                  width={''}
+                />
+              </div>
+            </div>
+
+            {/* Baking time */}
+            <div className="center aligned column">
+              <div className="ui compact segment">
+                <label className="ui top attached purple label">Baking time</label>
+                <div className="ui grid">
+                  <div className="row">
+                    <div className="eight wide column">
+                      <BakingHoursInput
+                        value={bakingHoursInput}
+                        handleOnChange={onChange}
+                        width=""
+                      />
+                    </div>
+                    <div className="eight wide column">
+                      <BakingMinsInput value={bakingMinsInput} handleOnChange={onChange} width="" />
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="sixteen wide column">
+                      <TextOutputField
+                        name={'bakingTimeOutput'}
+                        value={bakingTimeOutput}
+                        handleOnChange={onChange}
+                        label="Adjusted time"
+                        width={''}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Flour */}
         <div className="four fields">
           <CupsInput
