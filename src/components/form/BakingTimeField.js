@@ -1,11 +1,46 @@
-import React from 'react'
+import React from 'react';
 
-function BakingTimeField() {
-    return (
-        <div>
-            
+import BakingHoursInput from './BakingHoursInput';
+import BakingMinsInput from './BakingMinsInput';
+import TextOutputField from './TextOutputField';
+
+const BakingTimeField = props => {
+  return (
+    <div className="center aligned column">
+      <div className="ui compact segment">
+        <div className="ui four column grid">
+          <label className="ui top attached large purple label">Baking time</label>
+          <div className="row">
+            <div className="eight wide column">
+              <BakingHoursInput
+                value={props.hoursInput}
+                handleOnChange={props.handleOnChange}
+                width=""
+              />
+            </div>
+            <div className="eight wide column">
+              <BakingMinsInput
+                value={props.minsInput}
+                handleOnChange={props.handleOnChange}
+                width=""
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="sixteen wide column">
+              <TextOutputField
+                name={'bakingTimeOutput'}
+                value={props.output}
+                handleOnChange={props.handleOnChange}
+                label="Adjusted time"
+                width={''}
+              />
+            </div>
+          </div>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
-export default BakingTimeField
+export default BakingTimeField;

@@ -24,6 +24,7 @@ import CupsInput from './CupsInput';
 import TablespoonInput from './TablespoonInput';
 import TeaspoonInputField from './TeaspoonInput';
 import BakingTempField from './BakingTempField';
+import BakingTimeField from './BakingTimeField';
 
 /**
  * Constants
@@ -255,45 +256,17 @@ const CalculatorForm = () => {
         {/* Oven temp */}
         <div classname="center aligned row">
           <div className="ui five column centered grid">
-            {/* Oven temp JSX */}
-
             <BakingTempField
               inputValue={ovenTempInput}
               outputValue={ovenTempOutput}
               handleOnChange={onChange}
             />
-
-            {/* Baking time */}
-            <div className="center aligned column">
-              <div className="ui compact segment">
-                <div className="ui four column grid">
-                  <label className="ui top attached large purple label">Baking time</label>
-                  <div className="row">
-                    <div className="eight wide column">
-                      <BakingHoursInput
-                        value={bakingHoursInput}
-                        handleOnChange={onChange}
-                        width=""
-                      />
-                    </div>
-                    <div className="eight wide column">
-                      <BakingMinsInput value={bakingMinsInput} handleOnChange={onChange} width="" />
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="sixteen wide column">
-                      <TextOutputField
-                        name={'bakingTimeOutput'}
-                        value={bakingTimeOutput}
-                        handleOnChange={onChange}
-                        label="Adjusted time"
-                        width={''}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <BakingTimeField
+              hoursInput={bakingHoursInput}
+              minsInput={bakingMinsInput}
+              output={bakingTimeOutput}
+              handleOnChange={onChange}
+            />
           </div>
         </div>
 
