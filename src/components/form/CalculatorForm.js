@@ -273,13 +273,9 @@ const CalculatorForm = () => {
               partialCupsInputValue={flourPartialCupInput}
               tablespoonInputValue={flourTbspInput}
               outputValue={flourOutput}
-              cupsFieldLabel="Cups"
-              dropdownFieldLabel="Fraction"
               cupsFieldName="flourCupsInput"
               dropdownFieldName="flourPartialCupInput"
-              tablespoonFieldLabel="Tbsp"
               tablespoonFieldName="flourTbspInput"
-              outputFieldLabel="Adjusted"
               ouputFieldName="flourOutput"
               handleOnChange={onChange}
               handleDropdownOnChange={dropdownOnChange}
@@ -291,52 +287,33 @@ const CalculatorForm = () => {
               partialCupsInputValue={liquidPartialCupInput}
               tablespoonInputValue={liquidTbspInput}
               outputValue={liquidOutput}
-              cupsFieldLabel="Cups"
-              dropdownFieldLabel="Fraction"
               cupsFieldName="liquidCupsInput"
               dropdownFieldName="liquidPartialCupInput"
-              tablespoonFieldLabel="Tbsp"
               tablespoonFieldName="liquidTbspInput"
-              outputFieldLabel="Adjusted"
               ouputFieldName="liquidOutput"
               handleOnChange={onChange}
               handleDropdownOnChange={dropdownOnChange}
               fieldGroupLabel={'Liquid'}
             />
           </div>
+        </div>
 
-          {/* Liquid */}
-
-          <CupsInput
-            label={'Liquids (C)'}
-            name="liquidCupsInput"
-            value={liquidCupsInput}
-            handleOnChange={onChange}
-            width="two wide"
-          />
-
-          <DropdownMenu
-            label={'Fraction'}
-            name="liquidPartialCupInput"
-            value={liquidPartialCupInput}
-            optionDataSource={partialCupDropDownDataSource}
-            onChange={dropdownOnChange}
-            width="two wide"
-          />
-
-          <TablespoonInput
-            label={'Liquids (T)'}
-            name="liquidTbspInput"
-            value={liquidTbspInput}
-            handleOnChange={onChange}
-          />
-
-          <TextOutputField
-            name={'liquidOutput'}
-            value={liquidOutput}
-            handleOnChange={onChange}
-            label={`Liquids to add`}
-          />
+        <div className="center aligned row">
+          <div className="ui five column centered grid">
+            <CupsAndTbspField
+              cupsInputValue={sugarCupsInput}
+              partialCupsInputValue={sugarPartialCupInput}
+              tablespoonInputValue={sugarTbspInput}
+              outputValue={sugarOutput}
+              cupsFieldName="sugarCupsInput"
+              dropdownFieldName="sugarPartialCupInput"
+              tablespoonFieldName="sugarTbspInput"
+              ouputFieldName="sugarOutput"
+              handleOnChange={onChange}
+              handleDropdownOnChange={dropdownOnChange}
+              fieldGroupLabel={'Sugar'}
+            />
+          </div>
         </div>
         {/* Baking Powder */}
         <div className="four fields">
@@ -383,33 +360,7 @@ const CalculatorForm = () => {
           />
         </div>
         {/* Sugar */}
-        <div className="six fields">
-          <CupsInput
-            label={'Sugar (C)'}
-            name="sugarCupsInput"
-            value={sugarCupsInput}
-            handleOnChange={onChange}
-          />
-          <DropdownMenu
-            label="Fraction"
-            name="sugarPartialCupInput"
-            value={sugarPartialCupInput}
-            optionDataSource={partialCupDropDownDataSource}
-            onChange={dropdownOnChange}
-          />
-          <TablespoonInput
-            label={'Sugar (T)'}
-            name="sugarTbspInput"
-            value={sugarTbspInput}
-            handleOnChange={onChange}
-          />
-          <TextOutputField
-            name={'sugarOutput'}
-            value={sugarOutput}
-            handleOnChange={onChange}
-            label={`Adjusted Sugar`}
-          />
-        </div>
+
         <p />
         <button className="ui red button" label="Clear" type="button" onClick={handleClearPressed}>
           Clear

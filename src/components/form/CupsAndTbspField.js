@@ -23,7 +23,7 @@ const CupsAndTbspField = props => {
           <div className="row">
             <div className="five wide column">
               <CupsInput
-                label={props.cupsFieldLabel}
+                label="Cups"
                 name={props.cupsFieldName}
                 value={props.cupsInputValue}
                 handleOnChange={props.handleOnChange}
@@ -31,7 +31,7 @@ const CupsAndTbspField = props => {
             </div>
             <div className="six wide column">
               <DropdownMenu
-                label={props.dropdownFieldLabel}
+                label="Fraction"
                 name={props.dropdownFieldName}
                 value={props.partialCupsInputValue}
                 optionDataSource={partialCupDropDownDataSource}
@@ -40,7 +40,7 @@ const CupsAndTbspField = props => {
             </div>
             <div className="five wide column">
               <TablespoonInput
-                label={props.tablespoonFieldLabel}
+                label="Tbsp"
                 name={props.tablespoonFieldName}
                 value={props.tablespoonInputValue}
                 handleOnChange={props.handleOnChange}
@@ -53,7 +53,7 @@ const CupsAndTbspField = props => {
                 name={props.ouputFieldName}
                 value={props.outputValue}
                 handleOnChange={props.HandleOnChange}
-                label={props.outputFieldLabel}
+                label={'Adjusted'}
               />
             </div>
           </div>
@@ -68,13 +68,9 @@ CupsAndTbspField.propTypes = {
   partialCupsInputValue: PropTypes.any.isRequired,
   tablespoonInputValue: PropTypes.any.isRequired,
   outputValue: PropTypes.any.isRequired,
-  cupsFieldLabel: PropTypes.any.isRequired,
-  dropdownFieldLabel: PropTypes.any.isRequired,
   cupsFieldName: PropTypes.any.isRequired,
   dropdownFieldName: PropTypes.any.isRequired,
-  tablespoonFieldLabel: PropTypes.any.isRequired,
   tablespoonFieldName: PropTypes.any.isRequired,
-  outputFieldLabel: PropTypes.any.isRequired,
   ouputFieldName: PropTypes.any.isRequired,
   handleOnChange: PropTypes.any.isRequired,
   handleDropdownOnChange: PropTypes.any.isRequired,
