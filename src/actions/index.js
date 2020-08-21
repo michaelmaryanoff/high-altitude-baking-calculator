@@ -64,12 +64,10 @@ import {
  */
 
 export const calculateOutputs = () => dispatch => {
-  dispatch(calculateBakingPowder());
   dispatch(calculateTemp());
-  dispatch(calculateBakingPowder());
-  dispatch(calculateMinTemp());
-  dispatch(calculateYeast());
   dispatch(createBakingTimeLabel());
+  dispatch(calculateBakingPowder());
+  dispatch(calculateYeast());
   dispatch(calculateFlour());
   dispatch(calculateLiquid());
   dispatch(calculateSugar());
@@ -146,11 +144,13 @@ export const calculateSugar = () => (dispatch, getState) => {
 
   const { sugarTotalSet, altitude } = state.calculationForm;
 
-  const adjustedSugar = calculateAdjustedSugar(sugarTotalSet, altitude);
-  dispatch({ type: CALCULATE_SUGAR, payload: adjustedSugar });
+  if (sugarTotalSet) {
+    const adjustedSugar = calculateAdjustedSugar(sugarTotalSet, altitude);
+    dispatch({ type: CALCULATE_SUGAR, payload: adjustedSugar });
 
-  const outputString = createStringFromTbsp(adjustedSugar);
-  dispatch({ type: SET_DISPLAY_SUGAR, payload: outputString });
+    const outputString = createStringFromTbsp(adjustedSugar);
+    dispatch({ type: SET_DISPLAY_SUGAR, payload: outputString });
+  }
 };
 
 export const calculateFlour = () => (dispatch, getState) => {
@@ -217,22 +217,26 @@ export const calculateYeast = () => (dispatch, getState) => {
   const state = getState();
   const { yeastTotalSet, altitude } = state.calculationForm;
 
-  const adjustedYeast = calculateAdjustedYeast(yeastTotalSet, altitude);
-  dispatch({ type: CALCULATE_YEAST, payload: adjustedYeast });
+  if (yeastTotalSet) {
+    const adjustedYeast = calculateAdjustedYeast(yeastTotalSet, altitude);
+    dispatch({ type: CALCULATE_YEAST, payload: adjustedYeast });
 
-  const outputString = createStringFromTsp(adjustedYeast);
-  dispatch({ type: SET_DISPLAY_YEAST, payload: outputString });
+    const outputString = createStringFromTsp(adjustedYeast);
+    dispatch({ type: SET_DISPLAY_YEAST, payload: outputString });
+  }
 };
 
 export const calculateBakingPowder = () => (dispatch, getState) => {
   const state = getState();
   const { bakingPowderTotalSet, altitude } = state.calculationForm;
 
-  const adjustedBakingPowder = calculateAdjustedBakingPowder(bakingPowderTotalSet, altitude);
-  dispatch({ type: CALCULATE_BAKING_POWDER, payload: adjustedBakingPowder });
+  if (bakingPowderTotalSet) {
+    const adjustedBakingPowder = calculateAdjustedBakingPowder(bakingPowderTotalSet, altitude);
+    dispatch({ type: CALCULATE_BAKING_POWDER, payload: adjustedBakingPowder });
 
-  const outputString = createStringFromTsp(adjustedBakingPowder);
-  dispatch({ type: SET_DISPLAY_BAKING_POWDER, payload: outputString });
+    const outputString = createStringFromTsp(adjustedBakingPowder);
+    dispatch({ type: SET_DISPLAY_BAKING_POWDER, payload: outputString });
+  }
 };
 
 export const ovenTempForDisplay = () => (dispatch, getState) => {
@@ -249,9 +253,9 @@ export const ovenTempForDisplay = () => (dispatch, getState) => {
   }
 };
 
-export const calculateTemp = inputTemp => dispatch => {
-  dispatch(calculateMinTemp(inputTemp));
-  dispatch(calculateMaxTemp(inputTemp));
+export const calculateTemp = () => dispatch => {
+  dispatch(calculateMinTemp());
+  dispatch(calculateMaxTemp());
   dispatch(ovenTempForDisplay());
 };
 
@@ -263,13 +267,14 @@ export const calculateMaxTemp = input => (dispatch, getState) => {
 
   const { unit } = state.calculationForm;
   const { ovenTempSet } = state.calculationForm;
-
-  if (unit === 'customary') {
-    let maxTemp = parseInt(ovenTempSet) + tempToAddCustomary;
-    dispatch({ type: CALCULATE_MAX_OVEN_TEMP, payload: maxTemp });
-  } else if (unit === 'metric') {
-    let maxTemp = parseInt(ovenTempSet) + tempToAddMetric;
-    dispatch({ type: CALCULATE_MAX_OVEN_TEMP, payload: maxTemp });
+  if (ovenTempSet) {
+    if (unit === 'customary') {
+      let maxTemp = parseInt(ovenTempSet) + tempToAddCustomary;
+      dispatch({ type: CALCULATE_MAX_OVEN_TEMP, payload: maxTemp });
+    } else if (unit === 'metric') {
+      let maxTemp = parseInt(ovenTempSet) + tempToAddMetric;
+      dispatch({ type: CALCULATE_MAX_OVEN_TEMP, payload: maxTemp });
+    }
   }
 };
 
@@ -282,12 +287,14 @@ export const calculateMinTemp = input => (dispatch, getState) => {
   const { unit } = state.calculationForm;
   const { ovenTempSet } = state.calculationForm;
 
-  if (unit === 'customary') {
-    let minTemp = parseInt(ovenTempSet) + tempToAddCustomary;
-    dispatch({ type: CALCULATE_MIN_OVEN_TEMP, payload: minTemp });
-  } else if (unit === 'metric') {
-    let minTemp = parseInt(ovenTempSet) + tempToAddMetric;
-    dispatch({ type: CALCULATE_MIN_OVEN_TEMP, payload: minTemp });
+  if (ovenTempSet) {
+    if (unit === 'customary') {
+      let minTemp = parseInt(ovenTempSet) + tempToAddCustomary;
+      dispatch({ type: CALCULATE_MIN_OVEN_TEMP, payload: minTemp });
+    } else if (unit === 'metric') {
+      let minTemp = parseInt(ovenTempSet) + tempToAddMetric;
+      dispatch({ type: CALCULATE_MIN_OVEN_TEMP, payload: minTemp });
+    }
   }
 };
 
