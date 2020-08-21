@@ -24,6 +24,7 @@ import TeaspoonInputField from './TeaspoonInput';
 import BakingTempField from './BakingTempField';
 import BakingTimeField from './BakingTimeField';
 import CupsAndTbspField from './CupsAndTbspField';
+import TspField from './TspField';
 
 /**
  * Constants
@@ -313,8 +314,20 @@ const CalculatorForm = () => {
               handleDropdownOnChange={dropdownOnChange}
               fieldGroupLabel={'Sugar'}
             />
+            <TspField
+              label="Baking Powder"
+              tspInputValue={bakingPowderTspInput}
+              dropdownMenuValue={bakingPowderPartialTspInput}
+              tspInputName="bakingPowderTspInput"
+              outputName="bakingPowderOutput"
+              dropdownName="bakingPowderPartialTspInput"
+              output={bakingPowderOutput}
+              handleOnChange={onChange}
+              handleDropdownOnChange={dropdownOnChange}
+            />
           </div>
         </div>
+
         {/* Baking Powder */}
         <div className="four fields">
           <TeaspoonInputField
@@ -339,7 +352,8 @@ const CalculatorForm = () => {
 
           {/* Yeast */}
           <TeaspoonInputField
-            label={`Yeast (tsp)`}
+            labe
+            l={`Yeast (tsp)`}
             name="yeastTspInput"
             value={yeastTspInput}
             handleOnChange={onChange}

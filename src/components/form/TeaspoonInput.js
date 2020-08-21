@@ -6,7 +6,7 @@ const TeaspoonInputField = props => {
   };
 
   return (
-    <div className="two wide field">
+    <div className="field">
       <label>{props.label}</label>
       <input
         type="text"

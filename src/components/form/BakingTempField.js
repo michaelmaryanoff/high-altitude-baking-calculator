@@ -17,7 +17,6 @@ const BakingTempField = props => {
                 value={props.inputValue}
                 handleOnChange={props.handleOnChange}
                 label={`Original`}
-                width={''}
               />
             </div>
           </div>
