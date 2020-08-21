@@ -23,8 +23,7 @@ import BakingHoursInput from './BakingHoursInput';
 import CupsInput from './CupsInput';
 import TablespoonInput from './TablespoonInput';
 import TeaspoonInputField from './TeaspoonInput';
-import FieldGroupLabel from './FieldGroupLabel';
-import BakingTempField from './FormGroup';
+import BakingTempField from './BakingTempField';
 
 /**
  * Constants
@@ -125,7 +124,6 @@ const CalculatorForm = () => {
    */
   const unit = useSelector(state => state.calculationForm.unit);
   const altitudeUnitLabel = unit === 'metric' ? '(m)' : '(ft)';
-  const ovenTempUnitLabel = unit === 'metric' ? '(C)' : '(F)';
 
   /**
    * Displaying outputs.

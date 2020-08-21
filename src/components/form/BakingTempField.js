@@ -5,7 +5,6 @@ import TextInputField from './TextInputField';
 import TextOutputField from './TextOutputField';
 
 const BakingTempField = props => {
-  console.log('props.outputValue: ', props.outputValue);
   return (
     <div className="center aligned column">
       <div className="ui compact segment">
