@@ -4,8 +4,7 @@ import CalculatorForm from '../form/CalculatorForm';
 
 const CalculatorPage = () => {
   return (
-    // <div className="ui middle aligned center aligned four column grid">
-    <div className="ui grid">
+    <div className="pusher">
       <PageHeader label="Welcome to the High Altitude Baking Calculator!" />
       <CalculatorForm />
     </div>

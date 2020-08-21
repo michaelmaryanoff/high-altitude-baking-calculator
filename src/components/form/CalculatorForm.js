@@ -222,208 +222,208 @@ const CalculatorForm = () => {
   };
 
   return (
-    <form className="ui large form error" id="caulculation-form" onSubmit={handleOnSubmit}>
-      {/* Units */}
-      {unitFieldEnabled ? (
-        <DropdownMenu
-          label="Units"
-          name={'unitInput'}
-          value={unitInput}
-          optionDataSource={unitDataSource}
-          onChange={onChange}
-        />
-      ) : null}
-      {/* Altitude */}
-
-      <div className="ui four column center aligned centered grid">
-        <div className="column">
-          <div className="ui segment">
-            <TextInputField
-              name={'altitudeInput'}
-              type="number"
-              value={altitudeInput}
-              handleOnChange={onChange}
-              label={`Altitude ${altitudeUnitLabel}`}
-              width="four"
-            />
+    <div className="ui basic segment">
+      <form className="ui large form error" id="caulculation-form" onSubmit={handleOnSubmit}>
+        {/* Units */}
+        {unitFieldEnabled ? (
+          <DropdownMenu
+            label="Units"
+            name={'unitInput'}
+            value={unitInput}
+            optionDataSource={unitDataSource}
+            onChange={onChange}
+          />
+        ) : null}
+        {/* Altitude */}
+        <div className="centered aligned row">
+          <div className="ui five column centered grid">
+            <div className="center aligned column">
+              <div className="ui compact segment">
+                <label className="ui top attached purple label">Altitude</label>
+                <TextInputField
+                  name={'altitudeInput'}
+                  type="number"
+                  value={altitudeInput}
+                  handleOnChange={onChange}
+                  label={`Altitude ${altitudeUnitLabel}`}
+                  width="four"
+                />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      {/* Oven temp */}
-      <div className="five fields">
-        {/* <TextInputField
+        {/* Oven temp */}
+        {/* <label className="ui top attached purple label">Oven temp</label> */}
+        <TextInputField
           name={'ovenTempInput'}
           value={ovenTempInput}
           handleOnChange={onChange}
-          label={`Oven temp ${ovenTempUnitLabel}`}
-          width={'four wide'}
+          label={`Original`}
+          width={''}
         />
         <TextOutputField
           name={'ovenTempOutput'}
           value={ovenTempOutput}
           handleOnChange={onChange}
-          label={`Temp adjusted `}
-          width={'four wide'}
-        /> */}
+          label={`Adjusted `}
+          width={''}
+        />
         {/* Baking time */}
-        <BakingHoursInput value={bakingHoursInput} handleOnChange={onChange} />
-        <BakingMinsInput value={bakingMinsInput} handleOnChange={onChange} />
-
+        Baking time
+        <BakingHoursInput value={bakingHoursInput} handleOnChange={onChange} width="" />
+        <BakingMinsInput value={bakingMinsInput} handleOnChange={onChange} width="" />
         <TextOutputField
           name={'bakingTimeOutput'}
           value={bakingTimeOutput}
           handleOnChange={onChange}
           label="Time adjusted"
-          width={'four wide'}
+          width={''}
         />
-      </div>
+        {/* Flour */}
+        <div className="four fields">
+          <CupsInput
+            label={'Flour (C)'}
+            name="flourCupsInput"
+            value={flourCupsInput}
+            handleOnChange={onChange}
+            width="two wide"
+          />
 
-      {/* Flour */}
-      <div className="four fields">
-        <CupsInput
-          label={'Flour (C)'}
-          name="flourCupsInput"
-          value={flourCupsInput}
-          handleOnChange={onChange}
-          width="two wide"
-        />
+          <DropdownMenu
+            label="Fraction"
+            name="flourPartialCupInput"
+            value={flourPartialCupInput}
+            optionDataSource={partialCupDropDownDataSource}
+            onChange={dropdownOnChange}
+            width="two wide"
+          />
+          <TablespoonInput
+            label={'Flour (T)'}
+            name="flourTbspInput"
+            value={flourTbspInput}
+            handleOnChange={onChange}
+          />
 
-        <DropdownMenu
-          label="Fraction"
-          name="flourPartialCupInput"
-          value={flourPartialCupInput}
-          optionDataSource={partialCupDropDownDataSource}
-          onChange={dropdownOnChange}
-          width="two wide"
-        />
-        <TablespoonInput
-          label={'Flour (T)'}
-          name="flourTbspInput"
-          value={flourTbspInput}
-          handleOnChange={onChange}
-        />
+          <TextOutputField
+            name={'flourOutput'}
+            value={flourOutput}
+            handleOnChange={onChange}
+            label={`Flour Adjusted`}
+          />
 
-        <TextOutputField
-          name={'flourOutput'}
-          value={flourOutput}
-          handleOnChange={onChange}
-          label={`Flour Adjusted`}
-        />
+          {/* Liquid */}
+          <CupsInput
+            label={'Liquids (C)'}
+            name="liquidCupsInput"
+            value={liquidCupsInput}
+            handleOnChange={onChange}
+            width="two wide"
+          />
 
-        {/* Liquid */}
-        <CupsInput
-          label={'Liquids (C)'}
-          name="liquidCupsInput"
-          value={liquidCupsInput}
-          handleOnChange={onChange}
-          width="two wide"
-        />
+          <DropdownMenu
+            label={'Fraction'}
+            name="liquidPartialCupInput"
+            value={liquidPartialCupInput}
+            optionDataSource={partialCupDropDownDataSource}
+            onChange={dropdownOnChange}
+            width="two wide"
+          />
 
-        <DropdownMenu
-          label={'Fraction'}
-          name="liquidPartialCupInput"
-          value={liquidPartialCupInput}
-          optionDataSource={partialCupDropDownDataSource}
-          onChange={dropdownOnChange}
-          width="two wide"
-        />
+          <TablespoonInput
+            label={'Liquids (T)'}
+            name="liquidTbspInput"
+            value={liquidTbspInput}
+            handleOnChange={onChange}
+          />
 
-        <TablespoonInput
-          label={'Liquids (T)'}
-          name="liquidTbspInput"
-          value={liquidTbspInput}
-          handleOnChange={onChange}
-        />
+          <TextOutputField
+            name={'liquidOutput'}
+            value={liquidOutput}
+            handleOnChange={onChange}
+            label={`Liquids to add`}
+          />
+        </div>
+        {/* Baking Powder */}
+        <div className="four fields">
+          <TeaspoonInputField
+            label={`Baking Powder (tsp)`}
+            name="bakingPowderTspInput"
+            value={bakingPowderTspInput}
+            handleOnChange={onChange}
+          />
+          <DropdownMenu
+            label="Fraction"
+            name="bakingPowderPartialTspInput"
+            value={bakingPowderPartialTspInput}
+            optionDataSource={partialTspDropDownDataSource}
+            onChange={dropdownOnChange}
+          />
+          <TextOutputField
+            name={'bakingPowderOutput'}
+            value={bakingPowderOutput}
+            handleOnChange={onChange}
+            label={`Baking Powder (total)`}
+          />
 
-        <TextOutputField
-          name={'liquidOutput'}
-          value={liquidOutput}
-          handleOnChange={onChange}
-          label={`Liquids to add`}
-        />
-      </div>
-      {/* Baking Powder */}
+          {/* Yeast */}
+          <TeaspoonInputField
+            label={`Yeast (tsp)`}
+            name="yeastTspInput"
+            value={yeastTspInput}
+            handleOnChange={onChange}
+          />
 
-      <div className="four fields">
-        <TeaspoonInputField
-          label={`Baking Powder (tsp)`}
-          name="bakingPowderTspInput"
-          value={bakingPowderTspInput}
-          handleOnChange={onChange}
-        />
-        <DropdownMenu
-          label="Fraction"
-          name="bakingPowderPartialTspInput"
-          value={bakingPowderPartialTspInput}
-          optionDataSource={partialTspDropDownDataSource}
-          onChange={dropdownOnChange}
-        />
-        <TextOutputField
-          name={'bakingPowderOutput'}
-          value={bakingPowderOutput}
-          handleOnChange={onChange}
-          label={`Baking Powder (total)`}
-        />
-
-        {/* Yeast */}
-        <TeaspoonInputField
-          label={`Yeast (tsp)`}
-          name="yeastTspInput"
-          value={yeastTspInput}
-          handleOnChange={onChange}
-        />
-
-        <DropdownMenu
-          label="Fraction"
-          name="yeastPartialTspInput"
-          value={yeastPartialTspInput}
-          optionDataSource={partialTspDropDownDataSource}
-          onChange={dropdownOnChange}
-        />
-        <TextOutputField
-          name={'yeastOutput'}
-          value={yeastOutput}
-          handleOnChange={onChange}
-          label={`Adjusted Yeast (tsp)`}
-        />
-      </div>
-      {/* Sugar */}
-      <div className="six fields">
-        <CupsInput
-          label={'Sugar (C)'}
-          name="sugarCupsInput"
-          value={sugarCupsInput}
-          handleOnChange={onChange}
-        />
-        <DropdownMenu
-          label="Fraction"
-          name="sugarPartialCupInput"
-          value={sugarPartialCupInput}
-          optionDataSource={partialCupDropDownDataSource}
-          onChange={dropdownOnChange}
-        />
-        <TablespoonInput
-          label={'Sugar (T)'}
-          name="sugarTbspInput"
-          value={sugarTbspInput}
-          handleOnChange={onChange}
-        />
-        <TextOutputField
-          name={'sugarOutput'}
-          value={sugarOutput}
-          handleOnChange={onChange}
-          label={`Adjusted Sugar`}
-        />
-      </div>
-
-      <p />
-      <button className="ui red button" label="Clear" type="button" onClick={handleClearPressed}>
-        Clear
-      </button>
-      <button className="ui primary button" label="Calculate" type="submit">
-        Calculate
-      </button>
-    </form>
+          <DropdownMenu
+            label="Fraction"
+            name="yeastPartialTspInput"
+            value={yeastPartialTspInput}
+            optionDataSource={partialTspDropDownDataSource}
+            onChange={dropdownOnChange}
+          />
+          <TextOutputField
+            name={'yeastOutput'}
+            value={yeastOutput}
+            handleOnChange={onChange}
+            label={`Adjusted Yeast (tsp)`}
+          />
+        </div>
+        {/* Sugar */}
+        <div className="six fields">
+          <CupsInput
+            label={'Sugar (C)'}
+            name="sugarCupsInput"
+            value={sugarCupsInput}
+            handleOnChange={onChange}
+          />
+          <DropdownMenu
+            label="Fraction"
+            name="sugarPartialCupInput"
+            value={sugarPartialCupInput}
+            optionDataSource={partialCupDropDownDataSource}
+            onChange={dropdownOnChange}
+          />
+          <TablespoonInput
+            label={'Sugar (T)'}
+            name="sugarTbspInput"
+            value={sugarTbspInput}
+            handleOnChange={onChange}
+          />
+          <TextOutputField
+            name={'sugarOutput'}
+            value={sugarOutput}
+            handleOnChange={onChange}
+            label={`Adjusted Sugar`}
+          />
+        </div>
+        <p />
+        <button className="ui red button" label="Clear" type="button" onClick={handleClearPressed}>
+          Clear
+        </button>
+        <button className="ui primary button" label="Calculate" type="submit">
+          Calculate
+        </button>
+      </form>
+    </div>
   );
 };
 
