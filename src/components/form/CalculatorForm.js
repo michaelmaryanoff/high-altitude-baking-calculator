@@ -23,6 +23,7 @@ import BakingHoursInput from './BakingHoursInput';
 import CupsInput from './CupsInput';
 import TablespoonInput from './TablespoonInput';
 import TeaspoonInputField from './TeaspoonInput';
+import FieldGroupLabel from './FieldGroupLabel';
 
 /**
  * Constants
@@ -239,7 +240,7 @@ const CalculatorForm = () => {
           <div className="ui six column centered grid">
             <div className="center aligned column">
               <div className="ui compact segment">
-                <label className="ui top attached purple label">Altitude (ft)</label>
+                <label className="ui top attached large purple label">Altitude (ft)</label>
                 <TextInputField
                   name={'altitudeInput'}
                   type="number"
@@ -259,7 +260,7 @@ const CalculatorForm = () => {
             <div className="center aligned column">
               <div className="ui compact segment">
                 <div className="ui four column grid">
-                  <label className="ui top attached purple label">Oven temp</label>
+                  <FieldGroupLabel>Baking temperature</FieldGroupLabel>
                   <div className="row">
                     <div className="sixteen wide column">
                       <TextInputField
@@ -290,7 +291,7 @@ const CalculatorForm = () => {
             <div className="center aligned column">
               <div className="ui compact segment">
                 <div className="ui four column grid">
-                  <label className="ui top attached purple label">Baking time</label>
+                  <label className="ui top attached large purple label">Baking time</label>
                   <div className="row">
                     <div className="eight wide column">
                       <BakingHoursInput
