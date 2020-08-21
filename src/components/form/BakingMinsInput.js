@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { useDispatch } from 'react-redux';
-
 const BakingMinsInput = props => {
   const handleUserInput = event => {
     props.handleOnChange(event);
@@ -9,7 +7,7 @@ const BakingMinsInput = props => {
 
   return (
     <div className={`${props.width} field`}>
-      <label>Time (m)</label>
+      <label className="label">Time (m)</label>
       <input
         type="text"
         pattern="[0-9]*"
