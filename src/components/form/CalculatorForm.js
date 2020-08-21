@@ -255,31 +255,42 @@ const CalculatorForm = () => {
         {/* Oven temp */}
         <div classname="center aligned row">
           <div className="ui five column centered grid">
+            {/* Oven temp JSX */}
             <div className="center aligned column">
               <div className="ui compact segment">
-                <label className="ui top attached purple label">Oven temp</label>
-                <TextInputField
-                  name={'ovenTempInput'}
-                  value={ovenTempInput}
-                  handleOnChange={onChange}
-                  label={`Original`}
-                  width={''}
-                />
-                <TextOutputField
-                  name={'ovenTempOutput'}
-                  value={ovenTempOutput}
-                  handleOnChange={onChange}
-                  label={`Adjusted `}
-                  width={''}
-                />
+                <div className="ui four column grid">
+                  <label className="ui top attached purple label">Oven temp</label>
+                  <div className="row">
+                    <div className="sixteen wide column">
+                      <TextInputField
+                        name={'ovenTempInput'}
+                        value={ovenTempInput}
+                        handleOnChange={onChange}
+                        label={`Original`}
+                        width={''}
+                      />
+                    </div>
+                  </div>
+                  <div className="sixteen wide column">
+                    <div className="row">
+                      <TextOutputField
+                        name={'ovenTempOutput'}
+                        value={ovenTempOutput}
+                        handleOnChange={onChange}
+                        label={`Adjusted `}
+                        width={''}
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Baking time */}
             <div className="center aligned column">
               <div className="ui compact segment">
-                <label className="ui top attached purple label">Baking time</label>
-                <div className="ui grid">
+                <div className="ui four column grid">
+                  <label className="ui top attached purple label">Baking time</label>
                   <div className="row">
                     <div className="eight wide column">
                       <BakingHoursInput
