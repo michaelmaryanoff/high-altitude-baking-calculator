@@ -7,7 +7,8 @@ const TextInputField = props => {
 
   return (
     <div className={`${props.width} field`}>
-      <label>{props.label}</label>
+      <label className="ui top attached purple label">{props.label}</label>
+      <div className="label">{props.label}</div>
       <input
         type="text"
         pattern="[0-9]*"
