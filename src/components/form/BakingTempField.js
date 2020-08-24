@@ -9,7 +9,7 @@ const BakingTempField = props => {
     <div className="center aligned column">
       <div className="ui compact segment">
         <div className="ui four column grid">
-          <FieldGroupLabel>Baking temperature</FieldGroupLabel>
+          <FieldGroupLabel>Baking temperature (F)</FieldGroupLabel>
           <div className="row">
             <div className="sixteen wide column">
               <TextInputField
