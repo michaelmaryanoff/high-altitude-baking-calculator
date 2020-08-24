@@ -21,7 +21,7 @@ import BakingTempField from './BakingTempField';
 import BakingTimeField from './BakingTimeField';
 import CupsAndTbspField from './CupsAndTbspField';
 import TspField from './TspField';
-import TwoFieldWrapper from './TwoFieldWrapper';
+import FieldWrapper from './FieldWrapper';
 
 /**
  * Constants
@@ -234,7 +234,7 @@ const CalculatorForm = () => {
             </div>
           </div>
         </div>
-        <TwoFieldWrapper>
+        <FieldWrapper>
           <BakingTempField
             inputValue={ovenTempInput}
             outputValue={ovenTempOutput}
@@ -247,75 +247,77 @@ const CalculatorForm = () => {
             output={bakingTimeOutput}
             handleOnChange={onChange}
           />
-        </TwoFieldWrapper>
-        {/* Flour */}
-        <CupsAndTbspField
-          cupsInputValue={flourCupsInput}
-          partialCupsInputValue={flourPartialCupInput}
-          tablespoonInputValue={flourTbspInput}
-          outputValue={flourOutput}
-          cupsFieldName="flourCupsInput"
-          dropdownFieldName="flourPartialCupInput"
-          tablespoonFieldName="flourTbspInput"
-          ouputFieldName="flourOutput"
-          handleOnChange={onChange}
-          handleDropdownOnChange={dropdownOnChange}
-          fieldGroupLabel={'Flour'}
-        />
+        </FieldWrapper>
+        <FieldWrapper>
+          <CupsAndTbspField
+            cupsInputValue={flourCupsInput}
+            partialCupsInputValue={flourPartialCupInput}
+            tablespoonInputValue={flourTbspInput}
+            outputValue={flourOutput}
+            cupsFieldName="flourCupsInput"
+            dropdownFieldName="flourPartialCupInput"
+            tablespoonFieldName="flourTbspInput"
+            ouputFieldName="flourOutput"
+            handleOnChange={onChange}
+            handleDropdownOnChange={dropdownOnChange}
+            fieldGroupLabel={'Flour'}
+          />
 
-        <CupsAndTbspField
-          cupsInputValue={liquidCupsInput}
-          partialCupsInputValue={liquidPartialCupInput}
-          tablespoonInputValue={liquidTbspInput}
-          outputValue={liquidOutput}
-          cupsFieldName="liquidCupsInput"
-          dropdownFieldName="liquidPartialCupInput"
-          tablespoonFieldName="liquidTbspInput"
-          ouputFieldName="liquidOutput"
-          handleOnChange={onChange}
-          handleDropdownOnChange={dropdownOnChange}
-          fieldGroupLabel={'Liquid'}
-        />
+          <CupsAndTbspField
+            cupsInputValue={liquidCupsInput}
+            partialCupsInputValue={liquidPartialCupInput}
+            tablespoonInputValue={liquidTbspInput}
+            outputValue={liquidOutput}
+            cupsFieldName="liquidCupsInput"
+            dropdownFieldName="liquidPartialCupInput"
+            tablespoonFieldName="liquidTbspInput"
+            ouputFieldName="liquidOutput"
+            handleOnChange={onChange}
+            handleDropdownOnChange={dropdownOnChange}
+            fieldGroupLabel={'Liquid'}
+          />
+        </FieldWrapper>
 
-        <div className="center aligned row">
-          <div className="ui five column centered grid">
-            <CupsAndTbspField
-              cupsInputValue={sugarCupsInput}
-              partialCupsInputValue={sugarPartialCupInput}
-              tablespoonInputValue={sugarTbspInput}
-              outputValue={sugarOutput}
-              cupsFieldName="sugarCupsInput"
-              dropdownFieldName="sugarPartialCupInput"
-              tablespoonFieldName="sugarTbspInput"
-              ouputFieldName="sugarOutput"
-              handleOnChange={onChange}
-              handleDropdownOnChange={dropdownOnChange}
-              fieldGroupLabel={'Sugar'}
-            />
-            <TspField
-              label="Baking Powder"
-              tspInputValue={bakingPowderTspInput}
-              dropdownMenuValue={bakingPowderPartialTspInput}
-              tspInputName="bakingPowderTspInput"
-              outputName="bakingPowderOutput"
-              dropdownName="bakingPowderPartialTspInput"
-              output={bakingPowderOutput}
-              handleOnChange={onChange}
-              handleDropdownOnChange={dropdownOnChange}
-            />
-            <TspField
-              label="Yeast"
-              tspInputValue={yeastTspInput}
-              dropdownMenuValue={yeastPartialTspInput}
-              tspInputName="yeastTspInput"
-              outputName="yeastOutput"
-              dropdownName="yeastPartialTspInput"
-              output={yeastOutput}
-              handleOnChange={onChange}
-              handleDropdownOnChange={dropdownOnChange}
-            />
-          </div>
-        </div>
+        <FieldWrapper>
+          <CupsAndTbspField
+            cupsInputValue={sugarCupsInput}
+            partialCupsInputValue={sugarPartialCupInput}
+            tablespoonInputValue={sugarTbspInput}
+            outputValue={sugarOutput}
+            cupsFieldName="sugarCupsInput"
+            dropdownFieldName="sugarPartialCupInput"
+            tablespoonFieldName="sugarTbspInput"
+            ouputFieldName="sugarOutput"
+            handleOnChange={onChange}
+            handleDropdownOnChange={dropdownOnChange}
+            fieldGroupLabel={'Sugar'}
+          />
+          <TspField
+            label="Baking Powder"
+            tspInputValue={bakingPowderTspInput}
+            dropdownMenuValue={bakingPowderPartialTspInput}
+            tspInputName="bakingPowderTspInput"
+            outputName="bakingPowderOutput"
+            dropdownName="bakingPowderPartialTspInput"
+            output={bakingPowderOutput}
+            handleOnChange={onChange}
+            handleDropdownOnChange={dropdownOnChange}
+          />
+        </FieldWrapper>
+        <FieldWrapper>
+          <TspField
+            label="Yeast"
+            tspInputValue={yeastTspInput}
+            dropdownMenuValue={yeastPartialTspInput}
+            tspInputName="yeastTspInput"
+            outputName="yeastOutput"
+            dropdownName="yeastPartialTspInput"
+            output={yeastOutput}
+            handleOnChange={onChange}
+            handleDropdownOnChange={dropdownOnChange}
+          />
+        </FieldWrapper>
+
         <div className="centered center aligned row">
           <div className="ui six column centered grid">
             <div className="center aligned column">
