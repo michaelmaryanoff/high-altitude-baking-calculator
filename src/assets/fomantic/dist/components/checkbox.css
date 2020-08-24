@@ -79,7 +79,7 @@
   height: 17px;
   text-align: center;
   opacity: 0;
-  color: #212121;
+  color: rgba(0, 0, 0, 0.87);
   transition: border 0.1s ease, opacity 0.1s ease, transform 0.1s ease, box-shadow 0.1s ease;
 }
 
@@ -91,7 +91,7 @@
 /* Inside */
 .ui.checkbox label,
 .ui.checkbox + label {
-  color: #212121;
+  color: rgba(0, 0, 0, 0.87);
   transition: color 0.1s ease;
 }
 
@@ -124,7 +124,7 @@
 ---------------*/
 
 .ui.checkbox label:active::before {
-  background: #FAFAFA;
+  background: #F9FAFB;
   border-color: rgba(34, 36, 38, 0.35);
 }
 .ui.checkbox label:active::after {
@@ -275,7 +275,7 @@
   height: 15px;
   border-radius: 500rem;
   transform: scale(0.46666667);
-  background-color: #212121;
+  background-color: rgba(0, 0, 0, 0.87);
 }
 
 /* Focus */
@@ -382,7 +382,7 @@
   color: rgba(0, 0, 0, 0.95) !important;
 }
 .ui.slider.checkbox input:checked ~ label:before {
-  background-color: #333333 !important;
+  background-color: #545454 !important;
 }
 .ui.slider.checkbox input:checked ~ label:after {
   left: 2rem;
@@ -414,7 +414,7 @@
 .ui.toggle.checkbox label {
   min-height: 1.5rem;
   padding-left: 4.5rem;
-  color: #212121;
+  color: rgba(0, 0, 0, 0.87);
 }
 .ui.toggle.checkbox label {
   padding-top: 0.15em;
@@ -474,7 +474,7 @@
   color: rgba(0, 0, 0, 0.95) !important;
 }
 .ui.toggle.checkbox input:checked ~ label:before {
-  background-color: #2196F3 !important;
+  background-color: #2185D0 !important;
 }
 .ui.toggle.checkbox input:checked ~ label:after {
   left: 2.15rem;
@@ -486,7 +486,7 @@
   color: rgba(0, 0, 0, 0.95) !important;
 }
 .ui.toggle.checkbox input:focus:checked ~ label:before {
-  background-color: #0083eb !important;
+  background-color: #0d71bb !important;
 }
 
 
@@ -571,7 +571,7 @@
   color: #ffffff !important;
 }
 .ui.inverted.toggle.checkbox input:checked ~ label:before {
-  background-color: #2196F3 !important;
+  background-color: #2185D0 !important;
 }
 
 /* Toggle Active Focus */
@@ -579,7 +579,7 @@
   color: #ffffff !important;
 }
 .ui.inverted.toggle.checkbox input:focus:checked ~ label:before {
-  background-color: #0083eb !important;
+  background-color: #0d71bb !important;
 }
 
 /*--------------------

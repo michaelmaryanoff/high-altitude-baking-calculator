@@ -21,7 +21,7 @@
   background: '';
   box-shadow: none;
   line-height: 1.14285714em;
-  border-radius: 4px;
+  border-radius: 0.28571429rem;
   border: 1px solid rgba(34, 36, 38, 0.15);
 }
 .ui.steps:not(.unstackable) {
@@ -55,7 +55,7 @@
   margin: 0 0;
   padding: 1.14285714em 2em;
   background: #FFFFFF;
-  color: #212121;
+  color: rgba(0, 0, 0, 0.87);
   box-shadow: none;
   border-radius: 0;
   border: none;
@@ -84,19 +84,19 @@
 /* First Step */
 .ui.steps .step:first-child {
   padding-left: 2em;
-  border-radius: 4px 0 0 4px;
+  border-radius: 0.28571429rem 0 0 0.28571429rem;
 }
 
 /* Last Step */
 .ui.steps .step:last-child {
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 0.28571429rem 0.28571429rem 0;
   border-right: none;
   margin-right: 0;
 }
 
 /* Only Step */
 .ui.steps .step:only-child {
-  border-radius: 4px;
+  border-radius: 0.28571429rem;
 }
 
 
@@ -107,7 +107,7 @@
 
 /* Title */
 .ui.steps .step .title {
-  font-family: 'Roboto', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1.14285714em;
   font-weight: bold;
 }
@@ -119,7 +119,7 @@
 .ui.steps .step .description {
   font-weight: normal;
   font-size: 0.92857143em;
-  color: #212121;
+  color: rgba(0, 0, 0, 0.87);
 }
 .ui.steps .step > .description {
   width: 100%;
@@ -200,14 +200,14 @@
 }
 .ui.vertical.steps .step:first-child {
   padding: 1.14285714em 2em;
-  border-radius: 4px 4px 0 0;
+  border-radius: 0.28571429rem 0.28571429rem 0 0;
 }
 .ui.vertical.steps .step:last-child {
   border-bottom: none;
-  border-radius: 0 0 4px 4px;
+  border-radius: 0 0 0.28571429rem 0.28571429rem;
 }
 .ui.vertical.steps .step:only-child {
-  border-radius: 4px;
+  border-radius: 0.28571429rem;
 }
 
 /* Arrow */
@@ -255,10 +255,10 @@
   }
   .ui.steps:not(.unstackable) .step:first-child {
     padding: 1.14285714em 2em;
-    border-radius: 4px 4px 0 0;
+    border-radius: 0.28571429rem 0.28571429rem 0 0;
   }
   .ui.steps:not(.unstackable) .step:last-child {
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 0.28571429rem 0.28571429rem;
     border-bottom: none;
   }
   
@@ -296,7 +296,7 @@
 .ui.steps .link.step:hover,
 .ui.steps a.step:hover::after,
 .ui.steps a.step:hover {
-  background: #FAFAFA;
+  background: #F9FAFB;
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -305,20 +305,20 @@
 .ui.steps .link.step:active,
 .ui.steps a.step:active::after,
 .ui.steps a.step:active {
-  background: #F0F0F0;
+  background: #F3F4F5;
   color: rgba(0, 0, 0, 0.9);
 }
 
 /* Active */
 .ui.steps .step.active {
   cursor: auto;
-  background: #F0F0F0;
+  background: #F3F4F5;
 }
 .ui.steps .step.active:after {
-  background: #F0F0F0;
+  background: #F3F4F5;
 }
 .ui.steps .step.active .title {
-  color: #009FDA;
+  color: #4183C4;
 }
 .ui.ordered.steps .step.active:before,
 .ui.steps .active.step .icon {
@@ -346,13 +346,13 @@
 .ui.steps a.active.step:hover {
   cursor: pointer;
   background: #DCDDDE;
-  color: #212121;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /* Completed */
 .ui.steps .step.completed > .icon:before,
 .ui.ordered.steps .step.completed:before {
-  color: #4CAF50;
+  color: #21BA45;
 }
 
 /* Disabled */
@@ -399,10 +399,10 @@
   }
   .ui[class*="tablet stackable"].steps .step:first-child {
     padding: 1.14285714em 2em;
-    border-radius: 4px 4px 0 0;
+    border-radius: 0.28571429rem 0.28571429rem 0 0;
   }
   .ui[class*="tablet stackable"].steps .step:last-child {
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 0.28571429rem 0.28571429rem;
     border-bottom: none;
   }
   
@@ -447,25 +447,25 @@
   width: calc(100% + 2px) !important;
   margin: 0 -1px 0;
   max-width: calc(100% + 2px);
-  border-radius: 4px 4px 0 0;
+  border-radius: 0.28571429rem 0.28571429rem 0 0;
 }
 .ui.attached.steps .step:first-child {
-  border-radius: 4px 0 0 0;
+  border-radius: 0.28571429rem 0 0 0;
 }
 .ui.attached.steps .step:last-child {
-  border-radius: 0 4px 0 0;
+  border-radius: 0 0.28571429rem 0 0;
 }
 
 /* Bottom */
 .ui.bottom.attached.steps {
   margin: 0 -1px 0;
-  border-radius: 0 0 4px 4px;
+  border-radius: 0 0 0.28571429rem 0.28571429rem;
 }
 .ui.bottom.attached.steps .step:first-child {
-  border-radius: 0 0 0 4px;
+  border-radius: 0 0 0 0.28571429rem;
 }
 .ui.bottom.attached.steps .step:last-child {
-  border-radius: 0 0 4px 0;
+  border-radius: 0 0 0.28571429rem 0;
 }
 
 /*-------------------
