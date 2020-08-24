@@ -5,6 +5,7 @@ import CupsInput from './CupsInput';
 import DropdownMenu from './DropdownMenu';
 import TablespoonInput from './TablespoonInput';
 import TextOutputField from './TextOutputField';
+import FieldGroupLabel from './FieldGroupLabel';
 
 const partialCupDropDownDataSource = [
   { label: '-', value: '' },
@@ -18,8 +19,8 @@ const CupsAndTbspField = props => {
   return (
     <div className="center aligned column">
       <div className="ui compact segment">
+        <FieldGroupLabel>{props.fieldGroupLabel}</FieldGroupLabel>
         <div className="ui four column grid">
-          <label className="ui top attached large purple label">{props.fieldGroupLabel}</label>
           <div className="row">
             <div className="five wide column">
               <CupsInput

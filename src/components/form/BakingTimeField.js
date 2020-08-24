@@ -9,8 +9,8 @@ const BakingTimeField = props => {
   return (
     <div className="center aligned column">
       <div className="ui compact segment">
+        <FieldGroupLabel>Baking time</FieldGroupLabel>
         <div className="ui four column grid">
-          <FieldGroupLabel>Baking time</FieldGroupLabel>
           <div className="row">
             <div className="eight wide column">
               <BakingHoursInput

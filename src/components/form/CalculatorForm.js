@@ -16,7 +16,6 @@ import { useDispatch, useSelector } from 'react-redux';
  * Component imports
  */
 import DropdownMenu from './DropdownMenu';
-import TextInputField from './TextInputField';
 import BakingTempField from './BakingTempField';
 import BakingTimeField from './BakingTimeField';
 import CupsAndTbspField from './CupsAndTbspField';
@@ -25,6 +24,7 @@ import FieldWrapper from './FieldWrapper';
 import ClearButton from './ClearButton';
 import CalculateButton from './CalculateButton';
 import ButtonWrapper from './ButtonWrapper';
+import AltitudeField from './AltitudeField';
 
 /**
  * Constants
@@ -222,21 +222,7 @@ const CalculatorForm = () => {
           />
         ) : null}
         {/* Altitude */}
-        <div className="ui eight column centered doubling center aligned grid">
-          <div className="center aligned three wide column">
-            <div className="ui compact segment">
-              <label className="ui top attached big purple label">Altitude</label>
-              <TextInputField
-                name={'altitudeInput'}
-                type="number"
-                value={altitudeInput}
-                handleOnChange={onChange}
-                label={`Feet above sea level`}
-                width=""
-              />
-            </div>
-          </div>
-        </div>
+        <AltitudeField altitudeInput={altitudeInput} onChange={onChange} />
         <FieldWrapper>
           <BakingTempField
             inputValue={ovenTempInput}

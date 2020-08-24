@@ -3,6 +3,7 @@ import React from 'react';
 import TeaspoonInputField from './TeaspoonInput';
 import DropdownMenu from './DropdownMenu';
 import TextOutputField from './TextOutputField';
+import FieldGroupLabel from './FieldGroupLabel';
 
 const partialTspDropDownDataSource = [
   { label: '-', value: '' },
@@ -15,8 +16,8 @@ const TspField = props => {
   return (
     <div className="center aligned column">
       <div className="ui compact segment">
+        <FieldGroupLabel>{props.label}</FieldGroupLabel>
         <div className="ui four column grid">
-          <label className="ui top attached large purple label">{props.label}</label>
           <div className="row">
             <div className="eight wide column">
               <TeaspoonInputField
