@@ -3,13 +3,14 @@ import React from 'react';
 import BakingHoursInput from './BakingHoursInput';
 import BakingMinsInput from './BakingMinsInput';
 import TextOutputField from './TextOutputField';
+import FieldGroupLabel from './FieldGroupLabel';
 
 const BakingTimeField = props => {
   return (
     <div className="center aligned column">
       <div className="ui compact segment">
         <div className="ui four column grid">
-          <label className="ui top attached large purple label">Baking time</label>
+          <FieldGroupLabel>Baking time</FieldGroupLabel>
           <div className="row">
             <div className="eight wide column">
               <BakingHoursInput

@@ -21,6 +21,7 @@ import BakingTempField from './BakingTempField';
 import BakingTimeField from './BakingTimeField';
 import CupsAndTbspField from './CupsAndTbspField';
 import TspField from './TspField';
+import TwoFieldWrapper from './TwoFieldWrapper';
 
 /**
  * Constants
@@ -205,7 +206,7 @@ const CalculatorForm = () => {
   };
 
   return (
-    <div className="ui basic segment">
+    <div className="ui segment">
       <form className="ui large form error" id="caulculation-form" onSubmit={handleOnSubmit}>
         {/* Units */}
         {unitFieldEnabled ? (
@@ -218,68 +219,63 @@ const CalculatorForm = () => {
           />
         ) : null}
         {/* Altitude */}
-        <div className="centered center aligned row">
-          <div className="ui six column centered grid">
-            <div className="center aligned column">
-              <div className="ui compact segment">
-                <label className="ui top attached large purple label">Altitude</label>
-                <TextInputField
-                  name={'altitudeInput'}
-                  type="number"
-                  value={altitudeInput}
-                  handleOnChange={onChange}
-                  label={`Feet above sea level`}
-                  width="four"
-                />
-              </div>
+        <div className="ui six column centered doubling center aligned grid">
+          <div className="center aligned column">
+            <div className="ui compact segment">
+              <label className="ui top attached large purple label">Altitude</label>
+              <TextInputField
+                name={'altitudeInput'}
+                type="number"
+                value={altitudeInput}
+                handleOnChange={onChange}
+                label={`Feet above sea level`}
+                width=""
+              />
             </div>
           </div>
         </div>
+        <TwoFieldWrapper>
+          <BakingTempField
+            inputValue={ovenTempInput}
+            outputValue={ovenTempOutput}
+            handleOnChange={onChange}
+          />
 
-        <div className="center aligned row">
-          <div className="ui five column centered grid">
-            <BakingTempField
-              inputValue={ovenTempInput}
-              outputValue={ovenTempOutput}
-              handleOnChange={onChange}
-            />
-            <BakingTimeField
-              hoursInput={bakingHoursInput}
-              minsInput={bakingMinsInput}
-              output={bakingTimeOutput}
-              handleOnChange={onChange}
-            />
+          <BakingTimeField
+            hoursInput={bakingHoursInput}
+            minsInput={bakingMinsInput}
+            output={bakingTimeOutput}
+            handleOnChange={onChange}
+          />
+        </TwoFieldWrapper>
+        {/* Flour */}
+        <CupsAndTbspField
+          cupsInputValue={flourCupsInput}
+          partialCupsInputValue={flourPartialCupInput}
+          tablespoonInputValue={flourTbspInput}
+          outputValue={flourOutput}
+          cupsFieldName="flourCupsInput"
+          dropdownFieldName="flourPartialCupInput"
+          tablespoonFieldName="flourTbspInput"
+          ouputFieldName="flourOutput"
+          handleOnChange={onChange}
+          handleDropdownOnChange={dropdownOnChange}
+          fieldGroupLabel={'Flour'}
+        />
 
-            {/* Flour */}
-            <CupsAndTbspField
-              cupsInputValue={flourCupsInput}
-              partialCupsInputValue={flourPartialCupInput}
-              tablespoonInputValue={flourTbspInput}
-              outputValue={flourOutput}
-              cupsFieldName="flourCupsInput"
-              dropdownFieldName="flourPartialCupInput"
-              tablespoonFieldName="flourTbspInput"
-              ouputFieldName="flourOutput"
-              handleOnChange={onChange}
-              handleDropdownOnChange={dropdownOnChange}
-              fieldGroupLabel={'Flour'}
-            />
-
-            <CupsAndTbspField
-              cupsInputValue={liquidCupsInput}
-              partialCupsInputValue={liquidPartialCupInput}
-              tablespoonInputValue={liquidTbspInput}
-              outputValue={liquidOutput}
-              cupsFieldName="liquidCupsInput"
-              dropdownFieldName="liquidPartialCupInput"
-              tablespoonFieldName="liquidTbspInput"
-              ouputFieldName="liquidOutput"
-              handleOnChange={onChange}
-              handleDropdownOnChange={dropdownOnChange}
-              fieldGroupLabel={'Liquid'}
-            />
-          </div>
-        </div>
+        <CupsAndTbspField
+          cupsInputValue={liquidCupsInput}
+          partialCupsInputValue={liquidPartialCupInput}
+          tablespoonInputValue={liquidTbspInput}
+          outputValue={liquidOutput}
+          cupsFieldName="liquidCupsInput"
+          dropdownFieldName="liquidPartialCupInput"
+          tablespoonFieldName="liquidTbspInput"
+          ouputFieldName="liquidOutput"
+          handleOnChange={onChange}
+          handleDropdownOnChange={dropdownOnChange}
+          fieldGroupLabel={'Liquid'}
+        />
 
         <div className="center aligned row">
           <div className="ui five column centered grid">

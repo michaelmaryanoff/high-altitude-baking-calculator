@@ -10,25 +10,23 @@ const BakingTempField = props => {
       <div className="ui compact segment">
         <div className="ui four column grid">
           <FieldGroupLabel>Baking temperature</FieldGroupLabel>
-          <div className="row">
-            <div className="sixteen wide column">
-              <TextInputField
-                name={'ovenTempInput'}
-                value={props.inputValue}
-                handleOnChange={props.handleOnChange}
-                label={`Original`}
-              />
-            </div>
-          </div>
+
           <div className="sixteen wide column">
-            <div className="row">
-              <TextOutputField
-                name={'ovenTempOutput'}
-                value={props.outputValue}
-                label={`Adjusted `}
-                width={''}
-              />
-            </div>
+            <TextInputField
+              name={'ovenTempInput'}
+              value={props.inputValue}
+              handleOnChange={props.handleOnChange}
+              label={`Original`}
+            />
+          </div>
+
+          <div className="sixteen wide column">
+            <TextOutputField
+              name={'ovenTempOutput'}
+              value={props.outputValue}
+              label={`Adjusted `}
+              width={''}
+            />
           </div>
         </div>
       </div>
