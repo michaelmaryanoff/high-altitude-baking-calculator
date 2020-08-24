@@ -1,24 +1,17 @@
 import React from 'react';
 
-import { useDispatch } from 'react-redux';
-
-import { handleInput } from '../../actions';
-
 const BakingMinsInput = props => {
-  const dispatch = useDispatch();
-
   const handleUserInput = event => {
-    const { name, value } = event.target;
-    dispatch(handleInput(name, value));
     props.handleOnChange(event);
   };
 
   return (
-    <div className="two wide field">
-      <label>Time (m)</label>
+    <div className={`${props.width} field`}>
+      <label className="label">Time (m)</label>
       <input
         type="text"
-        name="bakingMinsOutput"
+        pattern="[0-9]*"
+        name="bakingMinsInput"
         onChange={handleUserInput}
         value={props.value}
         label="Time (mins)"

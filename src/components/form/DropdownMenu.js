@@ -1,24 +1,16 @@
 import React from 'react';
 
-import { useDispatch } from 'react-redux';
-
-import { handleInput } from '../../actions';
-
 const DropdownMenu = props => {
-  const dispatch = useDispatch();
-
   const handleUserInput = event => {
-    const { name, value } = event.target;
-    dispatch(handleInput(name, value));
     props.onChange(event);
   };
 
   return (
-    <div className="field">
-      <label>{props.labelText}</label>
+    <div className={`field`}>
+      <label>{props.label}</label>
       <select
         name={props.name}
-        className="ui simple dropdown"
+        className="ui simple dropdown item"
         value={props.value}
         onChange={handleUserInput}
       >

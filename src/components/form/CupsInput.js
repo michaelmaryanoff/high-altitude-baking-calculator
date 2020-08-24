@@ -1,20 +1,20 @@
 import React from 'react';
 
-const BakingHoursInput = props => {
+const CupsInput = props => {
   const handleUserInput = event => {
     props.handleOnChange(event);
   };
 
   return (
     <div className={`${props.width} field`}>
-      <label className="label">Time (h)</label>
+      <label>{props.label}</label>
       <input
         type="text"
         pattern="[0-9]*"
-        name="bakingHoursInput"
+        name={props.name}
         onChange={handleUserInput}
         value={props.value}
-        label="Time (hours)"
+        label={props.label}
         min={0}
       />
 
@@ -24,4 +24,4 @@ const BakingHoursInput = props => {
   );
 };
 
-export default BakingHoursInput;
+export default CupsInput;

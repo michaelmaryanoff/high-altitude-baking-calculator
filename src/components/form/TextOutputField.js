@@ -1,21 +1,16 @@
 import React from 'react';
 
 const TextOutputField = props => {
-  const handleUserInput = event => {
-    props.handleOnChange(event);
-  };
-
   return (
     <div className={`${props.width} field`}>
       <label>{props.label}</label>
       <input
-        type={props.type}
+        type="text"
         name={props.name}
         placeholder={props.placeholder}
-        onChange={handleUserInput}
+        readOnly={true}
         value={props.value}
         label={props.value}
-        min={props.min}
       />
 
       {/* Optional error */}
