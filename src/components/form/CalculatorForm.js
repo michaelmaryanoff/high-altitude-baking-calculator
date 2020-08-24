@@ -17,10 +17,6 @@ import { useDispatch, useSelector } from 'react-redux';
  */
 import DropdownMenu from './DropdownMenu';
 import TextInputField from './TextInputField';
-import TextOutputField from './TextOutputField';
-import CupsInput from './CupsInput';
-import TablespoonInput from './TablespoonInput';
-import TeaspoonInputField from './TeaspoonInput';
 import BakingTempField from './BakingTempField';
 import BakingTimeField from './BakingTimeField';
 import CupsAndTbspField from './CupsAndTbspField';
@@ -68,21 +64,6 @@ const unitDataSource = [
   { label: 'Customary', value: 'customary' }
 ];
 
-const partialCupDropDownDataSource = [
-  { label: '-', value: '' },
-  { label: '1/4', value: 0.25 },
-  { label: '1/3', value: 0.33333 },
-  { label: '1/2', value: 0.5 },
-  { label: '2/3', value: 0.66666 }
-];
-
-const partialTspDropDownDataSource = [
-  { label: '-', value: '' },
-  { label: '1/4', value: 0.25 },
-  { label: '1/2', value: 0.5 },
-  { label: '3/4', value: 0.75 }
-];
-
 const CalculatorForm = () => {
   const dispatch = useDispatch();
 
@@ -122,9 +103,10 @@ const CalculatorForm = () => {
 
   /**
    * Setting the altude label
+   * This will change when we add the option for metric units
    */
-  const unit = useSelector(state => state.calculationForm.unit);
-  const altitudeUnitLabel = unit === 'metric' ? '(m)' : '(ft)';
+  // const unit = useSelector(state => state.calculationForm.unit);
+  // const altitudeUnitLabel = unit === 'metric' ? '(m)' : '(ft)';
 
   /**
    * Displaying outputs.
@@ -325,63 +307,39 @@ const CalculatorForm = () => {
               handleOnChange={onChange}
               handleDropdownOnChange={dropdownOnChange}
             />
+            <TspField
+              label="Yeast"
+              tspInputValue={yeastTspInput}
+              dropdownMenuValue={yeastPartialTspInput}
+              tspInputName="yeastTspInput"
+              outputName="yeastOutput"
+              dropdownName="yeastPartialTspInput"
+              output={yeastOutput}
+              handleOnChange={onChange}
+              handleDropdownOnChange={dropdownOnChange}
+            />
           </div>
         </div>
+        <div className="centered center aligned row">
+          <div className="ui six column centered grid">
+            <div className="center aligned column">
+              <div className="ui compact basic segment">
+                <button
+                  className="ui red button"
+                  label="Clear"
+                  type="button"
+                  onClick={handleClearPressed}
+                >
+                  Clear
+                </button>
 
-        {/* Baking Powder */}
-        <div className="four fields">
-          <TeaspoonInputField
-            label={`Baking Powder (tsp)`}
-            name="bakingPowderTspInput"
-            value={bakingPowderTspInput}
-            handleOnChange={onChange}
-          />
-          <DropdownMenu
-            label="Fraction"
-            name="bakingPowderPartialTspInput"
-            value={bakingPowderPartialTspInput}
-            optionDataSource={partialTspDropDownDataSource}
-            onChange={dropdownOnChange}
-          />
-          <TextOutputField
-            name={'bakingPowderOutput'}
-            value={bakingPowderOutput}
-            handleOnChange={onChange}
-            label={`Baking Powder (total)`}
-          />
-
-          {/* Yeast */}
-          <TeaspoonInputField
-            labe
-            l={`Yeast (tsp)`}
-            name="yeastTspInput"
-            value={yeastTspInput}
-            handleOnChange={onChange}
-          />
-
-          <DropdownMenu
-            label="Fraction"
-            name="yeastPartialTspInput"
-            value={yeastPartialTspInput}
-            optionDataSource={partialTspDropDownDataSource}
-            onChange={dropdownOnChange}
-          />
-          <TextOutputField
-            name={'yeastOutput'}
-            value={yeastOutput}
-            handleOnChange={onChange}
-            label={`Adjusted Yeast (tsp)`}
-          />
+                <button className="ui primary button" label="Calculate" type="submit">
+                  Calculate
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        {/* Sugar */}
-
-        <p />
-        <button className="ui red button" label="Clear" type="button" onClick={handleClearPressed}>
-          Clear
-        </button>
-        <button className="ui primary button" label="Calculate" type="submit">
-          Calculate
-        </button>
       </form>
     </div>
   );
