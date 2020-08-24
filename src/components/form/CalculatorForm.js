@@ -24,6 +24,7 @@ import TspField from './TspField';
 import FieldWrapper from './FieldWrapper';
 import ClearButton from './ClearButton';
 import CalculateButton from './CalculateButton';
+import ButtonWrapper from './ButtonWrapper';
 
 /**
  * Constants
@@ -319,16 +320,11 @@ const CalculatorForm = () => {
             handleDropdownOnChange={dropdownOnChange}
           />
         </FieldWrapper>
-        <div className="centered center aligned row">
-          <div className="ui six column centered grid">
-            <div className="center aligned column">
-              <div className="ui compact basic segment">
-                <ClearButton onClick={handleClearPressed} />
-                <CalculateButton />
-              </div>
-            </div>
-          </div>
-        </div>
+
+        <ButtonWrapper>
+          <ClearButton onClick={handleClearPressed} />
+          <CalculateButton />
+        </ButtonWrapper>
       </form>
     </div>
   );
