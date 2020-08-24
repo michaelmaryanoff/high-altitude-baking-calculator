@@ -22,6 +22,8 @@ import BakingTimeField from './BakingTimeField';
 import CupsAndTbspField from './CupsAndTbspField';
 import TspField from './TspField';
 import FieldWrapper from './FieldWrapper';
+import ClearButton from './ClearButton';
+import CalculateButton from './CalculateButton';
 
 /**
  * Constants
@@ -219,7 +221,7 @@ const CalculatorForm = () => {
           />
         ) : null}
         {/* Altitude */}
-        <div className="ui six column centered doubling center aligned grid">
+        <div className="ui eight column centered doubling center aligned grid">
           <div className="center aligned column">
             <div className="ui compact segment">
               <label className="ui top attached large purple label">Altitude</label>
@@ -317,23 +319,12 @@ const CalculatorForm = () => {
             handleDropdownOnChange={dropdownOnChange}
           />
         </FieldWrapper>
-
         <div className="centered center aligned row">
           <div className="ui six column centered grid">
             <div className="center aligned column">
               <div className="ui compact basic segment">
-                <button
-                  className="ui red button"
-                  label="Clear"
-                  type="button"
-                  onClick={handleClearPressed}
-                >
-                  Clear
-                </button>
-
-                <button className="ui primary button" label="Calculate" type="submit">
-                  Calculate
-                </button>
+                <ClearButton onClick={handleClearPressed} />
+                <CalculateButton />
               </div>
             </div>
           </div>

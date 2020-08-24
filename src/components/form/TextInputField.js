@@ -6,7 +6,7 @@ const TextInputField = props => {
   };
 
   return (
-    <div className={`${props.width} center aligned field`}>
+    <div className={`center aligned field`}>
       <label className="label">{props.label}</label>
       <input
         type="text"
