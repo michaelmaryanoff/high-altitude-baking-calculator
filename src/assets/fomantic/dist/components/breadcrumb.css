@@ -44,7 +44,7 @@
 
 /* Link */
 .ui.breadcrumb a {
-  color: #4183C4;
+  color: #4183c4;
 }
 .ui.breadcrumb a:hover {
   color: #1e70bf;
@@ -74,10 +74,10 @@
 
 /* Inverted */
 .ui.inverted.breadcrumb {
-  color: #DCDDDE;
+  color: #dcddde;
 }
 .ui.inverted.breadcrumb > .active.section {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .ui.inverted.breadcrumb > .divider {
   color: rgba(255, 255, 255, 0.7);

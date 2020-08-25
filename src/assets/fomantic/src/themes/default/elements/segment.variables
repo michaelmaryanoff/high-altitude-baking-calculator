@@ -57,7 +57,6 @@
 @placeholderContentMaxWidth: 15rem;
 @placeholderContentInlineButtonMargin: 0 @5px 0 0;
 
-
 /* Piled */
 @piledZIndex: auto;
 @piledMargin: 3em;
@@ -80,18 +79,16 @@
 
 /* Loading Dimmer */
 @loaderDimmerColor: rgba(255, 255, 255, 0.8);
-@loaderInvertedDimmerColor: rgba(0, 0, 0 , 0.85);
+@loaderInvertedDimmerColor: rgba(0, 0, 0, 0.85);
 @loaderDimmerZIndex: 100;
 
 /* Loading Spinner */
 @loaderSize: 3em;
 @loaderLineZIndex: 101;
 
-
 /*******************************
             Variations
 *******************************/
-
 
 /* Raised */
 @raisedBoxShadow: @floatingShadow;
@@ -104,13 +101,10 @@
 @attachedTopOffset: 0;
 @attachedBottomOffset: 0;
 @attachedHorizontalOffset: -@borderWidth;
-@attachedWidth: e(%("calc(100%% + %d)", -@attachedHorizontalOffset * 2));
+@attachedWidth: e(%('calc(100%% + %d)', -@attachedHorizontalOffset * 2));
 @attachedBoxShadow: none;
 @attachedBorder: @borderWidth solid @solidBorderColor;
-@attachedBottomBoxShadow:
-  @boxShadow,
-  @attachedBoxShadow
-;
+@attachedBottomBoxShadow: @boxShadow, @attachedBoxShadow;
 
 /* Inverted */
 @invertedBackground: @black;
@@ -131,25 +125,21 @@
 @secondaryBackground: @darkWhite;
 @secondaryColor: @mutedTextColor;
 
-@tertiaryBackground:  @midWhite;
+@tertiaryBackground: @midWhite;
 @tertiaryColor: @mutedTextColor;
 
 @secondaryInvertedLightness: 0.2;
-@secondaryInvertedBackground:
-  lighten(@black, (@secondaryInvertedLightness * 100))
+@secondaryInvertedBackground: lighten(@black, (@secondaryInvertedLightness * 100))
   linear-gradient(
     rgba(255, 255, 255, @secondaryInvertedLightness) 0,
     rgba(255, 255, 255, @secondaryInvertedLightness) 100%
-  )
-;
+  );
 @secondaryInvertedColor: @invertedMutedTextColor;
 
 @tertiaryInvertedLightness: 0.35;
-@tertiaryInvertedBackground:
-  lighten(@black, (@tertiaryInvertedLightness * 100))
+@tertiaryInvertedBackground: lighten(@black, (@tertiaryInvertedLightness * 100))
   linear-gradient(
     rgba(255, 255, 255, @tertiaryInvertedLightness) 0,
     rgba(255, 255, 255, @tertiaryInvertedLightness) 100%
-  )
-;
+  );
 @tertiaryInvertedColor: @invertedMutedTextColor;

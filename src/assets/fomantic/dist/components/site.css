@@ -13,7 +13,7 @@
              Page
 *******************************/
 
-@import url('https://fonts.googleapis.com/css?family=Oswald:400,700,400italic,700italic&subset=latin&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open Sans:400,700,400italic,700italic&subset=latin&display=swap');
 html,
 body {
   height: 100%;
@@ -26,11 +26,11 @@ body {
   padding: 0;
   overflow-x: hidden;
   min-width: 320px;
-  background: #FFFFFF;
-  font-family: 'Oswald', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.4285em;
-  color: rgba(0, 0, 0, 0.87);
+  color: #59405c;
 }
 
 
@@ -43,10 +43,10 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Oswald', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   line-height: 1.28571429em;
   margin: calc(2rem - 0.1428571428571429em) 0 1rem;
-  font-weight: bold;
+  font-weight: normal;
   padding: 0;
 }
 h1 {
@@ -101,7 +101,7 @@ p:last-child {
 --------------------*/
 
 a {
-  color: #4183C4;
+  color: #4183c4;
   text-decoration: none;
 }
 a:hover {
@@ -123,24 +123,24 @@ a:hover {
 
 /* Site */
 ::-webkit-selection {
-  background-color: #CCE2FF;
-  color: rgba(0, 0, 0, 0.87);
+  background-color: #cce2ff;
+  color: #59405c;
 }
 ::selection {
-  background-color: #CCE2FF;
-  color: rgba(0, 0, 0, 0.87);
+  background-color: #cce2ff;
+  color: #59405c;
 }
 
 /* Form */
 textarea::-webkit-selection,
 input::-webkit-selection {
   background-color: rgba(100, 100, 100, 0.4);
-  color: rgba(0, 0, 0, 0.87);
+  color: #59405c;
 }
 textarea::selection,
 input::selection {
   background-color: rgba(100, 100, 100, 0.4);
-  color: rgba(0, 0, 0, 0.87);
+  color: #59405c;
 }
 
 /* Force Simple Scrollbars */

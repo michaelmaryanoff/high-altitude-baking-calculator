@@ -101,7 +101,7 @@
   display: block;
   flex: 1 1 auto;
   background: none;
-  color: rgba(0, 0, 0, 0.87);
+  color: #59405c;
   margin: 0;
   padding: 0;
   box-shadow: none;
@@ -128,7 +128,7 @@
 .ui.items > .item > .content > .header {
   display: inline-block;
   margin: -0.21425em 0 0;
-  font-family: 'Oswald', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -173,7 +173,7 @@
   max-width: auto;
   font-size: 1em;
   line-height: 1.4285em;
-  color: rgba(0, 0, 0, 0.87);
+  color: #59405c;
 }
 
 /*--------------
@@ -235,7 +235,7 @@
   color: rgba(0, 0, 0, 0.4);
 }
 .ui.items > .item .meta > a:not(.ui):hover {
-  color: rgba(0, 0, 0, 0.87);
+  color: #59405c;
 }
 
 /*--------------
@@ -498,7 +498,7 @@
   color: #57a4ef;
 }
 .ui.inverted.items > .item > .content a:not(.ui):hover {
-  color: #4183C4;
+  color: #4183c4;
 }
 .ui.inverted.items > .item > .content > a.header {
   color: rgba(255, 255, 255, 0.9);

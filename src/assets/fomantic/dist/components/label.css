@@ -25,7 +25,7 @@
   text-transform: none;
   font-weight: bold;
   border: 0 solid transparent;
-  border-radius: 0.28571429rem;
+  border-radius: 0.07142857rem;
   transition: background 0.1s ease;
 }
 .ui.label:first-child {
@@ -181,7 +181,7 @@ a.ui.label {
   text-transform: none;
   background: #E8E8E8;
   padding: 0.5833em 0.833em 0.5833em 0.5em;
-  border-radius: 0.28571429rem;
+  border-radius: 0.07142857rem;
   box-shadow: none;
 }
 .ui.image.label.attached:not(.basic) {
@@ -192,13 +192,13 @@ a.ui.label {
   vertical-align: top;
   height: 2.1666em;
   margin: -0.5833em 0.5em -0.5833em -0.5em;
-  border-radius: 0.28571429rem 0 0 0.28571429rem;
+  border-radius: 0.07142857rem 0 0 0.07142857rem;
 }
 .ui.image.label .detail {
   background: rgba(0, 0, 0, 0.1);
   margin: -0.5833em -0.833em -0.5833em 0.5em;
   padding: 0.5833em 0.833em;
-  border-radius: 0 0.28571429rem 0.28571429rem 0;
+  border-radius: 0 0.07142857rem 0.07142857rem 0;
 }
 .ui.bottom.attached.image.label:not(.right) > img,
 .ui.top.right.attached.image.label > img {
@@ -219,7 +219,7 @@ a.ui.label {
   position: relative;
   padding-left: 1.5em;
   padding-right: 1.5em;
-  border-radius: 0 0.28571429rem 0.28571429rem 0;
+  border-radius: 0 0.07142857rem 0.07142857rem 0;
   transition: none;
 }
 .ui.tag.labels .label:before,
@@ -242,7 +242,7 @@ a.ui.label {
   top: 50%;
   left: -0.25em;
   margin-top: -0.25em;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   width: 0.5em;
   height: 0.5em;
   box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
@@ -346,7 +346,7 @@ a.ui.label {
   min-width: -webkit-max-content;
   min-width: -moz-max-content;
   min-width: max-content;
-  border-radius: 0 0.28571429rem 0.28571429rem 0;
+  border-radius: 0 0.07142857rem 0.07142857rem 0;
   border-color: rgba(0, 0, 0, 0.15);
 }
 .ui.ribbon.label:after {
@@ -401,7 +401,7 @@ a.ui.label {
 .ui[class*="right ribbon"].label {
   text-align: left;
   transform: translateX(-100%);
-  border-radius: 0.28571429rem 0 0 0.28571429rem;
+  border-radius: 0.07142857rem 0 0 0.07142857rem;
 }
 .ui[class*="right ribbon"].label:after {
   left: auto;
@@ -459,19 +459,19 @@ a.ui.label {
 .ui[class*="top left attached"].label {
   width: auto;
   margin-top: 0;
-  border-radius: 0.21428571rem 0 0.28571429rem 0;
+  border-radius: 0.21428571rem 0 0.07142857rem 0;
 }
 .ui[class*="top right attached"].label {
   width: auto;
   left: auto;
   right: 0;
-  border-radius: 0 0.21428571rem 0 0.28571429rem;
+  border-radius: 0 0.21428571rem 0 0.07142857rem;
 }
 .ui[class*="bottom left attached"].label {
   width: auto;
   top: auto;
   bottom: 0;
-  border-radius: 0 0.28571429rem 0 0.21428571rem;
+  border-radius: 0 0.07142857rem 0 0.21428571rem;
 }
 .ui[class*="bottom right attached"].label {
   top: auto;
@@ -479,7 +479,7 @@ a.ui.label {
   left: auto;
   right: 0;
   width: auto;
-  border-radius: 0.28571429rem 0 0.21428571rem 0;
+  border-radius: 0.07142857rem 0 0.21428571rem 0;
 }
 
 
@@ -576,9 +576,9 @@ a.ui.active.label:hover:before {
 
 .ui.basic.labels .label,
 .ui.basic.label {
-  background: none #FFFFFF;
+  background: none #ffffff;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  color: rgba(0, 0, 0, 0.87);
+  color: #59405c;
   box-shadow: none;
   padding-top: calc(0.5833em - 1px);
   padding-bottom: calc(0.5833em - 1px);
@@ -596,7 +596,7 @@ a.ui.active.label:hover:before {
 .ui.basic.labels a.label:hover,
 a.ui.basic.label:hover {
   text-decoration: none;
-  background: none #FFFFFF;
+  background: none #ffffff;
   color: #1e70bf;
   box-shadow: none;
 }
@@ -636,10 +636,10 @@ a.ui.basic.label:hover {
 .ui.inverted.basic.label,
 .ui.inverted.basic.label:hover {
   border-color: rgba(255, 255, 255, 0.5);
-  background: #1B1C1D;
+  background: #1b1c1d;
 }
 .ui.inverted.basic.label:hover {
-  color: #4183C4;
+  color: #4183c4;
 }
 
 /*-------------------
@@ -648,44 +648,44 @@ a.ui.basic.label:hover {
 
 .ui.primary.labels .label,
 .ui.ui.ui.primary.label {
-  background-color: #2185D0;
-  border-color: #2185D0;
+  background-color: #ed6663;
+  border-color: #ed6663;
   color: rgba(255, 255, 255, 0.9);
 }
 
 /* Link */
 .ui.primary.labels a.label:hover,
 a.ui.ui.ui.primary.label:hover {
-  background-color: #1678c2;
-  border-color: #1678c2;
-  color: #FFFFFF;
+  background-color: #f24844;
+  border-color: #f24844;
+  color: #ffffff;
 }
 
 /* Ribbon */
 .ui.ui.ui.primary.ribbon.label {
-  border-color: #1a69a4;
+  border-color: #e83935;
 }
 
 /* Basic */
 .ui.basic.labels .primary.label,
 .ui.ui.ui.basic.primary.label {
-  background: none #FFFFFF;
-  border-color: #2185D0;
-  color: #2185D0;
+  background: none #ffffff;
+  border-color: #ed6663;
+  color: #ed6663;
 }
 .ui.basic.labels a.primary.label:hover,
 a.ui.ui.ui.basic.primary.label:hover {
-  background: none #FFFFFF;
-  border-color: #1678c2;
-  color: #1678c2;
+  background: none #ffffff;
+  border-color: #f24844;
+  color: #f24844;
 }
 
 /* Inverted */
 .ui.inverted.labels .primary.label,
 .ui.ui.ui.inverted.primary.label {
-  background-color: #54C8FF;
-  border-color: #54C8FF;
-  color: #1B1C1D;
+  background-color: #54c8ff;
+  border-color: #54c8ff;
+  color: #1b1c1d;
 }
 
 /* Inverted Link */
@@ -693,7 +693,7 @@ a.ui.ui.ui.basic.primary.label:hover {
 a.ui.ui.ui.inverted.primary.label:hover {
   background-color: #21b8ff;
   border-color: #21b8ff;
-  color: #1B1C1D;
+  color: #1b1c1d;
 }
 
 /* Inverted Ribbon */
@@ -704,62 +704,62 @@ a.ui.ui.ui.inverted.primary.label:hover {
 /* Inverted Basic */
 .ui.inverted.basic.labels .primary.label,
 .ui.ui.ui.inverted.basic.primary.label {
-  background-color: #1B1C1D;
-  border-color: #54C8FF;
-  color: #54C8FF;
+  background-color: #1b1c1d;
+  border-color: #54c8ff;
+  color: #54c8ff;
 }
 .ui.inverted.basic.labels a.primary.label:hover,
 a.ui.ui.ui.inverted.basic.primary.label:hover {
   border-color: #21b8ff;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   color: #21b8ff;
 }
 
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .primary.label,
 .ui.ui.ui.inverted.primary.basic.tag.label {
-  border: 1px solid #54C8FF;
+  border: 1px solid #54c8ff;
 }
 .ui.inverted.basic.tag.labels .primary.label:before,
 .ui.ui.ui.inverted.primary.basic.tag.label:before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   right: calc(100% + 1px);
 }
 .ui.secondary.labels .label,
 .ui.ui.ui.secondary.label {
-  background-color: #1B1C1D;
-  border-color: #1B1C1D;
+  background-color: #3c2c3e;
+  border-color: #3c2c3e;
   color: rgba(255, 255, 255, 0.9);
 }
 
 /* Link */
 .ui.secondary.labels a.label:hover,
 a.ui.ui.ui.secondary.label:hover {
-  background-color: #27292a;
-  border-color: #27292a;
-  color: #FFFFFF;
+  background-color: #4b354e;
+  border-color: #4b354e;
+  color: #ffffff;
 }
 
 /* Ribbon */
 .ui.ui.ui.secondary.ribbon.label {
-  border-color: #020203;
+  border-color: #1f1720;
 }
 
 /* Basic */
 .ui.basic.labels .secondary.label,
 .ui.ui.ui.basic.secondary.label {
-  background: none #FFFFFF;
-  border-color: #1B1C1D;
-  color: #1B1C1D;
+  background: none #ffffff;
+  border-color: #3c2c3e;
+  color: #3c2c3e;
 }
 .ui.basic.labels a.secondary.label:hover,
 a.ui.ui.ui.basic.secondary.label:hover {
-  background: none #FFFFFF;
-  border-color: #27292a;
-  color: #27292a;
+  background: none #ffffff;
+  border-color: #4b354e;
+  color: #4b354e;
 }
 
 /* Inverted */
@@ -767,7 +767,7 @@ a.ui.ui.ui.basic.secondary.label:hover {
 .ui.ui.ui.inverted.secondary.label {
   background-color: #545454;
   border-color: #545454;
-  color: #1B1C1D;
+  color: #1b1c1d;
 }
 
 /* Inverted Link */
@@ -775,7 +775,7 @@ a.ui.ui.ui.basic.secondary.label:hover {
 a.ui.ui.ui.inverted.secondary.label:hover {
   background-color: #6e6e6e;
   border-color: #6e6e6e;
-  color: #1B1C1D;
+  color: #1b1c1d;
 }
 
 /* Inverted Ribbon */
@@ -786,14 +786,14 @@ a.ui.ui.ui.inverted.secondary.label:hover {
 /* Inverted Basic */
 .ui.inverted.basic.labels .secondary.label,
 .ui.ui.ui.inverted.basic.secondary.label {
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   border-color: #545454;
   color: #545454;
 }
 .ui.inverted.basic.labels a.secondary.label:hover,
 a.ui.ui.ui.inverted.basic.secondary.label:hover {
   border-color: #6e6e6e;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   color: #6e6e6e;
 }
 
@@ -807,14 +807,14 @@ a.ui.ui.ui.inverted.basic.secondary.label:hover {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   right: calc(100% + 1px);
 }
 .ui.red.labels .label,
 .ui.ui.ui.red.label {
-  background-color: #DB2828;
-  border-color: #DB2828;
-  color: #FFFFFF;
+  background-color: #db2828;
+  border-color: #db2828;
+  color: #ffffff;
 }
 
 /* Link */
@@ -822,7 +822,7 @@ a.ui.ui.ui.inverted.basic.secondary.label:hover {
 a.ui.ui.ui.red.label:hover {
   background-color: #d01919;
   border-color: #d01919;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* Ribbon */
@@ -833,13 +833,13 @@ a.ui.ui.ui.red.label:hover {
 /* Basic */
 .ui.basic.labels .red.label,
 .ui.ui.ui.basic.red.label {
-  background: none #FFFFFF;
-  border-color: #DB2828;
-  color: #DB2828;
+  background: none #ffffff;
+  border-color: #db2828;
+  color: #db2828;
 }
 .ui.basic.labels a.red.label:hover,
 a.ui.ui.ui.basic.red.label:hover {
-  background: none #FFFFFF;
+  background: none #ffffff;
   border-color: #d01919;
   color: #d01919;
 }
@@ -847,9 +847,9 @@ a.ui.ui.ui.basic.red.label:hover {
 /* Inverted */
 .ui.inverted.labels .red.label,
 .ui.ui.ui.inverted.red.label {
-  background-color: #FF695E;
-  border-color: #FF695E;
-  color: #1B1C1D;
+  background-color: #ff695e;
+  border-color: #ff695e;
+  color: #1b1c1d;
 }
 
 /* Inverted Link */
@@ -857,7 +857,7 @@ a.ui.ui.ui.basic.red.label:hover {
 a.ui.ui.ui.inverted.red.label:hover {
   background-color: #ff392b;
   border-color: #ff392b;
-  color: #1B1C1D;
+  color: #1b1c1d;
 }
 
 /* Inverted Ribbon */
@@ -868,70 +868,70 @@ a.ui.ui.ui.inverted.red.label:hover {
 /* Inverted Basic */
 .ui.inverted.basic.labels .red.label,
 .ui.ui.ui.inverted.basic.red.label {
-  background-color: #1B1C1D;
-  border-color: #FF695E;
-  color: #FF695E;
+  background-color: #1b1c1d;
+  border-color: #ff695e;
+  color: #ff695e;
 }
 .ui.inverted.basic.labels a.red.label:hover,
 a.ui.ui.ui.inverted.basic.red.label:hover {
   border-color: #ff392b;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   color: #ff392b;
 }
 
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .red.label,
 .ui.ui.ui.inverted.red.basic.tag.label {
-  border: 1px solid #FF695E;
+  border: 1px solid #ff695e;
 }
 .ui.inverted.basic.tag.labels .red.label:before,
 .ui.ui.ui.inverted.red.basic.tag.label:before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   right: calc(100% + 1px);
 }
 .ui.orange.labels .label,
 .ui.ui.ui.orange.label {
-  background-color: #F2711C;
-  border-color: #F2711C;
-  color: #FFFFFF;
+  background-color: #ed6663;
+  border-color: #ed6663;
+  color: #ffffff;
 }
 
 /* Link */
 .ui.orange.labels a.label:hover,
 a.ui.ui.ui.orange.label:hover {
-  background-color: #f26202;
-  border-color: #f26202;
-  color: #FFFFFF;
+  background-color: #f24844;
+  border-color: #f24844;
+  color: #ffffff;
 }
 
 /* Ribbon */
 .ui.ui.ui.orange.ribbon.label {
-  border-color: #cf590c;
+  border-color: #e83935;
 }
 
 /* Basic */
 .ui.basic.labels .orange.label,
 .ui.ui.ui.basic.orange.label {
-  background: none #FFFFFF;
-  border-color: #F2711C;
-  color: #F2711C;
+  background: none #ffffff;
+  border-color: #ed6663;
+  color: #ed6663;
 }
 .ui.basic.labels a.orange.label:hover,
 a.ui.ui.ui.basic.orange.label:hover {
-  background: none #FFFFFF;
-  border-color: #f26202;
-  color: #f26202;
+  background: none #ffffff;
+  border-color: #f24844;
+  color: #f24844;
 }
 
 /* Inverted */
 .ui.inverted.labels .orange.label,
 .ui.ui.ui.inverted.orange.label {
-  background-color: #FF851B;
-  border-color: #FF851B;
-  color: #1B1C1D;
+  background-color: #ff851b;
+  border-color: #ff851b;
+  color: #1b1c1d;
 }
 
 /* Inverted Link */
@@ -939,7 +939,7 @@ a.ui.ui.ui.basic.orange.label:hover {
 a.ui.ui.ui.inverted.orange.label:hover {
   background-color: #e76b00;
   border-color: #e76b00;
-  color: #1B1C1D;
+  color: #1b1c1d;
 }
 
 /* Inverted Ribbon */
@@ -950,35 +950,35 @@ a.ui.ui.ui.inverted.orange.label:hover {
 /* Inverted Basic */
 .ui.inverted.basic.labels .orange.label,
 .ui.ui.ui.inverted.basic.orange.label {
-  background-color: #1B1C1D;
-  border-color: #FF851B;
-  color: #FF851B;
+  background-color: #1b1c1d;
+  border-color: #ff851b;
+  color: #ff851b;
 }
 .ui.inverted.basic.labels a.orange.label:hover,
 a.ui.ui.ui.inverted.basic.orange.label:hover {
   border-color: #e76b00;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   color: #e76b00;
 }
 
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .orange.label,
 .ui.ui.ui.inverted.orange.basic.tag.label {
-  border: 1px solid #FF851B;
+  border: 1px solid #ff851b;
 }
 .ui.inverted.basic.tag.labels .orange.label:before,
 .ui.ui.ui.inverted.orange.basic.tag.label:before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   right: calc(100% + 1px);
 }
 .ui.yellow.labels .label,
 .ui.ui.ui.yellow.label {
-  background-color: #FBBD08;
-  border-color: #FBBD08;
-  color: #FFFFFF;
+  background-color: #fbbd08;
+  border-color: #fbbd08;
+  color: #ffffff;
 }
 
 /* Link */
@@ -986,7 +986,7 @@ a.ui.ui.ui.inverted.basic.orange.label:hover {
 a.ui.ui.ui.yellow.label:hover {
   background-color: #eaae00;
   border-color: #eaae00;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* Ribbon */
@@ -997,13 +997,13 @@ a.ui.ui.ui.yellow.label:hover {
 /* Basic */
 .ui.basic.labels .yellow.label,
 .ui.ui.ui.basic.yellow.label {
-  background: none #FFFFFF;
-  border-color: #FBBD08;
-  color: #FBBD08;
+  background: none #ffffff;
+  border-color: #fbbd08;
+  color: #fbbd08;
 }
 .ui.basic.labels a.yellow.label:hover,
 a.ui.ui.ui.basic.yellow.label:hover {
-  background: none #FFFFFF;
+  background: none #ffffff;
   border-color: #eaae00;
   color: #eaae00;
 }
@@ -1011,9 +1011,9 @@ a.ui.ui.ui.basic.yellow.label:hover {
 /* Inverted */
 .ui.inverted.labels .yellow.label,
 .ui.ui.ui.inverted.yellow.label {
-  background-color: #FFE21F;
-  border-color: #FFE21F;
-  color: #1B1C1D;
+  background-color: #ffe21f;
+  border-color: #ffe21f;
+  color: #1b1c1d;
 }
 
 /* Inverted Link */
@@ -1021,7 +1021,7 @@ a.ui.ui.ui.basic.yellow.label:hover {
 a.ui.ui.ui.inverted.yellow.label:hover {
   background-color: #ebcd00;
   border-color: #ebcd00;
-  color: #1B1C1D;
+  color: #1b1c1d;
 }
 
 /* Inverted Ribbon */
@@ -1032,70 +1032,70 @@ a.ui.ui.ui.inverted.yellow.label:hover {
 /* Inverted Basic */
 .ui.inverted.basic.labels .yellow.label,
 .ui.ui.ui.inverted.basic.yellow.label {
-  background-color: #1B1C1D;
-  border-color: #FFE21F;
-  color: #FFE21F;
+  background-color: #1b1c1d;
+  border-color: #ffe21f;
+  color: #ffe21f;
 }
 .ui.inverted.basic.labels a.yellow.label:hover,
 a.ui.ui.ui.inverted.basic.yellow.label:hover {
   border-color: #ebcd00;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   color: #ebcd00;
 }
 
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .yellow.label,
 .ui.ui.ui.inverted.yellow.basic.tag.label {
-  border: 1px solid #FFE21F;
+  border: 1px solid #ffe21f;
 }
 .ui.inverted.basic.tag.labels .yellow.label:before,
 .ui.ui.ui.inverted.yellow.basic.tag.label:before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   right: calc(100% + 1px);
 }
 .ui.olive.labels .label,
 .ui.ui.ui.olive.label {
-  background-color: #B5CC18;
-  border-color: #B5CC18;
-  color: #FFFFFF;
+  background-color: #3c2c3e;
+  border-color: #3c2c3e;
+  color: #ffffff;
 }
 
 /* Link */
 .ui.olive.labels a.label:hover,
 a.ui.ui.ui.olive.label:hover {
-  background-color: #a7bd0d;
-  border-color: #a7bd0d;
-  color: #FFFFFF;
+  background-color: #2e2130;
+  border-color: #2e2130;
+  color: #ffffff;
 }
 
 /* Ribbon */
 .ui.ui.ui.olive.ribbon.label {
-  border-color: #8d9e13;
+  border-color: #1f1720;
 }
 
 /* Basic */
 .ui.basic.labels .olive.label,
 .ui.ui.ui.basic.olive.label {
-  background: none #FFFFFF;
-  border-color: #B5CC18;
-  color: #B5CC18;
+  background: none #ffffff;
+  border-color: #3c2c3e;
+  color: #3c2c3e;
 }
 .ui.basic.labels a.olive.label:hover,
 a.ui.ui.ui.basic.olive.label:hover {
-  background: none #FFFFFF;
-  border-color: #a7bd0d;
-  color: #a7bd0d;
+  background: none #ffffff;
+  border-color: #2e2130;
+  color: #2e2130;
 }
 
 /* Inverted */
 .ui.inverted.labels .olive.label,
 .ui.ui.ui.inverted.olive.label {
-  background-color: #D9E778;
-  border-color: #D9E778;
-  color: #1B1C1D;
+  background-color: #d9e778;
+  border-color: #d9e778;
+  color: #1b1c1d;
 }
 
 /* Inverted Link */
@@ -1103,7 +1103,7 @@ a.ui.ui.ui.basic.olive.label:hover {
 a.ui.ui.ui.inverted.olive.label:hover {
   background-color: #d2e745;
   border-color: #d2e745;
-  color: #1B1C1D;
+  color: #1b1c1d;
 }
 
 /* Inverted Ribbon */
@@ -1114,35 +1114,35 @@ a.ui.ui.ui.inverted.olive.label:hover {
 /* Inverted Basic */
 .ui.inverted.basic.labels .olive.label,
 .ui.ui.ui.inverted.basic.olive.label {
-  background-color: #1B1C1D;
-  border-color: #D9E778;
-  color: #D9E778;
+  background-color: #1b1c1d;
+  border-color: #d9e778;
+  color: #d9e778;
 }
 .ui.inverted.basic.labels a.olive.label:hover,
 a.ui.ui.ui.inverted.basic.olive.label:hover {
   border-color: #d2e745;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   color: #d2e745;
 }
 
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .olive.label,
 .ui.ui.ui.inverted.olive.basic.tag.label {
-  border: 1px solid #D9E778;
+  border: 1px solid #d9e778;
 }
 .ui.inverted.basic.tag.labels .olive.label:before,
 .ui.ui.ui.inverted.olive.basic.tag.label:before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   right: calc(100% + 1px);
 }
 .ui.green.labels .label,
 .ui.ui.ui.green.label {
-  background-color: #21BA45;
-  border-color: #21BA45;
-  color: #FFFFFF;
+  background-color: #21ba45;
+  border-color: #21ba45;
+  color: #ffffff;
 }
 
 /* Link */
@@ -1150,7 +1150,7 @@ a.ui.ui.ui.inverted.basic.olive.label:hover {
 a.ui.ui.ui.green.label:hover {
   background-color: #16ab39;
   border-color: #16ab39;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* Ribbon */
@@ -1161,13 +1161,13 @@ a.ui.ui.ui.green.label:hover {
 /* Basic */
 .ui.basic.labels .green.label,
 .ui.ui.ui.basic.green.label {
-  background: none #FFFFFF;
-  border-color: #21BA45;
-  color: #21BA45;
+  background: none #ffffff;
+  border-color: #21ba45;
+  color: #21ba45;
 }
 .ui.basic.labels a.green.label:hover,
 a.ui.ui.ui.basic.green.label:hover {
-  background: none #FFFFFF;
+  background: none #ffffff;
   border-color: #16ab39;
   color: #16ab39;
 }
@@ -1175,9 +1175,9 @@ a.ui.ui.ui.basic.green.label:hover {
 /* Inverted */
 .ui.inverted.labels .green.label,
 .ui.ui.ui.inverted.green.label {
-  background-color: #2ECC40;
-  border-color: #2ECC40;
-  color: #1B1C1D;
+  background-color: #2ecc40;
+  border-color: #2ecc40;
+  color: #1b1c1d;
 }
 
 /* Inverted Link */
@@ -1185,7 +1185,7 @@ a.ui.ui.ui.basic.green.label:hover {
 a.ui.ui.ui.inverted.green.label:hover {
   background-color: #1ea92e;
   border-color: #1ea92e;
-  color: #1B1C1D;
+  color: #1b1c1d;
 }
 
 /* Inverted Ribbon */
@@ -1196,35 +1196,35 @@ a.ui.ui.ui.inverted.green.label:hover {
 /* Inverted Basic */
 .ui.inverted.basic.labels .green.label,
 .ui.ui.ui.inverted.basic.green.label {
-  background-color: #1B1C1D;
-  border-color: #2ECC40;
-  color: #2ECC40;
+  background-color: #1b1c1d;
+  border-color: #2ecc40;
+  color: #2ecc40;
 }
 .ui.inverted.basic.labels a.green.label:hover,
 a.ui.ui.ui.inverted.basic.green.label:hover {
   border-color: #1ea92e;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   color: #1ea92e;
 }
 
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .green.label,
 .ui.ui.ui.inverted.green.basic.tag.label {
-  border: 1px solid #2ECC40;
+  border: 1px solid #2ecc40;
 }
 .ui.inverted.basic.tag.labels .green.label:before,
 .ui.ui.ui.inverted.green.basic.tag.label:before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   right: calc(100% + 1px);
 }
 .ui.teal.labels .label,
 .ui.ui.ui.teal.label {
-  background-color: #00B5AD;
-  border-color: #00B5AD;
-  color: #FFFFFF;
+  background-color: #00b5ad;
+  border-color: #00b5ad;
+  color: #ffffff;
 }
 
 /* Link */
@@ -1232,7 +1232,7 @@ a.ui.ui.ui.inverted.basic.green.label:hover {
 a.ui.ui.ui.teal.label:hover {
   background-color: #009c95;
   border-color: #009c95;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* Ribbon */
@@ -1243,13 +1243,13 @@ a.ui.ui.ui.teal.label:hover {
 /* Basic */
 .ui.basic.labels .teal.label,
 .ui.ui.ui.basic.teal.label {
-  background: none #FFFFFF;
-  border-color: #00B5AD;
-  color: #00B5AD;
+  background: none #ffffff;
+  border-color: #00b5ad;
+  color: #00b5ad;
 }
 .ui.basic.labels a.teal.label:hover,
 a.ui.ui.ui.basic.teal.label:hover {
-  background: none #FFFFFF;
+  background: none #ffffff;
   border-color: #009c95;
   color: #009c95;
 }
@@ -1257,9 +1257,9 @@ a.ui.ui.ui.basic.teal.label:hover {
 /* Inverted */
 .ui.inverted.labels .teal.label,
 .ui.ui.ui.inverted.teal.label {
-  background-color: #6DFFFF;
-  border-color: #6DFFFF;
-  color: #1B1C1D;
+  background-color: #6dffff;
+  border-color: #6dffff;
+  color: #1b1c1d;
 }
 
 /* Inverted Link */
@@ -1267,7 +1267,7 @@ a.ui.ui.ui.basic.teal.label:hover {
 a.ui.ui.ui.inverted.teal.label:hover {
   background-color: #3affff;
   border-color: #3affff;
-  color: #1B1C1D;
+  color: #1b1c1d;
 }
 
 /* Inverted Ribbon */
@@ -1278,35 +1278,35 @@ a.ui.ui.ui.inverted.teal.label:hover {
 /* Inverted Basic */
 .ui.inverted.basic.labels .teal.label,
 .ui.ui.ui.inverted.basic.teal.label {
-  background-color: #1B1C1D;
-  border-color: #6DFFFF;
-  color: #6DFFFF;
+  background-color: #1b1c1d;
+  border-color: #6dffff;
+  color: #6dffff;
 }
 .ui.inverted.basic.labels a.teal.label:hover,
 a.ui.ui.ui.inverted.basic.teal.label:hover {
   border-color: #3affff;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   color: #3affff;
 }
 
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .teal.label,
 .ui.ui.ui.inverted.teal.basic.tag.label {
-  border: 1px solid #6DFFFF;
+  border: 1px solid #6dffff;
 }
 .ui.inverted.basic.tag.labels .teal.label:before,
 .ui.ui.ui.inverted.teal.basic.tag.label:before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   right: calc(100% + 1px);
 }
 .ui.blue.labels .label,
 .ui.ui.ui.blue.label {
-  background-color: #2185D0;
-  border-color: #2185D0;
-  color: #FFFFFF;
+  background-color: #2185d0;
+  border-color: #2185d0;
+  color: #ffffff;
 }
 
 /* Link */
@@ -1314,7 +1314,7 @@ a.ui.ui.ui.inverted.basic.teal.label:hover {
 a.ui.ui.ui.blue.label:hover {
   background-color: #1678c2;
   border-color: #1678c2;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* Ribbon */
@@ -1325,13 +1325,13 @@ a.ui.ui.ui.blue.label:hover {
 /* Basic */
 .ui.basic.labels .blue.label,
 .ui.ui.ui.basic.blue.label {
-  background: none #FFFFFF;
-  border-color: #2185D0;
-  color: #2185D0;
+  background: none #ffffff;
+  border-color: #2185d0;
+  color: #2185d0;
 }
 .ui.basic.labels a.blue.label:hover,
 a.ui.ui.ui.basic.blue.label:hover {
-  background: none #FFFFFF;
+  background: none #ffffff;
   border-color: #1678c2;
   color: #1678c2;
 }
@@ -1339,9 +1339,9 @@ a.ui.ui.ui.basic.blue.label:hover {
 /* Inverted */
 .ui.inverted.labels .blue.label,
 .ui.ui.ui.inverted.blue.label {
-  background-color: #54C8FF;
-  border-color: #54C8FF;
-  color: #1B1C1D;
+  background-color: #54c8ff;
+  border-color: #54c8ff;
+  color: #1b1c1d;
 }
 
 /* Inverted Link */
@@ -1349,7 +1349,7 @@ a.ui.ui.ui.basic.blue.label:hover {
 a.ui.ui.ui.inverted.blue.label:hover {
   background-color: #21b8ff;
   border-color: #21b8ff;
-  color: #1B1C1D;
+  color: #1b1c1d;
 }
 
 /* Inverted Ribbon */
@@ -1360,35 +1360,35 @@ a.ui.ui.ui.inverted.blue.label:hover {
 /* Inverted Basic */
 .ui.inverted.basic.labels .blue.label,
 .ui.ui.ui.inverted.basic.blue.label {
-  background-color: #1B1C1D;
-  border-color: #54C8FF;
-  color: #54C8FF;
+  background-color: #1b1c1d;
+  border-color: #54c8ff;
+  color: #54c8ff;
 }
 .ui.inverted.basic.labels a.blue.label:hover,
 a.ui.ui.ui.inverted.basic.blue.label:hover {
   border-color: #21b8ff;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   color: #21b8ff;
 }
 
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .blue.label,
 .ui.ui.ui.inverted.blue.basic.tag.label {
-  border: 1px solid #54C8FF;
+  border: 1px solid #54c8ff;
 }
 .ui.inverted.basic.tag.labels .blue.label:before,
 .ui.ui.ui.inverted.blue.basic.tag.label:before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   right: calc(100% + 1px);
 }
 .ui.violet.labels .label,
 .ui.ui.ui.violet.label {
-  background-color: #6435C9;
-  border-color: #6435C9;
-  color: #FFFFFF;
+  background-color: #6435c9;
+  border-color: #6435c9;
+  color: #ffffff;
 }
 
 /* Link */
@@ -1396,7 +1396,7 @@ a.ui.ui.ui.inverted.basic.blue.label:hover {
 a.ui.ui.ui.violet.label:hover {
   background-color: #5829bb;
   border-color: #5829bb;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* Ribbon */
@@ -1407,13 +1407,13 @@ a.ui.ui.ui.violet.label:hover {
 /* Basic */
 .ui.basic.labels .violet.label,
 .ui.ui.ui.basic.violet.label {
-  background: none #FFFFFF;
-  border-color: #6435C9;
-  color: #6435C9;
+  background: none #ffffff;
+  border-color: #6435c9;
+  color: #6435c9;
 }
 .ui.basic.labels a.violet.label:hover,
 a.ui.ui.ui.basic.violet.label:hover {
-  background: none #FFFFFF;
+  background: none #ffffff;
   border-color: #5829bb;
   color: #5829bb;
 }
@@ -1421,9 +1421,9 @@ a.ui.ui.ui.basic.violet.label:hover {
 /* Inverted */
 .ui.inverted.labels .violet.label,
 .ui.ui.ui.inverted.violet.label {
-  background-color: #A291FB;
-  border-color: #A291FB;
-  color: #1B1C1D;
+  background-color: #a291fb;
+  border-color: #a291fb;
+  color: #1b1c1d;
 }
 
 /* Inverted Link */
@@ -1431,7 +1431,7 @@ a.ui.ui.ui.basic.violet.label:hover {
 a.ui.ui.ui.inverted.violet.label:hover {
   background-color: #745aff;
   border-color: #745aff;
-  color: #1B1C1D;
+  color: #1b1c1d;
 }
 
 /* Inverted Ribbon */
@@ -1442,70 +1442,70 @@ a.ui.ui.ui.inverted.violet.label:hover {
 /* Inverted Basic */
 .ui.inverted.basic.labels .violet.label,
 .ui.ui.ui.inverted.basic.violet.label {
-  background-color: #1B1C1D;
-  border-color: #A291FB;
-  color: #A291FB;
+  background-color: #1b1c1d;
+  border-color: #a291fb;
+  color: #a291fb;
 }
 .ui.inverted.basic.labels a.violet.label:hover,
 a.ui.ui.ui.inverted.basic.violet.label:hover {
   border-color: #745aff;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   color: #745aff;
 }
 
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .violet.label,
 .ui.ui.ui.inverted.violet.basic.tag.label {
-  border: 1px solid #A291FB;
+  border: 1px solid #a291fb;
 }
 .ui.inverted.basic.tag.labels .violet.label:before,
 .ui.ui.ui.inverted.violet.basic.tag.label:before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   right: calc(100% + 1px);
 }
 .ui.purple.labels .label,
 .ui.ui.ui.purple.label {
-  background-color: #A333C8;
-  border-color: #A333C8;
-  color: #FFFFFF;
+  background-color: #59405c;
+  border-color: #59405c;
+  color: #ffffff;
 }
 
 /* Link */
 .ui.purple.labels a.label:hover,
 a.ui.ui.ui.purple.label:hover {
-  background-color: #9627ba;
-  border-color: #9627ba;
-  color: #FFFFFF;
+  background-color: #4b344e;
+  border-color: #4b344e;
+  color: #ffffff;
 }
 
 /* Ribbon */
 .ui.ui.ui.purple.ribbon.label {
-  border-color: #82299f;
+  border-color: #3c2b3e;
 }
 
 /* Basic */
 .ui.basic.labels .purple.label,
 .ui.ui.ui.basic.purple.label {
-  background: none #FFFFFF;
-  border-color: #A333C8;
-  color: #A333C8;
+  background: none #ffffff;
+  border-color: #59405c;
+  color: #59405c;
 }
 .ui.basic.labels a.purple.label:hover,
 a.ui.ui.ui.basic.purple.label:hover {
-  background: none #FFFFFF;
-  border-color: #9627ba;
-  color: #9627ba;
+  background: none #ffffff;
+  border-color: #4b344e;
+  color: #4b344e;
 }
 
 /* Inverted */
 .ui.inverted.labels .purple.label,
 .ui.ui.ui.inverted.purple.label {
-  background-color: #DC73FF;
-  border-color: #DC73FF;
-  color: #1B1C1D;
+  background-color: #dc73ff;
+  border-color: #dc73ff;
+  color: #1b1c1d;
 }
 
 /* Inverted Link */
@@ -1513,7 +1513,7 @@ a.ui.ui.ui.basic.purple.label:hover {
 a.ui.ui.ui.inverted.purple.label:hover {
   background-color: #cf40ff;
   border-color: #cf40ff;
-  color: #1B1C1D;
+  color: #1b1c1d;
 }
 
 /* Inverted Ribbon */
@@ -1524,70 +1524,70 @@ a.ui.ui.ui.inverted.purple.label:hover {
 /* Inverted Basic */
 .ui.inverted.basic.labels .purple.label,
 .ui.ui.ui.inverted.basic.purple.label {
-  background-color: #1B1C1D;
-  border-color: #DC73FF;
-  color: #DC73FF;
+  background-color: #1b1c1d;
+  border-color: #dc73ff;
+  color: #dc73ff;
 }
 .ui.inverted.basic.labels a.purple.label:hover,
 a.ui.ui.ui.inverted.basic.purple.label:hover {
   border-color: #cf40ff;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   color: #cf40ff;
 }
 
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .purple.label,
 .ui.ui.ui.inverted.purple.basic.tag.label {
-  border: 1px solid #DC73FF;
+  border: 1px solid #dc73ff;
 }
 .ui.inverted.basic.tag.labels .purple.label:before,
 .ui.ui.ui.inverted.purple.basic.tag.label:before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   right: calc(100% + 1px);
 }
 .ui.pink.labels .label,
 .ui.ui.ui.pink.label {
-  background-color: #E03997;
-  border-color: #E03997;
-  color: #FFFFFF;
+  background-color: #b52b65;
+  border-color: #b52b65;
+  color: #ffffff;
 }
 
 /* Link */
 .ui.pink.labels a.label:hover,
 a.ui.ui.ui.pink.label:hover {
-  background-color: #e61a8d;
-  border-color: #e61a8d;
-  color: #FFFFFF;
+  background-color: #a72059;
+  border-color: #a72059;
+  color: #ffffff;
 }
 
 /* Ribbon */
 .ui.ui.ui.pink.ribbon.label {
-  border-color: #c71f7e;
+  border-color: #8c214e;
 }
 
 /* Basic */
 .ui.basic.labels .pink.label,
 .ui.ui.ui.basic.pink.label {
-  background: none #FFFFFF;
-  border-color: #E03997;
-  color: #E03997;
+  background: none #ffffff;
+  border-color: #b52b65;
+  color: #b52b65;
 }
 .ui.basic.labels a.pink.label:hover,
 a.ui.ui.ui.basic.pink.label:hover {
-  background: none #FFFFFF;
-  border-color: #e61a8d;
-  color: #e61a8d;
+  background: none #ffffff;
+  border-color: #a72059;
+  color: #a72059;
 }
 
 /* Inverted */
 .ui.inverted.labels .pink.label,
 .ui.ui.ui.inverted.pink.label {
-  background-color: #FF8EDF;
-  border-color: #FF8EDF;
-  color: #1B1C1D;
+  background-color: #ff8edf;
+  border-color: #ff8edf;
+  color: #1b1c1d;
 }
 
 /* Inverted Link */
@@ -1595,7 +1595,7 @@ a.ui.ui.ui.basic.pink.label:hover {
 a.ui.ui.ui.inverted.pink.label:hover {
   background-color: #ff5bd1;
   border-color: #ff5bd1;
-  color: #1B1C1D;
+  color: #1b1c1d;
 }
 
 /* Inverted Ribbon */
@@ -1606,35 +1606,35 @@ a.ui.ui.ui.inverted.pink.label:hover {
 /* Inverted Basic */
 .ui.inverted.basic.labels .pink.label,
 .ui.ui.ui.inverted.basic.pink.label {
-  background-color: #1B1C1D;
-  border-color: #FF8EDF;
-  color: #FF8EDF;
+  background-color: #1b1c1d;
+  border-color: #ff8edf;
+  color: #ff8edf;
 }
 .ui.inverted.basic.labels a.pink.label:hover,
 a.ui.ui.ui.inverted.basic.pink.label:hover {
   border-color: #ff5bd1;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   color: #ff5bd1;
 }
 
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .pink.label,
 .ui.ui.ui.inverted.pink.basic.tag.label {
-  border: 1px solid #FF8EDF;
+  border: 1px solid #ff8edf;
 }
 .ui.inverted.basic.tag.labels .pink.label:before,
 .ui.ui.ui.inverted.pink.basic.tag.label:before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   right: calc(100% + 1px);
 }
 .ui.brown.labels .label,
 .ui.ui.ui.brown.label {
-  background-color: #A5673F;
-  border-color: #A5673F;
-  color: #FFFFFF;
+  background-color: #a5673f;
+  border-color: #a5673f;
+  color: #ffffff;
 }
 
 /* Link */
@@ -1642,7 +1642,7 @@ a.ui.ui.ui.inverted.basic.pink.label:hover {
 a.ui.ui.ui.brown.label:hover {
   background-color: #975b33;
   border-color: #975b33;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* Ribbon */
@@ -1653,13 +1653,13 @@ a.ui.ui.ui.brown.label:hover {
 /* Basic */
 .ui.basic.labels .brown.label,
 .ui.ui.ui.basic.brown.label {
-  background: none #FFFFFF;
-  border-color: #A5673F;
-  color: #A5673F;
+  background: none #ffffff;
+  border-color: #a5673f;
+  color: #a5673f;
 }
 .ui.basic.labels a.brown.label:hover,
 a.ui.ui.ui.basic.brown.label:hover {
-  background: none #FFFFFF;
+  background: none #ffffff;
   border-color: #975b33;
   color: #975b33;
 }
@@ -1667,9 +1667,9 @@ a.ui.ui.ui.basic.brown.label:hover {
 /* Inverted */
 .ui.inverted.labels .brown.label,
 .ui.ui.ui.inverted.brown.label {
-  background-color: #D67C1C;
-  border-color: #D67C1C;
-  color: #1B1C1D;
+  background-color: #d67c1c;
+  border-color: #d67c1c;
+  color: #1b1c1d;
 }
 
 /* Inverted Link */
@@ -1677,7 +1677,7 @@ a.ui.ui.ui.basic.brown.label:hover {
 a.ui.ui.ui.inverted.brown.label:hover {
   background-color: #b0620f;
   border-color: #b0620f;
-  color: #1B1C1D;
+  color: #1b1c1d;
 }
 
 /* Inverted Ribbon */
@@ -1688,35 +1688,35 @@ a.ui.ui.ui.inverted.brown.label:hover {
 /* Inverted Basic */
 .ui.inverted.basic.labels .brown.label,
 .ui.ui.ui.inverted.basic.brown.label {
-  background-color: #1B1C1D;
-  border-color: #D67C1C;
-  color: #D67C1C;
+  background-color: #1b1c1d;
+  border-color: #d67c1c;
+  color: #d67c1c;
 }
 .ui.inverted.basic.labels a.brown.label:hover,
 a.ui.ui.ui.inverted.basic.brown.label:hover {
   border-color: #b0620f;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   color: #b0620f;
 }
 
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .brown.label,
 .ui.ui.ui.inverted.brown.basic.tag.label {
-  border: 1px solid #D67C1C;
+  border: 1px solid #d67c1c;
 }
 .ui.inverted.basic.tag.labels .brown.label:before,
 .ui.ui.ui.inverted.brown.basic.tag.label:before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   right: calc(100% + 1px);
 }
 .ui.grey.labels .label,
 .ui.ui.ui.grey.label {
   background-color: #767676;
   border-color: #767676;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* Link */
@@ -1724,7 +1724,7 @@ a.ui.ui.ui.inverted.basic.brown.label:hover {
 a.ui.ui.ui.grey.label:hover {
   background-color: #838383;
   border-color: #838383;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* Ribbon */
@@ -1735,13 +1735,13 @@ a.ui.ui.ui.grey.label:hover {
 /* Basic */
 .ui.basic.labels .grey.label,
 .ui.ui.ui.basic.grey.label {
-  background: none #FFFFFF;
+  background: none #ffffff;
   border-color: #767676;
   color: #767676;
 }
 .ui.basic.labels a.grey.label:hover,
 a.ui.ui.ui.basic.grey.label:hover {
-  background: none #FFFFFF;
+  background: none #ffffff;
   border-color: #838383;
   color: #838383;
 }
@@ -1749,9 +1749,9 @@ a.ui.ui.ui.basic.grey.label:hover {
 /* Inverted */
 .ui.inverted.labels .grey.label,
 .ui.ui.ui.inverted.grey.label {
-  background-color: #DCDDDE;
-  border-color: #DCDDDE;
-  color: #1B1C1D;
+  background-color: #dcddde;
+  border-color: #dcddde;
+  color: #1b1c1d;
 }
 
 /* Inverted Link */
@@ -1759,7 +1759,7 @@ a.ui.ui.ui.basic.grey.label:hover {
 a.ui.ui.ui.inverted.grey.label:hover {
   background-color: #c2c4c5;
   border-color: #c2c4c5;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* Inverted Ribbon */
@@ -1770,34 +1770,34 @@ a.ui.ui.ui.inverted.grey.label:hover {
 /* Inverted Basic */
 .ui.inverted.basic.labels .grey.label,
 .ui.ui.ui.inverted.basic.grey.label {
-  background-color: #1B1C1D;
-  border-color: #DCDDDE;
+  background-color: #1b1c1d;
+  border-color: #dcddde;
   color: rgba(255, 255, 255, 0.9);
 }
 .ui.inverted.basic.labels a.grey.label:hover,
 a.ui.ui.ui.inverted.basic.grey.label:hover {
   border-color: #c2c4c5;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
 }
 
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .grey.label,
 .ui.ui.ui.inverted.grey.basic.tag.label {
-  border: 1px solid #DCDDDE;
+  border: 1px solid #dcddde;
 }
 .ui.inverted.basic.tag.labels .grey.label:before,
 .ui.ui.ui.inverted.grey.basic.tag.label:before {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   right: calc(100% + 1px);
 }
 .ui.black.labels .label,
 .ui.ui.ui.black.label {
-  background-color: #1B1C1D;
-  border-color: #1B1C1D;
-  color: #FFFFFF;
+  background-color: #1b1c1d;
+  border-color: #1b1c1d;
+  color: #ffffff;
 }
 
 /* Link */
@@ -1805,7 +1805,7 @@ a.ui.ui.ui.inverted.basic.grey.label:hover {
 a.ui.ui.ui.black.label:hover {
   background-color: #27292a;
   border-color: #27292a;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* Ribbon */
@@ -1816,13 +1816,13 @@ a.ui.ui.ui.black.label:hover {
 /* Basic */
 .ui.basic.labels .black.label,
 .ui.ui.ui.basic.black.label {
-  background: none #FFFFFF;
-  border-color: #1B1C1D;
-  color: #1B1C1D;
+  background: none #ffffff;
+  border-color: #1b1c1d;
+  color: #1b1c1d;
 }
 .ui.basic.labels a.black.label:hover,
 a.ui.ui.ui.basic.black.label:hover {
-  background: none #FFFFFF;
+  background: none #ffffff;
   border-color: #27292a;
   color: #27292a;
 }
@@ -1832,7 +1832,7 @@ a.ui.ui.ui.basic.black.label:hover {
 .ui.ui.ui.inverted.black.label {
   background-color: #545454;
   border-color: #545454;
-  color: #1B1C1D;
+  color: #1b1c1d;
 }
 
 /* Inverted Link */
@@ -1840,7 +1840,7 @@ a.ui.ui.ui.basic.black.label:hover {
 a.ui.ui.ui.inverted.black.label:hover {
   background-color: #000000;
   border-color: #000000;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* Inverted Ribbon */
@@ -1851,14 +1851,14 @@ a.ui.ui.ui.inverted.black.label:hover {
 /* Inverted Basic */
 .ui.inverted.basic.labels .black.label,
 .ui.ui.ui.inverted.basic.black.label {
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   border-color: #545454;
   color: rgba(255, 255, 255, 0.9);
 }
 .ui.inverted.basic.labels a.black.label:hover,
 a.ui.ui.ui.inverted.basic.black.label:hover {
   border-color: #000000;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
 }
 
 /* Inverted Basic Tags */
@@ -1871,7 +1871,7 @@ a.ui.ui.ui.inverted.basic.black.label:hover {
   border-color: inherit;
   border-width: 1px 0 0 1px;
   border-style: inherit;
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   right: calc(100% + 1px);
 }
 
