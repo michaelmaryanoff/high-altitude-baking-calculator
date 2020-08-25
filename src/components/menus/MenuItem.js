@@ -9,7 +9,8 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
 const MenuItem = props => {
-  let activeClass = props.location.pathname === props.route ? 'active' : '';
+  let activeClass = props.pathName === props.route ? 'active' : '';
+
   return (
     <div>
       <Link to={props.route} className={`${activeClass} header item`}>

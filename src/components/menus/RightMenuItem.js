@@ -9,7 +9,7 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
 const RightMenuItem = props => {
-  let activeClass = props.location.pathname === props.route ? 'active' : '';
+  let activeClass = props.pathName === props.route ? 'active' : '';
 
   return (
     <div className="right menu">
