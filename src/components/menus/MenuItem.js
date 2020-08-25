@@ -20,4 +20,4 @@ const MenuItem = props => {
   );
 };
 
-export default withRouter(connect(null, {})(MenuItem));
+export default withRouter(MenuItem);
