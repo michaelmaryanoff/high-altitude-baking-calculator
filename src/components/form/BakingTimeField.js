@@ -9,7 +9,7 @@ const BakingTimeField = props => {
   return (
     <div className="center aligned column">
       <div className="ui compact segment">
-        <FieldGroupLabel>Baking time</FieldGroupLabel>
+        <FieldGroupLabel>Baking Time</FieldGroupLabel>
         <div className="ui four column grid">
           <div className="row">
             <div className="eight wide column">
@@ -33,7 +33,7 @@ const BakingTimeField = props => {
                 name={'bakingTimeOutput'}
                 value={props.output}
                 handleOnChange={props.handleOnChange}
-                label="Adjusted time"
+                label="Adjusted"
                 width={''}
               />
             </div>

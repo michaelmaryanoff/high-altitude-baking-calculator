@@ -8,7 +8,7 @@ const BakingTempField = props => {
   return (
     <div className="center aligned column">
       <div className="ui compact segment">
-        <FieldGroupLabel>Baking temperature (F)</FieldGroupLabel>
+        <FieldGroupLabel>Baking Temperature (F)</FieldGroupLabel>
         <div className="ui four column grid">
           <div className="row">
             <div className="sixteen wide column">

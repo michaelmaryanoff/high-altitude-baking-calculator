@@ -15,7 +15,7 @@ import ContactPage from './pages/ContactPage';
 class App extends React.Component {
   render() {
     return (
-      <div style={{ backgroundColor: 'orange' }}>
+      <div>
         <BrowserRouter>
           <MainMenu />
           <Switch>

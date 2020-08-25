@@ -8,7 +8,6 @@ import { withRouter } from 'react-router';
 // Redux
 import { connect } from 'react-redux';
 
-
 const RightMenuItem = props => {
   let activeClass = props.location.pathname === props.route ? 'active' : '';
 

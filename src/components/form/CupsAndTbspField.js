@@ -21,7 +21,7 @@ const CupsAndTbspField = props => {
       <div className="ui compact segment">
         <FieldGroupLabel>{props.fieldGroupLabel}</FieldGroupLabel>
         <div className="ui four column grid">
-          <div className="row">
+          <div className="transparent inverted  row">
             <div className="five wide column">
               <CupsInput
                 label="Cups"
