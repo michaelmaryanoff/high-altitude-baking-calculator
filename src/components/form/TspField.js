@@ -4,6 +4,7 @@ import TeaspoonInputField from './TeaspoonInput';
 import DropdownMenu from './DropdownMenu';
 import TextOutputField from './TextOutputField';
 import FieldGroupLabel from './FieldGroupLabel';
+import FieldColumn from './FieldColumn';
 
 const partialTspDropDownDataSource = [
   { label: '-', value: '' },
@@ -14,42 +15,37 @@ const partialTspDropDownDataSource = [
 
 const TspField = props => {
   return (
-    <div className="center aligned column">
-      <div className="ui compact segment">
-        <FieldGroupLabel>{props.label}</FieldGroupLabel>
-        <div className="ui four column grid">
-          <div className="row">
-            <div className="eight wide column">
-              <TeaspoonInputField
-                name={props.tspInputName}
-                value={props.tspInputValue}
-                label="Tsp"
-                handleOnChange={props.handleOnChange}
-              />
-            </div>
-            <div className="eight wide column">
-              <DropdownMenu
-                name={props.dropdownName}
-                optionDataSource={partialTspDropDownDataSource}
-                value={props.dropdownMenuValue}
-                onChange={props.handleDropdownOnChange}
-                label="Fraction"
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="sixteen wide column">
-              <TextOutputField
-                name={props.outputName}
-                value={props.output}
-                onChange={props.handleOnChange}
-                label="Adjusted"
-              />
-            </div>
-          </div>
+    <FieldColumn fieldGroupLabel={props.label}>
+      <div className="row">
+        <div className="eight wide column">
+          <TeaspoonInputField
+            name={props.tspInputName}
+            value={props.tspInputValue}
+            label="Tsp"
+            handleOnChange={props.handleOnChange}
+          />
+        </div>
+        <div className="eight wide column">
+          <DropdownMenu
+            name={props.dropdownName}
+            optionDataSource={partialTspDropDownDataSource}
+            value={props.dropdownMenuValue}
+            onChange={props.handleDropdownOnChange}
+            label="Fraction"
+          />
         </div>
       </div>
-    </div>
+      <div className="row">
+        <div className="sixteen wide column">
+          <TextOutputField
+            name={props.outputName}
+            value={props.output}
+            onChange={props.handleOnChange}
+            label="Adjusted"
+          />
+        </div>
+      </div>
+    </FieldColumn>
   );
 };
 

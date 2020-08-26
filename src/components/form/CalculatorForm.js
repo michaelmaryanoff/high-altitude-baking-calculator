@@ -20,7 +20,7 @@ import BakingTempField from './BakingTempField';
 import BakingTimeField from './BakingTimeField';
 import CupsAndTbspField from './CupsAndTbspField';
 import TspField from './TspField';
-import FieldWrapper from './FieldWrapper';
+import FieldRow from './FieldWrapper';
 import ClearButton from './ClearButton';
 import CalculateButton from './CalculateButton';
 import ButtonWrapper from './ButtonWrapper';
@@ -223,7 +223,7 @@ const CalculatorForm = () => {
         ) : null}
         {/* Altitude */}
         <AltitudeField altitudeInput={altitudeInput} onChange={onChange} />
-        <FieldWrapper>
+        <FieldRow>
           <BakingTempField
             inputValue={ovenTempInput}
             outputValue={ovenTempOutput}
@@ -236,8 +236,8 @@ const CalculatorForm = () => {
             output={bakingTimeOutput}
             handleOnChange={onChange}
           />
-        </FieldWrapper>
-        <FieldWrapper>
+        </FieldRow>
+        <FieldRow>
           <CupsAndTbspField
             cupsInputValue={flourCupsInput}
             partialCupsInputValue={flourPartialCupInput}
@@ -265,9 +265,9 @@ const CalculatorForm = () => {
             handleDropdownOnChange={dropdownOnChange}
             fieldGroupLabel={'Liquid'}
           />
-        </FieldWrapper>
+        </FieldRow>
 
-        <FieldWrapper>
+        <FieldRow>
           <CupsAndTbspField
             cupsInputValue={sugarCupsInput}
             partialCupsInputValue={sugarPartialCupInput}
@@ -292,8 +292,8 @@ const CalculatorForm = () => {
             handleOnChange={onChange}
             handleDropdownOnChange={dropdownOnChange}
           />
-        </FieldWrapper>
-        <FieldWrapper>
+        </FieldRow>
+        <FieldRow>
           <TspField
             label="Yeast"
             tspInputValue={yeastTspInput}
@@ -305,7 +305,7 @@ const CalculatorForm = () => {
             handleOnChange={onChange}
             handleDropdownOnChange={dropdownOnChange}
           />
-        </FieldWrapper>
+        </FieldRow>
 
         <ButtonWrapper>
           <ClearButton onClick={handleClearPressed} />

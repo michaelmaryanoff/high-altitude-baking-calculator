@@ -1,4 +1,5 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 
 import FieldGroupLabel from './FieldGroupLabel';
 
@@ -11,6 +12,10 @@ const FieldColumn = props => {
       </div>
     </div>
   );
+};
+
+FieldColumn.propTypes = {
+  fieldGroupLabel: PropTypes.string.isRequired
 };
 
 export default FieldColumn;

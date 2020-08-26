@@ -5,7 +5,7 @@ import CupsInput from './CupsInput';
 import DropdownMenu from './DropdownMenu';
 import TablespoonInput from './TablespoonInput';
 import TextOutputField from './TextOutputField';
-import FieldGroupLabel from './FieldGroupLabel';
+import FieldColumn from './FieldColumn';
 
 const partialCupDropDownDataSource = [
   { label: '-', value: '' },
@@ -17,50 +17,45 @@ const partialCupDropDownDataSource = [
 
 const CupsAndTbspField = props => {
   return (
-    <div className="center aligned column">
-      <div className="ui compact segment">
-        <FieldGroupLabel>{props.fieldGroupLabel}</FieldGroupLabel>
-        <div className="ui four column grid">
-          <div className="transparent inverted  row">
-            <div className="five wide column">
-              <CupsInput
-                label="Cups"
-                name={props.cupsFieldName}
-                value={props.cupsInputValue}
-                handleOnChange={props.handleOnChange}
-              />
-            </div>
-            <div className="six wide column">
-              <DropdownMenu
-                label="Fraction"
-                name={props.dropdownFieldName}
-                value={props.partialCupsInputValue}
-                optionDataSource={partialCupDropDownDataSource}
-                onChange={props.handleDropdownOnChange}
-              />
-            </div>
-            <div className="five wide column">
-              <TablespoonInput
-                label="Tbsp"
-                name={props.tablespoonFieldName}
-                value={props.tablespoonInputValue}
-                handleOnChange={props.handleOnChange}
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="sixteen wide column">
-              <TextOutputField
-                name={props.ouputFieldName}
-                value={props.outputValue}
-                handleOnChange={props.HandleOnChange}
-                label={'Adjusted'}
-              />
-            </div>
-          </div>
+    <FieldColumn fieldGroupLabel={props.fieldGroupLabel}>
+      <div className="transparent inverted  row">
+        <div className="five wide column">
+          <CupsInput
+            label="Cups"
+            name={props.cupsFieldName}
+            value={props.cupsInputValue}
+            handleOnChange={props.handleOnChange}
+          />
+        </div>
+        <div className="six wide column">
+          <DropdownMenu
+            label="Fraction"
+            name={props.dropdownFieldName}
+            value={props.partialCupsInputValue}
+            optionDataSource={partialCupDropDownDataSource}
+            onChange={props.handleDropdownOnChange}
+          />
+        </div>
+        <div className="five wide column">
+          <TablespoonInput
+            label="Tbsp"
+            name={props.tablespoonFieldName}
+            value={props.tablespoonInputValue}
+            handleOnChange={props.handleOnChange}
+          />
         </div>
       </div>
-    </div>
+      <div className="row">
+        <div className="sixteen wide column">
+          <TextOutputField
+            name={props.ouputFieldName}
+            value={props.outputValue}
+            handleOnChange={props.HandleOnChange}
+            label={'Adjusted'}
+          />
+        </div>
+      </div>
+    </FieldColumn>
   );
 };
 
