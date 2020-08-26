@@ -282,7 +282,7 @@ const CalculatorForm = () => {
             fieldGroupLabel={'Sugar'}
           />
           <TspField
-            label="Baking Powder"
+            label="Baking Powder / Soda"
             tspInputValue={bakingPowderTspInput}
             dropdownMenuValue={bakingPowderPartialTspInput}
             tspInputName="bakingPowderTspInput"

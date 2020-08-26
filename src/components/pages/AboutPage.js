@@ -30,6 +30,7 @@ const AboutPage = () => {
             delicious baked goods to the office! Remote positions are eligible for mailed-in baked
             goods.
           </p>
+          <h2>Metric units coming soon!</h2>
         </div>
       </div>
     </div>
