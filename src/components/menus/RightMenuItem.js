@@ -5,9 +5,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
-// Redux
-import { connect } from 'react-redux';
-
 const RightMenuItem = props => {
   let activeClass = props.pathName === props.route ? 'active' : '';
 

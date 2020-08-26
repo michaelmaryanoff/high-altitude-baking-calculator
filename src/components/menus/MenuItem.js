@@ -5,11 +5,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
-// Redux
-import { connect } from 'react-redux';
-
 const MenuItem = props => {
   let activeClass = props.pathName === props.route ? 'active' : '';
+  if (props.pathName === '/' && props.label === 'Calculate') {
+    activeClass = 'active';
+  }
 
   return (
     <div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { connect } from 'react-redux';
 
@@ -8,9 +8,6 @@ import RightMenuItem from './RightMenuItem';
 import { withRouter } from 'react-router';
 
 const MainMenu = props => {
-  useEffect(() => {
-    console.log('props.location.pathName: ', props.location.pathname);
-  }, [props.location.pathname]);
   return (
     <div className="ui secondary pointing purple inverted menu">
       <div className="ui container">
