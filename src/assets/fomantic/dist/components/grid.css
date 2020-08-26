@@ -1113,17 +1113,17 @@
 .ui.celled.grid {
   width: 100%;
   margin: 1em 0;
-  box-shadow: 0 0 0 1px #D4D4D5;
+  box-shadow: 0 0 0 1px #d4d4d5;
 }
 .ui.celled.grid > .row {
   width: 100% !important;
   margin: 0;
   padding: 0;
-  box-shadow: 0 -1px 0 0 #D4D4D5;
+  box-shadow: 0 -1px 0 0 #d4d4d5;
 }
 .ui.celled.grid > .column:not(.row),
 .ui.celled.grid > .row > .column {
-  box-shadow: -1px 0 0 0 #D4D4D5;
+  box-shadow: -1px 0 0 0 #d4d4d5;
 }
 .ui.celled.grid > .column:first-child,
 .ui.celled.grid > .row > .column:first-child {
@@ -1267,92 +1267,92 @@
 .ui.grid > .primary.row,
 .ui.grid > .primary.column,
 .ui.grid > .row > .primary.column {
-  background-color: #2185D0;
-  color: #FFFFFF;
+  background-color: #ed6663;
+  color: #ffffff;
 }
 .ui.grid > .secondary.row,
 .ui.grid > .secondary.column,
 .ui.grid > .row > .secondary.column {
-  background-color: #1B1C1D;
-  color: #FFFFFF;
+  background-color: #3c2c3e;
+  color: #ffffff;
 }
 .ui.grid > .red.row,
 .ui.grid > .red.column,
 .ui.grid > .row > .red.column {
-  background-color: #DB2828;
-  color: #FFFFFF;
+  background-color: #db2828;
+  color: #ffffff;
 }
 .ui.grid > .orange.row,
 .ui.grid > .orange.column,
 .ui.grid > .row > .orange.column {
-  background-color: #F2711C;
-  color: #FFFFFF;
+  background-color: #ed6663;
+  color: #ffffff;
 }
 .ui.grid > .yellow.row,
 .ui.grid > .yellow.column,
 .ui.grid > .row > .yellow.column {
-  background-color: #FBBD08;
-  color: #FFFFFF;
+  background-color: #fbbd08;
+  color: #ffffff;
 }
 .ui.grid > .olive.row,
 .ui.grid > .olive.column,
 .ui.grid > .row > .olive.column {
-  background-color: #B5CC18;
-  color: #FFFFFF;
+  background-color: #3c2c3e;
+  color: #ffffff;
 }
 .ui.grid > .green.row,
 .ui.grid > .green.column,
 .ui.grid > .row > .green.column {
-  background-color: #21BA45;
-  color: #FFFFFF;
+  background-color: #21ba45;
+  color: #ffffff;
 }
 .ui.grid > .teal.row,
 .ui.grid > .teal.column,
 .ui.grid > .row > .teal.column {
-  background-color: #00B5AD;
-  color: #FFFFFF;
+  background-color: #00b5ad;
+  color: #ffffff;
 }
 .ui.grid > .blue.row,
 .ui.grid > .blue.column,
 .ui.grid > .row > .blue.column {
-  background-color: #2185D0;
-  color: #FFFFFF;
+  background-color: #2185d0;
+  color: #ffffff;
 }
 .ui.grid > .violet.row,
 .ui.grid > .violet.column,
 .ui.grid > .row > .violet.column {
-  background-color: #6435C9;
-  color: #FFFFFF;
+  background-color: #6435c9;
+  color: #ffffff;
 }
 .ui.grid > .purple.row,
 .ui.grid > .purple.column,
 .ui.grid > .row > .purple.column {
-  background-color: #A333C8;
-  color: #FFFFFF;
+  background-color: #59405c;
+  color: #ffffff;
 }
 .ui.grid > .pink.row,
 .ui.grid > .pink.column,
 .ui.grid > .row > .pink.column {
-  background-color: #E03997;
-  color: #FFFFFF;
+  background-color: #b52b65;
+  color: #ffffff;
 }
 .ui.grid > .brown.row,
 .ui.grid > .brown.column,
 .ui.grid > .row > .brown.column {
-  background-color: #A5673F;
-  color: #FFFFFF;
+  background-color: #a5673f;
+  color: #ffffff;
 }
 .ui.grid > .grey.row,
 .ui.grid > .grey.column,
 .ui.grid > .row > .grey.column {
   background-color: #767676;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .ui.grid > .black.row,
 .ui.grid > .black.column,
 .ui.grid > .row > .black.column {
-  background-color: #1B1C1D;
-  color: #FFFFFF;
+  background-color: #1b1c1d;
+  color: #ffffff;
 }
 
 /*----------------------
@@ -1408,7 +1408,7 @@
   
 /* Celled Reversed */
   .ui[class*="mobile reversed"].celled.grid > .row > .column:first-child {
-    box-shadow: -1px 0 0 0 #D4D4D5;
+    box-shadow: -1px 0 0 0 #d4d4d5;
   }
   .ui[class*="mobile reversed"].celled.grid > .row > .column:last-child {
     box-shadow: none;
@@ -1446,7 +1446,7 @@
   
 /* Celled Reversed */
   .ui[class*="tablet reversed"].celled.grid > .row > .column:first-child {
-    box-shadow: -1px 0 0 0 #D4D4D5;
+    box-shadow: -1px 0 0 0 #d4d4d5;
   }
   .ui[class*="tablet reversed"].celled.grid > .row > .column:last-child {
     box-shadow: none;
@@ -1484,7 +1484,7 @@
   
 /* Celled Reversed */
   .ui[class*="computer reversed"].celled.grid > .row > .column:first-child {
-    box-shadow: -1px 0 0 0 #D4D4D5;
+    box-shadow: -1px 0 0 0 #d4d4d5;
   }
   .ui[class*="computer reversed"].celled.grid > .row > .column:last-child {
     box-shadow: none;

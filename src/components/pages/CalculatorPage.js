@@ -4,8 +4,8 @@ import CalculatorForm from '../form/CalculatorForm';
 
 const CalculatorPage = () => {
   return (
-    <div className="pusher">
-      <PageHeader label="Welcome to the High Altitude Baking Calculator!" />
+    <div className="ui container">
+      <PageHeader label="HIGH ALTITUDE BAKING CALCULATOR" />
       <CalculatorForm />
     </div>
   );

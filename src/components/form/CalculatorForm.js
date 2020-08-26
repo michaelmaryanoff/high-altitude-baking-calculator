@@ -16,15 +16,15 @@ import { useDispatch, useSelector } from 'react-redux';
  * Component imports
  */
 import DropdownMenu from './DropdownMenu';
-import TextInputField from './TextInputField';
 import BakingTempField from './BakingTempField';
 import BakingTimeField from './BakingTimeField';
 import CupsAndTbspField from './CupsAndTbspField';
 import TspField from './TspField';
-import FieldWrapper from './FieldWrapper';
+import FieldRow from './FieldWrapper';
 import ClearButton from './ClearButton';
 import CalculateButton from './CalculateButton';
 import ButtonWrapper from './ButtonWrapper';
+import AltitudeField from './AltitudeField';
 
 /**
  * Constants
@@ -209,7 +209,7 @@ const CalculatorForm = () => {
   };
 
   return (
-    <div className="ui segment">
+    <div className="ui basic segment">
       <form className="ui large form error" id="caulculation-form" onSubmit={handleOnSubmit}>
         {/* Units */}
         {unitFieldEnabled ? (
@@ -222,22 +222,8 @@ const CalculatorForm = () => {
           />
         ) : null}
         {/* Altitude */}
-        <div className="ui eight column centered doubling center aligned grid">
-          <div className="center aligned column">
-            <div className="ui compact segment">
-              <label className="ui top attached large purple label">Altitude</label>
-              <TextInputField
-                name={'altitudeInput'}
-                type="number"
-                value={altitudeInput}
-                handleOnChange={onChange}
-                label={`Feet above sea level`}
-                width=""
-              />
-            </div>
-          </div>
-        </div>
-        <FieldWrapper>
+        <AltitudeField altitudeInput={altitudeInput} onChange={onChange} />
+        <FieldRow>
           <BakingTempField
             inputValue={ovenTempInput}
             outputValue={ovenTempOutput}
@@ -250,8 +236,8 @@ const CalculatorForm = () => {
             output={bakingTimeOutput}
             handleOnChange={onChange}
           />
-        </FieldWrapper>
-        <FieldWrapper>
+        </FieldRow>
+        <FieldRow>
           <CupsAndTbspField
             cupsInputValue={flourCupsInput}
             partialCupsInputValue={flourPartialCupInput}
@@ -279,9 +265,9 @@ const CalculatorForm = () => {
             handleDropdownOnChange={dropdownOnChange}
             fieldGroupLabel={'Liquid'}
           />
-        </FieldWrapper>
+        </FieldRow>
 
-        <FieldWrapper>
+        <FieldRow>
           <CupsAndTbspField
             cupsInputValue={sugarCupsInput}
             partialCupsInputValue={sugarPartialCupInput}
@@ -306,8 +292,8 @@ const CalculatorForm = () => {
             handleOnChange={onChange}
             handleDropdownOnChange={dropdownOnChange}
           />
-        </FieldWrapper>
-        <FieldWrapper>
+        </FieldRow>
+        <FieldRow>
           <TspField
             label="Yeast"
             tspInputValue={yeastTspInput}
@@ -319,7 +305,7 @@ const CalculatorForm = () => {
             handleOnChange={onChange}
             handleDropdownOnChange={dropdownOnChange}
           />
-        </FieldWrapper>
+        </FieldRow>
 
         <ButtonWrapper>
           <ClearButton onClick={handleClearPressed} />

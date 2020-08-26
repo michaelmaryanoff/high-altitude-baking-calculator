@@ -5,12 +5,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
-// Redux
-import { connect } from 'react-redux';
-
-
 const RightMenuItem = props => {
-  let activeClass = props.location.pathname === props.route ? 'active' : '';
+  let activeClass = props.pathName === props.route ? 'active' : '';
 
   return (
     <div className="right menu">
@@ -21,4 +17,4 @@ const RightMenuItem = props => {
   );
 };
 
-export default withRouter(connect(null, {})(RightMenuItem));
+export default withRouter(RightMenuItem);
