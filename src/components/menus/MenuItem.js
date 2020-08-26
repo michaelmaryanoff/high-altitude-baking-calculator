@@ -5,11 +5,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
-// Redux
-import { connect } from 'react-redux';
-
 const MenuItem = props => {
-  let activeClass = props.location.pathname === props.route ? 'active' : '';
+  let activeClass = props.pathName === props.route ? 'active' : '';
+  if (props.pathName === '/' && props.label === 'Calculate') {
+    activeClass = 'active';
+  }
+
   return (
     <div>
       <Link to={props.route} className={`${activeClass} header item`}>
@@ -19,4 +20,4 @@ const MenuItem = props => {
   );
 };
 
-export default withRouter(connect(null, {})(MenuItem));
+export default withRouter(MenuItem);

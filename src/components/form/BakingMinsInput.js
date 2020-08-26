@@ -7,7 +7,7 @@ const BakingMinsInput = props => {
 
   return (
     <div className={`${props.width} field`}>
-      <label className="label">Time (m)</label>
+      <label className="label">Time (min)</label>
       <input
         type="text"
         pattern="[0-9]*"

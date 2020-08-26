@@ -9,11 +9,11 @@ import { withRouter } from 'react-router';
 
 const MainMenu = props => {
   return (
-    <div className="ui secondary pointing menu">
+    <div className="ui secondary pointing purple inverted menu">
       <div className="ui container">
-        <MenuItem route="/calculate" label="Calculate" />
-        <MenuItem route="/about" label="About" />
-        <RightMenuItem route="/contact" label="Contact" />
+        <MenuItem route="/calculate" label="Calculate" pathName={props.location.pathname} />
+        <MenuItem route="/about" label="About" pathName={props.location.pathname} />
+        <RightMenuItem route="/contact" label="Contact" pathName={props.location.pathname} />
       </div>
     </div>
   );

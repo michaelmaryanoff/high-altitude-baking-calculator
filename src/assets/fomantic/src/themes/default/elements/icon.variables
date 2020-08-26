@@ -33,7 +33,7 @@
 
 /* Brand Icons */
 @importBrandIcons: true;
-@brandFontName: 'brand-icons';
+@brandFontName: 'icons';
 @brandSrc:
   url("@{fontPath}/@{brandFontName}.eot?#iefix") format('embedded-opentype'),
   url("@{fontPath}/@{brandFontName}.woff2") format('woff2'),

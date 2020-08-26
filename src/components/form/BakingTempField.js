@@ -1,38 +1,33 @@
 import React from 'react';
 
-import FieldGroupLabel from './FieldGroupLabel';
 import TextInputField from './TextInputField';
 import TextOutputField from './TextOutputField';
+import FieldColumn from './FieldColumn';
 
 const BakingTempField = props => {
   return (
-    <div className="center aligned column">
-      <div className="ui compact segment">
-        <div className="ui four column grid">
-          <FieldGroupLabel>Baking temperature</FieldGroupLabel>
-          <div className="row">
-            <div className="sixteen wide column">
-              <TextInputField
-                name={'ovenTempInput'}
-                value={props.inputValue}
-                handleOnChange={props.handleOnChange}
-                label={`Original`}
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="sixteen wide column">
-              <TextOutputField
-                name={'ovenTempOutput'}
-                value={props.outputValue}
-                label={`Adjusted `}
-                width={''}
-              />
-            </div>
-          </div>
+    <FieldColumn fieldGroupLabel="Baking Temperature (F)">
+      <div className="row">
+        <div className="sixteen wide column">
+          <TextInputField
+            name={'ovenTempInput'}
+            value={props.inputValue}
+            handleOnChange={props.handleOnChange}
+            label={`Original`}
+          />
         </div>
       </div>
-    </div>
+      <div className="row">
+        <div className="sixteen wide column">
+          <TextOutputField
+            name={'ovenTempOutput'}
+            value={props.outputValue}
+            label={`Adjusted `}
+            width={''}
+          />
+        </div>
+      </div>
+    </FieldColumn>
   );
 };
 

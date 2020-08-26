@@ -7,7 +7,7 @@ const BakingHoursInput = props => {
 
   return (
     <div className={`${props.width} field`}>
-      <label className="label">Time (h)</label>
+      <label className="label">Time (hr)</label>
       <input
         type="text"
         pattern="[0-9]*"

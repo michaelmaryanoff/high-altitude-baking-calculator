@@ -4,7 +4,7 @@ const PageHeader = props => {
   return (
     <div>
       <div className="ui basic center aligned segment">
-        <div className="ui header">{props.label}</div>
+        <h1 className="ui header">{props.label}</h1>
       </div>
     </div>
   );

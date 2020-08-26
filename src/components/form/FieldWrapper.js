@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FieldWrapper = props => {
+const FieldRow = props => {
   return (
     <div className="ui row">
       <div className="ui three column centered doubling stackable center aligned grid container">
@@ -10,4 +10,4 @@ const FieldWrapper = props => {
   );
 };
 
-export default FieldWrapper;
+export default FieldRow;
