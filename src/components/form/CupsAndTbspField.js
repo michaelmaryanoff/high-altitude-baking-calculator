@@ -29,7 +29,6 @@ const CupsAndTbspField = props => {
         </div>
         <div className="six wide column">
           <DropdownMenu
-            label="Fraction"
             name={props.dropdownFieldName}
             value={props.partialCupsInputValue}
             optionDataSource={partialCupDropDownDataSource}

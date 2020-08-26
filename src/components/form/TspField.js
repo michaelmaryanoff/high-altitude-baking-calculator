@@ -3,7 +3,6 @@ import React from 'react';
 import TeaspoonInputField from './TeaspoonInput';
 import DropdownMenu from './DropdownMenu';
 import TextOutputField from './TextOutputField';
-import FieldGroupLabel from './FieldGroupLabel';
 import FieldColumn from './FieldColumn';
 
 const partialTspDropDownDataSource = [
@@ -31,7 +30,6 @@ const TspField = props => {
             optionDataSource={partialTspDropDownDataSource}
             value={props.dropdownMenuValue}
             onChange={props.handleDropdownOnChange}
-            label="Fraction"
           />
         </div>
       </div>
