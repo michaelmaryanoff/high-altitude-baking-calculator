@@ -56,7 +56,7 @@ const initialState = {
   yeastOutput: ''
 };
 
-const CalculatorForm = () => {
+const CustomaryCalcForm = () => {
   const dispatch = useDispatch();
 
   const [
@@ -90,13 +90,6 @@ const CalculatorForm = () => {
     },
     setState
   ] = useState(initialState);
-
-  /**
-   * Setting the altude label
-   * This will change when we add the option for metric units
-   */
-  // const unit = useSelector(state => state.calculationForm.unit);
-  // const altitudeUnitLabel = unit === 'metric' ? '(m)' : '(ft)';
 
   /**
    * Displaying outputs.
@@ -301,4 +294,4 @@ const CalculatorForm = () => {
   );
 };
 
-export default CalculatorForm;
+export default CustomaryCalcForm;
