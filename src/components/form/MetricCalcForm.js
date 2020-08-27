@@ -3,10 +3,15 @@ import AltitudeField from './AltitudeField';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { handleMetricInput } from '../../actions';
+import { handleMetricInput, clearForm } from '../../actions';
 
 import BakingTempField from './BakingTempField';
 import FieldRow from '../form/FieldRow';
+import BakingTimeField from './BakingTimeField';
+import ButtonWrapper from './ButtonWrapper';
+import ClearButton from './ClearButton';
+import CalculateButton from './CalculateButton';
+import GramField from './GramField';
 
 const initialState = {
   altitudeInputMetric: '',
@@ -91,6 +96,20 @@ const MetricCalcForm = () => {
     displayLiquidGrams
   ]);
 
+  const clearState = () => {
+    setState({ ...initialState });
+  };
+
+  const handleClearPressed = event => {
+    event.preventDefault();
+
+    // Set defaults in component state
+    clearState();
+
+    // Set defaults in Redux state
+    dispatch(clearForm());
+  };
+
   const onChange = event => {
     const regexp = /^[0-9\b]+$/;
     const { name, value } = event.target;
@@ -110,8 +129,8 @@ const MetricCalcForm = () => {
   };
 
   return (
-    <div className="ui large form error">
-      <div className="ui basic segment" id="metric-calculation-form" onSubmit={handleOnSubmit}>
+    <form className="ui large form error" id="metric-calculation-form" onSubmit={handleOnSubmit}>
+      <div className="ui basic segment">
         <AltitudeField
           altitudeInput={altitudeInputMetric}
           onChange={onChange}
@@ -124,9 +143,29 @@ const MetricCalcForm = () => {
             handleOnChange={onChange}
             name="ovenTempInputCelcius"
           />
+          <BakingTimeField
+            hoursInput={bakingHoursInput}
+            minsInput={bakingMinsInput}
+            outputValue={bakingTimeOutput}
+            handleOnChange={onChange}
+          />
+        </FieldRow>
+        <FieldRow>
+          <GramField
+            label="Four (grams)"
+            inputName="flourInputGrams"
+            inputValue={flourInputGrams}
+            outputName="flourOutputGrams"
+            handleOnChange={onChange}
+            outputValue={flourOutputGrams}
+          />
         </FieldRow>
       </div>
-    </div>
+      <ButtonWrapper>
+        <ClearButton onClick={handleClearPressed} />
+        <CalculateButton />
+      </ButtonWrapper>
+    </form>
   );
 };
 

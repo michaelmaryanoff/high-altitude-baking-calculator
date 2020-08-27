@@ -8,7 +8,8 @@ import {
   SET_FLOUR_GRAMS,
   SET_SUGAR_GRAMS,
   SET_BAKING_POWDER_GRAMS,
-  SET_YEAST_GRAMS
+  SET_YEAST_GRAMS,
+  CLEAR_FORM
 } from './metricTypes';
 
 export const handleMetricInput = (inputId, inputValue) => dispatch => {
@@ -59,4 +60,8 @@ export const bakingPowderInputGrams = input => {
 };
 export const yeastInputGrams = input => {
   return { type: SET_YEAST_GRAMS, payload: input };
+};
+
+export const clearForm = () => {
+  return { type: CLEAR_FORM };
 };

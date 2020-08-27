@@ -12,11 +12,7 @@ const BakingTimeField = props => {
     <FieldColumn fieldGroupLabel="Baking Time">
       <div className="row">
         <div className="eight wide column">
-          <BakingHoursInput
-            value={props.hoursInput}
-            handleOnChange={props.handleOnChange}
-            width=""
-          />
+          <BakingHoursInput value={props.hoursInput} handleOnChange={props.handleOnChange} />
         </div>
         <div className="eight wide column">
           <BakingMinsInput value={props.minsInput} handleOnChange={props.handleOnChange} width="" />
@@ -29,7 +25,6 @@ const BakingTimeField = props => {
             value={props.output}
             handleOnChange={props.handleOnChange}
             label="Adjusted"
-            width={''}
           />
         </div>
       </div>
