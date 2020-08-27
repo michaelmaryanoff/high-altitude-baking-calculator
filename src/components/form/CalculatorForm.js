@@ -15,7 +15,6 @@ import { useDispatch, useSelector } from 'react-redux';
 /**
  * Component imports
  */
-import DropdownMenu from './DropdownMenu';
 import BakingTempField from './BakingTempField';
 import BakingTimeField from './BakingTimeField';
 import CupsAndTbspField from './CupsAndTbspField';
@@ -25,9 +24,6 @@ import ClearButton from './ClearButton';
 import CalculateButton from './CalculateButton';
 import ButtonWrapper from './ButtonWrapper';
 import AltitudeField from './AltitudeField';
-import UnitField from './UnitField';
-import FieldGroupLabel from './FieldGroupLabel';
-import UnitForm from './UnitForm';
 
 /**
  * Constants
@@ -66,11 +62,6 @@ const initialState = {
   yeastOutput: ''
 };
 
-const unitDataSource = [
-  { label: 'Metric', value: 'metric' },
-  { label: 'Customary', value: 'customary' }
-];
-
 const CalculatorForm = () => {
   const dispatch = useDispatch();
 
@@ -78,8 +69,6 @@ const CalculatorForm = () => {
     {
       // Unit field is temporarily disabled until we create a method for caclulating metric units.
       // This is a bool that will determine whether to show or hide the units.
-      unitFieldEnabled,
-      unitInput,
       altitudeInput,
       ovenTempInput,
       ovenTempOutput,
@@ -214,11 +203,7 @@ const CalculatorForm = () => {
   return (
     <div>
       <div className="ui basic segment">
-        <UnitForm />
-      </div>
-      <div className="ui basic segment">
         <form className="ui large form error" id="caulculation-form" onSubmit={handleOnSubmit}>
-          {/* Altitude */}
           <AltitudeField altitudeInput={altitudeInput} onChange={onChange} />
           <FieldRow>
             <BakingTempField
