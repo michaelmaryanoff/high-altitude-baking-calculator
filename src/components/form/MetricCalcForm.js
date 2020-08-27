@@ -40,7 +40,6 @@ const MetricCalcForm = () => {
     {
       altitudeInputMetric,
       ovenTempInputCelcius,
-      bakingTimeInput,
       bakingMinsInput,
       bakingHoursInput,
       liquidInputGrams,
@@ -152,12 +151,48 @@ const MetricCalcForm = () => {
         </FieldRow>
         <FieldRow>
           <GramField
-            label="Four (grams)"
+            label="Flour (grams)"
             inputName="flourInputGrams"
             inputValue={flourInputGrams}
             outputName="flourOutputGrams"
             handleOnChange={onChange}
             outputValue={flourOutputGrams}
+          />
+          <GramField
+            label="Liquid (ml)"
+            inputName="liquidInputGrams"
+            inputValue={liquidInputGrams}
+            outputName="liquidOutputGrams"
+            handleOnChange={onChange}
+            outputValue={liquidOutputGrams}
+          />
+        </FieldRow>
+        <FieldRow>
+          <GramField
+            label="Sugar (g)"
+            inputName="sugarInputGrams"
+            inputValue={sugarInputGrams}
+            outputName="sugarOutputGrams"
+            handleOnChange={onChange}
+            outputValue={sugarOutputGrams}
+          />
+          <GramField
+            label="Baking Powder/Soda (g)"
+            inputName="bakingPowderInputGrams"
+            inputValue={bakingPowderInputGrams}
+            outputName="bakingPowderOutputGrams"
+            handleOnChange={onChange}
+            outputValue={bakingPowderOutputGrams}
+          />
+        </FieldRow>
+        <FieldRow>
+          <GramField
+            label="Yeast (g)"
+            inputName="yeastInputGrams"
+            inputValue={yeastInputGrams}
+            outputName="yeastOutputGrams"
+            handleOnChange={onChange}
+            outputValue={yeastOutputGrams}
           />
         </FieldRow>
       </div>

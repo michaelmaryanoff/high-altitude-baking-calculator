@@ -14,7 +14,7 @@ const GramField = props => {
             name={props.inputName}
             value={props.inputValue}
             handleOnChange={props.handleOnChange}
-            label={props.label}
+            label="Original amount"
           />
         </div>
       </div>
