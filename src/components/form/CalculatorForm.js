@@ -25,6 +25,9 @@ import ClearButton from './ClearButton';
 import CalculateButton from './CalculateButton';
 import ButtonWrapper from './ButtonWrapper';
 import AltitudeField from './AltitudeField';
+import UnitField from './UnitField';
+import FieldGroupLabel from './FieldGroupLabel';
+import UnitForm from './UnitForm';
 
 /**
  * Constants
@@ -209,109 +212,104 @@ const CalculatorForm = () => {
   };
 
   return (
-    <div className="ui basic segment">
-      <form className="ui large form error" id="caulculation-form" onSubmit={handleOnSubmit}>
-        {/* Units */}
-        {unitFieldEnabled ? (
-          <DropdownMenu
-            label="Units"
-            name={'unitInput'}
-            value={unitInput}
-            optionDataSource={unitDataSource}
-            onChange={onChange}
-          />
-        ) : null}
-        {/* Altitude */}
-        <AltitudeField altitudeInput={altitudeInput} onChange={onChange} />
-        <FieldRow>
-          <BakingTempField
-            inputValue={ovenTempInput}
-            outputValue={ovenTempOutput}
-            handleOnChange={onChange}
-          />
+    <div>
+      <div className="ui basic segment">
+        <UnitForm />
+      </div>
+      <div className="ui basic segment">
+        <form className="ui large form error" id="caulculation-form" onSubmit={handleOnSubmit}>
+          {/* Altitude */}
+          <AltitudeField altitudeInput={altitudeInput} onChange={onChange} />
+          <FieldRow>
+            <BakingTempField
+              inputValue={ovenTempInput}
+              outputValue={ovenTempOutput}
+              handleOnChange={onChange}
+            />
 
-          <BakingTimeField
-            hoursInput={bakingHoursInput}
-            minsInput={bakingMinsInput}
-            output={bakingTimeOutput}
-            handleOnChange={onChange}
-          />
-        </FieldRow>
-        <FieldRow>
-          <CupsAndTbspField
-            cupsInputValue={flourCupsInput}
-            partialCupsInputValue={flourPartialCupInput}
-            tablespoonInputValue={flourTbspInput}
-            outputValue={flourOutput}
-            cupsFieldName="flourCupsInput"
-            dropdownFieldName="flourPartialCupInput"
-            tablespoonFieldName="flourTbspInput"
-            ouputFieldName="flourOutput"
-            handleOnChange={onChange}
-            handleDropdownOnChange={dropdownOnChange}
-            fieldGroupLabel={'Flour'}
-          />
+            <BakingTimeField
+              hoursInput={bakingHoursInput}
+              minsInput={bakingMinsInput}
+              output={bakingTimeOutput}
+              handleOnChange={onChange}
+            />
+          </FieldRow>
+          <FieldRow>
+            <CupsAndTbspField
+              cupsInputValue={flourCupsInput}
+              partialCupsInputValue={flourPartialCupInput}
+              tablespoonInputValue={flourTbspInput}
+              outputValue={flourOutput}
+              cupsFieldName="flourCupsInput"
+              dropdownFieldName="flourPartialCupInput"
+              tablespoonFieldName="flourTbspInput"
+              ouputFieldName="flourOutput"
+              handleOnChange={onChange}
+              handleDropdownOnChange={dropdownOnChange}
+              fieldGroupLabel={'Flour'}
+            />
 
-          <CupsAndTbspField
-            cupsInputValue={liquidCupsInput}
-            partialCupsInputValue={liquidPartialCupInput}
-            tablespoonInputValue={liquidTbspInput}
-            outputValue={liquidOutput}
-            cupsFieldName="liquidCupsInput"
-            dropdownFieldName="liquidPartialCupInput"
-            tablespoonFieldName="liquidTbspInput"
-            ouputFieldName="liquidOutput"
-            handleOnChange={onChange}
-            handleDropdownOnChange={dropdownOnChange}
-            fieldGroupLabel={'Liquid'}
-          />
-        </FieldRow>
+            <CupsAndTbspField
+              cupsInputValue={liquidCupsInput}
+              partialCupsInputValue={liquidPartialCupInput}
+              tablespoonInputValue={liquidTbspInput}
+              outputValue={liquidOutput}
+              cupsFieldName="liquidCupsInput"
+              dropdownFieldName="liquidPartialCupInput"
+              tablespoonFieldName="liquidTbspInput"
+              ouputFieldName="liquidOutput"
+              handleOnChange={onChange}
+              handleDropdownOnChange={dropdownOnChange}
+              fieldGroupLabel={'Liquid'}
+            />
+          </FieldRow>
 
-        <FieldRow>
-          <CupsAndTbspField
-            cupsInputValue={sugarCupsInput}
-            partialCupsInputValue={sugarPartialCupInput}
-            tablespoonInputValue={sugarTbspInput}
-            outputValue={sugarOutput}
-            cupsFieldName="sugarCupsInput"
-            dropdownFieldName="sugarPartialCupInput"
-            tablespoonFieldName="sugarTbspInput"
-            ouputFieldName="sugarOutput"
-            handleOnChange={onChange}
-            handleDropdownOnChange={dropdownOnChange}
-            fieldGroupLabel={'Sugar'}
-          />
-          <TspField
-            label="Baking Powder / Soda"
-            tspInputValue={bakingPowderTspInput}
-            dropdownMenuValue={bakingPowderPartialTspInput}
-            tspInputName="bakingPowderTspInput"
-            outputName="bakingPowderOutput"
-            dropdownName="bakingPowderPartialTspInput"
-            output={bakingPowderOutput}
-            handleOnChange={onChange}
-            handleDropdownOnChange={dropdownOnChange}
-          />
-        </FieldRow>
-        <FieldRow>
-          <TspField
-            label="Yeast"
-            tspInputValue={yeastTspInput}
-            dropdownMenuValue={yeastPartialTspInput}
-            tspInputName="yeastTspInput"
-            outputName="yeastOutput"
-            dropdownName="yeastPartialTspInput"
-            output={yeastOutput}
-            handleOnChange={onChange}
-            handleDropdownOnChange={dropdownOnChange}
-          />
-        </FieldRow>
+          <FieldRow>
+            <CupsAndTbspField
+              cupsInputValue={sugarCupsInput}
+              partialCupsInputValue={sugarPartialCupInput}
+              tablespoonInputValue={sugarTbspInput}
+              outputValue={sugarOutput}
+              cupsFieldName="sugarCupsInput"
+              dropdownFieldName="sugarPartialCupInput"
+              tablespoonFieldName="sugarTbspInput"
+              ouputFieldName="sugarOutput"
+              handleOnChange={onChange}
+              handleDropdownOnChange={dropdownOnChange}
+              fieldGroupLabel={'Sugar'}
+            />
+            <TspField
+              label="Baking Powder / Soda"
+              tspInputValue={bakingPowderTspInput}
+              dropdownMenuValue={bakingPowderPartialTspInput}
+              tspInputName="bakingPowderTspInput"
+              outputName="bakingPowderOutput"
+              dropdownName="bakingPowderPartialTspInput"
+              output={bakingPowderOutput}
+              handleOnChange={onChange}
+              handleDropdownOnChange={dropdownOnChange}
+            />
+          </FieldRow>
+          <FieldRow>
+            <TspField
+              label="Yeast"
+              tspInputValue={yeastTspInput}
+              dropdownMenuValue={yeastPartialTspInput}
+              tspInputName="yeastTspInput"
+              outputName="yeastOutput"
+              dropdownName="yeastPartialTspInput"
+              output={yeastOutput}
+              handleOnChange={onChange}
+              handleDropdownOnChange={dropdownOnChange}
+            />
+          </FieldRow>
 
-        <ButtonWrapper>
-          <ClearButton onClick={handleClearPressed} />
-          <CalculateButton />
-        </ButtonWrapper>
-      </form>
+          <ButtonWrapper>
+            <ClearButton onClick={handleClearPressed} />
+            <CalculateButton />
+          </ButtonWrapper>
+        </form>
+      </div>
     </div>
   );
 };
