@@ -43,7 +43,6 @@ const initialState = {
   liquidPartialCupInput: '',
   liquidTbspInput: '',
   liquidOutput: '',
-  flourInput: '',
   flourCupsInput: '',
   flourTbspInput: '',
   flourPartialCupInput: '',
@@ -56,7 +55,7 @@ const initialState = {
   bakingPowderTspInput: '',
   bakingPowderPartialTspInput: '',
   bakingPowderOutput: '',
-  yeastInput: '',
+
   yeastTspInput: '',
   yeastPartialTspInput: '',
   yeastOutput: ''
