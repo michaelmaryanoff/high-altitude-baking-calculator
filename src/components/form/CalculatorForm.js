@@ -9,7 +9,7 @@ import { defaultUnit } from '../../constants';
 /**
  * Redux imports
  */
-import { clearForm, calculateOutputs, handleInput } from '../../actions';
+import { clearForm, calculateOutputs, handleCustomaryInput } from '../../actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 /**
@@ -174,7 +174,7 @@ const CalculatorForm = () => {
     let safeValue = value ? value : 0;
 
     if (safeValue === '' || regexp.test(safeValue)) {
-      dispatch(handleInput(name, safeValue));
+      dispatch(handleCustomaryInput(name, safeValue));
       setState(prevState => {
         return { ...prevState, [name]: value };
       });
@@ -185,7 +185,7 @@ const CalculatorForm = () => {
 
     let safeValue = value ? value : 0;
 
-    dispatch(handleInput(name, safeValue));
+    dispatch(handleCustomaryInput(name, safeValue));
     setState(prevState => {
       return { ...prevState, [name]: value };
     });

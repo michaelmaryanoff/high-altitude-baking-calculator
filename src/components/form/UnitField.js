@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import FieldGroupLabel from './FieldGroupLabel';
 import UnitDropdown from './UnitDropdown';
 
-import { handleInput } from '../../actions';
+import { handleCustomaryInput } from '../../actions';
 
 import { useDispatch } from 'react-redux';
 
@@ -21,7 +21,7 @@ const UnitField = props => {
     const { name, value } = event.target;
 
     setUnitInput(value);
-    dispatch(handleInput(name, value));
+    dispatch(handleCustomaryInput(name, value));
   };
 
   return (
