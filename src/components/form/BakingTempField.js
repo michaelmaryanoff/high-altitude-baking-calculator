@@ -13,7 +13,7 @@ const BakingTempField = props => {
             name={'ovenTempInput'}
             value={props.inputValue}
             handleOnChange={props.handleOnChange}
-            label={`Original`}
+            label="Original Temp"
           />
         </div>
       </div>
