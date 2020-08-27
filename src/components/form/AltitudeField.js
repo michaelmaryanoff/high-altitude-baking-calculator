@@ -13,7 +13,7 @@ const AltitudeField = props => {
               <div className="row">
                 <div className="sixteen wide column">
                   <TextInputField
-                    name={'altitudeInput'}
+                    name={props.name}
                     type="number"
                     value={props.altitudeInput}
                     handleOnChange={props.onChange}

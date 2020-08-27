@@ -6,13 +6,11 @@ import {
   SET_LIQUID_CUPS,
   SET_LIQUID_PARTIAL_CUP,
   SET_LIQUID_TBSP,
-  SET_FLOUR,
   SET_FLOUR_CUPS,
   SET_FLOUR_TBSP,
   SET_BAKING_POWDER,
   SET_BAKING_POWDER_TSP,
   SET_BAKING_POWDER_PARTIAL_TSP,
-  SET_YEAST,
   SET_YEAST_TSP,
   SET_YEAST_PARTIAL_TSP,
   SET_BAKING_TIME,
@@ -283,7 +281,7 @@ export const minMaxOutput = (minLiquid, maxLiquid) => dispatch => {
 export const handleCustomaryInput = (inputId, inputValue) => dispatch => {
   const functionNames = {
     unitInput,
-    altitudeInput,
+    altitudeInputCustomary,
     ovenTempInput,
     bakingTimeInput,
     bakingPowderInput,
@@ -320,7 +318,7 @@ export const unitInput = selectedUnit => {
   return { type: SELECT_UNIT, payload: selectedUnit };
 };
 
-export const altitudeInput = altitude => {
+export const altitudeInputCustomary = altitude => {
   return { type: SET_ALTITUDE, payload: altitude };
 };
 

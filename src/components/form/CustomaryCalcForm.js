@@ -1,10 +1,7 @@
 /**
  * React imports
  */
-
 import React, { useState, useEffect } from 'react';
-
-import { defaultUnit } from '../../constants';
 
 /**
  * Redux imports
@@ -30,9 +27,7 @@ import AltitudeField from './AltitudeField';
  */
 
 const initialState = {
-  unitFieldEnabled: false,
-  unitInput: defaultUnit,
-  altitudeInput: '',
+  altitudeInputCustomary: '',
   ovenTempInput: '',
   ovenTempOutput: '',
   bakingTimeInput: '',
@@ -68,7 +63,7 @@ const CalculatorForm = () => {
     {
       // Unit field is temporarily disabled until we create a method for caclulating metric units.
       // This is a bool that will determine whether to show or hide the units.
-      altitudeInput,
+      altitudeInputCustomary,
       ovenTempInput,
       ovenTempOutput,
       bakingHoursInput,
@@ -202,8 +197,16 @@ const CalculatorForm = () => {
   return (
     <div>
       <div className="ui basic segment">
-        <form className="ui large form error" id="caulculation-form" onSubmit={handleOnSubmit}>
-          <AltitudeField altitudeInput={altitudeInput} onChange={onChange} />
+        <form
+          className="ui large form error"
+          id="customary-caulculation-form"
+          onSubmit={handleOnSubmit}
+        >
+          <AltitudeField
+            altitudeInput={altitudeInputCustomary}
+            onChange={onChange}
+            name="altitudeInputCustomary"
+          />
           <FieldRow>
             <BakingTempField
               inputValue={ovenTempInput}
