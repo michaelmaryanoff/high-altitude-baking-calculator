@@ -16,7 +16,7 @@ import BakingTempField from './BakingTempField';
 import BakingTimeField from './BakingTimeField';
 import CupsAndTbspField from './CupsAndTbspField';
 import TspField from './TspField';
-import FieldRow from './FieldWrapper';
+import FieldRow from './FieldRow';
 import ClearButton from './ClearButton';
 import CalculateButton from './CalculateButton';
 import ButtonWrapper from './ButtonWrapper';
@@ -205,6 +205,8 @@ const CustomaryCalcForm = () => {
               inputValue={ovenTempInput}
               outputValue={ovenTempOutput}
               handleOnChange={onChange}
+              unitLabel="(F)"
+              name="ovenTempInput"
             />
 
             <BakingTimeField

@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { handleMetricInput } from '../../actions';
 
+import BakingTempField from './BakingTempField';
+import FieldRow from '../form/FieldRow';
+
 const initialState = {
   altitudeInputMetric: '',
   ovenTempInputCelcius: '',
@@ -114,6 +117,14 @@ const MetricCalcForm = () => {
           onChange={onChange}
           name="altitudeInputMetric"
         />
+        <FieldRow>
+          <BakingTempField
+            unitLabel="(C)"
+            inputValue={ovenTempInputCelcius}
+            handleOnChange={onChange}
+            name="ovenTempInputCelcius"
+          />
+        </FieldRow>
       </div>
     </div>
   );

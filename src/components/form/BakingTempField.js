@@ -6,11 +6,11 @@ import FieldColumn from './FieldColumn';
 
 const BakingTempField = props => {
   return (
-    <FieldColumn fieldGroupLabel="Baking Temperature (F)">
+    <FieldColumn fieldGroupLabel={`Baking Temperature ${props.unitLabel}`}>
       <div className="row">
         <div className="sixteen wide column">
           <TextInputField
-            name={'ovenTempInput'}
+            name={props.name}
             value={props.inputValue}
             handleOnChange={props.handleOnChange}
             label="Original Temp"
@@ -19,12 +19,7 @@ const BakingTempField = props => {
       </div>
       <div className="row">
         <div className="sixteen wide column">
-          <TextOutputField
-            name={'ovenTempOutput'}
-            value={props.outputValue}
-            label={`Adjusted `}
-            width={''}
-          />
+          <TextOutputField name={'ovenTempOutput'} value={props.outputValue} label={`Adjusted `} />
         </div>
       </div>
     </FieldColumn>
