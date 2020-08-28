@@ -15,7 +15,7 @@ const BakingTimeField = props => {
           <BakingHoursInput value={props.hoursInput} handleOnChange={props.handleOnChange} />
         </div>
         <div className="eight wide column">
-          <BakingMinsInput value={props.minsInput} handleOnChange={props.handleOnChange} width="" />
+          <BakingMinsInput value={props.minsInput} handleOnChange={props.handleOnChange} />
         </div>
       </div>
       <div className="row">

@@ -2,8 +2,8 @@ import {
   SET_OVEN_TEMP_C,
   SET_ALTITUDE_METERS,
   SET_BAKING_TIME,
-  SET_BAKING_MINS,
-  SET_BAKING_HOURS,
+  SET_BAKING_MINS_METRIC,
+  SET_BAKING_HOURS_METRIC,
   SET_LIQUID_GRAMS,
   SET_FLOUR_GRAMS,
   SET_SUGAR_GRAMS,
@@ -41,10 +41,10 @@ export const bakingTimeInput = input => {
   return { type: SET_BAKING_TIME, payload: input };
 };
 export const bakingMinsInput = input => {
-  return { type: SET_BAKING_MINS, payload: input };
+  return { type: SET_BAKING_MINS_METRIC, payload: input };
 };
 export const bakingHoursInput = input => {
-  return { type: SET_BAKING_HOURS, payload: input };
+  return { type: SET_BAKING_HOURS_METRIC, payload: input };
 };
 export const liquidInputGrams = input => {
   return { type: SET_LIQUID_GRAMS, payload: input };

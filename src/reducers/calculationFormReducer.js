@@ -1,14 +1,13 @@
 import {
-  SELECT_UNIT,
   CLEAR_FORM,
   SET_ALTITUDE,
   SET_OVEN_TEMP,
   SET_FLOUR,
   SET_BAKING_POWDER,
   SET_YEAST,
-  SET_BAKING_TIME,
   SET_BAKING_MINS,
   SET_BAKING_HOURS,
+  SET_BAKING_TIME,
   SET_FLOUR_CUPS,
   SET_FLOUR_TBSP,
   SET_FLOUR_PARTIAL_CUP,
@@ -29,12 +28,9 @@ import {
   SET_YEAST_TOTAL
 } from '../actions/types';
 
-import { defaultUnit } from '../constants';
-
 // Any varible that contains "Set" is set by the user
 const INITIAL_STATE = {
   results: null,
-  unit: defaultUnit,
   altitude: 0,
   ovenTempSet: 0,
   displayTemp: 0,
@@ -68,8 +64,6 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case SELECT_UNIT:
-      return { ...state, unit: action.payload };
     case SET_ALTITUDE:
       return { ...state, altitude: action.payload };
     case SET_OVEN_TEMP:

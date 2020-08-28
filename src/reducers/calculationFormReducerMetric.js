@@ -2,8 +2,8 @@ import {
   SET_ALTITUDE_METERS,
   SET_OVEN_TEMP_C,
   SET_BAKING_TIME,
-  SET_BAKING_MINS,
-  SET_BAKING_HOURS,
+  SET_BAKING_MINS_METRIC,
+  SET_BAKING_HOURS_METRIC,
   SET_LIQUID_GRAMS,
   SET_FLOUR_GRAMS,
   SET_SUGAR_GRAMS,
@@ -33,9 +33,9 @@ export default (state = INTIAL_STATE, action) => {
       return { ...state, ovenTempCelciusSet: action.payload };
     case SET_BAKING_TIME:
       return { ...state, bakingTimeSet: action.payload };
-    case SET_BAKING_MINS:
+    case SET_BAKING_MINS_METRIC:
       return { ...state, bakingMinsSet: action.payload };
-    case SET_BAKING_HOURS:
+    case SET_BAKING_HOURS_METRIC:
       return { ...state, bakingHoursSet: action.payload };
     case SET_LIQUID_GRAMS:
       return { ...state, liquidGramsSet: action.payload };
