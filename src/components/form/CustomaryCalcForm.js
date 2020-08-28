@@ -65,8 +65,6 @@ const CustomaryCalcForm = () => {
 
   const [
     {
-      // Unit field is temporarily disabled until we create a method for caclulating metric units.
-      // This is a bool that will determine whether to show or hide the units.
       altitudeInputCustomary,
       ovenTempInput,
       ovenTempOutput,

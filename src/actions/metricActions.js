@@ -9,8 +9,37 @@ import {
   SET_SUGAR_GRAMS,
   SET_BAKING_POWDER_GRAMS,
   SET_YEAST_GRAMS,
-  CLEAR_FORM
+  CLEAR_FORM,
+  CALCULATE_MIN_TIME_METRIC,
+  CALCULATE_MAX_TIME_METRIC,
+  SET_DISPLAY_TIME_METRIC
 } from './metricTypes';
+
+import { calculateAdjustedBakingTime, createStringFromBakingTime } from './calculationHelpers';
+
+export const calculateOutputsMetric = () => dispatch => {
+  dispatch(calculateBakingTimeMetric());
+};
+
+export const calculateBakingTimeMetric = () => (dispatch, getState) => {
+  const state = getState();
+
+  const { bakingHoursSetMetric, bakingMinsSetMetric, altitude } = state.calculationFormMetric;
+
+  if (bakingMinsSetMetric || bakingHoursSetMetric) {
+    const adjustedbakingTime = calculateAdjustedBakingTime(
+      bakingHoursSetMetric,
+      bakingMinsSetMetric,
+      altitude
+    );
+    const { lowerRangeBakingTime, upperRangeBakingTime } = adjustedbakingTime;
+    dispatch({ type: CALCULATE_MIN_TIME_METRIC, payload: lowerRangeBakingTime });
+    dispatch({ type: CALCULATE_MAX_TIME_METRIC, payload: upperRangeBakingTime });
+
+    const outputString = createStringFromBakingTime(lowerRangeBakingTime, upperRangeBakingTime);
+    dispatch({ type: SET_DISPLAY_TIME_METRIC, payload: outputString });
+  }
+};
 
 export const handleMetricInput = (inputId, inputValue) => dispatch => {
   const functionNames = {

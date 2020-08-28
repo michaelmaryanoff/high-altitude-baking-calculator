@@ -32,11 +32,11 @@ export default (state = INTIAL_STATE, action) => {
     case SET_OVEN_TEMP_C:
       return { ...state, ovenTempCelciusSet: action.payload };
     case SET_BAKING_TIME:
-      return { ...state, bakingTimeSet: action.payload };
+      return { ...state, bakingTimeSetMetric: action.payload };
     case SET_BAKING_MINS_METRIC:
-      return { ...state, bakingMinsSet: action.payload };
+      return { ...state, bakingMinsSetMetric: action.payload };
     case SET_BAKING_HOURS_METRIC:
-      return { ...state, bakingHoursSet: action.payload };
+      return { ...state, bakingHoursSetMetric: action.payload };
     case SET_LIQUID_GRAMS:
       return { ...state, liquidGramsSet: action.payload };
     case SET_FLOUR_GRAMS:

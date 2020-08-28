@@ -3,7 +3,7 @@ import AltitudeField from './AltitudeField';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { handleMetricInput, clearForm } from '../../actions';
+import { handleMetricInput, clearForm, calculateOutputsMetric } from '../../actions';
 
 import BakingTempField from './BakingTempField';
 import FieldRow from '../form/FieldRow';
@@ -24,13 +24,14 @@ const initialState = {
   sugarInputGrams: '',
   bakingPowderInputGrams: '',
   yeastInputGrams: '',
-  bakingTimeOutput: '',
+  bakingTimeOutputMetric: '',
   liquidOutputGrams: '',
   flourOutputGrams: '',
   sugarOutputGrams: '',
   bakingPowderOutputGrams: '',
   yeastOutputGrams: '',
-  ovenTempOutputCelsius: ''
+  ovenTempOutputCelsius: '',
+  displayTimeOutputMetric: ''
 };
 
 const MetricCalcForm = () => {
@@ -51,12 +52,12 @@ const MetricCalcForm = () => {
       sugarInputGrams,
       bakingPowderInputGrams,
       yeastInputGrams,
-      bakingTimeOutput,
       liquidOutputGrams,
       flourOutputGrams,
       sugarOutputGrams,
       bakingPowderOutputGrams,
-      yeastOutputGrams
+      yeastOutputGrams,
+      displayTimeOutputMetric
     },
     setState
   ] = useState(initialState);
@@ -71,7 +72,7 @@ const MetricCalcForm = () => {
     displayFlourGrams,
     displaySugarGrams,
     displayYeastGrams,
-    displayTime,
+    displayTimeMetric,
     displayBakingPowderGrams,
     displayLiquidGrams
   } = useSelector(state => state.calculationOutputMetric);
@@ -80,7 +81,7 @@ const MetricCalcForm = () => {
     setState(prevState => {
       return {
         ...prevState,
-        bakingTimeOutput: displayTime || '',
+        displayTimeOutputMetric: displayTimeMetric || '',
         liquidOutputGrams: displayLiquidGrams || '',
         flourOutputGrams: displayFlourGrams || '',
         sugarOutputGrams: displaySugarGrams || '',
@@ -94,7 +95,7 @@ const MetricCalcForm = () => {
     displayFlourGrams,
     displaySugarGrams,
     displayYeastGrams,
-    displayTime,
+    displayTimeMetric,
     displayBakingPowderGrams,
     displayLiquidGrams
   ]);
@@ -129,6 +130,8 @@ const MetricCalcForm = () => {
 
   const handleOnSubmit = event => {
     event.preventDefault();
+
+    dispatch(calculateOutputsMetric());
   };
 
   return (
@@ -149,7 +152,7 @@ const MetricCalcForm = () => {
           <BakingTimeField
             hoursInput={bakingHoursInput}
             minsInput={bakingMinsInput}
-            outputValue={bakingTimeOutput}
+            output={displayTimeOutputMetric}
             handleOnChange={onChange}
           />
         </FieldRow>

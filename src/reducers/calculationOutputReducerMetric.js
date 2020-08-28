@@ -1,8 +1,8 @@
 import {
   CALCULATE_MIN_OVEN_TEMP,
   CALCULATE_MAX_OVEN_TEMP,
-  CALCULATE_MIN_TIME,
-  CALCULATE_MAX_TIME,
+  CALCULATE_MIN_TIME_METRIC,
+  CALCULATE_MAX_TIME_METRIC,
   CALCULATE_BAKING_POWDER_GRAMS,
   CALCULATE_YEAST_GRAMS,
   CALCULATE_FLOUR_GRAMS,
@@ -10,7 +10,7 @@ import {
   CALCULATE_MAX_LIQUID_GRAMS,
   CALCULATE_SUGAR_GRAMS,
   SET_DISPLAY_TEMP_C,
-  SET_DISPLAY_TIME,
+  SET_DISPLAY_TIME_METRIC,
   SET_DISPLAY_FLOUR_GRAMS,
   SET_DISPLAY_LIQUID_GRAMS,
   SET_DISPLAY_SUGAR_GRAMS,
@@ -32,7 +32,7 @@ const INITIAL_STATE = {
   macLiquidGramsCalc: 0,
   sugarGramsCalc: 0,
   displayTempCelsiusCalc: 0,
-  displayTime: '',
+  displayTimeMetric: '',
   displayFlourGrams: '',
   displayLiquidGrams: '',
   displaySugarGrams: '',
@@ -46,9 +46,9 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, minOvenTempCalc: action.payload };
     case CALCULATE_MAX_OVEN_TEMP:
       return { ...state, maxOvenTempCalc: action.payload };
-    case CALCULATE_MIN_TIME:
+    case CALCULATE_MIN_TIME_METRIC:
       return { ...state, minTimeCalc: action.payload };
-    case CALCULATE_MAX_TIME:
+    case CALCULATE_MAX_TIME_METRIC:
       return { ...state, maxTimeCalc: action.payload };
     case CALCULATE_BAKING_POWDER_GRAMS:
       return { ...state, bakingPowderGramsCalc: action.payload };
@@ -64,8 +64,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, sugarGramsCalc: action.payload };
     case SET_DISPLAY_TEMP_C:
       return { ...state, displayTempCelsius: action.payload };
-    case SET_DISPLAY_TIME:
-      return { ...state, displayTime: action.payload };
+    case SET_DISPLAY_TIME_METRIC:
+      return { ...state, displayTimeMetric: action.payload };
     case SET_DISPLAY_FLOUR_GRAMS:
       return { ...state, displayFlourGrams: action.payload };
     case SET_DISPLAY_LIQUID_GRAMS:
