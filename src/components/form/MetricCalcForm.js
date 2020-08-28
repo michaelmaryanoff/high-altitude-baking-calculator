@@ -36,6 +36,10 @@ const initialState = {
 const MetricCalcForm = () => {
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(clearForm());
+  }, [dispatch]);
+
   const [
     {
       altitudeInputMetric,

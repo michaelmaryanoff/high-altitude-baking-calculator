@@ -21,7 +21,7 @@ import MetricCalcForm from './MetricCalcForm';
  * depending on which units are selected by the user
  */
 const CalculatorForm = () => {
-  const { unit } = useSelector(state => state.calculationForm);
+  const { unit } = useSelector(state => state.globalState);
   return unit === 'customary' ? <CustomaryCalcForm /> : <MetricCalcForm />;
 };
 

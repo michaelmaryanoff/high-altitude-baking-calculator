@@ -59,6 +59,10 @@ const initialState = {
 const CustomaryCalcForm = () => {
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(clearForm());
+  }, [dispatch]);
+
   const [
     {
       // Unit field is temporarily disabled until we create a method for caclulating metric units.
