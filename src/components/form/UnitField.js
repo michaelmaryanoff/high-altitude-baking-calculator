@@ -6,7 +6,6 @@ import UnitDropdown from './UnitDropdown';
 import { handleCustomaryInput } from '../../actions';
 
 import { useDispatch } from 'react-redux';
-import { clearForm } from '../../actions/metricActions';
 
 const unitDropdownDataSource = [
   { label: 'Metric', value: 'metric' },
