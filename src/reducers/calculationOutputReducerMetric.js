@@ -1,6 +1,6 @@
 import {
-  CALCULATE_MIN_OVEN_TEMP,
-  CALCULATE_MAX_OVEN_TEMP,
+  CALCULATE_MIN_OVEN_TEMP_METRIC,
+  CALCULATE_MAX_OVEN_TEMP_METRIC,
   CALCULATE_MIN_TIME_METRIC,
   CALCULATE_MAX_TIME_METRIC,
   CALCULATE_BAKING_POWDER_GRAMS,
@@ -31,7 +31,7 @@ const INITIAL_STATE = {
   minLiquidGramsCalc: 0,
   macLiquidGramsCalc: 0,
   sugarGramsCalc: 0,
-  displayTempCelsiusCalc: 0,
+  displayTempCelsius: 0,
   displayTimeMetric: '',
   displayFlourGrams: '',
   displayLiquidGrams: '',
@@ -42,9 +42,9 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case CALCULATE_MIN_OVEN_TEMP:
+    case CALCULATE_MIN_OVEN_TEMP_METRIC:
       return { ...state, minOvenTempCalc: action.payload };
-    case CALCULATE_MAX_OVEN_TEMP:
+    case CALCULATE_MAX_OVEN_TEMP_METRIC:
       return { ...state, maxOvenTempCalc: action.payload };
     case CALCULATE_MIN_TIME_METRIC:
       return { ...state, minTimeCalc: action.payload };

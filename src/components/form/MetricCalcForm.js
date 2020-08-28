@@ -57,6 +57,7 @@ const MetricCalcForm = () => {
       sugarOutputGrams,
       bakingPowderOutputGrams,
       yeastOutputGrams,
+      ovenTempOutputCelsius,
       displayTimeOutputMetric
     },
     setState
@@ -147,6 +148,7 @@ const MetricCalcForm = () => {
             unitLabel="(C)"
             inputValue={ovenTempInputCelcius}
             handleOnChange={onChange}
+            outputValue={ovenTempOutputCelsius}
             name="ovenTempInputCelcius"
           />
           <BakingTimeField
