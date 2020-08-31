@@ -13,23 +13,43 @@ import {
   CALCULATE_MIN_TIME_METRIC,
   CALCULATE_MAX_TIME_METRIC,
   SET_DISPLAY_TIME_METRIC,
-  SET_DISPLAY_TEMP_C
+  SET_DISPLAY_TEMP_C,
+  CALCULATE_FLOUR_GRAMS,
+  SET_DISPLAY_FLOUR_GRAMS
 } from './metricTypes';
 
 import { calculateAdjustedBakingTime, createStringFromBakingTime } from './calculationHelpers';
 
-import { calculateTempMetric } from './calculationHelpersMetric';
+import {
+  calculateTempMetric,
+  calculateAdjustedFlourMetric,
+  createStringFromFlourMetric
+} from './calculationHelpersMetric';
 
 export const calculateOutputsMetric = () => dispatch => {
   dispatch(calculateBakingTimeMetric());
   dispatch(calculateOvenTempMetric());
+  dispatch(calculateFlourMetric());
+};
+
+export const calculateFlourMetric = () => (dispatch, getState) => {
+  const state = getState();
+
+  const { flourGramsSet, altitude } = state.calculationFormMetric;
+
+  if (flourGramsSet) {
+    const adjustedFlourGrams = calculateAdjustedFlourMetric(flourGramsSet, altitude);
+    dispatch({ type: CALCULATE_FLOUR_GRAMS, payload: adjustedFlourGrams });
+
+    const outputString = createStringFromFlourMetric(adjustedFlourGrams);
+    dispatch({ type: SET_DISPLAY_FLOUR_GRAMS, payload: outputString });
+  }
 };
 
 export const calculateOvenTempMetric = () => (dispatch, getState) => {
   const state = getState();
 
-  const { ovenTempCelciusSet } = state.calculationFormMetric;
-  const { altitude } = state.calculationFormMetric;
+  const { ovenTempCelciusSet, altitude } = state.calculationFormMetric;
 
   const { minTempMetric, maxTempMetric } = calculateTempMetric(ovenTempCelciusSet);
 
