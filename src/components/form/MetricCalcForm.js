@@ -169,7 +169,7 @@ const MetricCalcForm = () => {
         </FieldRow>
         <FieldRow>
           <GramField
-            label="Flour (grams)"
+            label="Flour (g)"
             inputName="flourInputGrams"
             inputValue={flourInputGrams}
             outputName="flourOutputGrams"
