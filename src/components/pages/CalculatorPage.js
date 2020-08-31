@@ -3,14 +3,15 @@ import PageHeader from './PageHeader';
 import CalculatorForm from '../form/CalculatorForm';
 
 import UnitForm from '../form/UnitForm';
+import FieldRow from '../form/FieldRow';
 
 const CalculatorPage = () => {
   return (
     <div className="ui container">
       <PageHeader label="HIGH ALTITUDE BAKING CALCULATOR" />
-      <div className="ui basic segment">
-        <UnitForm />
-      </div>
+
+      <UnitForm />
+
       <CalculatorForm />
     </div>
   );

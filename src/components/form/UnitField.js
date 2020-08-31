@@ -25,21 +25,25 @@ const UnitField = props => {
   };
 
   return (
-    <div className="ui row">
-      <div className="ui eight column centered doubling center aligned grid container">
-        <div className="center aligned three wide column">
-          <div className="ui segment">
-            <FieldGroupLabel>Units</FieldGroupLabel>
-            <div className="ui four column grid">
-              <div className="row">
-                <div className="sixteen wide column">
-                  <UnitDropdown
-                    label="Units"
-                    name="unitInput"
-                    optionDataSource={unitDropdownDataSource}
-                    onChange={onDropdownChange}
-                    value={unitInput}
-                  />
+    <div className="ui basic segment">
+      <div className="ui three column centered doubling stackable center aligned grid container">
+        <div className="ui row">
+          <div className="ui three column centered center aligned grid">
+            <div className="center aligned ten wide column">
+              <div className="ui segment">
+                <FieldGroupLabel>Units</FieldGroupLabel>
+                <div className="ui four column grid">
+                  <div className="row">
+                    <div className="sixteen wide column">
+                      <UnitDropdown
+                        label="Units"
+                        name="unitInput"
+                        optionDataSource={unitDropdownDataSource}
+                        onChange={onDropdownChange}
+                        value={unitInput}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
