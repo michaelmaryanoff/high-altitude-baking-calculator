@@ -23,7 +23,9 @@ import {
   SET_DISPLAY_SUGAR_GRAMS,
   SET_BAKING_SODA_GRAMS,
   CALCULATE_BAKING_POWDER_GRAMS,
-  SET_DISPLAY_BAKING_POWDER_GRAMS
+  SET_DISPLAY_BAKING_POWDER_GRAMS,
+  CALCULATE_BAKING_SODA_GRAMS,
+  SET_DISPLAY_BAKING_SODA_GRAMS
 } from './metricTypes';
 
 // Since time is universal between metric and customary, there is no need
@@ -49,6 +51,21 @@ export const calculateOutputsMetric = () => dispatch => {
   dispatch(calculateLiquidMetric());
   dispatch(calculateSugarMetric());
   dispatch(calculateBakingPowderMetric());
+  dispatch(calculateBakingSodaMetric());
+};
+
+export const calculateBakingSodaMetric = () => (dispatch, getState) => {
+  const state = getState();
+
+  const { bakingSodaGramsSet, altitude } = state.calculationFormMetric;
+  const adjustedBakingSodaGrams = calculateAdjustedBakingPowderSodaMetric(
+    bakingSodaGramsSet,
+    altitude
+  );
+  dispatch({ type: CALCULATE_BAKING_SODA_GRAMS, payload: adjustedBakingSodaGrams });
+
+  const outputString = createStringFromBakingPowderSodaMetric(adjustedBakingSodaGrams);
+  dispatch({ type: SET_DISPLAY_BAKING_SODA_GRAMS, payload: outputString });
 };
 
 export const calculateBakingPowderMetric = () => (dispatch, getState) => {
