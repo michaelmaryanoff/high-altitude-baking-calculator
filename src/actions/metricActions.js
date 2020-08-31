@@ -18,16 +18,22 @@ import {
   SET_DISPLAY_FLOUR_GRAMS,
   CALCULATE_MAX_LIQUID_GRAMS,
   CALCULATE_MIN_LIQUID_GRAMS,
-  SET_DISPLAY_LIQUID_GRAMS
+  SET_DISPLAY_LIQUID_GRAMS,
+  CALCULATE_SUGAR_GRAMS,
+  SET_DISPLAY_SUGAR_GRAMS
 } from './metricTypes';
 
+// Since time is universal between metric and customary, there is no need
+// To make a different calculation when units are set to metric
 import { calculateAdjustedBakingTime, createStringFromBakingTime } from './calculationHelpers';
 
 import {
   calculateTempMetric,
   calculateAdjustedFlourMetric,
+  createStringFromSugarMetric,
   createStringFromFlourMetric,
   createStringFromLiquidMetric,
+  calculateAdjustedSugarMetric,
   calculateAdjustedLiquidMetric
 } from './calculationHelpersMetric';
 
@@ -36,6 +42,21 @@ export const calculateOutputsMetric = () => dispatch => {
   dispatch(calculateOvenTempMetric());
   dispatch(calculateFlourMetric());
   dispatch(calculateLiquidMetric());
+  dispatch(calculateSugarMetric());
+};
+
+export const calculateSugarMetric = () => (dispatch, getState) => {
+  const state = getState();
+
+  const { sugarGramsSet, altitude } = state.calculationFormMetric;
+
+  if (sugarGramsSet) {
+    const adjustedSugarGrams = calculateAdjustedSugarMetric(sugarGramsSet, altitude);
+    dispatch({ type: CALCULATE_SUGAR_GRAMS, payload: adjustedSugarGrams });
+
+    const outputString = createStringFromSugarMetric(adjustedSugarGrams);
+    dispatch({ type: SET_DISPLAY_SUGAR_GRAMS, payload: outputString });
+  }
 };
 
 export const calculateLiquidMetric = () => (dispatch, getState) => {
