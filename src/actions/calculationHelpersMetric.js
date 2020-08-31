@@ -7,6 +7,41 @@ export const calculateTempMetric = inputTemp => {
   return { minTempMetric: minTemp, maxTempMetric: maxTemp };
 };
 
+export const calculateAdjustedLiquidMetric = (inputLiquidGrams, altitude) => {
+  let minLiquid = parseInt(inputLiquidGrams);
+  let maxLiquid = parseInt(inputLiquidGrams);
+
+  let tbpsInGrams = 15;
+
+  if (altitude < 300) {
+    let mixMaxTotals = { minLiquid, maxLiquid };
+    return mixMaxTotals;
+  } else if (altitude >= 300 && altitude < 600) {
+    minLiquid += tbpsInGrams;
+    maxLiquid += tbpsInGrams * 2;
+  } else if (altitude >= 600) {
+    let baseMin = 1;
+    let baseMax = 2;
+    let baseAltitude = altitude - 300;
+    let elevationIncrement = 300;
+    let multiplier = 0.5;
+
+    let tbspToAdd = (baseAltitude / elevationIncrement) * multiplier;
+    minLiquid += Math.floor((tbspToAdd + baseMin) * tbpsInGrams);
+    maxLiquid += Math.floor((tbspToAdd + baseMax) * tbpsInGrams);
+  }
+  return { minLiquid, maxLiquid };
+};
+
+export const createStringFromLiquidMetric = (minLiquidGrams, maxLiquidGrams) => {
+  const minLiquidInt = parseInt(minLiquidGrams);
+  const maxLiquidInt = parseInt(maxLiquidGrams);
+
+  const averageLiquid = (minLiquidInt + maxLiquidInt) / 2;
+
+  return averageLiquid;
+};
+
 export const calculateAdjustedFlourMetric = (inputFlourGrams, altitude) => {
   let adjustedFlour = parseInt(inputFlourGrams);
 

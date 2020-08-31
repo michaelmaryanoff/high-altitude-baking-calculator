@@ -15,7 +15,10 @@ import {
   SET_DISPLAY_TIME_METRIC,
   SET_DISPLAY_TEMP_C,
   CALCULATE_FLOUR_GRAMS,
-  SET_DISPLAY_FLOUR_GRAMS
+  SET_DISPLAY_FLOUR_GRAMS,
+  CALCULATE_MAX_LIQUID_GRAMS,
+  CALCULATE_MIN_LIQUID_GRAMS,
+  SET_DISPLAY_LIQUID_GRAMS
 } from './metricTypes';
 
 import { calculateAdjustedBakingTime, createStringFromBakingTime } from './calculationHelpers';
@@ -23,13 +26,34 @@ import { calculateAdjustedBakingTime, createStringFromBakingTime } from './calcu
 import {
   calculateTempMetric,
   calculateAdjustedFlourMetric,
-  createStringFromFlourMetric
+  createStringFromFlourMetric,
+  createStringFromLiquidMetric,
+  calculateAdjustedLiquidMetric
 } from './calculationHelpersMetric';
 
 export const calculateOutputsMetric = () => dispatch => {
   dispatch(calculateBakingTimeMetric());
   dispatch(calculateOvenTempMetric());
   dispatch(calculateFlourMetric());
+  dispatch(calculateLiquidMetric());
+};
+
+export const calculateLiquidMetric = () => (dispatch, getState) => {
+  const state = getState();
+
+  const { liquidGramsSet, altitude } = state.calculationFormMetric;
+
+  if (liquidGramsSet) {
+    const adjustedLiquidGrams = calculateAdjustedLiquidMetric(liquidGramsSet, altitude);
+    dispatch({ type: CALCULATE_MIN_LIQUID_GRAMS, payload: adjustedLiquidGrams.minLiquid });
+    dispatch({ type: CALCULATE_MAX_LIQUID_GRAMS, payload: adjustedLiquidGrams.maxLiquid });
+
+    const outputString = createStringFromLiquidMetric(
+      adjustedLiquidGrams.minLiquid,
+      adjustedLiquidGrams.maxLiquid
+    );
+    dispatch({ type: SET_DISPLAY_LIQUID_GRAMS, payload: outputString });
+  }
 };
 
 export const calculateFlourMetric = () => (dispatch, getState) => {
