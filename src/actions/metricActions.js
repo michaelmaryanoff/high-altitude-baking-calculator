@@ -21,8 +21,9 @@ import {
   SET_DISPLAY_LIQUID_GRAMS,
   CALCULATE_SUGAR_GRAMS,
   SET_DISPLAY_SUGAR_GRAMS,
-  SET_DISPLAY_BAKING_SODA_GRAMS,
-  SET_BAKING_SODA_GRAMS
+  SET_BAKING_SODA_GRAMS,
+  CALCULATE_BAKING_POWDER_GRAMS,
+  SET_DISPLAY_BAKING_POWDER_GRAMS
 } from './metricTypes';
 
 // Since time is universal between metric and customary, there is no need
@@ -36,7 +37,9 @@ import {
   createStringFromFlourMetric,
   createStringFromLiquidMetric,
   calculateAdjustedSugarMetric,
-  calculateAdjustedLiquidMetric
+  calculateAdjustedLiquidMetric,
+  calculateAdjustedBakingPowderSodaMetric,
+  createStringFromBakingPowderSodaMetric
 } from './calculationHelpersMetric';
 
 export const calculateOutputsMetric = () => dispatch => {
@@ -54,6 +57,14 @@ export const calculateBakingPowderMetric = () => (dispatch, getState) => {
   const { bakingPowderGramsSet, altitude } = state.calculationFormMetric;
 
   if (bakingPowderGramsSet) {
+    const adjustedBakingPowderGrams = calculateAdjustedBakingPowderSodaMetric(
+      bakingPowderGramsSet,
+      altitude
+    );
+    dispatch({ type: CALCULATE_BAKING_POWDER_GRAMS, payload: adjustedBakingPowderGrams });
+
+    const outputString = createStringFromBakingPowderSodaMetric(adjustedBakingPowderGrams);
+    dispatch({ type: SET_DISPLAY_BAKING_POWDER_GRAMS, payload: outputString });
   }
 };
 

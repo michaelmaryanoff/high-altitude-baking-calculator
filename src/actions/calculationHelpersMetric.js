@@ -7,6 +7,22 @@ export const calculateTempMetric = inputTemp => {
   return { minTempMetric: minTemp, maxTempMetric: maxTemp };
 };
 
+// This function can be used for both baking powder and soda
+export const calculateAdjustedBakingPowderSodaMetric = (userInput, altitude) => {
+  if (altitude < 1000) {
+    return userInput;
+  } else if (altitude >= 1000 && altitude < 1500) {
+    return userInput * 0.75;
+  } else if (altitude >= 1500 && altitude < 2000) {
+    return userInput * 0.5;
+  } else if (altitude >= 2000) {
+    return userInput * 0.25;
+  }
+};
+export const createStringFromBakingPowderSodaMetric = total => {
+  return `${total}`;
+};
+
 export const calculateAdjustedSugarMetric = (totalSugar, altitude) => {
   let adjustedSugar = parseInt(totalSugar);
 

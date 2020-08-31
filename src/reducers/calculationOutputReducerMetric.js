@@ -78,7 +78,7 @@ export default (state = INITIAL_STATE, action) => {
     case SET_DISPLAY_YEAST_GRAMS:
       return { ...state, displayYeastGrams: action.payload };
     case SET_DISPLAY_BAKING_POWDER_GRAMS:
-      return { ...state, diplayBakingPowderGrams: action.payload };
+      return { ...state, displayBakingPowderGrams: action.payload };
     case SET_DISPLAY_BAKING_SODA_GRAMS:
       return { ...state, displayBakingSodaGrams: action.payload };
     case CLEAR_FORM:
