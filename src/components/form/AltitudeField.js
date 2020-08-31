@@ -1,8 +1,15 @@
 import React from 'react';
+
+import { useSelector } from 'react-redux';
+
 import FieldGroupLabel from './FieldGroupLabel';
 import TextInputField from './TextInputField';
 
 const AltitudeField = props => {
+  const { unit } = useSelector(state => state.globalState);
+
+  const inputLabel = unit === 'metric' ? `Meters above sea level` : `Feet above sea level`;
+
   return (
     <div className="ui row">
       <div className="ui eight column centered doubling center aligned grid container">
@@ -17,8 +24,7 @@ const AltitudeField = props => {
                     type="number"
                     value={props.altitudeInput}
                     handleOnChange={props.onChange}
-                    label={`Feet above sea level`}
-                    width=""
+                    label={inputLabel}
                   />
                 </div>
               </div>
