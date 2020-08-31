@@ -50,7 +50,10 @@ const initialState = {
   bakingPowderTspInput: '',
   bakingPowderPartialTspInput: '',
   bakingPowderOutput: '',
-
+  bakingSodaInput: '',
+  bakingSodaTspInput: '',
+  bakingSodaPartialTspInput: '',
+  bakingSodaOutput: '',
   yeastTspInput: '',
   yeastPartialTspInput: '',
   yeastOutput: ''
@@ -86,6 +89,9 @@ const CustomaryCalcForm = () => {
       bakingPowderTspInput,
       bakingPowderPartialTspInput,
       bakingPowderOutput,
+      bakingSodaTspInput,
+      bakingSodaPartialTspInput,
+      bakingSodaOutput,
       yeastTspInput,
       yeastPartialTspInput,
       yeastOutput
@@ -109,7 +115,8 @@ const CustomaryCalcForm = () => {
     displayLiquid,
     displayYeast,
     displaySugar,
-    displayBakingPowder
+    displayBakingPowder,
+    displayBakingSoda
   } = useSelector(state => state.calculationOutput);
 
   // Populate output fields.
@@ -123,7 +130,8 @@ const CustomaryCalcForm = () => {
         bakingTimeOutput: displayTime || '',
         flourOutput: displayFlour || '',
         liquidOutput: displayLiquid || '',
-        sugarOutput: displaySugar || ''
+        sugarOutput: displaySugar || '',
+        bakingSodaOutput: displayBakingSoda || ''
       };
     });
   }, [
@@ -135,7 +143,8 @@ const CustomaryCalcForm = () => {
     displayLiquid,
     displaySugar,
     displayYeast,
-    displayBakingPowder
+    displayBakingPowder,
+    displayBakingSoda
   ]);
 
   const clearState = () => {
@@ -197,11 +206,13 @@ const CustomaryCalcForm = () => {
           id="customary-caulculation-form"
           onSubmit={handleOnSubmit}
         >
-          <AltitudeField
-            altitudeInput={altitudeInputCustomary}
-            onChange={onChange}
-            name="altitudeInputCustomary"
-          />
+          <FieldRow>
+            <AltitudeField
+              altitudeInput={altitudeInputCustomary}
+              onChange={onChange}
+              name="altitudeInputCustomary"
+            />
+          </FieldRow>
           <FieldRow>
             <BakingTempField
               inputValue={ovenTempInput}
@@ -263,7 +274,20 @@ const CustomaryCalcForm = () => {
               fieldGroupLabel={'Sugar'}
             />
             <TspField
-              label="Baking Powder / Soda"
+              label="Yeast"
+              tspInputValue={yeastTspInput}
+              dropdownMenuValue={yeastPartialTspInput}
+              tspInputName="yeastTspInput"
+              outputName="yeastOutput"
+              dropdownName="yeastPartialTspInput"
+              output={yeastOutput}
+              handleOnChange={onChange}
+              handleDropdownOnChange={dropdownOnChange}
+            />
+          </FieldRow>
+          <FieldRow>
+            <TspField
+              label="Baking Powder"
               tspInputValue={bakingPowderTspInput}
               dropdownMenuValue={bakingPowderPartialTspInput}
               tspInputName="bakingPowderTspInput"
@@ -273,16 +297,14 @@ const CustomaryCalcForm = () => {
               handleOnChange={onChange}
               handleDropdownOnChange={dropdownOnChange}
             />
-          </FieldRow>
-          <FieldRow>
             <TspField
-              label="Yeast"
-              tspInputValue={yeastTspInput}
-              dropdownMenuValue={yeastPartialTspInput}
-              tspInputName="yeastTspInput"
-              outputName="yeastOutput"
-              dropdownName="yeastPartialTspInput"
-              output={yeastOutput}
+              label="Baking Soda"
+              tspInputValue={bakingSodaTspInput}
+              dropdownMenuValue={bakingSodaPartialTspInput}
+              tspInputName="bakingSodaTspInput"
+              outputName="bakingSodaOutput"
+              dropdownName="bakingSodaPartialTspInput"
+              output={bakingSodaOutput}
               handleOnChange={onChange}
               handleDropdownOnChange={dropdownOnChange}
             />

@@ -41,7 +41,11 @@ import {
   SET_BAKING_POWDER_TOTAL,
   SET_YEAST_TOTAL,
   SET_DISPLAY_YEAST,
-  SET_DISPLAY_BAKING_POWDER
+  SET_DISPLAY_BAKING_POWDER,
+  SET_BAKING_SODA_TSP,
+  SET_BAKING_SODA_PARTIAL_TSP,
+  SET_BAKING_SODA,
+  SET_BAKING_SODA_TOTAL
 } from './types';
 
 import {
@@ -287,6 +291,9 @@ export const handleCustomaryInput = (inputId, inputValue) => dispatch => {
     bakingPowderInput,
     bakingPowderTspInput,
     bakingPowderPartialTspInput,
+    bakingSodaInput,
+    bakingSodaTspInput,
+    bakingSodaPartialTspInput,
     yeastTspInput,
     yeastPartialTspInput,
     bakingMinsInput,
@@ -340,6 +347,18 @@ export const bakingPowderTspInput = bakingPowderTspAmount => {
 
 export const bakingPowderPartialTspInput = bakingPowderPartialTspAmount => {
   return { type: SET_BAKING_POWDER_PARTIAL_TSP, payload: bakingPowderPartialTspAmount };
+};
+
+export const bakingSodaInput = bakingSodaAmount => {
+  return { type: SET_BAKING_SODA, payload: bakingSodaAmount };
+};
+
+export const bakingSodaTspInput = bakingSodaTspAmount => {
+  return { type: SET_BAKING_SODA_TSP, payload: bakingSodaTspAmount };
+};
+
+export const bakingSodaPartialTspInput = bakingSodaPartialTspAmount => {
+  return { type: SET_BAKING_SODA_PARTIAL_TSP, payload: bakingSodaPartialTspAmount };
 };
 
 export const yeastTspInput = yeastTspAmount => {
