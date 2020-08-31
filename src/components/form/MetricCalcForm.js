@@ -138,11 +138,13 @@ const MetricCalcForm = () => {
   return (
     <form className="ui large form error" id="metric-calculation-form" onSubmit={handleOnSubmit}>
       <div className="ui basic segment">
-        <AltitudeField
-          altitudeInput={altitudeInputMetric}
-          onChange={onChange}
-          name="altitudeInputMetric"
-        />
+        <FieldRow>
+          <AltitudeField
+            altitudeInput={altitudeInputMetric}
+            onChange={onChange}
+            name="altitudeInputMetric"
+          />
+        </FieldRow>
         <FieldRow>
           <BakingTempField
             unitLabel="(C)"
