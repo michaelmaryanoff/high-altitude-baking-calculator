@@ -145,13 +145,13 @@ export const calculateLiquid = () => (dispatch, getState) => {
   const { liquidTotalSet, altitude } = state.calculationForm;
 
   if (liquidTotalSet) {
-    const adjustedLiquid = calculateAdjustedLiquid(liquidTotalSet, altitude);
-    dispatch({ type: CALCULATE_MIN_LIQUID, payload: adjustedLiquid.minTbspTotal });
-    dispatch({ type: CALCULATE_MAX_LIQUID, payload: adjustedLiquid.maxTbspTotal });
+    const { minTbspTotal, maxTbspTotal } = calculateAdjustedLiquid(liquidTotalSet, altitude);
+    dispatch({ type: CALCULATE_MIN_LIQUID, payload: minTbspTotal });
+    dispatch({ type: CALCULATE_MAX_LIQUID, payload: maxTbspTotal });
 
-    const minString = createStringFromTbsp(adjustedLiquid.minTbspTotal);
-    const maxString = createStringFromTbsp(adjustedLiquid.maxTbspTotal);
-    const outputString = `${minString} - ${maxString}`;
+    const averageLiquid = (minTbspTotal + maxTbspTotal) / 2;
+    const outputString = createStringFromTbsp(averageLiquid);
+
     dispatch({ type: SET_DISPLAY_LIQUID, payload: outputString });
   }
 };
