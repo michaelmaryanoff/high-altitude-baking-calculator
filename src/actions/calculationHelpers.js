@@ -147,7 +147,9 @@ export const calculateAdjustedFlour = (totalFlour, altitude) => {
 export const calculateAdjustedYeast = (totalYeast, altitude) => {
   if (altitude > 3500) {
     return totalYeast * 0.75;
-  } else return totalYeast;
+  } else {
+    return totalYeast;
+  }
 };
 
 /**

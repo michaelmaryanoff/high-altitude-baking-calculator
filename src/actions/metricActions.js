@@ -25,7 +25,9 @@ import {
   CALCULATE_BAKING_POWDER_GRAMS,
   SET_DISPLAY_BAKING_POWDER_GRAMS,
   CALCULATE_BAKING_SODA_GRAMS,
-  SET_DISPLAY_BAKING_SODA_GRAMS
+  SET_DISPLAY_BAKING_SODA_GRAMS,
+  CALCULATE_YEAST_GRAMS,
+  SET_DISPLAY_YEAST_GRAMS
 } from './metricTypes';
 
 // Since time is universal between metric and customary, there is no need
@@ -41,7 +43,9 @@ import {
   calculateAdjustedSugarMetric,
   calculateAdjustedLiquidMetric,
   calculateAdjustedBakingPowderSodaMetric,
-  createStringFromBakingPowderSodaMetric
+  createStringFromBakingPowderSodaMetric,
+  calculateAdjustedYeastMetric,
+  createStringFromGrams
 } from './calculationHelpersMetric';
 
 export const calculateOutputsMetric = () => dispatch => {
@@ -52,20 +56,38 @@ export const calculateOutputsMetric = () => dispatch => {
   dispatch(calculateSugarMetric());
   dispatch(calculateBakingPowderMetric());
   dispatch(calculateBakingSodaMetric());
+  dispatch(calculateYeastMetric());
+};
+
+export const calculateYeastMetric = () => (dispatch, getState) => {
+  const state = getState();
+
+  const { yeastGramsSet, altitude } = state.calculationFormMetric;
+
+  if (yeastGramsSet) {
+    const adjustedYeastGrams = calculateAdjustedYeastMetric(yeastGramsSet, altitude);
+    dispatch({ type: CALCULATE_YEAST_GRAMS, payload: adjustedYeastGrams });
+
+    const outputString = createStringFromGrams(adjustedYeastGrams);
+    dispatch({ type: SET_DISPLAY_YEAST_GRAMS, payload: outputString });
+  }
 };
 
 export const calculateBakingSodaMetric = () => (dispatch, getState) => {
   const state = getState();
 
   const { bakingSodaGramsSet, altitude } = state.calculationFormMetric;
-  const adjustedBakingSodaGrams = calculateAdjustedBakingPowderSodaMetric(
-    bakingSodaGramsSet,
-    altitude
-  );
-  dispatch({ type: CALCULATE_BAKING_SODA_GRAMS, payload: adjustedBakingSodaGrams });
 
-  const outputString = createStringFromBakingPowderSodaMetric(adjustedBakingSodaGrams);
-  dispatch({ type: SET_DISPLAY_BAKING_SODA_GRAMS, payload: outputString });
+  if (bakingSodaGramsSet) {
+    const adjustedBakingSodaGrams = calculateAdjustedBakingPowderSodaMetric(
+      bakingSodaGramsSet,
+      altitude
+    );
+    dispatch({ type: CALCULATE_BAKING_SODA_GRAMS, payload: adjustedBakingSodaGrams });
+
+    const outputString = createStringFromBakingPowderSodaMetric(adjustedBakingSodaGrams);
+    dispatch({ type: SET_DISPLAY_BAKING_SODA_GRAMS, payload: outputString });
+  }
 };
 
 export const calculateBakingPowderMetric = () => (dispatch, getState) => {
