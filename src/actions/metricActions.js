@@ -20,7 +20,9 @@ import {
   CALCULATE_MIN_LIQUID_GRAMS,
   SET_DISPLAY_LIQUID_GRAMS,
   CALCULATE_SUGAR_GRAMS,
-  SET_DISPLAY_SUGAR_GRAMS
+  SET_DISPLAY_SUGAR_GRAMS,
+  SET_DISPLAY_BAKING_SODA_GRAMS,
+  SET_BAKING_SODA_GRAMS
 } from './metricTypes';
 
 // Since time is universal between metric and customary, there is no need
@@ -43,6 +45,16 @@ export const calculateOutputsMetric = () => dispatch => {
   dispatch(calculateFlourMetric());
   dispatch(calculateLiquidMetric());
   dispatch(calculateSugarMetric());
+  dispatch(calculateBakingPowderMetric());
+};
+
+export const calculateBakingPowderMetric = () => (dispatch, getState) => {
+  const state = getState();
+
+  const { bakingPowderGramsSet, altitude } = state.calculationFormMetric;
+
+  if (bakingPowderGramsSet) {
+  }
 };
 
 export const calculateSugarMetric = () => (dispatch, getState) => {
@@ -148,10 +160,15 @@ export const handleMetricInput = (inputId, inputValue) => dispatch => {
     flourInputGrams,
     sugarInputGrams,
     bakingPowderInputGrams,
-    yeastInputGrams
+    yeastInputGrams,
+    bakingSodaInputGrams
   };
 
   dispatch(functionNames[inputId](inputValue));
+};
+
+export const bakingSodaInputGrams = input => {
+  return { type: SET_BAKING_SODA_GRAMS, payload: input };
 };
 
 export const ovenTempInputCelcius = ovenTemp => {

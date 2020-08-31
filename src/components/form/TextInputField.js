@@ -15,8 +15,7 @@ const TextInputField = props => {
         placeholder={props.placeholder}
         onChange={handleUserInput}
         value={props.value}
-        label={props.value}
-        min={0}
+        label={props.label}
       />
 
       {/* Optional error */}

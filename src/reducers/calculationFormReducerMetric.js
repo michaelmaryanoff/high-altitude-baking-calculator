@@ -9,7 +9,8 @@ import {
   SET_SUGAR_GRAMS,
   SET_BAKING_POWDER_GRAMS,
   SET_YEAST_GRAMS,
-  CLEAR_FORM
+  CLEAR_FORM,
+  SET_BAKING_SODA_GRAMS
 } from '../actions/metricTypes';
 
 const INTIAL_STATE = {
@@ -22,7 +23,8 @@ const INTIAL_STATE = {
   flourGramsSet: 0,
   sugarGramsSet: 0,
   bakingPowderGramsSet: 0,
-  yeastGramsSet: 0
+  yeastGramsSet: 0,
+  bakingSodaGramsSet: 0
 };
 
 export default (state = INTIAL_STATE, action) => {
@@ -45,6 +47,8 @@ export default (state = INTIAL_STATE, action) => {
       return { ...state, sugarGramsSet: action.payload };
     case SET_BAKING_POWDER_GRAMS:
       return { ...state, bakingPowderGramsSet: action.payload };
+    case SET_BAKING_SODA_GRAMS:
+      return { ...state, bakingSodaGramsSet: action.payload };
     case SET_YEAST_GRAMS:
       return { ...state, yeastGramsSet: action.payload };
     case CLEAR_FORM:

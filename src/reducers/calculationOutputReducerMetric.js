@@ -16,7 +16,8 @@ import {
   SET_DISPLAY_SUGAR_GRAMS,
   SET_DISPLAY_YEAST_GRAMS,
   SET_DISPLAY_BAKING_POWDER_GRAMS,
-  CLEAR_FORM
+  CLEAR_FORM,
+  SET_DISPLAY_BAKING_SODA_GRAMS
 } from '../actions/metricTypes';
 
 const INITIAL_STATE = {
@@ -26,6 +27,7 @@ const INITIAL_STATE = {
   minTimeCalc: 0,
   maxTimeCalc: 0,
   bakingPowderGramsCalc: 0,
+  bakingSodaGramsCalc: 0,
   yeastGramsCalc: 0,
   flourGramsCalc: 0,
   minLiquidGramsCalc: 0,
@@ -37,7 +39,8 @@ const INITIAL_STATE = {
   displayLiquidGrams: '',
   displaySugarGrams: '',
   displayYeastGrams: '',
-  diplayBakingPowderGrams: ''
+  diplayBakingPowderGrams: '',
+  displayBakingSodaGrams: ''
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -76,6 +79,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, displayYeastGrams: action.payload };
     case SET_DISPLAY_BAKING_POWDER_GRAMS:
       return { ...state, diplayBakingPowderGrams: action.payload };
+    case SET_DISPLAY_BAKING_SODA_GRAMS:
+      return { ...state, displayBakingSodaGrams: action.payload };
     case CLEAR_FORM:
       return { ...state, ...INITIAL_STATE };
     default:

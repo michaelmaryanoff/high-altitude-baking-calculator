@@ -1,6 +1,7 @@
 import React from 'react';
 
 const TextOutputField = props => {
+
   return (
     <div className={`${props.width} field`}>
       <label>{props.label}</label>
@@ -10,7 +11,7 @@ const TextOutputField = props => {
         placeholder={props.placeholder}
         readOnly={true}
         value={props.value}
-        label={props.value}
+        label={props.label}
       />
 
       {/* Optional error */}
