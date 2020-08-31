@@ -16,13 +16,16 @@ import {
   SET_DISPLAY_SUGAR,
   CLEAR_FORM,
   SET_DISPLAY_YEAST,
-  SET_DISPLAY_BAKING_POWDER
+  SET_DISPLAY_BAKING_POWDER,
+  SET_DISPLAY_BAKING_SODA,
+  CALCULATE_BAKING_SODA
 } from '../actions/types';
 
 const INITIAL_STATE = {
   results: null,
   yeastCalc: 0,
   bakingPowderCalc: 0,
+  bakingSodaCalc: 0,
   maxOvenTempCalc: 0,
   minOvenTempCalc: 0,
   minTimeCalc: 0,
@@ -37,7 +40,8 @@ const INITIAL_STATE = {
   displaySugar: '',
   displayYeast: '',
   displayTime: '',
-  displayBakingPowder: ''
+  displayBakingPowder: '',
+  displayBakingSoda: ''
 };
 
 // These are the calculated ingredients i.e. the high altitude version of our different ingredients, temps, etc.
@@ -49,6 +53,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, maxOvenTempCalc: action.payload };
     case CALCULATE_BAKING_POWDER:
       return { ...state, bakingPowderCalc: action.payload };
+    case CALCULATE_BAKING_SODA:
+      return { ...state, bakingSodaCalc: action.payload };
     case CALCULATE_YEAST:
       return { ...state, yeastCalc: action.payload };
     case CALCULATE_MIN_TIME:
@@ -77,6 +83,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, displayYeast: action.payload };
     case SET_DISPLAY_BAKING_POWDER:
       return { ...state, displayBakingPowder: action.payload };
+    case SET_DISPLAY_BAKING_SODA:
+      return { ...state, displayBakingSoda: action.payload };
     case CLEAR_FORM:
       return { ...state, ...INITIAL_STATE };
     default:

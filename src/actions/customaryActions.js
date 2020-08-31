@@ -45,7 +45,9 @@ import {
   SET_BAKING_SODA_TSP,
   SET_BAKING_SODA_PARTIAL_TSP,
   SET_BAKING_SODA,
-  SET_BAKING_SODA_TOTAL
+  SET_BAKING_SODA_TOTAL,
+  CALCULATE_BAKING_SODA,
+  SET_DISPLAY_BAKING_SODA
 } from './types';
 
 import {
@@ -57,7 +59,7 @@ import {
   convertToTsp,
   calculateAdjustedYeast,
   createStringFromTsp,
-  calculateAdjustedBakingPowder,
+  calculateAdjustedBakingPowderSoda,
   calculateAdjustedBakingTime,
   createStringFromBakingTime
 } from './calculationHelpers';
@@ -74,6 +76,7 @@ export const calculateOutputs = () => dispatch => {
   dispatch(calculateSugar());
   dispatch(calculateFlour());
   dispatch(calculateBakingPowder());
+  dispatch(calculateBakingSoda());
   dispatch(calculateYeast());
 };
 
@@ -85,6 +88,16 @@ export const calculatTotalBakingPowderInput = () => (dispatch, getState) => {
   let totalTsp = convertToTsp(bakingPowderTspSet, bakingPowderPartialTspSet);
 
   dispatch({ type: SET_BAKING_POWDER_TOTAL, payload: totalTsp });
+};
+
+export const calculateTotalBakingSodaInput = () => (dispatch, getState) => {
+  const state = getState();
+
+  const { bakingSodaTspSet, bakingSodaPartialTspSet } = state.calculationForm;
+
+  let totalTsp = convertToTsp(bakingSodaTspSet, bakingSodaPartialTspSet);
+
+  dispatch({ type: SET_BAKING_SODA_TOTAL, payload: totalTsp });
 };
 
 export const calculateTotalYeastInput = () => (dispatch, getState) => {
@@ -205,11 +218,24 @@ export const calculateBakingPowder = () => (dispatch, getState) => {
   const { bakingPowderTotalSet, altitude } = state.calculationForm;
 
   if (bakingPowderTotalSet) {
-    const adjustedBakingPowder = calculateAdjustedBakingPowder(bakingPowderTotalSet, altitude);
+    const adjustedBakingPowder = calculateAdjustedBakingPowderSoda(bakingPowderTotalSet, altitude);
     dispatch({ type: CALCULATE_BAKING_POWDER, payload: adjustedBakingPowder });
 
     const outputString = createStringFromTsp(adjustedBakingPowder);
     dispatch({ type: SET_DISPLAY_BAKING_POWDER, payload: outputString });
+  }
+};
+
+export const calculateBakingSoda = () => (dispatch, getState) => {
+  const state = getState();
+  const { bakingSodaTotalSet, altitude } = state.calculationForm;
+
+  if (bakingSodaTotalSet) {
+    const adjustedBakingSoda = calculateAdjustedBakingPowderSoda(bakingSodaTotalSet, altitude);
+    dispatch({ type: CALCULATE_BAKING_SODA, payload: adjustedBakingSoda });
+
+    const outputString = createStringFromTsp(adjustedBakingSoda);
+    dispatch({ type: SET_DISPLAY_BAKING_SODA, payload: outputString });
   }
 };
 
@@ -315,6 +341,7 @@ export const handleCustomaryInput = (inputId, inputValue) => dispatch => {
   dispatch(calculateTotalLiquidInput());
   dispatch(calculatTotalBakingPowderInput());
   dispatch(calculateTotalYeastInput());
+  dispatch(calculateTotalBakingSodaInput());
 };
 
 export const flourPartialCupInput = flourPartialCup => {

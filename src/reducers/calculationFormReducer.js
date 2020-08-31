@@ -3,7 +3,6 @@ import {
   SET_ALTITUDE,
   SET_OVEN_TEMP,
   SET_FLOUR,
-  SET_BAKING_POWDER,
   SET_YEAST,
   SET_BAKING_MINS,
   SET_BAKING_HOURS,
@@ -20,11 +19,16 @@ import {
   SET_LIQUID_CUPS,
   SET_LIQUID_TBSP,
   SET_LIQUID_TOTAL,
+  SET_BAKING_POWDER,
   SET_BAKING_POWDER_TSP,
   SET_BAKING_POWDER_PARTIAL_TSP,
+  SET_BAKING_POWDER_TOTAL,
+  SET_BAKING_SODA,
+  SET_BAKING_SODA_TSP,
+  SET_BAKING_SODA_PARTIAL_TSP,
+  SET_BAKING_SODA_TOTAL,
   SET_YEAST_TSP,
   SET_YEAST_PARTIAL_TSP,
-  SET_BAKING_POWDER_TOTAL,
   SET_YEAST_TOTAL
 } from '../actions/types';
 
@@ -55,6 +59,9 @@ const INITIAL_STATE = {
   bakingPowderSet: 0,
   bakingPowderTspSet: 0,
   bakingPowderPartialTspSet: 0,
+  bakingSodaSet: 0,
+  bakingSodaTspSet: 0,
+  bakingSodaPartialTspSet: 0,
   yeastSet: 0,
   yeastTspSet: 0,
   yeastPartialTspSet: 0,
@@ -108,6 +115,14 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, bakingPowderPartialTspSet: action.payload };
     case SET_BAKING_POWDER_TOTAL:
       return { ...state, bakingPowderTotalSet: action.payload };
+    case SET_BAKING_SODA:
+      return { ...state, bakingSodaSet: action.payload };
+    case SET_BAKING_SODA_TSP:
+      return { ...state, bakingSodaTspSet: action.payload };
+    case SET_BAKING_SODA_PARTIAL_TSP:
+      return { ...state, bakingSodaPartialTspSet: action.payload };
+    case SET_BAKING_SODA_TOTAL:
+      return { ...state, bakingSodaTotalSet: action.payload };
     case SET_YEAST:
       return { ...state, yeastSet: action.payload };
     case SET_YEAST_TSP:

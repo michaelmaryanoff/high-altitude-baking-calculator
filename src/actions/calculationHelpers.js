@@ -97,19 +97,19 @@ export const createStringFromBakingTime = (minTimeTotal, maxTimeTotal) => {
 
 /**
  * @summary Calculates adjusted baking powder depending on user altitude
- * @param {number} totalBakingPowder - The total number of tsp we
+ * @param {number} total - The total number of tsp we
  * are using to make our adjustment
  * @param {number} altitude - User inputted altitude.
  */
-export const calculateAdjustedBakingPowder = (totalBakingPowder, altitude) => {
+export const calculateAdjustedBakingPowderSoda = (total, altitude) => {
   if (altitude < 3500) {
-    return totalBakingPowder;
+    return total;
   } else if (altitude >= 3500 && altitude < 5000) {
-    return totalBakingPowder * 0.75;
+    return total * 0.75;
   } else if (altitude >= 5000 && altitude < 6500) {
-    return totalBakingPowder * 0.5;
+    return total * 0.5;
   } else if (altitude >= 6500) {
-    return totalBakingPowder * 0.25;
+    return total * 0.25;
   }
 };
 
