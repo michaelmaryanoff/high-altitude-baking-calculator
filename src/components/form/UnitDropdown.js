@@ -11,13 +11,14 @@ const UnitDropdown = props => {
       <label>{props.label}</label>
       <select
         name={props.name}
-        className="ui simple dropdown item"
+        className="ui fluid dropdown"
         value={props.value}
         onChange={handleUserInput}
+        style={{ fontSize: 15 }}
       >
         {props.optionDataSource.map(option => {
           return (
-            <option value={option.value} label={option.label} key={option.value}>
+            <option className="item" value={option.value} label={option.label} key={option.value}>
               {option.label}
             </option>
           );
