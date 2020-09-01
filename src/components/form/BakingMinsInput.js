@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const BakingMinsInput = props => {
   const handleUserInput = event => {
@@ -15,13 +16,17 @@ const BakingMinsInput = props => {
         onChange={handleUserInput}
         value={props.value}
         label="Time (mins)"
-        min={0}
       />
 
       {/* Optional error */}
       <div>{props.children}</div>
     </div>
   );
+};
+
+BakingMinsInput.propTypes = {
+  value: PropTypes.any.isRequired,
+  handleOnChange: PropTypes.any.isRequired
 };
 
 export default BakingMinsInput;

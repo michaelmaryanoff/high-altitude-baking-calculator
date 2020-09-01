@@ -1,17 +1,6 @@
-/**
- * React imports
- */
-
 import React from 'react';
 
-/**
- * Redux imports
- */
 import { useSelector } from 'react-redux';
-
-/**
- * Component imports
- */
 
 import CustomaryCalcForm from './CustomaryCalcForm';
 import MetricCalcForm from './MetricCalcForm';

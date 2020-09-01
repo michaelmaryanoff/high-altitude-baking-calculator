@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ClearButton = props => {
   return (
@@ -11,6 +12,10 @@ const ClearButton = props => {
       Clear
     </button>
   );
+};
+
+ClearButton.propTypes = {
+  onClick: PropTypes.func.isRequired
 };
 
 export default ClearButton;

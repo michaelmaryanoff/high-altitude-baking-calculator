@@ -39,7 +39,7 @@ const UnitField = props => {
                         label="Units"
                         name="unitInput"
                         optionDataSource={unitDropdownDataSource}
-                        onChange={onDropdownChange}
+                        handleOnChange={onDropdownChange}
                         value={unitInput}
                       />
                     </div>

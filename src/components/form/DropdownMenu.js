@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const DropdownMenu = props => {
   const handleUserInput = event => {
-    props.onChange(event);
+    props.handleOnChange(event);
   };
 
   return (
@@ -24,6 +25,13 @@ const DropdownMenu = props => {
       </select>
     </div>
   );
+};
+
+DropdownMenu.propTypes = {
+  name: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
+  handleOnChange: PropTypes.func.isRequired,
+  optionDataSource: PropTypes.any.isRequired
 };
 
 export default DropdownMenu;

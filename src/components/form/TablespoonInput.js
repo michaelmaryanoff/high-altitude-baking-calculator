@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const TablespoonInput = props => {
   const handleUserInput = event => {
@@ -6,7 +7,7 @@ const TablespoonInput = props => {
   };
 
   return (
-    <div className={`${props.width} field`}>
+    <div className="field">
       <label>{props.label}</label>
       <input
         type="text"
@@ -15,13 +16,19 @@ const TablespoonInput = props => {
         onChange={handleUserInput}
         value={props.value}
         label={props.label}
-        min={0}
       />
 
       {/* Optional error */}
       <div>{props.children}</div>
     </div>
   );
+};
+
+TablespoonInput.propTypes = {
+  label: PropTypes.any.isRequired,
+  name: PropTypes.any.isRequired,
+  handleOnChange: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired
 };
 
 export default TablespoonInput;

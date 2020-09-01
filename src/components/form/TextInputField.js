@@ -1,4 +1,5 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 
 const TextInputField = props => {
   const handleUserInput = event => {
@@ -22,6 +23,13 @@ const TextInputField = props => {
       <div>{props.children}</div>
     </div>
   );
+};
+
+TextInputField.propTypes = {
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  handleOnChange: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired
 };
 
 export default TextInputField;

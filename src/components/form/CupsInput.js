@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const CupsInput = props => {
   const handleUserInput = event => {
@@ -15,13 +16,19 @@ const CupsInput = props => {
         onChange={handleUserInput}
         value={props.value}
         label={props.label}
-        min={0}
       />
 
       {/* Optional error */}
       <div>{props.children}</div>
     </div>
   );
+};
+
+CupsInput.propsTypes = {
+  label: PropTypes.any.isRequired,
+  name: PropTypes.any.isRequired,
+  handleOnChange: PropTypes.func.isRequired,
+  value: PropTypes.any.isRequired
 };
 
 export default CupsInput;

@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const UnitDropdown = props => {
   const handleUserInput = event => {
-    props.onChange(event);
+    props.handleOnChange(event);
   };
 
   return (
-    <div className={`field`}>
+    <div className="field">
       <label>{props.label}</label>
       <select
         name={props.name}
@@ -24,6 +25,14 @@ const UnitDropdown = props => {
       </select>
     </div>
   );
+};
+
+UnitDropdown.propTypes = {
+  label: PropTypes.any.isRequired,
+  name: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
+  handleOnChange: PropTypes.any.isRequired,
+  optionDataSource: PropTypes.any.isRequired
 };
 
 export default UnitDropdown;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import TeaspoonInputField from './TeaspoonInput';
 import DropdownMenu from './DropdownMenu';
@@ -29,7 +30,7 @@ const TspField = props => {
             name={props.dropdownName}
             optionDataSource={partialTspDropDownDataSource}
             value={props.dropdownMenuValue}
-            onChange={props.handleDropdownOnChange}
+            handleOnChange={props.handleDropdownOnChange}
           />
         </div>
       </div>
@@ -45,6 +46,18 @@ const TspField = props => {
       </div>
     </FieldColumn>
   );
+};
+
+TspField.propTypes = {
+  label: PropTypes.any.isRequired,
+  tspInputName: PropTypes.any.isRequired,
+  tspInputValue: PropTypes.any.isRequired,
+  dropdownName: PropTypes.any.isRequired,
+  dropdownMenuValue: PropTypes.any.isRequired,
+  handleDropdownOnChange: PropTypes.any.isRequired,
+  outputName: PropTypes.any.isRequired,
+  output: PropTypes.any.isRequired,
+  handleOnChange: PropTypes.any.isRequired
 };
 
 export default TspField;

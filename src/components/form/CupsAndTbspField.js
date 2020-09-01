@@ -32,7 +32,7 @@ const CupsAndTbspField = props => {
             name={props.dropdownFieldName}
             value={props.partialCupsInputValue}
             optionDataSource={partialCupDropDownDataSource}
-            onChange={props.handleDropdownOnChange}
+            handleOnChange={props.handleDropdownOnChange}
           />
         </div>
         <div className="five wide column">
@@ -67,8 +67,8 @@ CupsAndTbspField.propTypes = {
   dropdownFieldName: PropTypes.any.isRequired,
   tablespoonFieldName: PropTypes.any.isRequired,
   ouputFieldName: PropTypes.any.isRequired,
-  handleOnChange: PropTypes.any.isRequired,
-  handleDropdownOnChange: PropTypes.any.isRequired,
+  handleOnChange: PropTypes.func.isRequired,
+  handleDropdownOnChange: PropTypes.func.isRequired,
   fieldGroupLabel: PropTypes.any.isRequired
 };
 

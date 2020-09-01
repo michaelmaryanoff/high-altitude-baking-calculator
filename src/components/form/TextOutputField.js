@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const TextOutputField = props => {
-
   return (
-    <div className={`${props.width} field`}>
+    <div className="field">
       <label>{props.label}</label>
       <input
         type="text"
@@ -18,6 +18,12 @@ const TextOutputField = props => {
       <div>{props.children}</div>
     </div>
   );
+};
+
+TextOutputField.propTypes = {
+  label: PropTypes.any.isRequired,
+  name: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired
 };
 
 export default TextOutputField;

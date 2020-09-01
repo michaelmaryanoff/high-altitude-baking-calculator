@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const BakingHoursInput = props => {
   const handleUserInput = event => {
@@ -6,7 +7,7 @@ const BakingHoursInput = props => {
   };
 
   return (
-    <div className={`${props.width} field`}>
+    <div className="field">
       <label className="label">Time (hr)</label>
       <input
         type="text"
@@ -15,13 +16,17 @@ const BakingHoursInput = props => {
         onChange={handleUserInput}
         value={props.value}
         label="Time (hours)"
-        min={0}
       />
 
       {/* Optional error */}
       <div>{props.children}</div>
     </div>
   );
+};
+
+BakingHoursInput.propTypes = {
+  value: PropTypes.any.isRequired,
+  handleOnChange: PropTypes.any.isRequired
 };
 
 export default BakingHoursInput;
