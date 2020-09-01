@@ -9,7 +9,7 @@ import globalStateReducer from './globalStateReducer';
 export default combineReducers({
   globalState: globalStateReducer,
   calculationFormCustomary: calculationFormReducerCustomary,
-  calculationOutput: calculationOutputReducerCustomary,
+  calculationOutputCustomary: calculationOutputReducerCustomary,
   calculationFormMetric: calculationFormReducerMetric,
   calculationOutputMetric: calculationOutputReducerMetric
 });

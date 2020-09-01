@@ -181,12 +181,14 @@ export const calculateBakingTimeMetric = () => (dispatch, getState) => {
   const state = getState();
 
   const { bakingHoursSetMetric, bakingMinsSetMetric, altitude } = state.calculationFormMetric;
+  const { unit } = state.globalState;
 
   if (bakingMinsSetMetric || bakingHoursSetMetric) {
     const adjustedbakingTime = calculateAdjustedBakingTime(
       bakingHoursSetMetric,
       bakingMinsSetMetric,
-      altitude
+      altitude,
+      unit
     );
     const { lowerRangeBakingTime, upperRangeBakingTime } = adjustedbakingTime;
     dispatch({ type: CALCULATE_MIN_TIME_METRIC, payload: lowerRangeBakingTime });

@@ -1,24 +1,24 @@
 import {
-  CALCULATE_MIN_OVEN_TEMP,
-  CALCULATE_MAX_OVEN_TEMP,
-  CALCULATE_BAKING_POWDER,
-  CALCULATE_YEAST,
-  CALCULATE_MAX_TIME,
-  CALCULATE_MIN_TIME,
-  CALCULATE_FLOUR,
-  CALCULATE_MIN_LIQUID,
-  CALCULATE_MAX_LIQUID,
-  CALCULATE_SUGAR,
-  SET_DISPLAY_TEMP,
-  SET_DISPLAY_TIME,
-  SET_DISPLAY_FLOUR,
-  SET_DISPLAY_LIQUID,
-  SET_DISPLAY_SUGAR,
-  CLEAR_FORM,
-  SET_DISPLAY_YEAST,
-  SET_DISPLAY_BAKING_POWDER,
-  SET_DISPLAY_BAKING_SODA,
-  CALCULATE_BAKING_SODA
+  CALCULATE_MIN_OVEN_TEMP_CUST,
+  CALCULATE_MAX_OVEN_TEMP_CUST,
+  CALCULATE_MIN_TIME_CUST,
+  CALCULATE_MAX_TIME_CUST,
+  CALCULATE_BAKING_POWDER_CUST,
+  CALCULATE_BAKING_SODA_CUST,
+  CALCULATE_YEAST_CUST,
+  CALCULATE_FLOUR_CUST,
+  CALCULATE_MIN_LIQUID_CUST,
+  CALCULATE_MAX_LIQUID_CUST,
+  CALCULATE_SUGAR_CUST,
+  SET_DISPLAY_TEMP_CUST,
+  SET_DISPLAY_TIME_CUST,
+  SET_DISPLAY_FLOUR_CUST,
+  SET_DISPLAY_LIQUID_CUST,
+  SET_DISPLAY_SUGAR_CUST,
+  SET_DISPLAY_YEAST_CUST,
+  SET_DISPLAY_BAKING_POWDER_CUST,
+  SET_DISPLAY_BAKING_SODA_CUST,
+  CLEAR_FORM
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -46,43 +46,43 @@ const INITIAL_STATE = {
 // These are the calculated ingredients i.e. the high altitude version of our different ingredients, temps, etc.
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case CALCULATE_MIN_OVEN_TEMP:
+    case CALCULATE_MIN_OVEN_TEMP_CUST:
       return { ...state, minOvenTempCalc: action.payload };
-    case CALCULATE_MAX_OVEN_TEMP:
+    case CALCULATE_MAX_OVEN_TEMP_CUST:
       return { ...state, maxOvenTempCalc: action.payload };
-    case CALCULATE_BAKING_POWDER:
+    case CALCULATE_BAKING_POWDER_CUST:
       return { ...state, bakingPowderCalc: action.payload };
-    case CALCULATE_BAKING_SODA:
+    case CALCULATE_BAKING_SODA_CUST:
       return { ...state, bakingSodaCalc: action.payload };
-    case CALCULATE_YEAST:
+    case CALCULATE_YEAST_CUST:
       return { ...state, yeastCalc: action.payload };
-    case CALCULATE_MIN_TIME:
+    case CALCULATE_MIN_TIME_CUST:
       return { ...state, minTimeCalc: action.payload };
-    case CALCULATE_MAX_TIME:
+    case CALCULATE_MAX_TIME_CUST:
       return { ...state, maxTimeCalc: action.payload };
-    case CALCULATE_FLOUR:
+    case CALCULATE_FLOUR_CUST:
       return { ...state, flourCalc: action.payload };
-    case CALCULATE_MIN_LIQUID:
+    case CALCULATE_MIN_LIQUID_CUST:
       return { ...state, minLiquidCalc: action.payload };
-    case CALCULATE_MAX_LIQUID:
+    case CALCULATE_MAX_LIQUID_CUST:
       return { ...state, maxLiquidCalc: action.payload };
-    case CALCULATE_SUGAR:
+    case CALCULATE_SUGAR_CUST:
       return { ...state, sugarCalc: action.payload };
-    case SET_DISPLAY_LIQUID:
+    case SET_DISPLAY_LIQUID_CUST:
       return { ...state, displayLiquid: action.payload };
-    case SET_DISPLAY_FLOUR:
+    case SET_DISPLAY_FLOUR_CUST:
       return { ...state, displayFlour: action.payload };
-    case SET_DISPLAY_TEMP:
+    case SET_DISPLAY_TEMP_CUST:
       return { ...state, displayTemp: action.payload };
-    case SET_DISPLAY_TIME:
+    case SET_DISPLAY_TIME_CUST:
       return { ...state, displayTime: action.payload };
-    case SET_DISPLAY_SUGAR:
+    case SET_DISPLAY_SUGAR_CUST:
       return { ...state, displaySugar: action.payload };
-    case SET_DISPLAY_YEAST:
+    case SET_DISPLAY_YEAST_CUST:
       return { ...state, displayYeast: action.payload };
-    case SET_DISPLAY_BAKING_POWDER:
+    case SET_DISPLAY_BAKING_POWDER_CUST:
       return { ...state, displayBakingPowder: action.payload };
-    case SET_DISPLAY_BAKING_SODA:
+    case SET_DISPLAY_BAKING_SODA_CUST:
       return { ...state, displayBakingSoda: action.payload };
     case CLEAR_FORM:
       return { ...state, ...INITIAL_STATE };

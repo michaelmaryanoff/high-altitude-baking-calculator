@@ -36,7 +36,7 @@ export const convertToTsp = (tsp, partialTsp) => {
   return fullTspAmount;
 };
 
-export const calculateAdjustedBakingTime = (totalBakingHours, totalBakingMins, altitude) => {
+export const calculateAdjustedBakingTime = (totalBakingHours, totalBakingMins, altitude, unit) => {
   let bakingMinsToInt = totalBakingMins ? parseInt(totalBakingMins) : 0;
   let bakingHoursToInt = totalBakingHours ? parseInt(totalBakingHours) : 0;
 
@@ -55,6 +55,14 @@ export const calculateAdjustedBakingTime = (totalBakingHours, totalBakingMins, a
     lowerRangeBakingTime,
     upperRangeBakingTime
   };
+
+  if (unit === 'metric') {
+    if (altitude >= 1000) {
+      return bakingTimeMinMax;
+    } else {
+      return originalBakingTime;
+    }
+  }
 
   if (altitude >= 3500) {
     return bakingTimeMinMax;

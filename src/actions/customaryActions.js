@@ -1,50 +1,50 @@
 import {
-  SELECT_UNIT,
-  CLEAR_FORM,
-  SET_ALTITUDE,
-  SET_OVEN_TEMP,
+  SET_ALTITUDE_FEET,
+  SET_OVEN_TEMP_F,
+  SET_BAKING_MINS_CUST,
+  SET_BAKING_HOURS_CUST,
   SET_LIQUID_CUPS,
   SET_LIQUID_PARTIAL_CUP,
   SET_LIQUID_TBSP,
+  SET_LIQUID_TOTAL,
   SET_FLOUR_CUPS,
+  SET_FLOUR_PARTIAL_CUP,
   SET_FLOUR_TBSP,
+  SET_FLOUR_TOTAL,
+  SET_SUGAR_CUPS,
+  SET_SUGAR_PARTIAL_CUP,
+  SET_SUGAR_TBSP,
+  SET_SUGAR_TOTAL,
   SET_BAKING_POWDER_TSP,
   SET_BAKING_POWDER_PARTIAL_TSP,
-  SET_YEAST_TSP,
-  SET_YEAST_PARTIAL_TSP,
-  SET_BAKING_MINS,
-  SET_BAKING_HOURS,
-  CALCULATE_MIN_OVEN_TEMP,
-  CALCULATE_MAX_OVEN_TEMP,
-  CALCULATE_MIN_TIME,
-  CALCULATE_MAX_TIME,
-  CALCULATE_BAKING_POWDER,
-  SET_DISPLAY_TEMP,
-  CALCULATE_YEAST,
-  SET_DISPLAY_TIME,
-  CALCULATE_FLOUR,
-  SET_DISPLAY_FLOUR,
-  CALCULATE_MIN_LIQUID,
-  CALCULATE_MAX_LIQUID,
-  SET_DISPLAY_LIQUID,
-  SET_SUGAR_CUPS,
-  SET_SUGAR_TBSP,
-  SET_SUGAR_PARTIAL_CUP,
-  SET_SUGAR_TOTAL,
-  SET_DISPLAY_SUGAR,
-  CALCULATE_SUGAR,
-  SET_FLOUR_PARTIAL_CUP,
-  SET_FLOUR_TOTAL,
-  SET_LIQUID_TOTAL,
   SET_BAKING_POWDER_TOTAL,
-  SET_YEAST_TOTAL,
-  SET_DISPLAY_YEAST,
-  SET_DISPLAY_BAKING_POWDER,
   SET_BAKING_SODA_TSP,
   SET_BAKING_SODA_PARTIAL_TSP,
   SET_BAKING_SODA_TOTAL,
-  CALCULATE_BAKING_SODA,
-  SET_DISPLAY_BAKING_SODA
+  SET_YEAST_TSP,
+  SET_YEAST_PARTIAL_TSP,
+  SET_YEAST_TOTAL,
+  CALCULATE_MIN_OVEN_TEMP_CUST,
+  CALCULATE_MAX_OVEN_TEMP_CUST,
+  CALCULATE_MIN_TIME_CUST,
+  CALCULATE_MAX_TIME_CUST,
+  CALCULATE_BAKING_POWDER_CUST,
+  CALCULATE_BAKING_SODA_CUST,
+  CALCULATE_YEAST_CUST,
+  CALCULATE_FLOUR_CUST,
+  CALCULATE_MIN_LIQUID_CUST,
+  CALCULATE_MAX_LIQUID_CUST,
+  CALCULATE_SUGAR_CUST,
+  SET_DISPLAY_TEMP_CUST,
+  SET_DISPLAY_TIME_CUST,
+  SET_DISPLAY_FLOUR_CUST,
+  SET_DISPLAY_LIQUID_CUST,
+  SET_DISPLAY_SUGAR_CUST,
+  SET_DISPLAY_YEAST_CUST,
+  SET_DISPLAY_BAKING_POWDER_CUST,
+  SET_DISPLAY_BAKING_SODA_CUST,
+  SELECT_UNIT,
+  CLEAR_FORM
 } from './types';
 
 import {
@@ -143,13 +143,13 @@ export const calculateLiquid = () => (dispatch, getState) => {
 
   if (liquidTotalSet) {
     const { minTbspTotal, maxTbspTotal } = calculateAdjustedLiquid(liquidTotalSet, altitude);
-    dispatch({ type: CALCULATE_MIN_LIQUID, payload: minTbspTotal });
-    dispatch({ type: CALCULATE_MAX_LIQUID, payload: maxTbspTotal });
+    dispatch({ type: CALCULATE_MIN_LIQUID_CUST, payload: minTbspTotal });
+    dispatch({ type: CALCULATE_MAX_LIQUID_CUST, payload: maxTbspTotal });
 
     const averageLiquid = (minTbspTotal + maxTbspTotal) / 2;
     const outputString = createStringFromTbsp(averageLiquid);
 
-    dispatch({ type: SET_DISPLAY_LIQUID, payload: outputString });
+    dispatch({ type: SET_DISPLAY_LIQUID_CUST, payload: outputString });
   }
 };
 
@@ -160,10 +160,10 @@ export const calculateSugar = () => (dispatch, getState) => {
 
   if (sugarTotalSet) {
     const adjustedSugar = calculateAdjustedSugar(sugarTotalSet, altitude);
-    dispatch({ type: CALCULATE_SUGAR, payload: adjustedSugar });
+    dispatch({ type: CALCULATE_SUGAR_CUST, payload: adjustedSugar });
 
     const outputString = createStringFromTbsp(adjustedSugar);
-    dispatch({ type: SET_DISPLAY_SUGAR, payload: outputString });
+    dispatch({ type: SET_DISPLAY_SUGAR_CUST, payload: outputString });
   }
 };
 
@@ -174,10 +174,10 @@ export const calculateFlour = () => (dispatch, getState) => {
 
   if (flourTotalSet) {
     const adjustedFlour = calculateAdjustedFlour(flourTotalSet, altitude);
-    dispatch({ type: CALCULATE_FLOUR, payload: adjustedFlour });
+    dispatch({ type: CALCULATE_FLOUR_CUST, payload: adjustedFlour });
 
     const outputString = createStringFromTbsp(adjustedFlour);
-    dispatch({ type: SET_DISPLAY_FLOUR, payload: outputString });
+    dispatch({ type: SET_DISPLAY_FLOUR_CUST, payload: outputString });
   }
 };
 
@@ -189,11 +189,11 @@ export const calculateBakingTime = () => (dispatch, getState) => {
   if (bakingMinsSet || bakingHoursSet) {
     const adjustedbakingTime = calculateAdjustedBakingTime(bakingHoursSet, bakingMinsSet, altitude);
     const { lowerRangeBakingTime, upperRangeBakingTime } = adjustedbakingTime;
-    dispatch({ type: CALCULATE_MIN_TIME, payload: lowerRangeBakingTime });
-    dispatch({ type: CALCULATE_MAX_TIME, payload: upperRangeBakingTime });
+    dispatch({ type: CALCULATE_MIN_TIME_CUST, payload: lowerRangeBakingTime });
+    dispatch({ type: CALCULATE_MAX_TIME_CUST, payload: upperRangeBakingTime });
 
     const outputString = createStringFromBakingTime(lowerRangeBakingTime, upperRangeBakingTime);
-    dispatch({ type: SET_DISPLAY_TIME, payload: outputString });
+    dispatch({ type: SET_DISPLAY_TIME_CUST, payload: outputString });
   }
 };
 
@@ -203,10 +203,10 @@ export const calculateYeast = () => (dispatch, getState) => {
 
   if (yeastTotalSet) {
     const adjustedYeast = calculateAdjustedYeast(yeastTotalSet, altitude);
-    dispatch({ type: CALCULATE_YEAST, payload: adjustedYeast });
+    dispatch({ type: CALCULATE_YEAST_CUST, payload: adjustedYeast });
 
     const outputString = createStringFromTsp(adjustedYeast);
-    dispatch({ type: SET_DISPLAY_YEAST, payload: outputString });
+    dispatch({ type: SET_DISPLAY_YEAST_CUST, payload: outputString });
   }
 };
 
@@ -216,10 +216,10 @@ export const calculateBakingPowder = () => (dispatch, getState) => {
 
   if (bakingPowderTotalSet) {
     const adjustedBakingPowder = calculateAdjustedBakingPowderSoda(bakingPowderTotalSet, altitude);
-    dispatch({ type: CALCULATE_BAKING_POWDER, payload: adjustedBakingPowder });
+    dispatch({ type: CALCULATE_BAKING_POWDER_CUST, payload: adjustedBakingPowder });
 
     const outputString = createStringFromTsp(adjustedBakingPowder);
-    dispatch({ type: SET_DISPLAY_BAKING_POWDER, payload: outputString });
+    dispatch({ type: SET_DISPLAY_BAKING_POWDER_CUST, payload: outputString });
   }
 };
 
@@ -229,10 +229,10 @@ export const calculateBakingSoda = () => (dispatch, getState) => {
 
   if (bakingSodaTotalSet) {
     const adjustedBakingSoda = calculateAdjustedBakingPowderSoda(bakingSodaTotalSet, altitude);
-    dispatch({ type: CALCULATE_BAKING_SODA, payload: adjustedBakingSoda });
+    dispatch({ type: CALCULATE_BAKING_SODA_CUST, payload: adjustedBakingSoda });
 
     const outputString = createStringFromTsp(adjustedBakingSoda);
-    dispatch({ type: SET_DISPLAY_BAKING_SODA, payload: outputString });
+    dispatch({ type: SET_DISPLAY_BAKING_SODA_CUST, payload: outputString });
   }
 };
 
@@ -241,12 +241,12 @@ export const ovenTempForDisplay = () => (dispatch, getState) => {
 
   const { ovenTempSet } = state.calculationFormCustomary;
 
-  const { minOvenTempCalc, maxOvenTempCalc } = state.calculationOutput;
+  const { minOvenTempCalc, maxOvenTempCalc } = state.calculationOutputCustomary;
 
   const ovenTempForDisplay = `${minOvenTempCalc} - ${maxOvenTempCalc}`;
 
   if (ovenTempSet > 0) {
-    dispatch({ type: SET_DISPLAY_TEMP, payload: ovenTempForDisplay });
+    dispatch({ type: SET_DISPLAY_TEMP_CUST, payload: ovenTempForDisplay });
   }
 };
 
@@ -264,7 +264,7 @@ export const calculateMaxTemp = input => (dispatch, getState) => {
 
   if (ovenTempSet) {
     let maxTemp = parseInt(ovenTempSet) + tempToAddCustomary;
-    dispatch({ type: CALCULATE_MAX_OVEN_TEMP, payload: maxTemp });
+    dispatch({ type: CALCULATE_MAX_OVEN_TEMP_CUST, payload: maxTemp });
   }
 };
 
@@ -276,13 +276,13 @@ export const calculateMinTemp = input => (dispatch, getState) => {
 
   if (ovenTempSet) {
     let minTemp = parseInt(ovenTempSet) + tempToAddCustomary;
-    dispatch({ type: CALCULATE_MIN_OVEN_TEMP, payload: minTemp });
+    dispatch({ type: CALCULATE_MIN_OVEN_TEMP_CUST, payload: minTemp });
   }
 };
 
 export const minMaxOutput = (minLiquid, maxLiquid) => dispatch => {
-  dispatch({ type: CALCULATE_MIN_LIQUID, payload: minLiquid });
-  dispatch({ type: CALCULATE_MAX_LIQUID, payload: maxLiquid });
+  dispatch({ type: CALCULATE_MIN_LIQUID_CUST, payload: minLiquid });
+  dispatch({ type: CALCULATE_MAX_LIQUID_CUST, payload: maxLiquid });
 };
 
 /**
@@ -332,11 +332,11 @@ export const unitInput = selectedUnit => {
 };
 
 export const altitudeInputCustomary = altitude => {
-  return { type: SET_ALTITUDE, payload: altitude };
+  return { type: SET_ALTITUDE_FEET, payload: altitude };
 };
 
 export const ovenTempInput = ovenTemp => {
-  return { type: SET_OVEN_TEMP, payload: ovenTemp };
+  return { type: SET_OVEN_TEMP_F, payload: ovenTemp };
 };
 
 export const bakingPowderTspInput = bakingPowderTspAmount => {
@@ -364,11 +364,11 @@ export const yeastPartialTspInput = yeastPartialTspAmount => {
 };
 
 export const bakingMinsInput = bakingMins => {
-  return { type: SET_BAKING_MINS, payload: bakingMins };
+  return { type: SET_BAKING_MINS_CUST, payload: bakingMins };
 };
 
 export const bakingHoursInput = bakingHours => {
-  return { type: SET_BAKING_HOURS, payload: bakingHours };
+  return { type: SET_BAKING_HOURS_CUST, payload: bakingHours };
 };
 
 export const liquidCupsInput = liquidCups => {

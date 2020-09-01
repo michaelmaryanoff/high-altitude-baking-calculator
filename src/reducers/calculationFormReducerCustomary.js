@@ -1,9 +1,9 @@
 import {
   CLEAR_FORM,
-  SET_ALTITUDE,
-  SET_OVEN_TEMP,
-  SET_BAKING_MINS,
-  SET_BAKING_HOURS,
+  SET_ALTITUDE_FEET,
+  SET_OVEN_TEMP_F,
+  SET_BAKING_MINS_CUST,
+  SET_BAKING_HOURS_CUST,
   SET_FLOUR_CUPS,
   SET_FLOUR_TBSP,
   SET_FLOUR_PARTIAL_CUP,
@@ -58,13 +58,13 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case SET_ALTITUDE:
+    case SET_ALTITUDE_FEET:
       return { ...state, altitude: action.payload };
-    case SET_OVEN_TEMP:
+    case SET_OVEN_TEMP_F:
       return { ...state, ovenTempSet: action.payload };
-    case SET_BAKING_MINS:
+    case SET_BAKING_MINS_CUST:
       return { ...state, bakingMinsSet: action.payload };
-    case SET_BAKING_HOURS:
+    case SET_BAKING_HOURS_CUST:
       return { ...state, bakingHoursSet: action.payload };
     case SET_LIQUID_CUPS:
       return { ...state, liquidCupsSet: action.payload };
@@ -108,7 +108,6 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, yeastPartialTspSet: action.payload };
     case SET_YEAST_TOTAL:
       return { ...state, yeastTotalSet: action.payload };
-
     case CLEAR_FORM:
       return { ...state, ...INITIAL_STATE };
     default:

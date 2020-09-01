@@ -117,7 +117,7 @@ const CustomaryCalcForm = () => {
     displaySugar,
     displayBakingPowder,
     displayBakingSoda
-  } = useSelector(state => state.calculationOutput);
+  } = useSelector(state => state.calculationOutputCustomary);
 
   // Populate output fields.
   useEffect(() => {
