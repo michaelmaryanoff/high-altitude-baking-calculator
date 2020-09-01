@@ -80,7 +80,7 @@ export const calculateOutputs = () => dispatch => {
 export const calculatTotalBakingPowderInput = () => (dispatch, getState) => {
   const state = getState();
 
-  const { bakingPowderTspSet, bakingPowderPartialTspSet } = state.calculationForm;
+  const { bakingPowderTspSet, bakingPowderPartialTspSet } = state.calculationFormCustomary;
 
   let totalTsp = convertToTsp(bakingPowderTspSet, bakingPowderPartialTspSet);
 
@@ -90,7 +90,7 @@ export const calculatTotalBakingPowderInput = () => (dispatch, getState) => {
 export const calculateTotalBakingSodaInput = () => (dispatch, getState) => {
   const state = getState();
 
-  const { bakingSodaTspSet, bakingSodaPartialTspSet } = state.calculationForm;
+  const { bakingSodaTspSet, bakingSodaPartialTspSet } = state.calculationFormCustomary;
 
   let totalTsp = convertToTsp(bakingSodaTspSet, bakingSodaPartialTspSet);
 
@@ -100,7 +100,7 @@ export const calculateTotalBakingSodaInput = () => (dispatch, getState) => {
 export const calculateTotalYeastInput = () => (dispatch, getState) => {
   const state = getState();
 
-  const { yeastTspSet, yeastPartialTspSet } = state.calculationForm;
+  const { yeastTspSet, yeastPartialTspSet } = state.calculationFormCustomary;
 
   let totalTsp = convertToTsp(yeastTspSet, yeastPartialTspSet);
 
@@ -110,7 +110,7 @@ export const calculateTotalYeastInput = () => (dispatch, getState) => {
 export const calculateTotalLiquidInput = () => (dispatch, getState) => {
   const state = getState();
 
-  const { liquidCupsSet, liquidPartialCupSet, liquidTbspSet } = state.calculationForm;
+  const { liquidCupsSet, liquidPartialCupSet, liquidTbspSet } = state.calculationFormCustomary;
 
   let totalTbsp = convertToTbsp(liquidCupsSet, liquidPartialCupSet, liquidTbspSet);
 
@@ -120,7 +120,7 @@ export const calculateTotalLiquidInput = () => (dispatch, getState) => {
 export const caclulateTotalSugarInput = () => (dispatch, getState) => {
   const state = getState();
 
-  const { sugarCupsSet, sugarPartialCupSet, sugarTbspSet } = state.calculationForm;
+  const { sugarCupsSet, sugarPartialCupSet, sugarTbspSet } = state.calculationFormCustomary;
 
   let totalTbsp = convertToTbsp(sugarCupsSet, sugarPartialCupSet, sugarTbspSet);
 
@@ -130,7 +130,7 @@ export const caclulateTotalSugarInput = () => (dispatch, getState) => {
 export const calculateTotalFlourInput = () => (dispatch, getState) => {
   const state = getState();
 
-  const { flourCupsSet, flourPartialCupSet, flourTbspSet } = state.calculationForm;
+  const { flourCupsSet, flourPartialCupSet, flourTbspSet } = state.calculationFormCustomary;
 
   let totalTbsp = convertToTbsp(flourCupsSet, flourPartialCupSet, flourTbspSet);
   dispatch({ type: SET_FLOUR_TOTAL, payload: totalTbsp });
@@ -139,7 +139,7 @@ export const calculateTotalFlourInput = () => (dispatch, getState) => {
 export const calculateLiquid = () => (dispatch, getState) => {
   const state = getState();
 
-  const { liquidTotalSet, altitude } = state.calculationForm;
+  const { liquidTotalSet, altitude } = state.calculationFormCustomary;
 
   if (liquidTotalSet) {
     const { minTbspTotal, maxTbspTotal } = calculateAdjustedLiquid(liquidTotalSet, altitude);
@@ -156,7 +156,7 @@ export const calculateLiquid = () => (dispatch, getState) => {
 export const calculateSugar = () => (dispatch, getState) => {
   const state = getState();
 
-  const { sugarTotalSet, altitude } = state.calculationForm;
+  const { sugarTotalSet, altitude } = state.calculationFormCustomary;
 
   if (sugarTotalSet) {
     const adjustedSugar = calculateAdjustedSugar(sugarTotalSet, altitude);
@@ -170,7 +170,7 @@ export const calculateSugar = () => (dispatch, getState) => {
 export const calculateFlour = () => (dispatch, getState) => {
   const state = getState();
 
-  const { flourTotalSet, altitude } = state.calculationForm;
+  const { flourTotalSet, altitude } = state.calculationFormCustomary;
 
   if (flourTotalSet) {
     const adjustedFlour = calculateAdjustedFlour(flourTotalSet, altitude);
@@ -184,7 +184,7 @@ export const calculateFlour = () => (dispatch, getState) => {
 export const calculateBakingTime = () => (dispatch, getState) => {
   const state = getState();
 
-  const { bakingHoursSet, bakingMinsSet, altitude } = state.calculationForm;
+  const { bakingHoursSet, bakingMinsSet, altitude } = state.calculationFormCustomary;
 
   if (bakingMinsSet || bakingHoursSet) {
     const adjustedbakingTime = calculateAdjustedBakingTime(bakingHoursSet, bakingMinsSet, altitude);
@@ -199,7 +199,7 @@ export const calculateBakingTime = () => (dispatch, getState) => {
 
 export const calculateYeast = () => (dispatch, getState) => {
   const state = getState();
-  const { yeastTotalSet, altitude } = state.calculationForm;
+  const { yeastTotalSet, altitude } = state.calculationFormCustomary;
 
   if (yeastTotalSet) {
     const adjustedYeast = calculateAdjustedYeast(yeastTotalSet, altitude);
@@ -212,7 +212,7 @@ export const calculateYeast = () => (dispatch, getState) => {
 
 export const calculateBakingPowder = () => (dispatch, getState) => {
   const state = getState();
-  const { bakingPowderTotalSet, altitude } = state.calculationForm;
+  const { bakingPowderTotalSet, altitude } = state.calculationFormCustomary;
 
   if (bakingPowderTotalSet) {
     const adjustedBakingPowder = calculateAdjustedBakingPowderSoda(bakingPowderTotalSet, altitude);
@@ -225,7 +225,7 @@ export const calculateBakingPowder = () => (dispatch, getState) => {
 
 export const calculateBakingSoda = () => (dispatch, getState) => {
   const state = getState();
-  const { bakingSodaTotalSet, altitude } = state.calculationForm;
+  const { bakingSodaTotalSet, altitude } = state.calculationFormCustomary;
 
   if (bakingSodaTotalSet) {
     const adjustedBakingSoda = calculateAdjustedBakingPowderSoda(bakingSodaTotalSet, altitude);
@@ -239,7 +239,7 @@ export const calculateBakingSoda = () => (dispatch, getState) => {
 export const ovenTempForDisplay = () => (dispatch, getState) => {
   const state = getState();
 
-  const { ovenTempSet } = state.calculationForm;
+  const { ovenTempSet } = state.calculationFormCustomary;
 
   const { minOvenTempCalc, maxOvenTempCalc } = state.calculationOutput;
 
@@ -260,7 +260,7 @@ export const calculateMaxTemp = input => (dispatch, getState) => {
   const state = getState();
 
   const tempToAddCustomary = 25;
-  const { ovenTempSet } = state.calculationForm;
+  const { ovenTempSet } = state.calculationFormCustomary;
 
   if (ovenTempSet) {
     let maxTemp = parseInt(ovenTempSet) + tempToAddCustomary;
@@ -272,7 +272,7 @@ export const calculateMinTemp = input => (dispatch, getState) => {
   const state = getState();
 
   const tempToAddCustomary = 15;
-  const { ovenTempSet } = state.calculationForm;
+  const { ovenTempSet } = state.calculationFormCustomary;
 
   if (ovenTempSet) {
     let minTemp = parseInt(ovenTempSet) + tempToAddCustomary;
