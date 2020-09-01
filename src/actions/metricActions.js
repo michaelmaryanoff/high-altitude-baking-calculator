@@ -38,13 +38,10 @@ import { calculateAdjustedBakingTime, createStringFromBakingTime } from './calcu
 import {
   calculateTempMetric,
   calculateAdjustedFlourMetric,
-  createStringFromSugarMetric,
-  createStringFromFlourMetric,
   createStringFromLiquidMetric,
   calculateAdjustedSugarMetric,
   calculateAdjustedLiquidMetric,
   calculateAdjustedBakingPowderSodaMetric,
-  createStringFromBakingPowderSodaMetric,
   calculateAdjustedYeastMetric,
   createStringFromGrams
 } from './calculationHelpersMetric';
@@ -86,7 +83,7 @@ export const calculateBakingSodaMetric = () => (dispatch, getState) => {
     );
     dispatch({ type: CALCULATE_BAKING_SODA_GRAMS, payload: adjustedBakingSodaGrams });
 
-    const outputString = createStringFromBakingPowderSodaMetric(adjustedBakingSodaGrams);
+    const outputString = createStringFromGrams(adjustedBakingSodaGrams);
     dispatch({ type: SET_DISPLAY_BAKING_SODA_GRAMS, payload: outputString });
   }
 };
@@ -103,7 +100,7 @@ export const calculateBakingPowderMetric = () => (dispatch, getState) => {
     );
     dispatch({ type: CALCULATE_BAKING_POWDER_GRAMS, payload: adjustedBakingPowderGrams });
 
-    const outputString = createStringFromBakingPowderSodaMetric(adjustedBakingPowderGrams);
+    const outputString = createStringFromGrams(adjustedBakingPowderGrams);
     dispatch({ type: SET_DISPLAY_BAKING_POWDER_GRAMS, payload: outputString });
   }
 };
@@ -117,7 +114,7 @@ export const calculateSugarMetric = () => (dispatch, getState) => {
     const adjustedSugarGrams = calculateAdjustedSugarMetric(sugarGramsSet, altitude);
     dispatch({ type: CALCULATE_SUGAR_GRAMS, payload: adjustedSugarGrams });
 
-    const outputString = createStringFromSugarMetric(adjustedSugarGrams);
+    const outputString = createStringFromGrams(adjustedSugarGrams);
     dispatch({ type: SET_DISPLAY_SUGAR_GRAMS, payload: outputString });
   }
 };
@@ -149,7 +146,7 @@ export const calculateFlourMetric = () => (dispatch, getState) => {
     const adjustedFlourGrams = calculateAdjustedFlourMetric(flourGramsSet, altitude);
     dispatch({ type: CALCULATE_FLOUR_GRAMS, payload: adjustedFlourGrams });
 
-    const outputString = createStringFromFlourMetric(adjustedFlourGrams);
+    const outputString = createStringFromGrams(adjustedFlourGrams);
     dispatch({ type: SET_DISPLAY_FLOUR_GRAMS, payload: outputString });
   }
 };

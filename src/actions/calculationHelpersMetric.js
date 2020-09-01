@@ -31,9 +31,6 @@ export const calculateAdjustedBakingPowderSodaMetric = (userInput, altitude) => 
     return userInput * 0.25;
   }
 };
-export const createStringFromBakingPowderSodaMetric = total => {
-  return `${total}`;
-};
 
 export const calculateAdjustedSugarMetric = (totalSugar, altitude) => {
   let adjustedSugar = parseInt(totalSugar);
@@ -61,10 +58,6 @@ export const calculateAdjustedSugarMetric = (totalSugar, altitude) => {
   }
 
   return adjustedSugar;
-};
-
-export const createStringFromSugarMetric = inputSugar => {
-  return `${inputSugar}`;
 };
 
 export const calculateAdjustedLiquidMetric = (inputLiquidGrams, altitude) => {
@@ -118,8 +111,4 @@ export const calculateAdjustedFlourMetric = (inputFlourGrams, altitude) => {
     adjustedFlour += Math.floor(tbspToAdd * tbspInGrams);
   }
   return adjustedFlour;
-};
-
-export const createStringFromFlourMetric = inputFlourGrams => {
-  return inputFlourGrams;
 };
