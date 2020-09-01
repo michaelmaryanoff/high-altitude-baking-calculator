@@ -15,7 +15,6 @@ import {
 const INTIAL_STATE = {
   altitude: 0,
   ovenTempCelciusSet: 0,
-  bakingTimeSetMetric: 0,
   bakingMinsSetMetric: 0,
   bakingHoursSetMetric: 0,
   liquidGramsSet: 0,

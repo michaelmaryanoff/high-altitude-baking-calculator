@@ -21,7 +21,6 @@ import {
 } from '../actions/metricTypes';
 
 const INITIAL_STATE = {
-  results: null,
   minOvenTempCalc: 0,
   maxOvenTempCalc: 0,
   minTimeCalc: 0,
@@ -39,7 +38,7 @@ const INITIAL_STATE = {
   displayLiquidGrams: '',
   displaySugarGrams: '',
   displayYeastGrams: '',
-  diplayBakingPowderGrams: '',
+  displayBakingPowderGrams: '',
   displayBakingSodaGrams: ''
 };
 

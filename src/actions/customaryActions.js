@@ -8,7 +8,6 @@ import {
   SET_LIQUID_TBSP,
   SET_FLOUR_CUPS,
   SET_FLOUR_TBSP,
-  SET_BAKING_POWDER,
   SET_BAKING_POWDER_TSP,
   SET_BAKING_POWDER_PARTIAL_TSP,
   SET_YEAST_TSP,
@@ -43,7 +42,6 @@ import {
   SET_DISPLAY_BAKING_POWDER,
   SET_BAKING_SODA_TSP,
   SET_BAKING_SODA_PARTIAL_TSP,
-  SET_BAKING_SODA,
   SET_BAKING_SODA_TOTAL,
   CALCULATE_BAKING_SODA,
   SET_DISPLAY_BAKING_SODA
@@ -262,18 +260,11 @@ export const calculateMaxTemp = input => (dispatch, getState) => {
   const state = getState();
 
   const tempToAddCustomary = 25;
-  const tempToAddMetric = 14;
-
-  const { unit } = state.calculationForm;
   const { ovenTempSet } = state.calculationForm;
+
   if (ovenTempSet) {
-    if (unit === 'customary') {
-      let maxTemp = parseInt(ovenTempSet) + tempToAddCustomary;
-      dispatch({ type: CALCULATE_MAX_OVEN_TEMP, payload: maxTemp });
-    } else if (unit === 'metric') {
-      let maxTemp = parseInt(ovenTempSet) + tempToAddMetric;
-      dispatch({ type: CALCULATE_MAX_OVEN_TEMP, payload: maxTemp });
-    }
+    let maxTemp = parseInt(ovenTempSet) + tempToAddCustomary;
+    dispatch({ type: CALCULATE_MAX_OVEN_TEMP, payload: maxTemp });
   }
 };
 
@@ -281,19 +272,11 @@ export const calculateMinTemp = input => (dispatch, getState) => {
   const state = getState();
 
   const tempToAddCustomary = 15;
-  const tempToAddMetric = 8;
-
-  const { unit } = state.calculationForm;
   const { ovenTempSet } = state.calculationForm;
 
   if (ovenTempSet) {
-    if (unit === 'customary') {
-      let minTemp = parseInt(ovenTempSet) + tempToAddCustomary;
-      dispatch({ type: CALCULATE_MIN_OVEN_TEMP, payload: minTemp });
-    } else if (unit === 'metric') {
-      let minTemp = parseInt(ovenTempSet) + tempToAddMetric;
-      dispatch({ type: CALCULATE_MIN_OVEN_TEMP, payload: minTemp });
-    }
+    let minTemp = parseInt(ovenTempSet) + tempToAddCustomary;
+    dispatch({ type: CALCULATE_MIN_OVEN_TEMP, payload: minTemp });
   }
 };
 
@@ -312,10 +295,8 @@ export const handleCustomaryInput = (inputId, inputValue) => dispatch => {
     unitInput,
     altitudeInputCustomary,
     ovenTempInput,
-    bakingPowderInput,
     bakingPowderTspInput,
     bakingPowderPartialTspInput,
-    bakingSodaInput,
     bakingSodaTspInput,
     bakingSodaPartialTspInput,
     yeastTspInput,
@@ -358,20 +339,12 @@ export const ovenTempInput = ovenTemp => {
   return { type: SET_OVEN_TEMP, payload: ovenTemp };
 };
 
-export const bakingPowderInput = bakingPowderAmount => {
-  return { type: SET_BAKING_POWDER, payload: bakingPowderAmount };
-};
-
 export const bakingPowderTspInput = bakingPowderTspAmount => {
   return { type: SET_BAKING_POWDER_TSP, payload: bakingPowderTspAmount };
 };
 
 export const bakingPowderPartialTspInput = bakingPowderPartialTspAmount => {
   return { type: SET_BAKING_POWDER_PARTIAL_TSP, payload: bakingPowderPartialTspAmount };
-};
-
-export const bakingSodaInput = bakingSodaAmount => {
-  return { type: SET_BAKING_SODA, payload: bakingSodaAmount };
 };
 
 export const bakingSodaTspInput = bakingSodaTspAmount => {

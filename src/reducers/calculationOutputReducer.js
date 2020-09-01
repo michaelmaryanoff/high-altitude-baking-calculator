@@ -22,7 +22,6 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  results: null,
   yeastCalc: 0,
   bakingPowderCalc: 0,
   bakingSodaCalc: 0,

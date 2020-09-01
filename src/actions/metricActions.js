@@ -26,7 +26,9 @@ import {
   CALCULATE_BAKING_SODA_GRAMS,
   SET_DISPLAY_BAKING_SODA_GRAMS,
   CALCULATE_YEAST_GRAMS,
-  SET_DISPLAY_YEAST_GRAMS
+  SET_DISPLAY_YEAST_GRAMS,
+  CALCULATE_MIN_OVEN_TEMP_METRIC,
+  CALCULATE_MAX_OVEN_TEMP_METRIC
 } from './metricTypes';
 
 // Since time is universal between metric and customary, there is no need
@@ -160,16 +162,16 @@ export const calculateOvenTempMetric = () => (dispatch, getState) => {
   const { minTempMetric, maxTempMetric } = calculateTempMetric(ovenTempCelciusSet);
 
   if (altitude > 1000) {
-    dispatch({ type: CALCULATE_MIN_TIME_METRIC, payload: minTempMetric });
-    dispatch({ type: CALCULATE_MAX_TIME_METRIC, payload: maxTempMetric });
+    dispatch({ type: CALCULATE_MIN_OVEN_TEMP_METRIC, payload: minTempMetric });
+    dispatch({ type: CALCULATE_MAX_OVEN_TEMP_METRIC, payload: maxTempMetric });
 
     const ovenTempForDisplay = `${minTempMetric} - ${maxTempMetric}`;
     if (ovenTempCelciusSet > 0) {
       dispatch({ type: SET_DISPLAY_TEMP_C, payload: ovenTempForDisplay });
     }
   } else {
-    dispatch({ type: CALCULATE_MIN_TIME_METRIC, payload: ovenTempCelciusSet });
-    dispatch({ type: CALCULATE_MAX_TIME_METRIC, payload: ovenTempCelciusSet });
+    dispatch({ type: CALCULATE_MIN_OVEN_TEMP_METRIC, payload: ovenTempCelciusSet });
+    dispatch({ type: CALCULATE_MAX_OVEN_TEMP_METRIC, payload: ovenTempCelciusSet });
 
     const ovenTempForDisplay = `${ovenTempCelciusSet}`;
     if (ovenTempCelciusSet > 0) {
