@@ -1,7 +1,6 @@
 import {
   SET_OVEN_TEMP_C,
   SET_ALTITUDE_METERS,
-  SET_BAKING_TIME,
   SET_BAKING_MINS_METRIC,
   SET_BAKING_HOURS_METRIC,
   SET_LIQUID_GRAMS,
@@ -203,7 +202,6 @@ export const handleMetricInput = (inputId, inputValue) => dispatch => {
   const functionNames = {
     ovenTempInputCelcius,
     altitudeInputMetric,
-    bakingTimeInput,
     bakingMinsInput,
     bakingHoursInput,
     liquidInputGrams,
@@ -229,9 +227,6 @@ export const altitudeInputMetric = altitude => {
   return { type: SET_ALTITUDE_METERS, payload: altitude };
 };
 
-export const bakingTimeInput = input => {
-  return { type: SET_BAKING_TIME, payload: input };
-};
 export const bakingMinsInput = input => {
   return { type: SET_BAKING_MINS_METRIC, payload: input };
 };

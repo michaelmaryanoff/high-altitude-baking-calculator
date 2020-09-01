@@ -1,7 +1,6 @@
 import {
   SET_ALTITUDE_METERS,
   SET_OVEN_TEMP_C,
-  SET_BAKING_TIME,
   SET_BAKING_MINS_METRIC,
   SET_BAKING_HOURS_METRIC,
   SET_LIQUID_GRAMS,
@@ -16,9 +15,9 @@ import {
 const INTIAL_STATE = {
   altitude: 0,
   ovenTempCelciusSet: 0,
-  bakingTimeSet: 0,
-  bakingMinsSet: 0,
-  bakingHoursSet: 0,
+  bakingTimeSetMetric: 0,
+  bakingMinsSetMetric: 0,
+  bakingHoursSetMetric: 0,
   liquidGramsSet: 0,
   flourGramsSet: 0,
   sugarGramsSet: 0,
@@ -33,8 +32,6 @@ export default (state = INTIAL_STATE, action) => {
       return { ...state, altitude: action.payload };
     case SET_OVEN_TEMP_C:
       return { ...state, ovenTempCelciusSet: action.payload };
-    case SET_BAKING_TIME:
-      return { ...state, bakingTimeSetMetric: action.payload };
     case SET_BAKING_MINS_METRIC:
       return { ...state, bakingMinsSetMetric: action.payload };
     case SET_BAKING_HOURS_METRIC:

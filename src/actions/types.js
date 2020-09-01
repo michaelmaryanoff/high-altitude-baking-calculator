@@ -7,7 +7,6 @@ export const SELECT_UNIT = 'SELECT_UNIT';
 export const SET_ALTITUDE = 'SET_ALTITUDE';
 
 export const SET_OVEN_TEMP = 'SET_OVEN_TEMP';
-export const SET_BAKING_TIME = 'SET_BAKING_TIME';
 export const SET_BAKING_MINS = 'SET_BAKING_MINS';
 export const SET_BAKING_HOURS = 'SET_BAKING_HOURS';
 

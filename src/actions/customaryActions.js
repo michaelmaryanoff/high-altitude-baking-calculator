@@ -13,7 +13,6 @@ import {
   SET_BAKING_POWDER_PARTIAL_TSP,
   SET_YEAST_TSP,
   SET_YEAST_PARTIAL_TSP,
-  SET_BAKING_TIME,
   SET_BAKING_MINS,
   SET_BAKING_HOURS,
   CALCULATE_MIN_OVEN_TEMP,
@@ -313,7 +312,6 @@ export const handleCustomaryInput = (inputId, inputValue) => dispatch => {
     unitInput,
     altitudeInputCustomary,
     ovenTempInput,
-    bakingTimeInput,
     bakingPowderInput,
     bakingPowderTspInput,
     bakingPowderPartialTspInput,
@@ -358,10 +356,6 @@ export const altitudeInputCustomary = altitude => {
 
 export const ovenTempInput = ovenTemp => {
   return { type: SET_OVEN_TEMP, payload: ovenTemp };
-};
-
-export const bakingTimeInput = bakingTime => {
-  return { type: SET_BAKING_TIME, payload: bakingTime };
 };
 
 export const bakingPowderInput = bakingPowderAmount => {

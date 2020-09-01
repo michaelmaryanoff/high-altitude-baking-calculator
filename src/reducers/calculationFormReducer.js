@@ -6,7 +6,6 @@ import {
   SET_YEAST,
   SET_BAKING_MINS,
   SET_BAKING_HOURS,
-  SET_BAKING_TIME,
   SET_FLOUR_CUPS,
   SET_FLOUR_TBSP,
   SET_FLOUR_PARTIAL_CUP,
@@ -75,8 +74,6 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, altitude: action.payload };
     case SET_OVEN_TEMP:
       return { ...state, ovenTempSet: action.payload };
-    case SET_BAKING_TIME:
-      return { ...state, bakingTimeSet: action.payload };
     case SET_BAKING_MINS:
       return { ...state, bakingMinsSet: action.payload };
     case SET_BAKING_HOURS:
