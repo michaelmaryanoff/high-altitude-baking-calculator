@@ -31,7 +31,7 @@ const INITIAL_STATE = {
   yeastGramsCalc: 0,
   flourGramsCalc: 0,
   minLiquidGramsCalc: 0,
-  macLiquidGramsCalc: 0,
+  maxLiquidGramsCalc: 0,
   sugarGramsCalc: 0,
   displayTempCelsius: 0,
   displayTimeMetric: '',
@@ -62,7 +62,7 @@ export default (state = INITIAL_STATE, action) => {
     case CALCULATE_MIN_LIQUID_GRAMS:
       return { ...state, minLiquidGramsCalc: action.payload };
     case CALCULATE_MAX_LIQUID_GRAMS:
-      return { ...state, macLiquidGramsCalc: action.payload };
+      return { ...state, maxLiquidGramsCalc: action.payload };
     case CALCULATE_SUGAR_GRAMS:
       return { ...state, sugarGramsCalc: action.payload };
     case CALCULATE_BAKING_SODA_GRAMS:
