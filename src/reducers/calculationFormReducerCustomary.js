@@ -36,11 +36,11 @@ const INITIAL_STATE = {
   liquidCupsSet: 0,
   liquidPartialCupSet: 0,
   liquidTbspSet: 0,
-  liquidTotalSet: 0,
+  liquidTotalSetCust: 0,
   flourCupsSet: 0,
   flourTbspSet: 0,
   flourPartialCupSet: '',
-  flourTotalSet: 0,
+  flourTotalSetCust: 0,
   sugarCupsSet: 0,
   sugarTbspSet: 0,
   sugarPartialCupSet: '',
@@ -73,7 +73,7 @@ export default (state = INITIAL_STATE, action) => {
     case SET_LIQUID_TBSP:
       return { ...state, liquidTbspSet: action.payload };
     case SET_LIQUID_TOTAL:
-      return { ...state, liquidTotalSet: action.payload };
+      return { ...state, liquidTotalSetCust: action.payload };
     case SET_FLOUR_CUPS:
       return { ...state, flourCupsSet: action.payload };
     case SET_FLOUR_TBSP:
@@ -81,7 +81,7 @@ export default (state = INITIAL_STATE, action) => {
     case SET_FLOUR_PARTIAL_CUP:
       return { ...state, flourPartialCupSet: action.payload };
     case SET_FLOUR_TOTAL:
-      return { ...state, flourTotalSet: action.payload };
+      return { ...state, flourTotalSetCust: action.payload };
     case SET_SUGAR_CUPS:
       return { ...state, sugarCupsSet: action.payload };
     case SET_SUGAR_TBSP:

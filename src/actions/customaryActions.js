@@ -139,10 +139,10 @@ export const calculateTotalFlourInput = () => (dispatch, getState) => {
 export const calculateLiquid = () => (dispatch, getState) => {
   const state = getState();
 
-  const { liquidTotalSet, altitude } = state.calculationFormCustomary;
+  const { liquidTotalSetCust, altitude } = state.calculationFormCustomary;
 
-  if (liquidTotalSet) {
-    const { minTbspTotal, maxTbspTotal } = calculateAdjustedLiquid(liquidTotalSet, altitude);
+  if (liquidTotalSetCust) {
+    const { minTbspTotal, maxTbspTotal } = calculateAdjustedLiquid(liquidTotalSetCust, altitude);
     dispatch({ type: CALCULATE_MIN_LIQUID_CUST, payload: minTbspTotal });
     dispatch({ type: CALCULATE_MAX_LIQUID_CUST, payload: maxTbspTotal });
 
@@ -170,10 +170,10 @@ export const calculateSugar = () => (dispatch, getState) => {
 export const calculateFlour = () => (dispatch, getState) => {
   const state = getState();
 
-  const { flourTotalSet, altitude } = state.calculationFormCustomary;
+  const { flourTotalSetCust, altitude } = state.calculationFormCustomary;
 
-  if (flourTotalSet) {
-    const adjustedFlour = calculateAdjustedFlour(flourTotalSet, altitude);
+  if (flourTotalSetCust) {
+    const adjustedFlour = calculateAdjustedFlour(flourTotalSetCust, altitude);
     dispatch({ type: CALCULATE_FLOUR_CUST, payload: adjustedFlour });
 
     const outputString = createStringFromTbsp(adjustedFlour);
