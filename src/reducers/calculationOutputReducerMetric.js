@@ -16,8 +16,9 @@ import {
   SET_DISPLAY_SUGAR_GRAMS,
   SET_DISPLAY_YEAST_GRAMS,
   SET_DISPLAY_BAKING_POWDER_GRAMS,
+  SET_DISPLAY_BAKING_SODA_GRAMS,
   CLEAR_FORM,
-  SET_DISPLAY_BAKING_SODA_GRAMS
+  CALCULATE_BAKING_SODA_GRAMS
 } from '../actions/metricTypes';
 
 const INITIAL_STATE = {
@@ -64,6 +65,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, macLiquidGramsCalc: action.payload };
     case CALCULATE_SUGAR_GRAMS:
       return { ...state, sugarGramsCalc: action.payload };
+    case CALCULATE_BAKING_SODA_GRAMS:
+      return { ...state, bakingSodaGramsCalc: action.payload };
     case SET_DISPLAY_TEMP_C:
       return { ...state, displayTempCelsius: action.payload };
     case SET_DISPLAY_TIME_METRIC:

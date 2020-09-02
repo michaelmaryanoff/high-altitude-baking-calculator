@@ -30,9 +30,9 @@ import {
 // Any varible that contains "Set" is set by the user
 const INITIAL_STATE = {
   altitude: 0,
-  ovenTempSet: 0,
-  bakingMinsSet: 0,
-  bakingHoursSet: 0,
+  ovenTempFarenSet: 0,
+  bakingMinsSetCust: 0,
+  bakingHoursSetCust: 0,
   liquidCupsSet: 0,
   liquidPartialCupSet: 0,
   liquidTbspSet: 0,
@@ -44,16 +44,16 @@ const INITIAL_STATE = {
   sugarCupsSet: 0,
   sugarTbspSet: 0,
   sugarPartialCupSet: '',
-  sugarTotalSet: 0,
+  sugarTotalSetCust: 0,
   bakingPowderTspSet: 0,
   bakingPowderPartialTspSet: 0,
   bakingSodaTspSet: 0,
   bakingSodaPartialTspSet: 0,
   yeastTspSet: 0,
   yeastPartialTspSet: 0,
-  bakingPowderTotalSet: 0,
-  yeastTotalSet: 0,
-  bakingSodaTotalSet: 0
+  bakingPowderTotalSetCust: 0,
+  yeastTotalSetCust: 0,
+  bakingSodaTotalSetCust: 0
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -61,11 +61,11 @@ export default (state = INITIAL_STATE, action) => {
     case SET_ALTITUDE_FEET:
       return { ...state, altitude: action.payload };
     case SET_OVEN_TEMP_F:
-      return { ...state, ovenTempSet: action.payload };
+      return { ...state, ovenTempFarenSet: action.payload };
     case SET_BAKING_MINS_CUST:
-      return { ...state, bakingMinsSet: action.payload };
+      return { ...state, bakingMinsSetCust: action.payload };
     case SET_BAKING_HOURS_CUST:
-      return { ...state, bakingHoursSet: action.payload };
+      return { ...state, bakingHoursSetCust: action.payload };
     case SET_LIQUID_CUPS:
       return { ...state, liquidCupsSet: action.payload };
     case SET_LIQUID_PARTIAL_CUP:
@@ -89,25 +89,25 @@ export default (state = INITIAL_STATE, action) => {
     case SET_SUGAR_PARTIAL_CUP:
       return { ...state, sugarPartialCupSet: action.payload };
     case SET_SUGAR_TOTAL:
-      return { ...state, sugarTotalSet: action.payload };
+      return { ...state, sugarTotalSetCust: action.payload };
     case SET_BAKING_POWDER_TSP:
       return { ...state, bakingPowderTspSet: action.payload };
     case SET_BAKING_POWDER_PARTIAL_TSP:
       return { ...state, bakingPowderPartialTspSet: action.payload };
     case SET_BAKING_POWDER_TOTAL:
-      return { ...state, bakingPowderTotalSet: action.payload };
+      return { ...state, bakingPowderTotalSetCust: action.payload };
     case SET_BAKING_SODA_TSP:
       return { ...state, bakingSodaTspSet: action.payload };
     case SET_BAKING_SODA_PARTIAL_TSP:
       return { ...state, bakingSodaPartialTspSet: action.payload };
     case SET_BAKING_SODA_TOTAL:
-      return { ...state, bakingSodaTotalSet: action.payload };
+      return { ...state, bakingSodaTotalSetCust: action.payload };
     case SET_YEAST_TSP:
       return { ...state, yeastTspSet: action.payload };
     case SET_YEAST_PARTIAL_TSP:
       return { ...state, yeastPartialTspSet: action.payload };
     case SET_YEAST_TOTAL:
-      return { ...state, yeastTotalSet: action.payload };
+      return { ...state, yeastTotalSetCust: action.payload };
     case CLEAR_FORM:
       return { ...state, ...INITIAL_STATE };
     default:

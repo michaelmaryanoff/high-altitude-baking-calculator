@@ -21,14 +21,16 @@ export const createStringFromGrams = total => {
 
 // This function can be used for both baking powder and soda
 export const calculateAdjustedBakingPowderSodaMetric = (userInput, altitude) => {
+  let userInputToInt = parseInt(userInput);
+
   if (altitude < 1000) {
-    return userInput;
+    return userInputToInt;
   } else if (altitude >= 1000 && altitude < 1500) {
-    return userInput * 0.75;
+    return userInputToInt * 0.75;
   } else if (altitude >= 1500 && altitude < 2000) {
-    return userInput * 0.5;
+    return userInputToInt * 0.5;
   } else if (altitude >= 2000) {
-    return userInput * 0.25;
+    return userInputToInt * 0.25;
   }
 };
 
