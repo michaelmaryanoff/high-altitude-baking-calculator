@@ -34,34 +34,6 @@ export const calculateAdjustedBakingPowderSodaMetric = (userInput, altitude) => 
   }
 };
 
-export const calculateAdjustedSugarMetric = (totalSugar, altitude) => {
-  let adjustedSugar = parseInt(totalSugar);
-
-  /**
-   * This is going to give us the total number of half cups.
-   * We are then going to reduce by .5 tbsp for every half cup.
-   * The reason we are doing this verbosely with two seperate variables is
-   * becuase it makes the math easier to follow. Since we are basing our
-   * formulas on tbsp, we need to have the gram equivalents of tbsp first.
-   */
-
-  const tbspInGrams = 12.5;
-
-  const halCupsToGrams = tbspInGrams * 8;
-
-  const numberOfHalfCups = Math.floor(totalSugar / halCupsToGrams);
-
-  const tbspOfSugarToReduceBy = numberOfHalfCups * 0.5;
-
-  if (altitude < 1000) {
-    return adjustedSugar;
-  } else if (altitude >= 1000) {
-    adjustedSugar = totalSugar - tbspOfSugarToReduceBy * tbspInGrams;
-  }
-
-  return adjustedSugar;
-};
-
 export const calculateAdjustedLiquidMetric = (inputLiquidGrams, altitude) => {
   let minLiquid = parseInt(inputLiquidGrams);
   let maxLiquid = parseInt(inputLiquidGrams);
@@ -88,6 +60,34 @@ export const calculateAdjustedLiquidMetric = (inputLiquidGrams, altitude) => {
   return { minLiquid, maxLiquid };
 };
 
+export const calculateAdjustedSugarMetric = (totalSugar, altitude) => {
+  let adjustedSugar = parseInt(totalSugar);
+
+  /**
+   * This is going to give us the total number of half cups.
+   * We are then going to reduce by .5 tbsp for every half cup.
+   * The reason we are doing this verbosely with two seperate variables is
+   * becuase it makes the math easier to follow. Since we are basing our
+   * formulas on tbsp, we need to have the gram equivalents of tbsp first.
+   */
+
+  const tbspInGrams = 12;
+
+  const halfCupsToGrams = tbspInGrams * 8;
+
+  const numberOfHalfCups = Math.floor(totalSugar / halfCupsToGrams);
+
+  const tbspOfSugarToReduceBy = numberOfHalfCups * 0.5;
+
+  if (altitude < 1000) {
+    return adjustedSugar;
+  } else if (altitude >= 1000) {
+    adjustedSugar = totalSugar - tbspOfSugarToReduceBy * tbspInGrams;
+  }
+
+  return adjustedSugar;
+};
+
 export const createStringFromLiquidMetric = (minLiquidGrams, maxLiquidGrams) => {
   const minLiquidInt = parseInt(minLiquidGrams);
   const maxLiquidInt = parseInt(maxLiquidGrams);
@@ -101,14 +101,14 @@ export const calculateAdjustedFlourMetric = (inputFlourGrams, altitude) => {
   let adjustedFlour = parseInt(inputFlourGrams);
 
   // Since our calculations are based off of tbsp, we will be using this to calculate how many grams to adjust
-  const tbspInGrams = 10;
+  const tbspInGrams = 8.5;
 
   if (altitude < 1000) {
     return adjustedFlour;
   } else if (altitude >= 1000 && altitude < 1450) {
     adjustedFlour += tbspInGrams;
   } else if (altitude >= 1450) {
-    let tbspToAdd = (altitude - 1500) / 450;
+    let tbspToAdd = (altitude - 1450) / 450;
     tbspToAdd += 2;
     adjustedFlour += Math.floor(tbspToAdd * tbspInGrams);
   }
