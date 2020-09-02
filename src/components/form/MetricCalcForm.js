@@ -177,7 +177,7 @@ const MetricCalcForm = () => {
             outputValue={flourOutputGrams}
           />
           <GramField
-            label="Liquid (ml)"
+            label="Liquid (g)"
             inputName="liquidInputGrams"
             inputValue={liquidInputGrams}
             outputName="liquidOutputGrams"

@@ -1,3 +1,7 @@
+export const createStringFromGrams = total => {
+  return `${total}`;
+};
+
 export const calculateTempMetric = inputTemp => {
   const minTempToAdd = 8;
   const maxTempToAdd = 14;
@@ -13,10 +17,6 @@ export const calculateAdjustedYeastMetric = (userInput, altitude) => {
   } else {
     return userInput;
   }
-};
-
-export const createStringFromGrams = total => {
-  return `${total}`;
 };
 
 // This function can be used for both baking powder and soda
