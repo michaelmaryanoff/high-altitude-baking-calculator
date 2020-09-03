@@ -93,8 +93,9 @@ export const createStringFromLiquidMetric = (minLiquidGrams, maxLiquidGrams) => 
   const maxLiquidInt = parseInt(maxLiquidGrams);
 
   const averageLiquid = (minLiquidInt + maxLiquidInt) / 2;
+  const averageLiquidFloor = Math.floor(averageLiquid);
 
-  return `${averageLiquid}`;
+  return `${averageLiquidFloor}`;
 };
 
 export const calculateAdjustedFlourMetric = (inputFlourGrams, altitude) => {
@@ -112,5 +113,6 @@ export const calculateAdjustedFlourMetric = (inputFlourGrams, altitude) => {
     tbspToAdd += 2;
     adjustedFlour += Math.floor(tbspToAdd * tbspInGrams);
   }
-  return adjustedFlour;
+
+  return Math.floor(adjustedFlour);
 };
