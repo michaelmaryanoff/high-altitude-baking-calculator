@@ -289,21 +289,28 @@ export const createStringFromTsp = tspInput => {
   /**
    * The reason these formulations are so similar to createStringFromTbsp
    * is becuase using a multiplier of 16 in order to determine our output string
-   * is the best way to get a precise measurement without having to depend on unreliable fload calculations.
+   * is the best way to get a precise measurement without having to depend on unreliable float calculations.
    */
-  const totalTbsp = tspInput * 16;
+  const totalTsp = tspInput * 16;
 
-  // Whole cups
-  const wholeTsp = Math.floor(totalTbsp / 16);
+  // Whole tsp
+  const wholeTsp = Math.floor(totalTsp / 16);
 
-  // Tbsp that do not fit into full cups
-  const partialTsp = totalTbsp % 16;
+  // Tsp that do not fit into full tsp
+  const partialTsp = totalTsp % 16;
+  console.log('partialTsp: ', partialTsp);
 
-  // Number of fraction cups
+  // Number of fraction tsp
   let numberOfQuarterTsp = Math.floor(partialTsp / 4);
+  console.log('partialTsp / 4: ', partialTsp / 4);
+  console.log('numberOfQuarterTsp: ', numberOfQuarterTsp);
 
-  // Setting the string for fractional cups
+  // Setting the string for fractional tsp
   let fractionalString = '';
+
+  if (partialTsp < 4) {
+    fractionalString = '1/8';
+  }
 
   if (numberOfQuarterTsp === 1) {
     fractionalString = '1/4';
@@ -315,11 +322,11 @@ export const createStringFromTsp = tspInput => {
 
   let tspString = '';
 
-  if (wholeTsp > 0 && numberOfQuarterTsp > 0) {
+  if (wholeTsp > 0 && partialTsp > 0) {
     tspString = `${wholeTsp} ${fractionalString} tsp`;
-  } else if (wholeTsp === 0 && numberOfQuarterTsp > 0) {
+  } else if (wholeTsp === 0 && partialTsp > 0) {
     tspString = `${fractionalString} tsp`;
-  } else if (wholeTsp > 0 && numberOfQuarterTsp === 0) {
+  } else if (wholeTsp > 0 && partialTsp === 0) {
     tspString = `${wholeTsp} tsp`;
   }
 
