@@ -33,7 +33,10 @@ import {
 
 // Since time is universal between metric and customary, there is no need
 // To make a different calculation when units are set to metric
-import { calculateAdjustedBakingTime, createStringFromBakingTime } from './calculationHelpers';
+import {
+  calculateAdjustedBakingTime,
+  createStringFromBakingTime
+} from './calculationHelpersCustomary';
 
 import {
   calculateTempMetric,
