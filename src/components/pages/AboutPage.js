@@ -9,11 +9,10 @@ const AboutPage = () => {
           <p>
             Welcome to the High Altitude Baking Calculator fellow high altitude bakers! If you’re
             like me, you’ve spent a lot of time tweaking sea level recipes in order to adapt them to
-            a high altitude. I currently live in Bogotá, Colombia which sits at 8,660 feet (2,640
-            meters) above sea level. I noticed that oftentimes I would avoid baking because I don’t
-            feel like making calculations by hand. So I decided to combine my two favorite things:
-            food and programming. Now I never have to make those calculations by hand again, and
-            neither do you!
+            a high altitude. I noticed that oftentimes I would avoid baking because I don’t feel
+            like making calculations by hand. So I decided to combine my two favorite things: food
+            and programming. Now I never have to make those calculations by hand again, and neither
+            do you!
           </p>
           <h1>Note on measurement</h1>
           <p>
@@ -30,7 +29,6 @@ const AboutPage = () => {
             delicious baked goods to the office! Remote positions are eligible for mailed-in baked
             goods.
           </p>
-          <h2>Metric units coming soon!</h2>
         </div>
       </div>
     </div>
