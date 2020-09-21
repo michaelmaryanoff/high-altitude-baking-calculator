@@ -105,7 +105,7 @@ const CustomaryCalcForm = () => {
    * Next, we take those values and use them to populate our component state's output fields
    */
 
-  // Destructure displays state objects
+  // Destructure display state objects
   const {
     displayTemp,
     bakingPowderCalc,
